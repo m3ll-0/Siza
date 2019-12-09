@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "node src/server.js",
+    "postinstall": "ng build --prod --aot",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -19,6 +20,8 @@
     "@angular/platform-browser": "~8.2.13",
     "@angular/platform-browser-dynamic": "~8.2.13",
     "@angular/router": "~8.2.13",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
