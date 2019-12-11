@@ -40,11 +40,14 @@
        <div class="hline"><span>Switch</span></div>
        </div>
 
+       <div class="div-spacing"></div>
+
         <div class='btn-bottom align-items-center d-flex justify-content-center'>
           <button class="btn-accent-size" (click)="onSwitch()" mat-raised-button color="accent" type="submit"[disabled]="!authForm.valid">
                 {{ !isClientLogin ? 'Client modus' : 'Login modus' }}
           </button>
         </div>
+
       </form>
       </mat-card>
     </div>

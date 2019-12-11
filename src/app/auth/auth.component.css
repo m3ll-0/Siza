@@ -1,7 +1,6 @@
 .login-card
 {
     width: 30%;
-    min-height: 500px;
 }
 
 .form-control-max-width{
@@ -18,11 +17,16 @@
     margin-left: 50px;
 }
 
+.div-spacing
+{
+    margin-top: 200px;
+}
+
 .btn-bottom
 {
     position: absolute;
     bottom: 0;
-    padding-top: 20px;
+    padding-top: 200px;
     padding-bottom: 20px;
     width: 100%;
 }
@@ -45,7 +49,7 @@
     font-family: helvetica;
     font-weight: bold;
     font-variant: small-caps;
-    letter-spacing: .1em;
+    letter-spacing: 1px;
     line-height: 0px;
     text-align: center;
     text-transform: uppercase;
