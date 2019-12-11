@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiServiceService } from '../api-service.service'
 
 @Component({
   selector: 'app-sizasports',
@@ -6,8 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sizasports.component.css']
 })
 export class SizasportsComponent implements OnInit {
+  activities;
+  categories;
 
-  constructor() { }
+  constructor(private apiService: ApiServiceService) {
+    this.apiService.getActivities().subscribe((data) =>{
+      console.log(data);
+      this.activities = data['activities'];
+    } )
+    this.apiService.getCategories().subscribe((data) =>{
+      console.log(data);
+      this.categories = data['categories'];
+    } )
+   }
 
   ngOnInit() {
   }
