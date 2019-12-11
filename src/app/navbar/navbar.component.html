@@ -43,6 +43,16 @@
             Example
             </a>
         </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="sizasports"
+            [routerLinkActive]="['active']"
+            [routerLinkActiveOptions]="{ exact: true }"
+            aria-disabled="true"
+            >SizaSports</a
+          >
       </ul>
 
       <div ngbDropdown class="d-inline-block" *ngIf="isAuthenticated">
