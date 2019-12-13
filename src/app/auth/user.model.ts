@@ -5,11 +5,11 @@ export class User {
     ) {}
   
     get accessToken() {
-      return this.accessToken
+      return this._accessToken
     }
 
     get refreshToken() {
-        return this.refreshToken
+        return this._refreshToken
       }
   }
   

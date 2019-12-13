@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,6 +14,8 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms'
 import { AuthService } from './auth/auth.service';
 import { LoadingSpinnerComponent } from './Shared/loading-spinner/loading-spinner.component'
+import { SizasportsComponent } from './sizasports/sizasports.component';
+import { AuthInterceptorService } from './auth/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,8 @@ import { LoadingSpinnerComponent } from './Shared/loading-spinner/loading-spinne
     HomeComponent,
     NavbarComponent,
     AuthComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    SizasportsComponent
   ],
   imports: [
     BrowserModule,    
@@ -29,9 +33,13 @@ import { LoadingSpinnerComponent } from './Shared/loading-spinner/loading-spinne
     NgbModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [ AuthService ],
+  providers: [ 
+      AuthService, 
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
+  ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

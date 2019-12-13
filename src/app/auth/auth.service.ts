@@ -20,7 +20,7 @@ private API_URL_REGISTER_ADMIN = "/auth/adminlogin"
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  login(email: string, password: string) {
+  login(email: string, password: string, stayLoggedIn = true) {
     return this.http
       .post<AuthResponseData>(` ${this.API_BASE_URL + this.API_URL_REGISTER_ADMIN} `, {
         email,
@@ -33,7 +33,8 @@ private API_URL_REGISTER_ADMIN = "/auth/adminlogin"
 
           this.handleAuthentication(
             resData.refreshToken,
-            resData.accessToken
+            resData.accessToken,
+            stayLoggedIn
           )
         })
       )
@@ -41,7 +42,7 @@ private API_URL_REGISTER_ADMIN = "/auth/adminlogin"
 
   autoLogin() {
     const userData: {
-        accessToken: string,
+        _accessToken: string,
         refreshToken: string
     } = JSON.parse(localStorage.getItem('userData'))
 
@@ -50,7 +51,7 @@ private API_URL_REGISTER_ADMIN = "/auth/adminlogin"
     }
 
     const loadedUser = new User(
-      userData.accessToken,
+      userData._accessToken,
       userData.refreshToken,
     )
 
@@ -67,13 +68,17 @@ private API_URL_REGISTER_ADMIN = "/auth/adminlogin"
 
   private handleAuthentication(
         refreshToken: string,
-        accessToken: string
+        accessToken: string,
+        stayLoggedIn: boolean
   ) {
     const user = new User(refreshToken, accessToken)
     this.user.next(user)
 
-    // Add to local storage
-    localStorage.setItem('userData', JSON.stringify(user))
+    if(stayLoggedIn)
+    {
+      // Add to local storage
+      localStorage.setItem('userData', JSON.stringify(user))
+    }
   }
 
   private handleError(errorRes: HttpErrorResponse) {
