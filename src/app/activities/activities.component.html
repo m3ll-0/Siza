@@ -1,0 +1,71 @@
+<div class="text-center">
+  <div *ngFor="let activities of activities">
+      <img src="../../assets/images/SizaBanner.PNG" class="banner" />
+    <h1>
+      Zak Lopen
+    </h1>
+    <h4>
+      Ik hou van Holland
+    </h4>
+    <img src="{{activities.image}}" image-resizing height="128" width="128" />
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-sm-4">
+          <h5>
+              Doel
+          </h5> 
+          <p >
+              Je op een andere manier leren voortbewegen.
+          </p>
+          <h5>
+              Materiaal
+          </h5> 
+          <p>
+              - Jute zak/ slaapzak/ dekbed overtrek
+              - 2 flessen / pionnen
+          </p>
+          <h5>
+              Activiteit
+          </h5> 
+          <p>
+              - Je gaat in de jutezak staan en pakt
+              deze met beide handen goed vast
+              - De deelnemers moeten een bepaald
+              parcours afleggen (bijv. 10 meter met
+              piolonnen uitgezet), waarbij hun benen
+              in een jute zak is gestoken. Wie het
+              eerst aankomt heeft gewonnen.
+              - De een zal zich het beste springend
+              voortbewegen en de ander door
+              gewoon te lopen.
+          </p>
+        </div>
+        <div class="col-sm-4">
+          <h5>
+              {{opstelling}}
+          </h5> 
+          <img src="{{activities.setup}}" image-resizing height="128" width="128" 
+          (error)="pictNotLoading($event)" onerror="this.style.display='none'"/>
+          <h5>
+              Aandachtspunten
+          </h5> 
+          <p>
+              - Let goed op de veiligheid bij het
+              zaklopen
+              - Niet met teveel op het parcours
+              - Van te voren inschatten bij welke
+              groep dit spel gedaan kan worden
+          </p>
+          <h5>
+              Differentiaties
+          </h5> 
+          <p>
+              - Je kunt het parcours langer maken
+              - Obstakels in het parcours
+              verwerken
+              - Een kleinere/grotere zak gebruiken
+          </p>
+        </div>
+      </div>
+    </div>
+</div>

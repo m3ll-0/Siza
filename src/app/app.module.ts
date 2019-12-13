@@ -10,6 +10,7 @@ import { SharedModule } from './Shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { AppRoutingModule } from './app-routing.module';
 import { SizasportsComponent } from './sizasports/sizasports.component';
+import { ActivitiesComponent } from './activities/activities.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { SizasportsComponent } from './sizasports/sizasports.component';
     HomeComponent,
     NavbarComponent,
     SizasportsComponent,
+    ActivitiesComponent,
   ],
   imports: [
     BrowserModule,    
