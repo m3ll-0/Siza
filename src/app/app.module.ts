@@ -11,6 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthComponent } from './auth/auth.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms'
+import { AuthService } from './auth/auth.service';
+import { LoadingSpinnerComponent } from './Shared/loading-spinner/loading-spinner.component'
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { ReactiveFormsModule } from '@angular/forms'
     HomeComponent,
     NavbarComponent,
     AuthComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,    
@@ -28,7 +31,7 @@ import { ReactiveFormsModule } from '@angular/forms'
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ AuthService ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
