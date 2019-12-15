@@ -5,14 +5,14 @@
 
 /* Navbar button style */
 .btn-nav {
-    color: #cf3e8c !important;
-    border-color: #cf3e8c;
+    color: #D40D8B !important;
+    border-color: #D40D8B;
   }
   
   .btn-nav:hover {
     color: white !important;
-    border-color: #cf3e8c;
-    background-color: #cf3e8c;
+    border-color: #D40D8B;
+    background-color: #D40D8B;
   }
   
   .btn-nav:focus {
@@ -21,12 +21,17 @@
   
   .btn-nav:active {
     color: #fff !important;
-    background-color: #cf3e8c !important;
+    background-color: #D40D8B !important;
   }
   
   .show > .btn-outline-primary.dropdown-toggle {
     color: #fff !important;
-    background-color: #cf3e8c !important;
-    border-color: #cf3e8c !important;
+    background-color: #D40D8B !important;
+    border-color: #D40D8B !important;
   }
   
+  .dropdown-item.active, .dropdown-item:active {
+    color: #fff;
+    text-decoration: none;
+    background-color: #D40D8B !important;
+}
