@@ -10,6 +10,7 @@ import { AuthService } from '../auth/auth.service';
 export class NavbarComponent implements OnInit, OnDestroy {
 
   public isAuthenticated = false
+  isAdmin: Boolean
   isNavbarCollapsed = true
   private userSub: Subscription
   @Input() title: string
@@ -20,6 +21,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.userSub = this.authService.user.subscribe(user => {
       this.isAuthenticated = !!user
+      console.log(user)
+      this.isAdmin = user.isAdmin
     })
   }
 

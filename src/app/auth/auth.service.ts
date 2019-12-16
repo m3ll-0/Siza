@@ -6,8 +6,9 @@ import { User } from './user.model'
 import { Router } from '@angular/router'
 
 export interface AuthResponseData {
-    accessToken: string,
-    refreshToken: string
+    accesToken: string,
+    refreshToken: string,
+    user: User
 }
 
 @Injectable({ providedIn: 'root' })
@@ -31,10 +32,10 @@ private API_URL_SIGNUP = "/auth/signup"
       .pipe(
         catchError(this.handleError),
         tap(resData => {
-
           this.handleAuthentication(
             resData.refreshToken,
-            resData.accessToken,
+            resData.accesToken,
+            resData.user.isAdmin,
             stayLoggedIn
           )
         })
@@ -65,16 +66,18 @@ private API_URL_SIGNUP = "/auth/signup"
   autoLogin() {
     const userData: {
         _accessToken: string,
-        refreshToken: string
+        _refreshToken: string,
+        _isAmdin: Boolean,
     } = JSON.parse(localStorage.getItem('userData'))
 
     if (!userData) {
       return
     }
-
+    
     const loadedUser = new User(
       userData._accessToken,
-      userData.refreshToken,
+      userData._refreshToken,
+      userData['_isAdmin'],
     )
 
     if (loadedUser.accessToken) {
@@ -91,9 +94,15 @@ private API_URL_SIGNUP = "/auth/signup"
   private handleAuthentication(
         refreshToken: string,
         accessToken: string,
+        isAdmin: Boolean,
         stayLoggedIn: boolean
   ) {
-    const user = new User(refreshToken, accessToken)
+
+    console.log('handle refreshToken')
+    console.log(refreshToken)
+
+    const user = new User(accessToken, refreshToken, isAdmin)
+    console.log(user)
     this.user.next(user)
 
     if(stayLoggedIn)
