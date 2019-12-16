@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
 import { HomeComponent } from './home/home.component'
 import { AuthComponent } from './auth/auth.component'
-
+import { SizasportsComponent } from './sizasports/sizasports.component'
+import { AuthGuard } from './auth/auth.guard';
 import { SignupComponent } from './auth/signup/signup.component'
 import { VerifyEmailComponent } from './auth/verify-email/verify-email.component'
 
-import { SizasportsComponent } from './sizasports/sizasports.component'
-import { AuthGuard } from './auth/auth.guard';
+
 
 
 const routes = [
@@ -19,6 +19,7 @@ const routes = [
         { path: 'verifyemail/:token', component: VerifyEmailComponent},
     ] },
     { path: 'sizasports', component: SizasportsComponent, canActivate: [AuthGuard]}
+
 
 ]
 
