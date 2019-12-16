@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,6 +16,9 @@ import { AuthService } from './auth/auth.service';
 import { LoadingSpinnerComponent } from './Shared/loading-spinner/loading-spinner.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { VerifyEmailComponent } from './auth/verify-email/verify-email.component'
+import { SizasportsComponent } from './sizasports/sizasports.component';
+import { AuthInterceptorService } from './auth/auth-interceptor.service';
+import { SizasportsCategoryCardComponent } from './sizasports/sizasports-category-card/sizasports-category-card.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,9 @@ import { VerifyEmailComponent } from './auth/verify-email/verify-email.component
     AuthComponent,
     LoadingSpinnerComponent,
     SignupComponent,
-    VerifyEmailComponent
+    VerifyEmailComponent,
+    SizasportsComponent,
+    SizasportsCategoryCardComponent
   ],
   imports: [
     BrowserModule,    
@@ -33,9 +39,13 @@ import { VerifyEmailComponent } from './auth/verify-email/verify-email.component
     NgbModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [ AuthService ],
+  providers: [ 
+      AuthService, 
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
+  ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

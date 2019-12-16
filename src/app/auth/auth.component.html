@@ -12,7 +12,7 @@
       <mat-card class="login-card" *ngIf="!isLoading">
         <mat-card-header>
             <div style="text-align: center; width: 100%;"><h4>Login</h4></div>
-        </mat-card-header>
+        </mat-card-header>  
 
       <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" >        
       
@@ -29,7 +29,7 @@
         </div>
 
         <div class="form-group control-margin">
-          <mat-checkbox ngModel id="stayLoggedIn" name="stayLoggedIn" class="example-margin">Blijf ingelogd</mat-checkbox>
+          <mat-checkbox ngModel [(ngModel)]="checked" id="stayLoggedIn" name="stayLoggedIn" class="example-margin">Blijf ingelogd</mat-checkbox>
         </div>
 
         <div class="div-spacing"></div>

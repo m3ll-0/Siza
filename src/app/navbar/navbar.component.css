@@ -3,3 +3,35 @@
     position: relative !important;
 }
 
+/* Navbar button style */
+.btn-nav {
+    color: #D40D8B !important;
+    border-color: #D40D8B;
+  }
+  
+  .btn-nav:hover {
+    color: white !important;
+    border-color: #D40D8B;
+    background-color: #D40D8B;
+  }
+  
+  .btn-nav:focus {
+    box-shadow: 0 0 0 0.2rem rgba(135, 0, 255, 0.5);
+  }
+  
+  .btn-nav:active {
+    color: #fff !important;
+    background-color: #D40D8B !important;
+  }
+  
+  .show > .btn-outline-primary.dropdown-toggle {
+    color: #fff !important;
+    background-color: #D40D8B !important;
+    border-color: #D40D8B !important;
+  }
+  
+  .dropdown-item.active, .dropdown-item:active {
+    color: #fff;
+    text-decoration: none;
+    background-color: #D40D8B !important;
+}

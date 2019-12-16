@@ -1,15 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  public isAuthenticated = false
+  isNavbarCollapsed = true
+  private userSub: Subscription
+  @Input() title: string
+
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    this.userSub = this.authService.user.subscribe(user => {
+      this.isAuthenticated = !!user
+    })
   }
 
+  onLogout() {
+    this.authService.logout()
+  }
+
+  ngOnDestroy() {
+    if (this.userSub !== undefined) {
+      this.userSub.unsubscribe()
+    }
+  }
 }
