@@ -98,11 +98,7 @@ private API_URL_SIGNUP = "/auth/signup"
         stayLoggedIn: boolean
   ) {
 
-    console.log('handle refreshToken')
-    console.log(refreshToken)
-
     const user = new User(accessToken, refreshToken, isAdmin)
-    console.log(user)
     this.user.next(user)
 
     if(stayLoggedIn)

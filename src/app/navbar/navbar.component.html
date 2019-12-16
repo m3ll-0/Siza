@@ -40,7 +40,7 @@
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
           <!-- <button ngbDropdownItem routerLink="settings">Settings</button>
           <hr /> -->
-          <button *ngIf="isAdmin" ngbDropdownItem (click)="onLogout()">Administrator</button>
+          <button *ngIf="isAdmin" ngbDropdownItem  routerLink="admin">Administrator</button>
           <button ngbDropdownItem (click)="onLogout()">Logout</button>
         </div>
       </div>
