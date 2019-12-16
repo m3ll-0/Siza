@@ -1,0 +1,7 @@
+<div class="alert alert-danger" *ngIf="error">
+    <p>{{ error }}</p>
+</div>
+<div *ngIf="isLoading">
+    <app-loading-spinner> </app-loading-spinner>
+    <p>verifi&#235;ren...</p>
+</div>

@@ -13,7 +13,9 @@ import { AuthComponent } from './auth/auth.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms'
 import { AuthService } from './auth/auth.service';
-import { LoadingSpinnerComponent } from './Shared/loading-spinner/loading-spinner.component'
+import { LoadingSpinnerComponent } from './Shared/loading-spinner/loading-spinner.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { VerifyEmailComponent } from './auth/verify-email/verify-email.component'
 import { SizasportsComponent } from './sizasports/sizasports.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { SizasportsCategoryCardComponent } from './sizasports/sizasports-category-card/sizasports-category-card.component';
@@ -26,6 +28,8 @@ import { SizasportsSubcategoryComponent } from './sizasports/sizasports-subcateg
     NavbarComponent,
     AuthComponent,
     LoadingSpinnerComponent,
+    SignupComponent,
+    VerifyEmailComponent,
     SizasportsComponent,
     SizasportsCategoryCardComponent,
     SizasportsSubcategoryComponent

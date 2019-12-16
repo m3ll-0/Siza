@@ -5,6 +5,8 @@ import { AuthComponent } from './auth/auth.component'
 import { SizasportsComponent } from './sizasports/sizasports.component'
 import { AuthGuard } from './auth/auth.guard';
 import { SizasportsSubcategoryComponent } from './sizasports/sizasports-subcategory/sizasports-subcategory.component'
+import { SignupComponent } from './auth/signup/signup.component'
+import { VerifyEmailComponent } from './auth/verify-email/verify-email.component'
 
 const routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -12,6 +14,12 @@ const routes = [
     { path: 'auth', component: AuthComponent },
     { path: 'sizasports', component: SizasportsComponent, canActivate: [AuthGuard]},
     { path: 'sizasports/category/:id', component: SizasportsSubcategoryComponent, canActivate: [AuthGuard]},  
+    { path: 'auth', children: [
+        { path: '', component: AuthComponent},
+        { path: 'signup', component: SignupComponent},
+        { path: 'verifyemail/:token', component: VerifyEmailComponent},
+    ] },
+    { path: 'sizasports', component: SizasportsComponent, canActivate: [AuthGuard]}
 ]
 
 @NgModule({

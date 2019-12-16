@@ -14,7 +14,8 @@ export interface AuthResponseData {
 export class AuthService {
 
 private API_BASE_URL = "https://siza-api.herokuapp.com/v1";
-private API_URL_REGISTER_ADMIN = "/auth/adminlogin"
+private API_URL_REGISTER_ADMIN = "/auth/login"
+private API_URL_SIGNUP = "/auth/signup"
 
   user = new BehaviorSubject<User>(null)
 
@@ -38,6 +39,27 @@ private API_URL_REGISTER_ADMIN = "/auth/adminlogin"
           )
         })
       )
+  }
+
+  signUp(email: string, password: string) {
+    return this.http
+      .post(`${this.API_BASE_URL}${this.API_URL_SIGNUP}`, {
+        email,
+        password
+      })
+
+      .pipe(
+        catchError(this.handleError)
+      )
+      
+  }
+
+  verifyEmail(token: string) {
+    return this.http.post(`${this.API_BASE_URL}/auth/confirmation/${token}`, {})
+
+    .pipe(
+      catchError(this.handleError)
+    )
   }
 
   autoLogin() {
@@ -82,8 +104,6 @@ private API_URL_REGISTER_ADMIN = "/auth/adminlogin"
   }
 
   private handleError(errorRes: HttpErrorResponse) {
-    const errorMessage = 'The credentials are incorrect.'
-
-    return throwError(errorMessage)
+    return throwError(errorRes.error.msg)
   }
 }
