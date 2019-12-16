@@ -12,7 +12,9 @@ import { AuthComponent } from './auth/auth.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms'
 import { AuthService } from './auth/auth.service';
-import { LoadingSpinnerComponent } from './Shared/loading-spinner/loading-spinner.component'
+import { LoadingSpinnerComponent } from './Shared/loading-spinner/loading-spinner.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { VerifyEmailComponent } from './auth/verify-email/verify-email.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { LoadingSpinnerComponent } from './Shared/loading-spinner/loading-spinne
     HomeComponent,
     NavbarComponent,
     AuthComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    SignupComponent,
+    VerifyEmailComponent
   ],
   imports: [
     BrowserModule,    
