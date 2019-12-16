@@ -1,8 +1,9 @@
-<div class="text-center">
+<div id="contentToConvert" #content class="text-center">
   <div *ngFor="let activities of activities">
       <img src="../../assets/images/SizaBanner.PNG" class="banner" />
+      <img src="https://media3.giphy.com/media/l4FGtoprq7U3UAgtW/giphy.gif?cid=790b7611aace208e67108a6c72586f3d17b0dcd578d880b5&rid=giphy.gif" class="banner" />
     <h1>
-      Zak Lopen
+      {{activities.activity}}
     </h1>
     <h4>
       Ik hou van Holland
@@ -44,8 +45,8 @@
           <h5>
               {{opstelling}}
           </h5> 
-          <img src="{{activities.setup}}" image-resizing height="128" width="128" 
-          (error)="pictNotLoading($event)" onerror="this.style.display='none'"/>
+          <img src="{{activities.setup}} | async" image-resizing height="128" width="128"  onerror="this.style.display='none'" 
+          (error)="pictNotLoading($event)" />
           <h5>
               Aandachtspunten
           </h5> 
@@ -69,3 +70,4 @@
       </div>
     </div>
 </div>
+<button (click)="captureScreen()" > Export to PDF </button>

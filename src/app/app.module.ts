@@ -11,6 +11,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { AppRoutingModule } from './app-routing.module';
 import { SizasportsComponent } from './sizasports/sizasports.component';
 import { ActivitiesComponent } from './activities/activities.component';
+import { ActivityOverviewComponent } from './activity-overview/activity-overview.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ActivitiesComponent } from './activities/activities.component';
     NavbarComponent,
     SizasportsComponent,
     ActivitiesComponent,
+    ActivityOverviewComponent,
   ],
   imports: [
     BrowserModule,    
