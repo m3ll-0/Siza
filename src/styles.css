@@ -1,4 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+.small-card
+{
+    width: 250px;
+    display: inline-block;
+    height: 250px;
+    margin: 20px;
+    border: 5px solid #FFB000
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.img-small-card
+{
+    width: 100%;
+    /* height: 100px; */
+}
+
+.small-card-header
+{
+    text-align: center;
+}

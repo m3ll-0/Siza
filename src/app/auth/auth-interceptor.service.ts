@@ -12,16 +12,10 @@ export class AuthInterceptorService implements HttpInterceptor {
     return this.authService.user.pipe(
       take(1),
       exhaustMap(user => {
-        console.log('########################################################################3');
-        console.log(user);
-
 
         if (!user) {
           return next.handle(req)
         }
-
-        console.log('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX');
-        console.log(user);
 
         const headers = req.headers
           .set('Content-Type', 'application/json')

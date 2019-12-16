@@ -17,7 +17,6 @@ export class SizasportsComponent implements OnInit {
       this.activities = data['activities'];
     } )
     this.apiService.getCategories().subscribe((data) =>{
-      console.log(data);
       this.categories = data['categories'];
     } )
    }
