@@ -21,7 +21,8 @@ export class SizasportsCategoryCardComponent implements OnInit {
     this.categoryID = this.category._id;
   }
 
-  do(categoryID: string) {
+  onClickCategoryCard(categoryID: string)
+  {
     this.router.navigate(['/sizasports/category', categoryID])
   }
 
