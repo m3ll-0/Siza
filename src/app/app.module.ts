@@ -17,6 +17,7 @@ import { LoadingSpinnerComponent } from './Shared/loading-spinner/loading-spinne
 import { SizasportsComponent } from './sizasports/sizasports.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { SizasportsCategoryCardComponent } from './sizasports/sizasports-category-card/sizasports-category-card.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SizasportsCategoryCardComponent } from './sizasports/sizasports-categor
     AuthComponent,
     LoadingSpinnerComponent,
     SizasportsComponent,
-    SizasportsCategoryCardComponent
+    SizasportsCategoryCardComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,    

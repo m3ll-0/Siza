@@ -14,7 +14,7 @@ export interface AuthResponseData {
 export class AuthService {
 
 private API_BASE_URL = "https://siza-api.herokuapp.com/v1";
-private API_URL_REGISTER_ADMIN = "/auth/adminlogin"
+private API_URL_REGISTER_ADMIN = "/auth/login"
 
   user = new BehaviorSubject<User>(null)
 
