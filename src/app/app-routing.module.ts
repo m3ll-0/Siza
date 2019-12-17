@@ -24,7 +24,7 @@ const routes = [
     ] },
     { path: 'admin', children: [
         { path: '', component: AdminDashboardComponent, canActivate: [AuthAdminGuard]},
-        { path: 'usersoverview', component: AdminUserOverviewComponent},
+        { path: 'usersoverview', component: AdminUserOverviewComponent, canActivate: [AuthAdminGuard]},
         { path: 'accessdenied', component: AccessdeniedComponent},
     ] },
     { path: 'sizasports', component: SizasportsComponent, canActivate: [AuthGuard]}
