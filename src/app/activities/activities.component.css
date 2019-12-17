@@ -1,0 +1,30 @@
+p {
+    color: #253a78;
+    text-align: left;
+    
+}
+
+h1 {
+    color: #101e4a;
+}
+
+h4 {
+    color: #253a78;
+}
+
+h5 {
+    color: #101e4a;
+    text-align: left;
+}
+
+img.banner { 
+	width: 800px;
+	height: 180px;
+}
+
+img { 
+    max-width: 100%;
+    max-height: 100%;
+}
+    
+
