@@ -7,6 +7,9 @@ import { AuthGuard } from './auth/auth.guard';
 import { SizasportsSubcategoryComponent } from './sizasports/sizasports-subcategory/sizasports-subcategory.component'
 import { SignupComponent } from './auth/signup/signup.component'
 import { VerifyEmailComponent } from './auth/verify-email/verify-email.component'
+import { AdminActivityspecificComponent } from './admin-activityspecific/admin-activityspecific.component'
+import { AdminActivityComponent } from './admin-activity/admin-activity.component'
+import { ActivitiesComponent } from './activities/activities.component'
 
 const routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -16,10 +19,15 @@ const routes = [
     { path: 'sizasports/category/:id', component: SizasportsSubcategoryComponent, canActivate: [AuthGuard]},  
     { path: 'auth', children: [
         { path: '', component: AuthComponent},
-        { path: 'signup', component: SignupComponent},
         { path: 'verifyemail/:token', component: VerifyEmailComponent},
+        { path: 'signup', component: SignupComponent},
     ] },
-    { path: 'sizasports', component: SizasportsComponent, canActivate: [AuthGuard]}
+    { path: 'sizasports', component: SizasportsComponent, canActivate: [AuthGuard]},
+    { path: 'activity/:id', component: ActivitiesComponent},
+    { path: 'admin/activity', children: [
+        { path: 'activity', component: AdminActivityComponent},
+        { path: 'activity/:id', component: AdminActivityspecificComponent}
+    ]},
 ]
 
 @NgModule({

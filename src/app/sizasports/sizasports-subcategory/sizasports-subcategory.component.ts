@@ -26,12 +26,12 @@ export class SizasportsSubcategoryComponent implements OnInit {
 
     if(this.categoryId !== undefined)
     {
-      this.apiService.getCategoriesById(this.categoryId).subscribe((data) =>{
+      this.apiService.getActivitiesFromCategory(this.categoryId).subscribe((data) =>{
         this.categories = data['subcategories'];
       });
     }
 
-    this.apiService.getActivitiesById(this.categoryId).subscribe((data) =>{
+    this.apiService.getActivitiesFromCategory(this.categoryId).subscribe((data) =>{
       this.activities = data['activities'];
     });
 
