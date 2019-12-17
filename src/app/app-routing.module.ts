@@ -21,13 +21,12 @@ const routes = [
         { path: 'verifyemail/:token', component: VerifyEmailComponent},
         { path: 'signup', component: SignupComponent},
     ] },
-    { path: 'sizasports', component: SizasportsComponent, canActivate: [AuthGuard]}
-
-
-    { path: 'sizasports', component: SizasportsComponent},
+    { path: 'sizasports', component: SizasportsComponent, canActivate: [AuthGuard]},
     { path: 'activity/:id', component: ActivitiesComponent},
-    { path: 'admin/activity', component: AdminActivityComponent},
-    { path: 'admin/activity/:id', component: AdminActivityspecificComponent}
+    { path: 'admin/activity', children: [
+        { path: 'activity', component: AdminActivityComponent},
+        { path: 'activity/:id', component: AdminActivityspecificComponent}
+    ]},
 ]
 
 @NgModule({

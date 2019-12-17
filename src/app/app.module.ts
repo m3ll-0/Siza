@@ -20,7 +20,6 @@ import { SizasportsComponent } from './sizasports/sizasports.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { SizasportsCategoryCardComponent } from './sizasports/sizasports-category-card/sizasports-category-card.component';
 import { ActivitiesComponent } from './activities/activities.component';
-import { ActivityOverviewComponent } from './activity-overview/activity-overview.component';
 import { AdminActivityComponent } from './admin-activity/admin-activity.component';
 import { AdminActivityspecificComponent } from './admin-activityspecific/admin-activityspecific.component';
 
@@ -35,7 +34,6 @@ import { AdminActivityspecificComponent } from './admin-activityspecific/admin-a
     VerifyEmailComponent,
     SizasportsComponent,
     ActivitiesComponent,
-    ActivityOverviewComponent,
     AdminActivityComponent,
     AdminActivityspecificComponent,
     SizasportsCategoryCardComponent
