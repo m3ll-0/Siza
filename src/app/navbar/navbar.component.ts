@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-navbar',
@@ -14,6 +15,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   isNavbarCollapsed = true
   private userSub: Subscription
   @Input() title: string
+  @Input() child: AppComponent
 
 
   constructor(private authService: AuthService) { }

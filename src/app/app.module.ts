@@ -22,6 +22,8 @@ import { SizasportsCategoryCardComponent } from './sizasports/sizasports-categor
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import { AdminUserOverviewComponent } from './admin/admin-user-overview/admin-user-overview.component';
 import { AccessdeniedComponent } from './admin/accessdenied/accessdenied.component';
+import { MaterialModule } from './material.module';
+import { UserComponent } from './admin/admin-user-overview/user/user.component'
 
 @NgModule({
   declarations: [
@@ -36,9 +38,11 @@ import { AccessdeniedComponent } from './admin/accessdenied/accessdenied.compone
     SizasportsCategoryCardComponent,
     AdminDashboardComponent,
     AdminUserOverviewComponent,
-    AccessdeniedComponent
+    AccessdeniedComponent,
+    UserComponent
   ],
   imports: [
+    MaterialModule,
     BrowserModule,    
     BrowserAnimationsModule,
     SharedModule,
@@ -46,7 +50,7 @@ import { AccessdeniedComponent } from './admin/accessdenied/accessdenied.compone
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [ 
       AuthService, 
