@@ -24,26 +24,6 @@
           <a class="nav-link" routerLink="/" [routerLinkActive]="['active']">Home</a>
         </li>
 
-        <li class="nav-item" *ngIf="isAuthenticated">
-          <a
-            class="nav-link"
-            routerLink="dashboard/tools"
-            [routerLinkActive]="['active']"
-            [routerLinkActiveOptions]="{ exact: true }"
-            >Dashboard</a
-          >
-        </li>
-
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            routerLink="example"
-            [routerLinkActive]="['active']"
-            [routerLinkActiveOptions]="{ exact: true }">
-            Example
-            </a>
-        </li>
-
         <li class="nav-item">
           <a
             class="nav-link"
@@ -58,8 +38,8 @@
       <div ngbDropdown class="d-inline-block" *ngIf="isAuthenticated">
         <button class="btn btn-outline-primary btn-nav" id="dropdownBasic1" ngbDropdownToggle>Account</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <button ngbDropdownItem routerLink="settings">Settings</button>
-          <hr />
+          <!-- <button ngbDropdownItem routerLink="settings">Settings</button>
+          <hr /> -->
           <button ngbDropdownItem (click)="onLogout()">Logout</button>
         </div>
       </div>
@@ -72,6 +52,15 @@
             [routerLinkActive]="['active']"
             [routerLinkActiveOptions]="{ exact: true }"
             >Login</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="auth/signup"
+            [routerLinkActive]="['active']"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Aanmelden</a
           >
         </li>
       </ul>
