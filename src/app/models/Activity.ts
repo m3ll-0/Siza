@@ -1,5 +1,6 @@
 export class Activity
 {
+    _id: string
     goal: string
     material: string
     activity: string

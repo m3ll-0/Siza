@@ -9,14 +9,12 @@ import { Activity } from 'src/app/models/Activity';
 export class SizasportsActivityCardComponent implements OnInit {
 
   @Input() activity: Activity
-  public categoryID : string;
+  public activityID : string;
 
   constructor() { }
 
   ngOnInit() {
-    console.log("XXXXXXXXXXXXXXXXXXXXXXXXXXXXx");
-    console.log(this.activity);
-
+    this.activityID = this.activity._id;
   }
 
 }

@@ -11,9 +11,11 @@ import { Activity } from 'src/app/models/Activity';
 })
 export class SizasportsSubcategoryComponent implements OnInit {
 
-  categories : Category[];
-  activities: Activity[];
+  categories : Category[] = [];
+  activities: Activity[] = [];
   private categoryId: string;
+  isLoadingCategories = true;
+  isLoadingActivities = true;
 
   constructor(private route: ActivatedRoute, private apiService: ApiServiceService, private router: Router) {
       this.router.routeReuseStrategy.shouldReuseRoute = function () {
@@ -26,18 +28,16 @@ export class SizasportsSubcategoryComponent implements OnInit {
 
     if(this.categoryId !== undefined)
     {
-      this.apiService.getActivitiesFromCategory(this.categoryId).subscribe((data) =>{
+      this.apiService.getCategoriesById(this.categoryId).subscribe((data) =>{
         this.categories = data['subcategories'];
+        this.isLoadingCategories = false;
       });
     }
 
     this.apiService.getActivitiesFromCategory(this.categoryId).subscribe((data) =>{
       this.activities = data['activities'];
+      this.isLoadingActivities = false;
     });
-
-    // Load categories    
-
-    // Load activities
   }
 
 }
