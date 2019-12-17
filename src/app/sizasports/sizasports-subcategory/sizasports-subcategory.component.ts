@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ApiServiceService } from 'src/app/api-service.service';
 import { Category } from '../../models/Category';
 import { Activity } from 'src/app/models/Activity';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-sizasports-subcategory',
@@ -17,10 +18,15 @@ export class SizasportsSubcategoryComponent implements OnInit {
   isLoadingCategories = true;
   isLoadingActivities = true;
 
-  constructor(private route: ActivatedRoute, private apiService: ApiServiceService, private router: Router) {
+  constructor(private route: ActivatedRoute, private apiService: ApiServiceService, private router: Router, private location: Location) {
       this.router.routeReuseStrategy.shouldReuseRoute = function () {
         return false;
       };
+   }
+
+  onGoBack()
+   {
+      this.location.back();
    }
 
   ngOnInit(  ) {
