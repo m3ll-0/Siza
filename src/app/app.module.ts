@@ -19,6 +19,9 @@ import { VerifyEmailComponent } from './auth/verify-email/verify-email.component
 import { SizasportsComponent } from './sizasports/sizasports.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { SizasportsCategoryCardComponent } from './sizasports/sizasports-category-card/sizasports-category-card.component';
+import { ActivitiesComponent } from './activities/activities.component';
+import { AdminActivityComponent } from './admin-activity/admin-activity.component';
+import { AdminActivityspecificComponent } from './admin-activityspecific/admin-activityspecific.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,9 @@ import { SizasportsCategoryCardComponent } from './sizasports/sizasports-categor
     SignupComponent,
     VerifyEmailComponent,
     SizasportsComponent,
+    ActivitiesComponent,
+    AdminActivityComponent,
+    AdminActivityspecificComponent,
     SizasportsCategoryCardComponent
   ],
   imports: [
