@@ -20,6 +20,7 @@ import { SizasportsComponent } from './sizasports/sizasports.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { SizasportsCategoryCardComponent } from './sizasports/sizasports-category-card/sizasports-category-card.component';
 import { SizasportsSubcategoryComponent } from './sizasports/sizasports-subcategory/sizasports-subcategory.component';
+import { SizasportsActivityCardComponent } from './sizasports/sizasports-activity-card/sizasports-activity-card.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { SizasportsSubcategoryComponent } from './sizasports/sizasports-subcateg
     VerifyEmailComponent,
     SizasportsComponent,
     SizasportsCategoryCardComponent,
-    SizasportsSubcategoryComponent
+    SizasportsSubcategoryComponent,
+    SizasportsActivityCardComponent
   ],
   imports: [
     BrowserModule,    

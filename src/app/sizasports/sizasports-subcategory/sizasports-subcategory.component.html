@@ -2,10 +2,15 @@
     <div class="row">
             <div class="col-sm">
 
-    <app-sizasports-category-card *ngFor="let categories of categories" [category]="categories">
+                <h4>Categories</h4>
 
-        </app-sizasports-category-card>
-        </div>
+                <app-sizasports-category-card *ngFor="let categories of categories" [category]="categories"></app-sizasports-category-card>
+
+                <h4>Activities</h4>                
+
+                <app-sizasports-activity-card *ngFor="let activities of activities" [activity]="activities"></app-sizasports-activity-card>
+
+            </div>
     </div>
 </div>
 

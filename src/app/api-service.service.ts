@@ -14,7 +14,16 @@ export class ApiServiceService {
     return this.httpClient.get('https://siza-api.herokuapp.com/v1/activities');
   }
 
+  public getCategoriesById(parentId: string)
+  {
+    return this.httpClient.get('https://siza-api.herokuapp.com/v1/categories/' + parentId );
+  }
 
+  public getActivitiesById(categoryId: string)
+  {
+    return this.httpClient.get('https://siza-api.herokuapp.com/v1/activities/category/' + categoryId );
+  }
+  
   constructor(private httpClient: HttpClient) {
     
    }
