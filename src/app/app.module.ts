@@ -12,6 +12,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { SizasportsComponent } from './sizasports/sizasports.component';
 import { ActivitiesComponent } from './activities/activities.component';
 import { ActivityOverviewComponent } from './activity-overview/activity-overview.component';
+import { AdminActivityComponent } from './admin-activity/admin-activity.component';
+import { AdminActivityspecificComponent } from './admin-activityspecific/admin-activityspecific.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { ActivityOverviewComponent } from './activity-overview/activity-overview
     SizasportsComponent,
     ActivitiesComponent,
     ActivityOverviewComponent,
+    AdminActivityComponent,
+    AdminActivityspecificComponent,
   ],
   imports: [
     BrowserModule,    

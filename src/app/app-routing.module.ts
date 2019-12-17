@@ -3,14 +3,16 @@ import { Routes, RouterModule } from '@angular/router'
 import { HomeComponent } from './home/home.component'
 import { SizasportsComponent } from './sizasports/sizasports.component'
 import { ActivitiesComponent } from './activities/activities.component'
-import { ActivityOverviewComponent } from './activity-overview/activity-overview.component'
+import { AdminActivityComponent } from './admin-activity/admin-activity.component'
+import { AdminActivityspecificComponent } from './admin-activityspecific/admin-activityspecific.component'
 
 const routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
     { path: 'sizasports', component: SizasportsComponent},
     { path: 'activity/:id', component: ActivitiesComponent},
-    { path: 'activities/:id', component: ActivityOverviewComponent}
+    { path: 'admin/activity', component: AdminActivityComponent},
+    { path: 'admin/activity/:id', component: AdminActivityspecificComponent}
 ]
 
 @NgModule({
