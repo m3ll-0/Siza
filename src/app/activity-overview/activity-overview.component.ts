@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiServiceService } from '../api-service.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-activity-overview',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActivityOverviewComponent implements OnInit {
 
-  constructor() { }
+  activities
+  
+
+  constructor(
+    private apiService: ApiServiceService,
+    private activatedRoute: ActivatedRoute 
+    ) { 
+    console.log(value+'tt');
+    
+    var value 
+    this.activatedRoute.params.subscribe( params => value = params.id );
+    this.apiService.getActivitiesFromCategory(value).subscribe((data) =>{
+      console.log(value+'tt');
+      console.log(data);
+      this.activities = data['activities'];
+ 
+    } )
+  }
 
   ngOnInit() {
+    
   }
 
 }

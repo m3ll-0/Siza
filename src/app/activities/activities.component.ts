@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ApiServiceService } from '../api-service.service';
 import * as jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';  
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-activities',
@@ -10,16 +11,19 @@ import html2canvas from 'html2canvas';
 ]
 })
 export class ActivitiesComponent implements OnInit {
-
-
   
   activities
  
+  constructor(
+    private apiService: ApiServiceService,
+    private activatedRoute: ActivatedRoute 
+    ) {
 
-  constructor(private apiService: ApiServiceService) {
-    this.apiService.getSpecificActivity("5df0f2a953b1b20017a7b821").subscribe((data) =>{
+    var value
+    this.activatedRoute.params.subscribe( params => value = params.id );
+    this.apiService.getSpecificActivity(value).subscribe((data) =>{
       console.log(data);
-      this.activities = data['activity'];
+      this.activities = data['activity']; 
     } )
   }
 

@@ -1,1 +1,15 @@
-<p>activity-overview works!</p>
+<div *ngFor="let activities of activities" >
+
+
+    <div class="card" style="width: 18rem;">
+            <a routerLink="/activity/{{activities._id}}" >
+            <img class="card-img-top" src={{activities.image}} alt="Card image cap">
+            <div class="card-body">
+                
+              <h5 class="card-title">{{activities.activity}}</h5>
+              <p class="card-text">{{activities.goal}}</p>
+              <p class="card-text">{{activities._id}}</p>
+            </div>
+        </a>
+          </div>
+</div>
