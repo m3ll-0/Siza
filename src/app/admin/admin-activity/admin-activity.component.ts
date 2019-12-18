@@ -19,14 +19,9 @@ export class AdminActivityComponent implements OnInit {
     } )
   }
 
-  addActivity(){
-
-  }
-  editActivity(){
-    
-  }
-  deleteActivity(){
-
+  deleteActivity(activityID) {
+    this.apiService.deleteActivity(activityID).subscribe((response) => {
+    console.log("deleted" + activityID)})
   }
   
   ngOnInit() {

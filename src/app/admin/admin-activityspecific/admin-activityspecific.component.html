@@ -1,1 +1,57 @@
-<p>admin-activityspecific works!</p>
+<div class="text-center"> 
+<div id="contentToConvert" #content  >
+  <div *ngFor="let activities of activities">
+      <img src="../../assets/images/SizaBanner.PNG" class="banner" />
+ 
+    <h1>
+      {{activities.activity}}
+    </h1>
+    <h4>
+      Ik hou van Holland
+    </h4>
+    <img src="{{activities.image}}" image-resizing height="128" width="128" />
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-sm-4">
+          <h5>
+              Doel
+          </h5> 
+          <p >
+              {{activities.goal}}
+          </p>
+          <h5>
+              Materiaal
+          </h5> 
+          <p>{{activities.material}}</p>
+          <h5>
+              Activiteit <br>
+          </h5> 
+          <p>
+              {{activities.activity}}
+          </p>
+        </div>
+        <div class="col-sm-4">
+          <h5>
+              {{opstelling}}
+          </h5> 
+          <img src="{{ activities?.setup}} " image-resizing height="128" width="128"  onerror="this.style.display='none'" 
+          (error)="pictNotLoading($event)" />
+          <h5>
+              Aandachtspunten
+          </h5> 
+          <p>
+              {{activities.pointsForAttention}}
+          </p>
+          <h5>
+              Differentiaties
+          </h5> 
+          <p>
+              {{activities.differentiations}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+

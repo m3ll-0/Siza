@@ -15,8 +15,8 @@
                     <p class="card-text">{{activities.goal}}</p>
                 </div>
                 <div class="btn-group row-fluid">
-                    <button type="button" class="btn btn-secondary" routerLink="/activity/{{activities._id}}">Aanpassen</button>
-                    <button type="button" class="btn btn-secondary" (click)="deleteActivity()">Delete</button>
+                    <button type="button" class="btn btn-secondary" routerLink="/admin/activity/{{activities._id}}">Aanpassen</button>
+                    <button type="button" class="btn btn-secondary" (click)="deleteActivity(activities._id)">Delete</button>
                 </div>
             </div>
             <br>
