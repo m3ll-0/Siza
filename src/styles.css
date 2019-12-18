@@ -26,10 +26,9 @@
     width: 250px;
     display: inline-block !important;
     height: 250px;
-    box-shadow: none !important;
+    box-shadow: none !important ;
     margin: 20px;
     border: 5px solid #ce2ea8;
-    /* background: #ce2ea8; */
     cursor: pointer;
 }
 

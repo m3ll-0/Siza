@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiServiceService } from '../api-service.service'
 import { Category } from '../models/Category';
+import {HostListener} from '@angular/core';
 
 @Component({
   selector: 'app-sizasports',
@@ -10,6 +11,7 @@ import { Category } from '../models/Category';
 export class SizasportsComponent implements OnInit {
   categories : Category[];
   isLoading = true;
+  keyCombination = "";
 
   constructor(private apiService: ApiServiceService) {
     this.apiService.getCategories().subscribe((data) =>{
@@ -19,6 +21,37 @@ export class SizasportsComponent implements OnInit {
    }
 
   ngOnInit() {
+     }
+
+    @HostListener('document:keypress', ['$event'])
+    handleKeyboardEvent(event: KeyboardEvent) { 
+
+      if(event.key === 'Enter')
+      {
+        this.keyCombination = '';
+      }
+      else{
+        this.keyCombination += event.key;
+      }
+
+      if(this.keyCombination == "kraai")
+      {
+        this.crowMode();
+      }
+    }
+
+    
+  crowMode()
+  {
+    var imgs = document.getElementsByTagName("img");for(var i=0, l=imgs.length;i<l;i++){imgs[i].src = "https://media1.giphy.com/media/gEG1j8eBvHVYs/giphy.gif";}
+    this.playAudio();
+  }
+
+  playAudio(){
+    let audio = new Audio();
+    audio.src =  '../../assets/sounds/crow.mp3';
+    audio.load();
+    audio.play();
   }
 
 }
