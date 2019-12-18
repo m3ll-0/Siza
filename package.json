@@ -30,6 +30,7 @@
     "howler": "^2.1.2",
     "html2canvas": "^1.0.0-rc.5",
     "http": "0.0.0",
+    "jwt-decode": "^2.2.0",
     "jspdf": "^1.5.3",
     "mongoose": "^5.8.0",
     "nodemon": "^2.0.1",

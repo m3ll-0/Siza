@@ -1,0 +1,11 @@
+app-sidenav { display: flex; }
+.mat-drawer-container {
+    min-height: 100%;
+    min-width: 100%;
+    position: absolute;
+    z-index: 1;
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+    display: block;
+    overflow: hidden;
+}
