@@ -1,11 +1,11 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light  fixed-top">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark  fixed-top">
   <div class="container">
     <a
       class="navbar-brand"
       routerLink="/"
       [routerLinkActive]="['active']"
       [routerLinkActiveOptions]="{ exact: true }"
-      >{{ title }}</a
+      >Siza</a
     >
     <button
       class="navbar-toggler hidden-sm-up"
@@ -27,6 +27,37 @@
         <li class="nav-item">
           <a
             class="nav-link"
+            routerLink="about"
+            [routerLinkActive]="['active']"
+            [routerLinkActiveOptions]="{ exact: true }"
+            aria-disabled="true"
+            >Wie zijn wij?</a
+          >
+
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="training"
+              [routerLinkActive]="['active']"
+              [routerLinkActiveOptions]="{ exact: true }"
+              aria-disabled="true"
+              >BAF Training</a
+            >
+
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                routerLink="poster"
+                [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{ exact: true }"
+                aria-disabled="true"
+                >Beweegposter</a
+              >
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="sizasports"
             routerLink="/sizasports"
             [routerLinkActive]="['active']"
             [routerLinkActiveOptions]="{ exact: true }"

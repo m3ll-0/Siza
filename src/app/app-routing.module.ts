@@ -4,6 +4,9 @@ import { HomeComponent } from './home/home.component'
 import { AuthComponent } from './auth/auth.component'
 import { SizasportsComponent } from './sizasports/sizasports.component'
 import { AuthGuard } from './auth/auth.guard';
+import { AboutComponent } from './about/about.component'
+import { TrainingComponent } from './training/training.component'
+import { BeweegposterComponent } from './beweegposter/beweegposter.component'
 import { SizasportsSubcategoryComponent } from './sizasports/sizasports-subcategory/sizasports-subcategory.component'
 import { SignupComponent } from './auth/signup/signup.component'
 import { VerifyEmailComponent } from './auth/verify-email/verify-email.component'
@@ -16,6 +19,9 @@ const routes = [
     { path: 'home', component: HomeComponent },
     { path: 'auth', component: AuthComponent },
     { path: 'sizasports', component: SizasportsComponent, canActivate: [AuthGuard]},
+    { path: 'about', component: AboutComponent },
+    { path: 'training', component: TrainingComponent },
+    { path: 'poster', component: BeweegposterComponent }
     { path: 'sizasports/category/:id', component: SizasportsSubcategoryComponent, canActivate: [AuthGuard]},  
     { path: 'auth', children: [
         { path: '', component: AuthComponent},

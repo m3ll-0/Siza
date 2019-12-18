@@ -19,6 +19,10 @@ import { VerifyEmailComponent } from './auth/verify-email/verify-email.component
 import { SizasportsComponent } from './sizasports/sizasports.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { SizasportsCategoryCardComponent } from './sizasports/sizasports-category-card/sizasports-category-card.component';
+import { FooterComponent } from './footer/footer.component';
+import { BeweegposterComponent } from './beweegposter/beweegposter.component';
+import { AboutComponent } from './about/about.component';
+import { TrainingComponent } from './training/training.component';
 import { SizasportsSubcategoryComponent } from './sizasports/sizasports-subcategory/sizasports-subcategory.component';
 import { SizasportsActivityCardComponent } from './sizasports/sizasports-activity-card/sizasports-activity-card.component';
 import { ActivitiesComponent } from './activities/activities.component';
@@ -37,6 +41,10 @@ import { CommentSectionComponent } from './activities/comment-section/comment-se
     VerifyEmailComponent,
     SizasportsComponent,
     SizasportsCategoryCardComponent,
+    FooterComponent,
+    BeweegposterComponent,
+    AboutComponent,
+    TrainingComponent
     SizasportsSubcategoryComponent,
     SizasportsActivityCardComponent,
     ActivitiesComponent,

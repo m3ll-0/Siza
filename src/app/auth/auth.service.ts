@@ -17,6 +17,7 @@ private API_BASE_URL = "https://siza-api.herokuapp.com/v1";
 private API_URL_REGISTER_ADMIN = "/auth/login"
 private API_URL_SIGNUP = "/auth/signup"
 
+
   user = new BehaviorSubject<User>(null)
 
   constructor(private http: HttpClient, private router: Router) {}
