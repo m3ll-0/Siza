@@ -44,6 +44,7 @@ export class SizasportsComponent implements OnInit {
   crowMode()
   {
     var imgs = document.getElementsByTagName("img");for(var i=0, l=imgs.length;i<l;i++){imgs[i].src = "https://media1.giphy.com/media/gEG1j8eBvHVYs/giphy.gif";}
+    document.body.style.background = "url(https://media0.giphy.com/media/i7HfyYPbE8BQQ/source.gif)";
     this.playAudio();
   }
 
