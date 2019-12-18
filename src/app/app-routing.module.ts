@@ -11,16 +11,15 @@ import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard
 import { AdminUserOverviewComponent } from './admin/admin-user-overview/admin-user-overview.component'
 import { AccessdeniedComponent } from './admin/accessdenied/accessdenied.component'
 import { AdminCategoriesComponent } from './admin/admin-categories/admin-categories.component'
-import { AdminActivitiesComponent } from './admin/admin-activities/admin-activities.component'
 import { AdminFormComponent } from './admin/admin-form/admin-form.component'
 import { AboutComponent } from './about/about.component'
 import { TrainingComponent } from './training/training.component'
 import { BeweegposterComponent } from './beweegposter/beweegposter.component'
 import { SizasportsSubcategoryComponent } from './sizasports/sizasports-subcategory/sizasports-subcategory.component'
-import { AdminActivityspecificComponent } from './admin-activityspecific/admin-activityspecific.component'
-import { AdminActivityComponent } from './admin-activity/admin-activity.component'
+import { AdminActivityspecificComponent } from './admin/admin-activityspecific/admin-activityspecific.component'
+import { AdminActivityComponent } from './admin/admin-activity/admin-activity.component'
 import { ActivitiesComponent } from './activities/activities.component'
-
+import { AddActivityComponent } from './admin/add-activity/add-activity.component';
 
 const routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -40,19 +39,15 @@ const routes = [
         { path: '', redirectTo: 'usersoverview', pathMatch: 'full', },
         { path: 'usersoverview', component: AdminUserOverviewComponent},
         { path: 'categories', component: AdminCategoriesComponent},
-        { path: 'activities', component: AdminActivitiesComponent},
         { path: 'form', component: AdminFormComponent},
-        
+        { path: 'activities', component: AdminActivityComponent},
+        { path: 'activities/:id', component: AdminActivityspecificComponent},
+        { path: 'addactivity', component: AddActivityComponent}
     ] },
     { path: 'accessdenied', component: AccessdeniedComponent},
     { path: 'sizasports', component: SizasportsComponent, canActivate: [AuthGuard]},
     { path: 'sizasports', component: SizasportsComponent, canActivate: [AuthGuard]},
-    { path: 'activity/:id', component: ActivitiesComponent},
-    // { path: 'admin/activity', children: [
-    //     { path: 'activity', component: AdminActivityComponent},
-    //     { path: 'activity/:id', component: AdminActivityspecificComponent}
-    // ]},
-
+    { path: 'activities/:id', component: ActivitiesComponent},
 ]
 
 @NgModule({

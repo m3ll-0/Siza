@@ -33,8 +33,11 @@
     "jwt-decode": "^2.2.0",
     "jspdf": "^1.5.3",
     "mongoose": "^5.8.0",
+    "ng-dom-to-pdf": "^1.0.2",
+    "ng-pdfkit": "0.0.1",
     "nodemon": "^2.0.1",
     "path": "^0.12.7",
+    "pdfkit": "^0.11.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"

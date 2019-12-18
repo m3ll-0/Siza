@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from "@angular/common/http";
+import { Observable } from 'rxjs';
+import { map } from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -38,4 +40,13 @@ export class ApiServiceService {
   public getSpecificActivity(categoryID){
     return this.httpClient.get(this.url +'activities/' + categoryID);
   }
+
+  public deleteActivity(activityID): Observable<Object> {
+    console.log(this.url +'activity'+ activityID);
+    
+    return this.httpClient.delete(this.url +'admin/activities/'+ activityID).pipe(map((response: Response) => response.json()))
+    
+}
+
+
 }

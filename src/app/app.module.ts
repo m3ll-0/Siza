@@ -23,7 +23,6 @@ import { AdminUserOverviewComponent } from './admin/admin-user-overview/admin-us
 import { AccessdeniedComponent } from './admin/accessdenied/accessdenied.component';
 import { MaterialModule } from './material.module';
 import { UserComponent } from './admin/admin-user-overview/user/user.component';
-import { AdminActivitiesComponent } from './admin/admin-activities/admin-activities.component';
 import { AdminCategoriesComponent } from './admin/admin-categories/admin-categories.component';
 import { AdminFormComponent } from './admin/admin-form/admin-form.component'
 import { FooterComponent } from './footer/footer.component';
@@ -33,9 +32,10 @@ import { TrainingComponent } from './training/training.component';
 import { SizasportsSubcategoryComponent } from './sizasports/sizasports-subcategory/sizasports-subcategory.component';
 import { SizasportsActivityCardComponent } from './sizasports/sizasports-activity-card/sizasports-activity-card.component';
 import { ActivitiesComponent } from './activities/activities.component';
-import { AdminActivityComponent } from './admin-activity/admin-activity.component';
-import { AdminActivityspecificComponent } from './admin-activityspecific/admin-activityspecific.component';
 import { CommentSectionComponent } from './activities/comment-section/comment-section.component';
+import { AdminActivityComponent } from './admin/admin-activity/admin-activity.component';
+import { AdminActivityspecificComponent } from './admin/admin-activityspecific/admin-activityspecific.component';
+import { AddActivityComponent } from './admin/add-activity/add-activity.component';
 
 
 @NgModule({
@@ -53,7 +53,6 @@ import { CommentSectionComponent } from './activities/comment-section/comment-se
     AdminUserOverviewComponent,
     AccessdeniedComponent,
     UserComponent,
-    AdminActivitiesComponent,
     AdminCategoriesComponent,
     AdminFormComponent,
     FooterComponent,
@@ -66,8 +65,9 @@ import { CommentSectionComponent } from './activities/comment-section/comment-se
     ActivitiesComponent,
     AdminActivityComponent,
     AdminActivityspecificComponent,
+    CommentSectionComponent,
     SizasportsCategoryCardComponent,
-    CommentSectionComponent
+    AddActivityComponent,
   ],
   imports: [
     MaterialModule,

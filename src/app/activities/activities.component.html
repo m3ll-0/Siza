@@ -1,4 +1,5 @@
-<div id="contentToConvert" #content class="text-center">
+<div class="text-center"> 
+<div id="contentToConvert" #content  >
   <div *ngFor="let activities of activities">
       <img src="../../assets/images/SizaBanner.PNG" class="banner" />
  
@@ -21,14 +22,41 @@
           <h5>
               Materiaal
           </h5> 
-          <p>
-              - Jute zak/ slaapzak/ dekbed overtrek
-              - 2 flessen / pionnen
-          </p>
+          <p>{{activities.material}}</p>
           <h5>
-              Activiteit
+              Activiteit <br>
           </h5> 
           <p>
+              - Je gaat in de jutezak staan en pakt
+              deze met beide handen goed vast
+              - De deelnemers moeten een bepaald
+              parcours afleggen (bijv. 10 meter met
+              piolonnen uitgezet), waarbij hun benen
+              in een jute zak is gestoken. Wie het
+              eerst aankomt heeft gewonnen.
+              - De een zal zich het beste springend
+              voortbewegen en de ander door
+              gewoon te lopen.
+              - Je gaat in de jutezak staan en pakt
+              deze met beide handen goed vast
+              - De deelnemers moeten een bepaald
+              parcours afleggen (bijv. 10 meter met
+              piolonnen uitgezet), waarbij hun benen
+              in een jute zak is gestoken. Wie het
+              eerst aankomt heeft gewonnen.
+              - De een zal zich het beste springend
+              voortbewegen en de ander door
+              gewoon te lopen.
+              - Je gaat in de jutezak staan en pakt
+              deze met beide handen goed vast
+              - De deelnemers moeten een bepaald
+              parcours afleggen (bijv. 10 meter met
+              piolonnen uitgezet), waarbij hun benen
+              in een jute zak is gestoken. Wie het
+              eerst aankomt heeft gewonnen.
+              - De een zal zich het beste springend
+              voortbewegen en de ander door
+              gewoon te lopen.
               - Je gaat in de jutezak staan en pakt
               deze met beide handen goed vast
               - De deelnemers moeten een bepaald
@@ -69,5 +97,10 @@
         </div>
       </div>
     </div>
+  </div>
 </div>
-<button (click)="captureScreen()" > Export to PDF </button>
+    <div>
+        <button type = "button" class="btn btn-dark" (click)="captureScreen()" > Export to PDF </button>
+    </div>  
+  </div>
+
