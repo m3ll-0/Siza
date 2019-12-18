@@ -9,7 +9,6 @@ import { AppComponent } from '../app.component';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit, OnDestroy {
-
   public isAuthenticated = false
   isAdmin: Boolean
   isNavbarCollapsed = true

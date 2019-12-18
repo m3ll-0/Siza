@@ -1,10 +1,10 @@
-<mat-card class="small-card">
+<mat-card class="small-card" (click)="onClickCategoryCard(categoryID)">
         <mat-card-content>
-                <img class="img-small-card" src="https://image.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg"/>
+                <img class="img-small-card" src="../../assets/crow.gif"/>
         </mat-card-content>
         <mat-card-content>
-            <div class="small-card-header">
-                <b>{{ category.name }}</b>
+            <div class="small-card-header">     
+                <a [routerLink]="['/sizasports/category', categoryID]">{{ category.name }}</a>
             </div>
         </mat-card-content>
 </mat-card>

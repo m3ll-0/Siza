@@ -32,7 +32,7 @@ export class AuthInterceptorService implements HttpInterceptor {
     return this.authService.user.pipe(
       take(1),
       exhaustMap(user => {
-        
+ 
         if (!user) {
           return next.handle(req)
         }
@@ -40,7 +40,6 @@ export class AuthInterceptorService implements HttpInterceptor {
         if (this.isTokenExpired(user.accessToken)){
           this.authService.refreshAccesToken();
         }
-
 
         const headers = req.headers
           .set('Content-Type', 'application/json')

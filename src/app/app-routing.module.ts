@@ -13,17 +13,28 @@ import { AccessdeniedComponent } from './admin/accessdenied/accessdenied.compone
 import { AdminCategoriesComponent } from './admin/admin-categories/admin-categories.component'
 import { AdminActivitiesComponent } from './admin/admin-activities/admin-activities.component'
 import { AdminFormComponent } from './admin/admin-form/admin-form.component'
-
-
+import { AboutComponent } from './about/about.component'
+import { TrainingComponent } from './training/training.component'
+import { BeweegposterComponent } from './beweegposter/beweegposter.component'
+import { SizasportsSubcategoryComponent } from './sizasports/sizasports-subcategory/sizasports-subcategory.component'
+import { AdminActivityspecificComponent } from './admin-activityspecific/admin-activityspecific.component'
+import { AdminActivityComponent } from './admin-activity/admin-activity.component'
+import { ActivitiesComponent } from './activities/activities.component'
 
 
 const routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
+    { path: 'auth', component: AuthComponent },
+    { path: 'sizasports', component: SizasportsComponent, canActivate: [AuthGuard]},
+    { path: 'about', component: AboutComponent },
+    { path: 'training', component: TrainingComponent },
+    { path: 'poster', component: BeweegposterComponent },
+    { path: 'sizasports/category/:id', component: SizasportsSubcategoryComponent, canActivate: [AuthGuard]},  
     { path: 'auth', children: [
         { path: '', component: AuthComponent},
-        { path: 'signup', component: SignupComponent},
         { path: 'verifyemail/:token', component: VerifyEmailComponent},
+        { path: 'signup', component: SignupComponent},
     ] },
     { path: 'admin', component: AdminDashboardComponent, canActivate: [AuthAdminGuard], children: [
         { path: '', redirectTo: 'usersoverview', pathMatch: 'full', },
@@ -34,13 +45,18 @@ const routes = [
         
     ] },
     { path: 'accessdenied', component: AccessdeniedComponent},
-    { path: 'sizasports', component: SizasportsComponent, canActivate: [AuthGuard]}
-
+    { path: 'sizasports', component: SizasportsComponent, canActivate: [AuthGuard]},
+    { path: 'sizasports', component: SizasportsComponent, canActivate: [AuthGuard]},
+    { path: 'activity/:id', component: ActivitiesComponent},
+    // { path: 'admin/activity', children: [
+    //     { path: 'activity', component: AdminActivityComponent},
+    //     { path: 'activity/:id', component: AdminActivityspecificComponent}
+    // ]},
 
 ]
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes, { enableTracing: true })],
+    imports: [RouterModule.forRoot(routes, {enableTracing: true })],
     exports: [RouterModule]
   })
   export class AppRoutingModule {

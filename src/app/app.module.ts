@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
@@ -27,6 +26,17 @@ import { UserComponent } from './admin/admin-user-overview/user/user.component';
 import { AdminActivitiesComponent } from './admin/admin-activities/admin-activities.component';
 import { AdminCategoriesComponent } from './admin/admin-categories/admin-categories.component';
 import { AdminFormComponent } from './admin/admin-form/admin-form.component'
+import { FooterComponent } from './footer/footer.component';
+import { BeweegposterComponent } from './beweegposter/beweegposter.component';
+import { AboutComponent } from './about/about.component';
+import { TrainingComponent } from './training/training.component';
+import { SizasportsSubcategoryComponent } from './sizasports/sizasports-subcategory/sizasports-subcategory.component';
+import { SizasportsActivityCardComponent } from './sizasports/sizasports-activity-card/sizasports-activity-card.component';
+import { ActivitiesComponent } from './activities/activities.component';
+import { AdminActivityComponent } from './admin-activity/admin-activity.component';
+import { AdminActivityspecificComponent } from './admin-activityspecific/admin-activityspecific.component';
+import { CommentSectionComponent } from './activities/comment-section/comment-section.component';
+
 
 @NgModule({
   declarations: [
@@ -45,7 +55,18 @@ import { AdminFormComponent } from './admin/admin-form/admin-form.component'
     UserComponent,
     AdminActivitiesComponent,
     AdminCategoriesComponent,
-    AdminFormComponent
+    AdminFormComponent,
+    FooterComponent,
+    BeweegposterComponent,
+    AboutComponent,
+    SizasportsSubcategoryComponent,
+    TrainingComponent,
+    SizasportsActivityCardComponent,
+    ActivitiesComponent,
+    AdminActivityComponent,
+    AdminActivityspecificComponent,
+    SizasportsCategoryCardComponent,
+    CommentSectionComponent
   ],
   imports: [
     MaterialModule,
