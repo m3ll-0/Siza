@@ -7,6 +7,12 @@ import { AuthGuard } from './auth/auth.guard';
 import { AboutComponent } from './about/about.component'
 import { TrainingComponent } from './training/training.component'
 import { BeweegposterComponent } from './beweegposter/beweegposter.component'
+import { SizasportsSubcategoryComponent } from './sizasports/sizasports-subcategory/sizasports-subcategory.component'
+import { SignupComponent } from './auth/signup/signup.component'
+import { VerifyEmailComponent } from './auth/verify-email/verify-email.component'
+import { AdminActivityspecificComponent } from './admin-activityspecific/admin-activityspecific.component'
+import { AdminActivityComponent } from './admin-activity/admin-activity.component'
+import { ActivitiesComponent } from './activities/activities.component'
 
 const routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -16,10 +22,22 @@ const routes = [
     { path: 'about', component: AboutComponent },
     { path: 'training', component: TrainingComponent },
     { path: 'poster', component: BeweegposterComponent }
+    { path: 'sizasports/category/:id', component: SizasportsSubcategoryComponent, canActivate: [AuthGuard]},  
+    { path: 'auth', children: [
+        { path: '', component: AuthComponent},
+        { path: 'verifyemail/:token', component: VerifyEmailComponent},
+        { path: 'signup', component: SignupComponent},
+    ] },
+    { path: 'sizasports', component: SizasportsComponent, canActivate: [AuthGuard]},
+    { path: 'activity/:id', component: ActivitiesComponent},
+    { path: 'admin/activity', children: [
+        { path: 'activity', component: AdminActivityComponent},
+        { path: 'activity/:id', component: AdminActivityspecificComponent}
+    ]},
 ]
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes, { enableTracing: true })],
+    imports: [RouterModule.forRoot(routes, {enableTracing: true })],
     exports: [RouterModule]
   })
   export class AppRoutingModule {

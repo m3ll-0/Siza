@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+            <div class="col-sm">
+
+                <button (click)="onGoBack()" mat-stroked-button color="accent">Terug</button>
+                <br><br>
+
+                <h4>Categoriën</h4>
+                <div class='empty-message' *ngIf="categories.length === 0 && isLoadingCategories === false"><b><p>Er zijn geen subcategoriën aanwezig.</p></b></div>
+                <app-sizasports-category-card *ngFor="let categories of categories" [category]="categories"></app-sizasports-category-card>
+                <div class="d-flex flex-row justify-content-center align-items-center"><app-loading-spinner *ngIf="isLoadingCategories"></app-loading-spinner></div>  
+                <div *ngIf="isLoadingCategories" style="height: 100px"></div>                      
+
+                <h4>Activiteiten</h4>                
+                <div class='empty-message' *ngIf="activities.length === 0 && isLoadingActivities === false"><b><p>Er zijn geen activiteiten aanwezig.</p></b></div>
+                <app-sizasports-activity-card *ngFor="let activities of activities" [activity]="activities"></app-sizasports-activity-card>
+                <div class="d-flex flex-row justify-content-center align-items-center"><app-loading-spinner *ngIf="isLoadingActivities"></app-loading-spinner></div>                        
+
+            </div>
+    </div>
+</div>
+

@@ -8,7 +8,6 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit, OnDestroy {
-
   public isAuthenticated = false
   isNavbarCollapsed = true
   private userSub: Subscription

@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Category } from 'src/app/models/Category';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ConnectedPositionStrategy } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-sizasports-category-card',
@@ -9,11 +11,19 @@ import { Category } from 'src/app/models/Category';
 export class SizasportsCategoryCardComponent implements OnInit {
 
   @Input() category: Category
+  public categoryID : string;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private router: Router) {
+
+  }
 
   ngOnInit() {
-    console.log(this.category);
+    this.categoryID = this.category._id;
+  }
+
+  onClickCategoryCard(categoryID: string)
+  {
+    this.router.navigate(['/sizasports/category', categoryID])
   }
 
 }
