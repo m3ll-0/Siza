@@ -24,6 +24,7 @@ import { SizasportsActivityCardComponent } from './sizasports/sizasports-activit
 import { ActivitiesComponent } from './activities/activities.component';
 import { AdminActivityComponent } from './admin-activity/admin-activity.component';
 import { AdminActivityspecificComponent } from './admin-activityspecific/admin-activityspecific.component';
+import { CommentSectionComponent } from './activities/comment-section/comment-section.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { AdminActivityspecificComponent } from './admin-activityspecific/admin-a
     ActivitiesComponent,
     AdminActivityComponent,
     AdminActivityspecificComponent,
-    SizasportsCategoryCardComponent
+    SizasportsCategoryCardComponent,
+    CommentSectionComponent
   ],
   imports: [
     BrowserModule,    
