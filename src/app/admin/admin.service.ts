@@ -24,10 +24,9 @@ export class AdminService {
   }
 
   setAdmin(id: string, bool: boolean) {
-    return this.http.post(`${this.API_BASE_URL}/${id}/${bool}`, null).subscribe(
-      (data) => {
-        console.log(data)
-      }
+    return this.http.post(`${this.API_BASE_URL}/${id}/${bool}`, null)
+    .pipe(
+      catchError(this.handleError)
     )
   }
 

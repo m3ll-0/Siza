@@ -23,7 +23,10 @@ import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard
 import { AdminUserOverviewComponent } from './admin/admin-user-overview/admin-user-overview.component';
 import { AccessdeniedComponent } from './admin/accessdenied/accessdenied.component';
 import { MaterialModule } from './material.module';
-import { UserComponent } from './admin/admin-user-overview/user/user.component'
+import { UserComponent } from './admin/admin-user-overview/user/user.component';
+import { AdminActivitiesComponent } from './admin/admin-activities/admin-activities.component';
+import { AdminCategoriesComponent } from './admin/admin-categories/admin-categories.component';
+import { AdminFormComponent } from './admin/admin-form/admin-form.component'
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { UserComponent } from './admin/admin-user-overview/user/user.component'
     AdminDashboardComponent,
     AdminUserOverviewComponent,
     AccessdeniedComponent,
-    UserComponent
+    UserComponent,
+    AdminActivitiesComponent,
+    AdminCategoriesComponent,
+    AdminFormComponent
   ],
   imports: [
     MaterialModule,

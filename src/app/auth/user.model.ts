@@ -3,7 +3,8 @@ export class User {
       private _accessToken: string,
       private _refreshToken: string,
       private _email: string,
-      private _isAdmin: Boolean
+      private _isAdmin: Boolean,
+      private _userId?: string
     ) {}
   
     get accessToken() {
@@ -20,6 +21,14 @@ export class User {
 
     get isAdmin() {
       return this._isAdmin
+    }
+
+    set isAdmin(bool: Boolean) {
+      this._isAdmin = bool
+    }
+
+    get userId() {
+      return this._userId
     }
   
   }

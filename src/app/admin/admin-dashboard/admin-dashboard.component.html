@@ -1,7 +1,17 @@
-<h5>Administrator Overzicht</h5>
-<app-admin-user-overview></app-admin-user-overview>
-<!-- <mat-tab-group mat-align-tabs="center" >
-    <mat-tab label="Domeinen">  </mat-tab>
-    <mat-tab label="Second"> Content 2 </mat-tab>
-    <mat-tab label="Third"> Content 3 </mat-tab>
-  </mat-tab-group> -->
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened>
+        
+        <mat-nav-list>
+            <h6 mat-subheader>Administrator Overzicht</h6>
+            <a mat-list-item routerLink='/admin/usersoverview'>Gebruikers</a>
+            <a mat-list-item routerLink='/admin/categories'>Kaarten</a>
+            <a mat-list-item routerLink='/admin/activities'>Categorie&#235;n</a>
+            <a mat-list-item routerLink='/admin/form'>Forum</a>
+          </mat-nav-list>
+    </mat-drawer>
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>
+
+

@@ -10,6 +10,9 @@ import { VerifyEmailComponent } from './auth/verify-email/verify-email.component
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component'
 import { AdminUserOverviewComponent } from './admin/admin-user-overview/admin-user-overview.component'
 import { AccessdeniedComponent } from './admin/accessdenied/accessdenied.component'
+import { AdminCategoriesComponent } from './admin/admin-categories/admin-categories.component'
+import { AdminActivitiesComponent } from './admin/admin-activities/admin-activities.component'
+import { AdminFormComponent } from './admin/admin-form/admin-form.component'
 
 
 
@@ -22,11 +25,15 @@ const routes = [
         { path: 'signup', component: SignupComponent},
         { path: 'verifyemail/:token', component: VerifyEmailComponent},
     ] },
-    { path: 'admin', children: [
-        { path: '', component: AdminDashboardComponent, canActivate: [AuthAdminGuard]},
-        { path: 'usersoverview', component: AdminUserOverviewComponent, canActivate: [AuthAdminGuard]},
-        { path: 'accessdenied', component: AccessdeniedComponent},
+    { path: 'admin', component: AdminDashboardComponent, canActivate: [AuthAdminGuard], children: [
+        { path: '', redirectTo: 'usersoverview', pathMatch: 'full', },
+        { path: 'usersoverview', component: AdminUserOverviewComponent},
+        { path: 'categories', component: AdminCategoriesComponent},
+        { path: 'activities', component: AdminActivitiesComponent},
+        { path: 'form', component: AdminFormComponent},
+        
     ] },
+    { path: 'accessdenied', component: AccessdeniedComponent},
     { path: 'sizasports', component: SizasportsComponent, canActivate: [AuthGuard]}
 
 

@@ -1,4 +1,7 @@
-<mat-tab-group mat-align-tabs="center" >
+<div class="alert alert-danger" *ngIf="error">
+    <p>{{ error }}</p>
+</div>
+<mat-tab-group mat-align-tabs="center" (selectedTabChange)="print($event)" >
     <mat-tab label="Domeinen"> 
         <mat-accordion>
             <mat-expansion-panel>
