@@ -4,13 +4,13 @@
     bottom: 0;
     left: 0;
     padding: 1rem;
-    background-color: grey;
-    border-top: 4px #1bb4e3 solid;
-    background-image: linear-gradient(to bottom, #0f3f91 0%, #1bb4e3 100%);
+    background-color: #e9e8e8;
+    border-top: 2px #e31b83 solid;
+    /* background: linear-gradient(to bottom, #0f3f91 0%, #1bb4e3 100%); */
     text-align: left;
   }
 
   .content{
-      color: white;
+    color: #3e3737;
       line-height: 5px;
   }

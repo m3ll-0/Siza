@@ -21,7 +21,7 @@ const routes = [
     { path: 'sizasports', component: SizasportsComponent, canActivate: [AuthGuard]},
     { path: 'about', component: AboutComponent },
     { path: 'training', component: TrainingComponent },
-    { path: 'poster', component: BeweegposterComponent }
+    { path: 'poster', component: BeweegposterComponent },
     { path: 'sizasports/category/:id', component: SizasportsSubcategoryComponent, canActivate: [AuthGuard]},  
     { path: 'auth', children: [
         { path: '', component: AuthComponent},
