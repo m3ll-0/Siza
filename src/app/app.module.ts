@@ -18,6 +18,9 @@ import { SizasportsComponent } from './sizasports/sizasports.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { SizasportsCategoryCardComponent } from './sizasports/sizasports-category-card/sizasports-category-card.component';
 import { FooterComponent } from './footer/footer.component';
+import { BeweegposterComponent } from './beweegposter/beweegposter.component';
+import { AboutComponent } from './about/about.component';
+import { TrainingComponent } from './training/training.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { FooterComponent } from './footer/footer.component';
     LoadingSpinnerComponent,
     SizasportsComponent,
     SizasportsCategoryCardComponent,
-    FooterComponent
+    FooterComponent,
+    BeweegposterComponent,
+    AboutComponent,
+    TrainingComponent
   ],
   imports: [
     BrowserModule,    

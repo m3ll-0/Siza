@@ -3,10 +3,6 @@
     position: relative !important;
 }
 
-.navbar-brand{
-  background-image: url(../../assets/siza_logo_small.png);
-}
-
 /* Navbar button style */
 .btn-nav {
     color: #D40D8B !important;

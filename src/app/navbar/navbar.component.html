@@ -5,7 +5,7 @@
       routerLink="/"
       [routerLinkActive]="['active']"
       [routerLinkActiveOptions]="{ exact: true }"
-      ></a
+      >Siza</a
     >
     <button
       class="navbar-toggler hidden-sm-up"
@@ -23,6 +23,36 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/" [routerLinkActive]="['active']">Home</a>
         </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="about"
+            [routerLinkActive]="['active']"
+            [routerLinkActiveOptions]="{ exact: true }"
+            aria-disabled="true"
+            >Wie zijn wij?</a
+          >
+
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="training"
+              [routerLinkActive]="['active']"
+              [routerLinkActiveOptions]="{ exact: true }"
+              aria-disabled="true"
+              >BAF Training</a
+            >
+
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                routerLink="poster"
+                [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{ exact: true }"
+                aria-disabled="true"
+                >Beweegposter</a
+              >
 
         <li class="nav-item">
           <a
