@@ -23,6 +23,16 @@ export class ApiServiceService {
     return this.httpClient.get(this.url + 'activities');
   }
 
+  public getCategoriesById(parentId: string)
+  {
+    return this.httpClient.get(this.url + 'categories/' + parentId );
+  }
+
+  public getActivitiesById(categoryId: string)
+  {
+    return this.httpClient.get(this.url + 'activities/category/' + categoryId );
+  }
+  
   public getActivitiesFromCategory(categoryID){
     return this.httpClient.get(this.url +'activities/category/' + categoryID);
   }

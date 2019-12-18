@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+   import { Component } from '@angular/core';
 import { AuthService } from './auth/auth.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { AuthService } from './auth/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'siza';
+  title = 'Siza';
 
   constructor(private authService: AuthService) {
     this.authService.autoLogin();

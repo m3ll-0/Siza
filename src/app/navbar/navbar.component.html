@@ -5,7 +5,7 @@
       routerLink="/"
       [routerLinkActive]="['active']"
       [routerLinkActiveOptions]="{ exact: true }"
-      >{{ title }}</a
+      >Siza</a
     >
     <button
       class="navbar-toggler hidden-sm-up"
@@ -27,7 +27,38 @@
         <li class="nav-item">
           <a
             class="nav-link"
+            routerLink="about"
+            [routerLinkActive]="['active']"
+            [routerLinkActiveOptions]="{ exact: true }"
+            aria-disabled="true"
+            >Wie zijn wij?</a
+          >
+
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="training"
+              [routerLinkActive]="['active']"
+              [routerLinkActiveOptions]="{ exact: true }"
+              aria-disabled="true"
+              >BAF Training</a
+            >
+
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                routerLink="poster"
+                [routerLinkActive]="['active']"
+                [routerLinkActiveOptions]="{ exact: true }"
+                aria-disabled="true"
+                >Beweegposter</a
+              >
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
             routerLink="sizasports"
+            routerLink="/sizasports"
             [routerLinkActive]="['active']"
             [routerLinkActiveOptions]="{ exact: true }"
             aria-disabled="true"
@@ -40,6 +71,7 @@
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
           <!-- <button ngbDropdownItem routerLink="settings">Settings</button>
           <hr /> -->
+          <button *ngIf="isAdmin" ngbDropdownItem  routerLink="admin">Administrator</button>
           <button ngbDropdownItem (click)="onLogout()">Logout</button>
         </div>
       </div>
