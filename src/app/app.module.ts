@@ -44,7 +44,7 @@ import { CommentSectionComponent } from './activities/comment-section/comment-se
     FooterComponent,
     BeweegposterComponent,
     AboutComponent,
-    TrainingComponent
+    TrainingComponent,
     SizasportsSubcategoryComponent,
     SizasportsActivityCardComponent,
     ActivitiesComponent,
