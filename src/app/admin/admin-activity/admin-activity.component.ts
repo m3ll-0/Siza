@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiServiceService } from '../api-service.service';
-import { ActivatedRoute } from '@angular/router';
+import { ApiServiceService } from '../../api-service.service';
 
 @Component({
   selector: 'app-admin-activity',
@@ -9,23 +8,27 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AdminActivityComponent implements OnInit {
 
-
   activities
   
-
   constructor(
-    private apiService: ApiServiceService,
-    private activatedRoute: ActivatedRoute 
+    private apiService: ApiServiceService
     ) { 
     
-    var value 
-    this.activatedRoute.params.subscribe( params => value = params.id );
-    this.apiService.getActivitiesFromCategory(value).subscribe((data) =>{
+    this.apiService.getActivities().subscribe((data) =>{
       this.activities = data['activities'];
- 
     } )
   }
 
+  addActivity(){
+
+  }
+  editActivity(){
+    
+  }
+  deleteActivity(){
+
+  }
+  
   ngOnInit() {
     
   }

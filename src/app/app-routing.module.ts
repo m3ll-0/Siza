@@ -6,12 +6,10 @@ import { SizasportsComponent } from './sizasports/sizasports.component'
 import { AuthGuard } from './auth/auth.guard';
 import { SignupComponent } from './auth/signup/signup.component'
 import { VerifyEmailComponent } from './auth/verify-email/verify-email.component'
-import { AdminActivityspecificComponent } from './admin-activityspecific/admin-activityspecific.component'
-import { AdminActivityComponent } from './admin-activity/admin-activity.component'
+import { AdminActivityspecificComponent } from './admin/admin-activityspecific/admin-activityspecific.component'
+import { AdminActivityComponent } from './admin/admin-activity/admin-activity.component'
 import { ActivitiesComponent } from './activities/activities.component'
-
-
-
+import { AddActivityComponent } from './admin/add-activity/add-activity.component';
 
 const routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -23,9 +21,10 @@ const routes = [
     ] },
     { path: 'sizasports', component: SizasportsComponent, canActivate: [AuthGuard]},
     { path: 'activity/:id', component: ActivitiesComponent},
-    { path: 'admin/activity', children: [
+    { path: 'admin', children: [
         { path: 'activity', component: AdminActivityComponent},
-        { path: 'activity/:id', component: AdminActivityspecificComponent}
+        { path: 'activity/:id', component: AdminActivityspecificComponent},
+        { path: 'add-activity', component: AddActivityComponent}
     ]},
 ]
 
