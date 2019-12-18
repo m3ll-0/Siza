@@ -6,8 +6,9 @@ import { User } from './user.model'
 import { Router } from '@angular/router'
 
 export interface AuthResponseData {
-    accessToken: string,
-    refreshToken: string
+    accesToken: string,
+    refreshToken: string,
+    user: User
 }
 
 @Injectable({ providedIn: 'root' })
@@ -32,10 +33,11 @@ private API_URL_SIGNUP = "/auth/signup"
       .pipe(
         catchError(this.handleError),
         tap(resData => {
-
           this.handleAuthentication(
             resData.refreshToken,
-            resData.accessToken,
+            resData.accesToken,
+            resData.user.isAdmin,
+            resData.user.email,
             stayLoggedIn
           )
         })
@@ -63,19 +65,54 @@ private API_URL_SIGNUP = "/auth/signup"
     )
   }
 
+  refreshAccesToken() {
+    const userData: {
+      _accessToken: string,
+      _refreshToken: string,
+      _isAmdin: Boolean,
+      _email: string,
+    } = JSON.parse(localStorage.getItem('userData'))
+
+    return this.http.post(`${this.API_BASE_URL}/auth/refreshtoken`, {
+      'refreshToken' : userData._refreshToken,
+      'email' : userData._email,
+
+    })
+
+    .pipe(
+      catchError(this.handleError)
+    )
+
+    .subscribe(
+      data => {
+        console.log(data)
+        this.handleAuthentication(
+          data['refreshToken'],
+          userData._accessToken,
+          userData._isAmdin,
+          userData._email,
+          true)
+      }
+    )
+}
+
   autoLogin() {
     const userData: {
         _accessToken: string,
-        refreshToken: string
+        _refreshToken: string,
+        _isAmdin: Boolean,
+        _email: string,
     } = JSON.parse(localStorage.getItem('userData'))
 
     if (!userData) {
       return
     }
-
+    
     const loadedUser = new User(
       userData._accessToken,
-      userData.refreshToken,
+      userData._refreshToken,
+      userData._email,
+      userData['_isAdmin'],
     )
 
     if (loadedUser.accessToken) {
@@ -92,9 +129,12 @@ private API_URL_SIGNUP = "/auth/signup"
   private handleAuthentication(
         refreshToken: string,
         accessToken: string,
+        isAdmin: Boolean,
+        email: string,
         stayLoggedIn: boolean
   ) {
-    const user = new User(refreshToken, accessToken)
+
+    const user = new User(accessToken, refreshToken, email, isAdmin)
     this.user.next(user)
 
     if(stayLoggedIn)

@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
@@ -19,6 +18,14 @@ import { VerifyEmailComponent } from './auth/verify-email/verify-email.component
 import { SizasportsComponent } from './sizasports/sizasports.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { SizasportsCategoryCardComponent } from './sizasports/sizasports-category-card/sizasports-category-card.component';
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import { AdminUserOverviewComponent } from './admin/admin-user-overview/admin-user-overview.component';
+import { AccessdeniedComponent } from './admin/accessdenied/accessdenied.component';
+import { MaterialModule } from './material.module';
+import { UserComponent } from './admin/admin-user-overview/user/user.component';
+import { AdminActivitiesComponent } from './admin/admin-activities/admin-activities.component';
+import { AdminCategoriesComponent } from './admin/admin-categories/admin-categories.component';
+import { AdminFormComponent } from './admin/admin-form/admin-form.component'
 import { FooterComponent } from './footer/footer.component';
 import { BeweegposterComponent } from './beweegposter/beweegposter.component';
 import { AboutComponent } from './about/about.component';
@@ -29,6 +36,7 @@ import { ActivitiesComponent } from './activities/activities.component';
 import { AdminActivityComponent } from './admin-activity/admin-activity.component';
 import { AdminActivityspecificComponent } from './admin-activityspecific/admin-activityspecific.component';
 import { CommentSectionComponent } from './activities/comment-section/comment-section.component';
+
 
 @NgModule({
   declarations: [
@@ -41,11 +49,19 @@ import { CommentSectionComponent } from './activities/comment-section/comment-se
     VerifyEmailComponent,
     SizasportsComponent,
     SizasportsCategoryCardComponent,
+    AdminDashboardComponent,
+    AdminUserOverviewComponent,
+    AccessdeniedComponent,
+    UserComponent,
+    AdminActivitiesComponent,
+    AdminCategoriesComponent,
+    AdminFormComponent,
     FooterComponent,
     BeweegposterComponent,
     AboutComponent,
     TrainingComponent,
     SizasportsSubcategoryComponent,
+    TrainingComponent,
     SizasportsActivityCardComponent,
     ActivitiesComponent,
     AdminActivityComponent,
@@ -54,6 +70,7 @@ import { CommentSectionComponent } from './activities/comment-section/comment-se
     CommentSectionComponent
   ],
   imports: [
+    MaterialModule,
     BrowserModule,    
     BrowserAnimationsModule,
     SharedModule,
@@ -61,7 +78,7 @@ import { CommentSectionComponent } from './activities/comment-section/comment-se
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [ 
       AuthService, 
