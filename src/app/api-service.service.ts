@@ -11,7 +11,7 @@ export class ApiServiceService {
 
   constructor(private httpClient: HttpClient) {
     
-  }
+  } 
 
   public getCategories(){
     return this.httpClient.get(this.url + 'categories');
