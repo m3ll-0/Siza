@@ -97,3 +97,18 @@ html {
     padding-right: 50px 0;
     z-index: 10;
 }
+
+.tree-group
+{
+    background-color: white;
+    margin: 10px;
+}
+
+.tree-item{
+    background-color: white;
+    border-radius: 10px;
+}
+
+.tree-title{
+    background-color: white;
+}

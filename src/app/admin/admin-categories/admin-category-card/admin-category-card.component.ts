@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-admin-category-card',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminCategoryCardComponent implements OnInit {
 
+  @Input() name: string
+  isRoot = false;
+
   constructor() { }
 
   ngOnInit() {
+    if(this.name == 'root')
+    {
+      this.isRoot = true;
+    }
   }
 
 }
