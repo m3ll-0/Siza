@@ -79,3 +79,21 @@ html {
 {
     line-height: 3;
 }
+
+.content{
+    width: 750px;
+    margin-right: auto;
+}
+
+.emphasis{
+    width: 750px;
+    font-weight: bold;
+}
+
+.content_wrapper {
+    width: 100%;
+    position: relative;
+    padding-left: 50px 0;
+    padding-right: 50px 0;
+    z-index: 10;
+}
