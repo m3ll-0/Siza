@@ -16,7 +16,7 @@ import { AboutComponent } from './about/about.component'
 import { TrainingComponent } from './training/training.component'
 import { BeweegposterComponent } from './beweegposter/beweegposter.component'
 import { SizasportsSubcategoryComponent } from './sizasports/sizasports-subcategory/sizasports-subcategory.component'
-import { AdminActivityspecificComponent } from './admin/admin-activityspecific/admin-activityspecific.component'
+import { AdminActivityeditComponent } from './admin/admin-activityedit/admin-activityedit.component'
 import { AdminActivityComponent } from './admin/admin-activity/admin-activity.component'
 import { ActivitiesComponent } from './activities/activities.component'
 import { AddActivityComponent } from './admin/add-activity/add-activity.component';
@@ -41,7 +41,7 @@ const routes = [
         { path: 'categories', component: AdminCategoriesComponent},
         { path: 'form', component: AdminFormComponent},
         { path: 'activities', component: AdminActivityComponent},
-        { path: 'activities/:id', component: AdminActivityspecificComponent},
+        { path: 'activities/:id', component: AdminActivityeditComponent},
         { path: 'addactivity', component: AddActivityComponent}
     ] },
     { path: 'accessdenied', component: AccessdeniedComponent},

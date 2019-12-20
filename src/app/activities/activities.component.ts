@@ -42,7 +42,7 @@ public captureScreen()
     html2canvas(data, {
       useCORS : true,
       scrollX: 0,
-      scrollY: -700
+      scrollY: 0
     }).then(canvas => {  
       let imgWidth = 204;   
       let pageHeight = 295;    

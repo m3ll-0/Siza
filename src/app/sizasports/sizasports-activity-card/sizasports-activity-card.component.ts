@@ -20,7 +20,7 @@ export class SizasportsActivityCardComponent implements OnInit {
 
   onClickActivityCard(activityID: string)
   {
-    this.router.navigate(['/activity', activityID])
+    this.router.navigate(['/activities', activityID])
   }
 
 }

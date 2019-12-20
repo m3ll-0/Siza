@@ -34,9 +34,9 @@ import { SizasportsActivityCardComponent } from './sizasports/sizasports-activit
 import { ActivitiesComponent } from './activities/activities.component';
 import { CommentSectionComponent } from './activities/comment-section/comment-section.component';
 import { AdminActivityComponent } from './admin/admin-activity/admin-activity.component';
-import { AdminActivityspecificComponent } from './admin/admin-activityspecific/admin-activityspecific.component';
+import { AdminActivityeditComponent } from './admin/admin-activityedit/admin-activityedit.component';
 import { AddActivityComponent } from './admin/add-activity/add-activity.component';
-
+import { InlineEditComponent } from './admin/inline-edit/inline-edit.component';
 
 @NgModule({
   declarations: [
@@ -64,10 +64,11 @@ import { AddActivityComponent } from './admin/add-activity/add-activity.componen
     SizasportsActivityCardComponent,
     ActivitiesComponent,
     AdminActivityComponent,
-    AdminActivityspecificComponent,
+    AdminActivityeditComponent,
     CommentSectionComponent,
     SizasportsCategoryCardComponent,
     AddActivityComponent,
+    InlineEditComponent,
   ],
   imports: [
     MaterialModule,

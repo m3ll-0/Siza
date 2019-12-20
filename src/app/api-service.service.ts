@@ -41,6 +41,11 @@ export class ApiServiceService {
     return this.httpClient.get(this.url +'activities/' + categoryID);
   }
 
+  
+  // public editActivity(categoryID){
+  //   return this.httpClient.put(this.url +'activities/' + categoryID);
+  // }
+
   public deleteActivity(activityID): Observable<Object> {
     console.log(this.url +'activity'+ activityID);
     
