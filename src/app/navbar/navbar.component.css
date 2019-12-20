@@ -5,8 +5,9 @@
 
 /* Navbar button style */
 .btn-nav {
-    color: #D40D8B !important;
-    border-color: #D40D8B;
+  color: white !important;
+  border-color: #D40D8B;
+  background-color: #D40D8B;
   }
   
   .btn-nav:hover {

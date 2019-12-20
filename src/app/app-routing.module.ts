@@ -19,6 +19,7 @@ import { SizasportsSubcategoryComponent } from './sizasports/sizasports-subcateg
 import { AdminActivityeditComponent } from './admin/admin-activityedit/admin-activityedit.component'
 import { AdminActivityComponent } from './admin/admin-activity/admin-activity.component'
 import { ActivitiesComponent } from './activities/activities.component'
+import { AdminCategoryEditComponent } from './admin/admin-categories/admin-category-edit/admin-category-edit.component'
 import { AddActivityComponent } from './admin/add-activity/add-activity.component';
 
 const routes = [
@@ -39,6 +40,8 @@ const routes = [
         { path: '', redirectTo: 'usersoverview', pathMatch: 'full', },
         { path: 'usersoverview', component: AdminUserOverviewComponent},
         { path: 'categories', component: AdminCategoriesComponent},
+        { path: 'activities', component: AdminActivitiesComponent},
+        { path: 'editCategory', component: AdminCategoryEditComponent},
         { path: 'form', component: AdminFormComponent},
         { path: 'activities', component: AdminActivityComponent},
         { path: 'activities/:id', component: AdminActivityeditComponent},

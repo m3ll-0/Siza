@@ -10,10 +10,11 @@ import { map } from "rxjs/operators";
 export class ApiServiceService {
 
   url = 'https://siza-api.herokuapp.com/v1/'
+  // url = 'http://127.0.0.1:3000/v1/';
 
   constructor(private httpClient: HttpClient) {
     
-  }
+  } 
 
   public getCategories(){
     return this.httpClient.get(this.url + 'categories');
@@ -25,7 +26,7 @@ export class ApiServiceService {
 
   public getCategoriesById(parentId: string)
   {
-    return this.httpClient.get(this.url + 'categories/' + parentId );
+    return this.httpClient.get(this.url + 'categories/subs/' + parentId );
   }
 
   public getActivitiesById(categoryId: string)
@@ -39,6 +40,16 @@ export class ApiServiceService {
 
   public getSpecificActivity(categoryID){
     return this.httpClient.get(this.url +'activities/' + categoryID);
+  }
+
+  public getCategoriesRecursively()
+  {
+    return this.httpClient.get(this.url + 'categories/recursively')
+  }
+
+  public getSpecificCategory(categoryID)
+  {
+    return this.httpClient.get(this.url + 'categories/' + categoryID)
   }
 
   

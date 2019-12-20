@@ -1,1 +1,13 @@
-<p>admin-categories works!</p>
+<div style="width: 100%;">
+    <br />
+    <h4 style="text-align: center;">Overzicht categoriën</h4>
+    <br />
+</div>
+
+<div *ngIf="isLoading" style="text-align: center">
+    <app-loading-spinner> </app-loading-spinner>
+  </div>
+
+<div class='category-wrapper' *ngIf="!isLoading">
+    <tree-node [node]="node"></tree-node>
+</div>
