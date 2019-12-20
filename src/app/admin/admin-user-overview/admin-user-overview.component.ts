@@ -12,6 +12,7 @@ export class AdminUserOverviewComponent implements OnInit {
   admins: [User]
   error: string;
   displayedColumns: string[] = ['email', 'isAdmin'];
+  panelOpenState = false;
 
   constructor( private adminService: AdminService) {
     this.loadData();

@@ -4,9 +4,10 @@
     display: inline-block !important;
     height: 250px;
     margin: 20px;
-    border: 5px solid #d2e54d;
+    border: 5px solid #c3d432;    
+    /* background-color: #7DD5F0; */
     /* background: #e5d919; */
-    color: black;
+    color: black !important;
     cursor: pointer;
     box-shadow: none !important;
 }
@@ -33,11 +34,40 @@ html {
     box-shadow: 0 4px 10px -6px rgba(0,0,0,.5), 0 1px 5px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12) !important;
 }
 
+
 .small-card-header > a:link, a:visited{
-    color: black;
+    /* font-weight: 300; */
+    /* font-size: 1.2em;     */
+}
+
+.a-category
+{
+    color: blue !important;
+    font-weight: 500;
+
+}
+
+.a-category:visited
+{
+    color: blue !important;
+    font-weight: 500;
+}
+
+.a-navbar {
+    color: white !important;
     /* font-weight: 300; */
     /* font-size: 1.2em; */
 }
+
+.a-navbar:hover{
+    color: #0f3f91 !important;
+    /* font-weight: 300; */
+    /* font-size: 1.2em; */
+    background: white;
+    border-radius: 20px;
+}
+
+
 
 .small-activity-card
 {
@@ -53,10 +83,11 @@ html {
 .small-activity-card:hover{
     box-shadow: 0 4px 10px -6px rgba(0,0,0,.5), 0 1px 5px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12) !important;
 }
+
 .img-small-card
 {
     width: 100%;
-    /* height: 100px; */
+    height: 170px;
 }
 
 .small-card-header
@@ -69,8 +100,56 @@ html {
     padding: 10px;
     border: 10px solid #ffffff00 !important;
     border-radius: 5px;
-    background: #8784d2 !important;
-    color: #ffffff !important;
+    border: 5px solid #8784d2 !important;
+    color: #5e5e5e !important;
     margin-bottom: 30px;
     margin-top: 20px;
+}
+
+.p-line-height
+{
+    line-height: 3;
+}
+
+.content{
+    width: 750px;
+    margin-right: auto;
+}
+
+.emphasis{
+    width: 750px;
+    font-weight: bold;
+}
+
+.content_wrapper {
+    max-width: 750px;
+    width: relative;
+    position: relative;
+    padding-left: 50px 0;
+    padding-right: 50px 0;
+    z-index: 10;
+}
+
+.navbarprops{
+    background-color: #0f3f91;
+    color: white;
+}
+
+ h1 {
+    font-size: 30px !important;
+ }
+
+.tree-group
+{
+    background-color: white;
+    margin: 10px;
+}
+
+.tree-item{
+    background-color: white;
+    border-radius: 10px;
+}
+
+.tree-title{
+    background-color: white;
 }

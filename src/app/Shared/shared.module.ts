@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material'
 import { MatInputModule } from '@angular/material'
 import { MatSelectModule } from '@angular/material'
 import { HttpClientModule } from '@angular/common/http';
+import {MatTreeModule} from '@angular/material/tree';
 
 @NgModule(
     {
@@ -26,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
             MatListModule,
             MatCardModule,
             MatCheckboxModule,
-            HttpClientModule
+            HttpClientModule,
+            MatTreeModule
         ],
         providers: [],
         declarations: [],
@@ -43,7 +45,8 @@ import { HttpClientModule } from '@angular/common/http';
             MatListModule,
             MatCardModule,
             MatCheckboxModule,
-            HttpClientModule
+            HttpClientModule,
+            MatTreeModule
         ]
     }
 )

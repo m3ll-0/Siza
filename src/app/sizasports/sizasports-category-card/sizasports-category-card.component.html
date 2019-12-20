@@ -1,10 +1,10 @@
 <mat-card class="small-card" (click)="onClickCategoryCard(categoryID)">
         <mat-card-content>
-                <img class="img-small-card" src="../../assets/crow.gif"/>
+                <img class="img-small-card" src="{{category.image}}"/>
         </mat-card-content>
         <mat-card-content>
             <div class="small-card-header">     
-                <a [routerLink]="['/sizasports/category', categoryID]">{{ category.name }}</a>
+                <a class='a-category' [routerLink]="['/sizasports/category', categoryID]">{{ category.name }}</a>
             </div>
         </mat-card-content>
 </mat-card>

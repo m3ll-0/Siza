@@ -13,10 +13,11 @@ export class ApiServiceService {
   url = 'https://siza-api.herokuapp.com/v1/'
   private API_SUGGESTIONS = 'suggestions'
   private API_AUTH = 'auth'
+  // url = 'http://127.0.0.1:3000/v1/';
 
   constructor(private httpClient: HttpClient) {
     
-  }
+  } 
 
   public getCategories(){
     return this.httpClient.get(this.url + 'categories');
@@ -44,7 +45,7 @@ export class ApiServiceService {
 
   public getCategoriesById(parentId: string)
   {
-    return this.httpClient.get(this.url + 'categories/' + parentId );
+    return this.httpClient.get(this.url + 'categories/subs/' + parentId );
   }
 
   public getActivitiesById(categoryId: string)
@@ -62,5 +63,13 @@ export class ApiServiceService {
 
   private handleError(errorRes: HttpErrorResponse) {
     return throwError(errorRes.error.msg)
+  public getCategoriesRecursively()
+  {
+    return this.httpClient.get(this.url + 'categories/recursively')
+  }
+
+  public getSpecificCategory(categoryID)
+  {
+    return this.httpClient.get(this.url + 'categories/' + categoryID)
   }
 }

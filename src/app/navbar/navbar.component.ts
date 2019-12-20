@@ -16,14 +16,18 @@ export class NavbarComponent implements OnInit, OnDestroy {
   @Input() title: string
   @Input() child: AppComponent
 
-
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
+
     this.userSub = this.authService.user.subscribe(user => {
       this.isAuthenticated = !!user
       console.log(user)
-      this.isAdmin = user.isAdmin
+      
+      if(user !== null)
+      {
+        this.isAdmin = user.isAdmin
+      }
     })
   }
 
