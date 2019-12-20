@@ -24,13 +24,11 @@ export class AdminUserOverviewComponent implements OnInit {
   loadData() {
     this.adminService.getUsers().subscribe(
       (data) =>{
-        console.log(data);
         this.users = data['users'];
       }
     )
     this.adminService.getAdmins().subscribe(
       (data) =>{
-        console.log(data);
         this.admins = data['admins'];
       }
     )
@@ -39,7 +37,6 @@ export class AdminUserOverviewComponent implements OnInit {
   setAdmin(user, checked){
     this.adminService.setAdmin(user._id, checked).subscribe(
       resData => {
-        console.log(resData)
         this.loadData();
       },
       errorMessage => {

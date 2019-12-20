@@ -1,0 +1,21 @@
+.form-expand {
+}
+
+.wrapper {
+  margin-left: 25%;
+}
+
+.control-expand {
+  width: 600px;
+}
+
+#addQuestion {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 10px 0;
+  align-items: center;
+  justify-content: space-around;
+  display: flex;
+  float: none;
+}

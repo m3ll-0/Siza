@@ -1,11 +1,17 @@
-<div class="topic-header">
-    <h3>{{ headerTitle }} topic</h3>
+<div class="back-wrapper">
+    <button mat-button (click)="onGoBack()">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+        Terug
+    </button> 
+</div>
+
+<div class="d-flex justify-content-center align-items-center">  
+    <h3>Categorie {{ headerTitle }}</h3>
   </div>
   <hr width="20%" />
-  
+
   <div id="addQuestion">
-    <div class="col-sm-10 form-group-lg offset-md-5">
-      <form class="example-form" (ngSubmit)="onSaveTopic(f)" #f="ngForm">
+      <form class="example-form" (ngSubmit)="onSaveCategory(f)" #f="ngForm">
         <div class="form-group">
           <mat-form-field class="example-full-width control-expand">
             <input
@@ -13,10 +19,9 @@
               ngModel
               class="form-control"
               matInput
-              placeholder="Title"
+              placeholder="Naam"
               [(ngModel)]="formName"
               required
-              minlength="5"
             />
           </mat-form-field>
         </div>
@@ -24,24 +29,22 @@
         <div class="form-group">
           <mat-form-field class="example-full-width control-expand">
             <textarea
-              name="content"
+              name="Image"
               ngModel
               class="form-control"
               matInput
-              placeholder="Content"
+              placeholder="Afbeelding"
               [(ngModel)]="formImage"
               #content="ngModel"
-              required
-              minlength="10"
             ></textarea>
           </mat-form-field>
         </div>
   
         <div class="form-group">
           <mat-form-field>
-            <mat-label>Set parent</mat-label>
-            <mat-select name="parentcategory" ngModel class="form-control" [(ngModel)]="formSelected" required>
-              <mat-option *ngFor="let category of parentcategories" [value]="category.value">
+            <mat-label>Parent</mat-label>
+            <mat-select name="parent" ngModel class="form-control" [(ngModel)]="formParent">
+              <mat-option *ngFor="let category of parentcategories" [value]="category._id">
                 {{ category.name }}
               </mat-option>
             </mat-select>
@@ -49,9 +52,8 @@
         </div>
   
         <button class="btn btn-primary" type="submit" [disabled]="!f.valid">
-          Save topic
+          Opslaan
         </button>
       </form>
-    </div>
   </div>
   
