@@ -53,13 +53,13 @@ html {
     font-weight: 500;
 }
 
-.navbar-nav > a:link, a:visited{
+.a-navbar {
     color: white !important;
     /* font-weight: 300; */
     /* font-size: 1.2em; */
 }
 
-.nav-item > a:hover{
+.a-navbar:hover{
     color: #0f3f91 !important;
     /* font-weight: 300; */
     /* font-size: 1.2em; */

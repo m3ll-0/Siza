@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md fixed-top navbarprops">
   <div class="container">
     <a
-      class="navbar-brand color: white"
+      class="navbar-brand color: white a-navbar"
       routerLink="/"
       [routerLinkActive]="['active']"
       [routerLinkActiveOptions]="{ exact: true }"
@@ -21,12 +21,12 @@
     <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navbarsDefault">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/" [routerLinkActive]="['active']">Home</a>
+          <a class="nav-link a-navbar" routerLink="/" [routerLinkActive]="['active']">Home</a>
         </li>
 
         <li class="nav-item">
           <a
-            class="nav-link"
+            class="nav-link a-navbar"
             routerLink="/about"
             [routerLinkActive]="['active']"
             [routerLinkActiveOptions]="{ exact: true }"
@@ -36,7 +36,7 @@
 
           <li class="nav-item">
             <a
-              class="nav-link"
+              class="nav-link a-navbar"
               routerLink="/training"
               [routerLinkActive]="['active']"
               [routerLinkActiveOptions]="{ exact: true }"
@@ -46,7 +46,7 @@
 
             <li class="nav-item">
               <a
-                class="nav-link"
+                class="nav-link a-navbar" 
                 routerLink="/poster"
                 [routerLinkActive]="['active']"
                 [routerLinkActiveOptions]="{ exact: true }"
@@ -56,7 +56,7 @@
 
         <li class="nav-item">
           <a
-            class="nav-link"
+            class="nav-link a-navbar"
             routerLink="/sizasports"
             [routerLinkActive]="['active']"
             [routerLinkActiveOptions]="{ exact: true }"
