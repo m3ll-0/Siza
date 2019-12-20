@@ -12,7 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class SuggestionDetailComponent implements OnInit {
   private id: String
   usersEmail: String
-  suggestion: Suggestion
+  suggestion: any
 
   constructor(
     private location: Location, 
