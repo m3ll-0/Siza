@@ -37,7 +37,8 @@ import { AdminActivityComponent } from './admin-activity/admin-activity.componen
 import { AdminActivityspecificComponent } from './admin-activityspecific/admin-activityspecific.component';
 import { CommentSectionComponent } from './activities/comment-section/comment-section.component';
 import { BeweegtipComponent } from './beweegtip/beweegtip.component';
-
+import { AdminCategoryCardComponent } from './admin/admin-categories/admin-category-card/admin-category-card.component';
+import { TreeNode } from './admin/admin-categories/admin-categories.component'
 
 @NgModule({
   declarations: [
@@ -69,7 +70,9 @@ import { BeweegtipComponent } from './beweegtip/beweegtip.component';
     AdminActivityspecificComponent,
     SizasportsCategoryCardComponent,
     CommentSectionComponent,
-    BeweegtipComponent
+    BeweegtipComponent,
+    AdminCategoryCardComponent,
+    TreeNode
   ],
   imports: [
     MaterialModule,

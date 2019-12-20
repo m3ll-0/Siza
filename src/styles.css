@@ -107,4 +107,18 @@ html {
 
  h1 {
     font-size: 30px !important;
+
+.tree-group
+{
+    background-color: white;
+    margin: 10px;
+}
+
+.tree-item{
+    background-color: white;
+    border-radius: 10px;
+}
+
+.tree-title{
+    background-color: white;
 }

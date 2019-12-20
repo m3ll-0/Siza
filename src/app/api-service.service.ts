@@ -8,10 +8,11 @@ import { HttpClient } from '@angular/common/http'
 export class ApiServiceService {
 
   url = 'https://siza-api.herokuapp.com/v1/'
+  // url = 'http://127.0.0.1:3000/v1/';
 
   constructor(private httpClient: HttpClient) {
     
-  }
+  } 
 
   public getCategories(){
     return this.httpClient.get(this.url + 'categories');
@@ -37,5 +38,10 @@ export class ApiServiceService {
 
   public getSpecificActivity(categoryID){
     return this.httpClient.get(this.url +'activities/' + categoryID);
+  }
+
+  public getCategoriesRecursively()
+  {
+    return this.httpClient.get(this.url + 'categories/recursively')
   }
 }
