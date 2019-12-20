@@ -35,6 +35,7 @@ export class AdminCategoriesComponent implements OnInit {
   constructor(private apiService : ApiServiceService) { 
   }
 
+  isLoading = true;
   node : any;
 
   buildTree(categories : any) : any
@@ -117,6 +118,7 @@ export class AdminCategoriesComponent implements OnInit {
         name: 'root',
         children : categoryTree
       }
+      this.isLoading = false;
     })
   }
 
