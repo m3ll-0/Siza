@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http'
+import { Suggestion } from './models/Suggestion';
+import { throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +11,8 @@ import { HttpClient } from '@angular/common/http'
 export class ApiServiceService {
 
   url = 'https://siza-api.herokuapp.com/v1/'
+  private API_SUGGESTIONS = 'suggestions'
+  private API_AUTH = 'auth'
   // url = 'http://127.0.0.1:3000/v1/';
 
   constructor(private httpClient: HttpClient) {
@@ -20,6 +25,22 @@ export class ApiServiceService {
 
   public getActivities(){
     return this.httpClient.get(this.url + 'activities');
+  }
+
+  public getSuggetionById(id){
+    return this.httpClient.get<Suggestion>(`${this.url}${this.API_SUGGESTIONS}/${id}`)
+
+    .pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  public getUserById(id){
+    return this.httpClient.get<Suggestion>(`${this.url}${this.API_AUTH}/${id}`)
+
+    .pipe(
+      catchError(this.handleError)
+    )
   }
 
   public getCategoriesById(parentId: string)
@@ -40,6 +61,8 @@ export class ApiServiceService {
     return this.httpClient.get(this.url +'activities/' + categoryID);
   }
 
+  private handleError(errorRes: HttpErrorResponse) {
+    return throwError(errorRes.error.msg)
   public getCategoriesRecursively()
   {
     return this.httpClient.get(this.url + 'categories/recursively')

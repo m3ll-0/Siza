@@ -36,6 +36,7 @@ import { ActivitiesComponent } from './activities/activities.component';
 import { AdminActivityComponent } from './admin-activity/admin-activity.component';
 import { AdminActivityspecificComponent } from './admin-activityspecific/admin-activityspecific.component';
 import { CommentSectionComponent } from './activities/comment-section/comment-section.component';
+import { SuggestionDetailComponent } from './suggestion-detail/suggestion-detail.component';
 import { BeweegtipComponent } from './beweegtip/beweegtip.component';
 import { AdminCategoryCardComponent } from './admin/admin-categories/admin-category-card/admin-category-card.component';
 import { TreeNode } from './admin/admin-categories/admin-categories.component';
@@ -71,6 +72,7 @@ import { AdminCategoryEditComponent } from './admin/admin-categories/admin-categ
     AdminActivityspecificComponent,
     SizasportsCategoryCardComponent,
     CommentSectionComponent,
+    SuggestionDetailComponent,
     BeweegtipComponent,
     AdminCategoryCardComponent,
     TreeNode,
