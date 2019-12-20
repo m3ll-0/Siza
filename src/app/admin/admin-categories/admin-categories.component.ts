@@ -8,7 +8,7 @@ import { keyframes } from '@angular/animations';
   selector: 'tree-node',
   template: `
 
-  <app-admin-category-card [name]='node.name'></app-admin-category-card>
+  <app-admin-category-card [id]='node._id' [name]='node.name'></app-admin-category-card>
 
   <ul class='tree-group'>
     <div class='tree-item' *ngFor="let node of node.children">
@@ -59,9 +59,6 @@ export class AdminCategoriesComponent implements OnInit {
 
     while(leftOverCategories.length > 0)
     {
-
-      console.error(leftOverCategories);
-
       // Find item in array with parent id
       for(let index in leftOverCategories)
       {
