@@ -33,10 +33,11 @@
 
              <ng-container matColumnDef="onclick">
                 <th mat-header-cell *matHeaderCellDef>  
-                    <button mat-button [matMenuTriggerFor]="menu">Gelezen en Ongelezen</button>
+                    <button mat-button [matMenuTriggerFor]="menu">{{read}}</button>
                     <mat-menu #menu="matMenu">
-                    <button mat-menu-item>Gelezen</button>
-                    <button mat-menu-item>Ongelezen</button>
+                        <button mat-button (click)="filter(0)" >Gelezen en Ongelezen</button>
+                        <button mat-button (click)="filter(1)" >Gelezen</button>
+                        <button mat-button (click)="filter(2)" >Ongelezen</button>
                     </mat-menu>
                 </th>
                 <td mat-cell *matCellDef="let element">

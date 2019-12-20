@@ -12,7 +12,10 @@ import { ApiServiceService } from 'src/app/api-service.service';
   styleUrls: ['./admin-form.component.css']
 })
 export class AdminFormComponent implements OnInit, AfterViewInit {
+  options = ["Gelezen en ongelezen", "Gelezen", "Ongelezen"]
+  all = []
   suggestions = []
+  read : string
   isLoading = true
   error: string;
   sort: MatSort
@@ -22,6 +25,7 @@ export class AdminFormComponent implements OnInit, AfterViewInit {
 
   constructor( private adminService: AdminService, private router: Router, private apiService: ApiServiceService, ) {
     this.loadData();
+    this.read = this.options[0]
   }
 
   ngOnInit() {
@@ -43,6 +47,7 @@ export class AdminFormComponent implements OnInit, AfterViewInit {
               suggestionsData.push({usersEmail: data['user']['email'], suggestion: element})
               if (suggestionsData.length === length){
                 this.suggestions = suggestionsData
+                this.all = suggestionsData
                 this.isLoading = false
               }              
             }
@@ -53,8 +58,41 @@ export class AdminFormComponent implements OnInit, AfterViewInit {
     )
   }
 
+  filter(read){
+    this.read = this.options[read]
+    if (read === 0){
+      this.suggestions = this.all
+    }
+    if (read === 1){
+      this.suggestions = this.all.filter((element) => {
+        return element.suggestion.read === true
+      })
+    }
+    if (read === 2){
+      this.suggestions = this.all.filter((element) => {
+        return element.suggestion.read === false
+      })
+    }
+  }
+
+
+  setRead(element, bool: Boolean){
+    this.adminService.setRead(element.suggestion._id, bool).subscribe(
+      data => {
+        console.log(data)
+      },
+      errorMessage => {
+        this.error = errorMessage
+        setTimeout(() => {
+          this.error = null
+        }, 5000);
+      }
+    )
+  }
+
 
   goToDetail(element){
+    this.setRead(element, true)
     this.router.navigate([`/suggestions/${element.suggestion._id}`])
   }
 
