@@ -20,6 +20,7 @@ import { SizasportsSubcategoryComponent } from './sizasports/sizasports-subcateg
 import { AdminActivityspecificComponent } from './admin-activityspecific/admin-activityspecific.component'
 import { AdminActivityComponent } from './admin-activity/admin-activity.component'
 import { ActivitiesComponent } from './activities/activities.component'
+import { SuggestionDetailComponent } from './suggestion-detail/suggestion-detail.component'
 
 
 const routes = [
@@ -44,6 +45,7 @@ const routes = [
         { path: 'form', component: AdminFormComponent},
         
     ] },
+    { path: 'suggestions/:id', component: SuggestionDetailComponent, canActivate: [AuthGuard]},
     { path: 'accessdenied', component: AccessdeniedComponent},
     { path: 'sizasports', component: SizasportsComponent, canActivate: [AuthGuard]},
     { path: 'sizasports', component: SizasportsComponent, canActivate: [AuthGuard]},
