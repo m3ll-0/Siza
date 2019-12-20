@@ -10,10 +10,10 @@ import { catchError } from 'rxjs/operators';
 
 export class ApiServiceService {
 
-  // url = 'https://siza-api.herokuapp.com/v1/'
+  url = 'https://siza-api.herokuapp.com/v1/'
   private API_SUGGESTIONS = 'suggestions'
   private API_AUTH = 'auth'
-  url = 'http://127.0.0.1:3000/v1/';
+  // url = 'http://127.0.0.1:3000/v1/';
 
   constructor(private httpClient: HttpClient) {
     
