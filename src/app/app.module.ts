@@ -36,6 +36,7 @@ import { ActivitiesComponent } from './activities/activities.component';
 import { AdminActivityComponent } from './admin-activity/admin-activity.component';
 import { AdminActivityspecificComponent } from './admin-activityspecific/admin-activityspecific.component';
 import { CommentSectionComponent } from './activities/comment-section/comment-section.component';
+import { BeweegtipComponent } from './beweegtip/beweegtip.component';
 
 
 @NgModule({
@@ -67,7 +68,8 @@ import { CommentSectionComponent } from './activities/comment-section/comment-se
     AdminActivityComponent,
     AdminActivityspecificComponent,
     SizasportsCategoryCardComponent,
-    CommentSectionComponent
+    CommentSectionComponent,
+    BeweegtipComponent
   ],
   imports: [
     MaterialModule,

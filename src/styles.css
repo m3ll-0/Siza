@@ -4,7 +4,8 @@
     display: inline-block !important;
     height: 250px;
     margin: 20px;
-    border: 5px solid #d2e54d;
+    border: 5px solid #7DD5F0;
+    background-color: #7DD5F0;
     /* background: #e5d919; */
     color: black;
     cursor: pointer;
@@ -34,7 +35,7 @@ html {
 }
 
 .small-card-header > a:link, a:visited{
-    color: black;
+    color: white;
     /* font-weight: 300; */
     /* font-size: 1.2em; */
 }
@@ -96,4 +97,9 @@ html {
     padding-left: 50px 0;
     padding-right: 50px 0;
     z-index: 10;
+}
+
+.navbarprops{
+    background-color: #0f3f91;
+    color: white;
 }
