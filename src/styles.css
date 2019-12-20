@@ -92,7 +92,8 @@ html {
 }
 
 .content_wrapper {
-    width: 100%;
+    max-width: 750px;
+    width: relative;
     position: relative;
     padding-left: 50px 0;
     padding-right: 50px 0;
@@ -102,4 +103,8 @@ html {
 .navbarprops{
     background-color: #0f3f91;
     color: white;
+}
+
+ h1 {
+    font-size: 30px !important;
 }
