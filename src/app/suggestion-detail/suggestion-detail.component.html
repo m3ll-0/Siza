@@ -8,7 +8,7 @@
     </div>
     
     <div class="col text-right">
-        <button mat-button>
+        <button mat-button> 
             <mat-icon>create</mat-icon>
             Maak een bewgingskaart van suggestie
         </button> 
@@ -31,7 +31,7 @@
         <h1 class="mat-title">Bericht</h1>
     </div>
     <div class="row">
-        <h1 class="mat-subheading-2">{{suggestion.message}}</h1>
+        <h1 class="mat-subheading-2">{{suggestion?.message}}</h1>
     </div>
     <div class="row">
         <h1 class="mat-title">Voorbeeld</h1>
@@ -43,7 +43,7 @@
     </div>
     <div class="row">
         <div class="col-xl">
-            <h1 class="mat-subheading-2">{{suggestion.activity.title}}</h1>
+            <h1 class="mat-subheading-2">{{suggestion?.activity.title}}</h1>
         </div>
     </div>
     <div class="row">
@@ -63,16 +63,16 @@
     
     <div class="row">
         <div class="col-xl">
-            <h1 class="mat-subheading-2">{{suggestion.activity.goal}}</h1>
+            <h1 class="mat-subheading-2">{{suggestion?.activity.goal}}</h1>
         </div>
         <div class="col-xl">
-            <h1 class="mat-subheading-2">{{suggestion.activity.duration}}</h1>
+            <h1 class="mat-subheading-2">{{suggestion?.activity.duration}}</h1>
         </div> 
         <div class="col-xl">
-            <h1 class="mat-subheading-2">{{suggestion.activity.duration}}</h1>
+            <h1 class="mat-subheading-2">{{suggestion?.activity.duration}}</h1>
         </div> 
         <div class="col-xl">
-            <h1 class="mat-subheading-2">{{suggestion.activity.duration}}</h1>
+            <h1 class="mat-subheading-2">{{suggestion?.activity.duration}}</h1>
         </div> 
     </div>
 
@@ -93,16 +93,16 @@
 
     <div class="row">
         <div class="col-xl">
-            <h1 class="mat-subheading-2">{{suggestion.activity.material}}</h1>
+            <h1 class="mat-subheading-2">{{suggestion?.activity.material}}</h1>
         </div>
         <div class="col-xl">
-            <h1 class="mat-subheading-2">{{suggestion.activity.activity}}</h1>
+            <h1 class="mat-subheading-2">{{suggestion?.activity.activity}}</h1>
         </div> 
         <div class="col-xl">
-            <h1 class="mat-subheading-2">{{suggestion.activity.setup}}</h1>
+            <h1 class="mat-subheading-2">{{suggestion?.activity.setup}}</h1>
         </div> 
         <div class="col-xl">
-            <h1 class="mat-subheading-2">{{suggestion.activity.pointsForAttention}}</h1>
+            <h1 class="mat-subheading-2">{{suggestion?.activity.pointsForAttention}}</h1>
         </div> 
     </div>
 
@@ -123,7 +123,7 @@
 
     <div class="row">
         <div class="col-xl">
-            <h1 class="mat-subheading-2">{{suggestion.activity.differentiations}}</h1>
+            <h1 class="mat-subheading-2">{{suggestion?.activity.differentiations}}</h1>
         </div>
         <div class="col-xl">
             <h1 class="mat-subheading-2"></h1>
@@ -135,7 +135,4 @@
             <h1 class="mat-subheading-2"></h1>
         </div> 
     </div>
-
-    
-    
   </div>

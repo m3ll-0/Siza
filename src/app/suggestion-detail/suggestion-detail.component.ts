@@ -5,7 +5,7 @@ import { Suggestion } from '../models/Suggestion';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-suggestion-detail',
+  selector: 'app-suggestion-detail', 
   templateUrl: './suggestion-detail.component.html',
   styleUrls: ['./suggestion-detail.component.css']
 })

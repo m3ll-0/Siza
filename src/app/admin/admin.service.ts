@@ -24,7 +24,7 @@ export class AdminService {
   getUserById(id: string) {
     return this.http.get(`${this.API_ADMIN_BASE_URL}${this.API_USERS_URL}/${id}`)
   }
-
+ 
   getAdmins() {
     return this.http.get(`${this.API_ADMIN_BASE_URL}${this.API_ADMINS_URL}`)
   }

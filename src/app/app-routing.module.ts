@@ -45,7 +45,7 @@ const routes = [
         { path: 'activities', component: AdminActivitiesComponent},
         { path: 'form', component: AdminFormComponent},
         
-    ] },
+    ] }, 
     { path: 'suggestions/:id', component: SuggestionDetailComponent, canActivate: [AuthGuard]},
     { path: 'accessdenied', component: AccessdeniedComponent},
     { path: 'sizasports', component: SizasportsComponent, canActivate: [AuthGuard]},

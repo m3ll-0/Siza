@@ -63,6 +63,8 @@ export class ApiServiceService {
 
   private handleError(errorRes: HttpErrorResponse) {
     return throwError(errorRes.error.msg)
+  }
+  
   public getCategoriesRecursively()
   {
     return this.httpClient.get(this.url + 'categories/recursively')
