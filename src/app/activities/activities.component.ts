@@ -3,6 +3,7 @@ import { ApiServiceService } from '../api-service.service';
 import * as jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';  
 import { ActivatedRoute } from '@angular/router';
+import { Activity } from '../models/Activity';
 
 @Component({
   selector: 'app-activities',
@@ -12,7 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ActivitiesComponent implements OnInit {
   
-  activities
+  activity : Activity;
  
   constructor(
     private apiService: ApiServiceService,
@@ -23,7 +24,8 @@ export class ActivitiesComponent implements OnInit {
     this.activatedRoute.params.subscribe( params => value = params.id );
     this.apiService.getSpecificActivity(value).subscribe((data) =>{
       console.log(data);
-      this.activities = data['activity']; 
+      this.activity = data['activity'];
+      console.error(this.activity);
     } )
   }
 
@@ -34,6 +36,15 @@ export class ActivitiesComponent implements OnInit {
     }
 
 ngOnInit() {
+}
+
+public printScreen()
+{
+    var originalContents = document.body.innerHTML;
+    var printContents = document.getElementById('inner').innerHTML;
+    document.body.innerHTML = printContents;
+    window.print();
+    document.body.innerHTML = originalContents;
 }
 
 public captureScreen()  
@@ -53,7 +64,7 @@ public captureScreen()
       let pdf = new jsPDF('p', 'mm', 'a4'); // A4 size page of PDF  
       let position = -40;  
       pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)  
-      pdf.save(this.activities[0]['activity'] + '.pdf'); // Generated PDF   
+      pdf.save(this.activity[0]['activity'] + '.pdf'); // Generated PDF   
     });  
   }  
 }

@@ -1,75 +1,79 @@
-<div id="contentToConvert" #content class="text-center">
-  <div *ngFor="let activities of activities">
+<div id="testx" #content class="text-center">
+  <div id="inner">
+  <div *ngFor="let activity of activity">
+    <div class="container" style="width: 1000px;">
+
+      <div class="custom-row justify-content-center">
       <img src="../../assets/images/SizaBanner.PNG" class="banner" />
- 
-    <h1>
-      {{activities.activity}}
-    </h1>
-    <h4>
-      Ik hou van Holland
-    </h4>
-    <img src="{{activities.image}}" image-resizing height="128" width="128" />
-    <div class="container">
       <div class="row justify-content-center">
+      <h4>
+        <p>{{ activity?.title }}</p>
+      </h4>
+      </div>
+      <div class="row justify-content-center">
+        <div class="row justify-content-center">
+          <img src="{{activity.image}}" image-resizing height="128" width="128" />
+        </div>
+
+        <div class="custom-row grid-row">
+          <img src="{{activity.image}}" image-resizing height="128" width="128" />
+          <img src="{{activity.image}}" image-resizing height="128" width="128" />
+          <img src="{{activity.image}}" image-resizing height="128" width="128" />
+        </div>
+      </div>
+      </div>
+      <div class="row justify-content-center main-content">
         <div class="col-sm-4">
-          <h5>
-              Doel
-          </h5> 
-          <p >
-              Je op een andere manier leren voortbewegen.
-          </p>
-          <h5>
-              Materiaal
-          </h5> 
-          <p>
-              - Jute zak/ slaapzak/ dekbed overtrek
-              - 2 flessen / pionnen
-          </p>
-          <h5>
-              Activiteit
-          </h5> 
-          <p>
-              - Je gaat in de jutezak staan en pakt
-              deze met beide handen goed vast
-              - De deelnemers moeten een bepaald
-              parcours afleggen (bijv. 10 meter met
-              piolonnen uitgezet), waarbij hun benen
-              in een jute zak is gestoken. Wie het
-              eerst aankomt heeft gewonnen.
-              - De een zal zich het beste springend
-              voortbewegen en de ander door
-              gewoon te lopen.
-          </p>
+
+          <!-- Goal -->
+          <div *ngIf="activity?.goal !== undefined">  
+            <h5>Doel</h5> 
+            <p >{{ activity?.goal }}</p>
+          </div>
+
+          <!-- Material -->
+          <div *ngIf="activity?.material !== undefined">  
+            <h5>Materiaal</h5> 
+            <p>{{ activity?.material }}</p>
+          </div>
+
+          <!-- Activity -->
+          <div *ngIf="activity?.activity !== undefined">  
+            <h5>Activiteit</h5> 
+            <p>{{ activity?.activity }}</p>
+          </div>
         </div>
         <div class="col-sm-4">
-          <h5>
-              {{opstelling}}
-          </h5> 
-          <img src="{{ activities?.setup}} " image-resizing height="128" width="128"  onerror="this.style.display='none'" 
-          (error)="pictNotLoading($event)" />
-          <h5>
-              Aandachtspunten
-          </h5> 
-          <p>
-              - Let goed op de veiligheid bij het
-              zaklopen
-              - Niet met teveel op het parcours
-              - Van te voren inschatten bij welke
-              groep dit spel gedaan kan worden
-          </p>
-          <h5>
-              Differentiaties
-          </h5> 
-          <p>
-              - Je kunt het parcours langer maken
-              - Obstakels in het parcours
-              verwerken
-              - Een kleinere/grotere zak gebruiken
-          </p>
+
+          <!-- Setup -->
+          <div *ngIf="activity?.setUp !== undefined || activity?.setUpImage !== undefined">  
+            <h5>Let op!</h5> 
+            <p>{{ activity?.setUp }}</p>
+          </div>
+          
+          <!-- PointsOfAttention -->
+          <div *ngIf="activity?.pointsForAttention !== undefined">  
+            <h5>Let op!</h5> 
+            <p>{{ activity?.pointsForAttention }}</p>
+          </div>
+
+          <!-- TooEasy -->
+          <div *ngIf="activity?.tooEasy !== undefined">  
+            <h5>Te makkelijk?</h5> 
+            <p>{{ activity?.tooEasy }}</p>
+          </div>
+
+          <!-- TooHard -->
+          <div *ngIf="activity?.tooHard !== undefined">  
+            <h5>Te moeilijk?</h5> 
+            <p>{{ activity?.tooHard }}</p>
+          </div>
         </div>
       </div>
     </div>
+    </div>  
 </div>
-<button (click)="captureScreen()" > Export to PDF </button>
+
+<button (click)="printScreen()" > Export to PDF </button>
 <br>
 <app-comment-section></app-comment-section>
