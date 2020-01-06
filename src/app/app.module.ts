@@ -40,7 +40,8 @@ import { SuggestionDetailComponent } from './suggestion-detail/suggestion-detail
 import { BeweegtipComponent } from './beweegtip/beweegtip.component';
 import { AdminCategoryCardComponent } from './admin/admin-categories/admin-category-card/admin-category-card.component';
 import { TreeNode } from './admin/admin-categories/admin-categories.component';
-import { AdminCategoryEditComponent } from './admin/admin-categories/admin-category-edit/admin-category-edit.component'
+import { AdminCategoryEditComponent } from './admin/admin-categories/admin-category-edit/admin-category-edit.component';
+import { CommentComponent } from './activities/comment-section/comment/comment.component'
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { AdminCategoryEditComponent } from './admin/admin-categories/admin-categ
     BeweegtipComponent,
     AdminCategoryCardComponent,
     TreeNode,
-    AdminCategoryEditComponent
+    AdminCategoryEditComponent,
+    CommentComponent
   ],
   imports: [
     MaterialModule,

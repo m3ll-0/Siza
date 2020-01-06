@@ -3,6 +3,8 @@ import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/htt
 import { Suggestion } from './models/Suggestion';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { User } from './auth/user.model';
+import { Feedback } from './models/Feedback';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +15,7 @@ export class ApiServiceService {
   url = 'https://siza-api.herokuapp.com/v1/'
   private API_SUGGESTIONS = 'suggestions'
   private API_AUTH = 'auth'
+  private API_FEEDBACK = 'feedback'
   // url = 'http://127.0.0.1:3000/v1/';
 
   constructor(private httpClient: HttpClient) {
@@ -36,7 +39,7 @@ export class ApiServiceService {
   }
 
   public getUserById(id){
-    return this.httpClient.get<Suggestion>(`${this.url}${this.API_AUTH}/${id}`)
+    return this.httpClient.get<User>(`${this.url}${this.API_AUTH}/${id}`)
 
     .pipe(
       catchError(this.handleError)
@@ -59,6 +62,24 @@ export class ApiServiceService {
 
   public getSpecificActivity(categoryID){
     return this.httpClient.get(this.url +'activities/' + categoryID);
+  }
+
+  public getFeedbackByActivityId(activityId){
+    return this.httpClient.get<Feedback>(`${this.url}${this.API_FEEDBACK}/${activityId}`)
+
+    .pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  public postFeedbackByActivityId(activityId, message){
+    return this.httpClient.post(`${this.url}${this.API_FEEDBACK}/${activityId}`, {
+      'message' : message,
+    })
+
+    .pipe(
+      catchError(this.handleError)
+    )
   }
 
   private handleError(errorRes: HttpErrorResponse) {
