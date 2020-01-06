@@ -24,42 +24,27 @@ export class AdminUserOverviewComponent implements OnInit {
   loadData() {
     this.adminService.getUsers().subscribe(
       (data) =>{
-        console.log(data);
         this.users = data['users'];
       }
     )
     this.adminService.getAdmins().subscribe(
       (data) =>{
-        console.log(data);
         this.admins = data['admins'];
       }
     )
   }
 
-  setAdmin(user){
-    console.log(!user.isAdmin)
-    console.log(user._id)
-    this.adminService.setAdmin(user._id, !user.isAdmin).subscribe(
+  setAdmin(user, checked){
+    this.adminService.setAdmin(user._id, checked).subscribe(
       resData => {
-       this.loadData();
+        this.loadData();
       },
       errorMessage => {
         this.error = errorMessage
+        this.loadData();
         setTimeout(() => {
           this.error = null
         }, 5000);
-        console.log(this.users.find(x => {
-          console.log(user._id.toString())
-          console.log(x.userId)
-          if (x.userId.toString() === user._id.toString()){
-            console.log(x)
-          }
-        }))
-        // const user = this.users.find(x => x.userId === user._id) 
-        // user.isAdmin = user.isAdmin;
-        // console.log(user)
-        
-        //this.isLoading = false
       });
   }
 

@@ -1,0 +1,138 @@
+
+<div class="row">
+    <div class="col">
+        <button mat-button (click)="onGoBack()">
+            <mat-icon>keyboard_arrow_left</mat-icon>
+            Terug
+        </button> 
+    </div>
+    
+    <div class="col text-right">
+        <button mat-button> 
+            <mat-icon>create</mat-icon>
+            Maak een bewgingskaart van suggestie
+        </button> 
+        <button mat-button>
+            <mat-icon>mail</mat-icon>
+            Antwoord op suggestie
+        </button> 
+    </div>
+    
+</div>
+<hr>
+<div class="container">
+    <div class="row">
+        <h1 class="mat-title">Gebruiker</h1>
+    </div>
+    <div class="row">
+        <h1 class="mat-subheading-2">{{usersEmail}}</h1>
+    </div>
+    <div class="row">
+        <h1 class="mat-title">Bericht</h1>
+    </div>
+    <div class="row">
+        <h1 class="mat-subheading-2">{{suggestion?.message}}</h1>
+    </div>
+    <div class="row">
+        <h1 class="mat-title">Voorbeeld</h1>
+    </div>
+    <div class="row">
+        <div class="col-xl">
+            <h1 class="mat-body-1">Titel</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl">
+            <h1 class="mat-subheading-2">{{suggestion?.activity.title}}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xl">
+            <h1 class="mat-body-1">Doel</h1>
+        </div>
+        <div class="col-xl">
+            <h1 class="mat-body-1">Tijdsduur</h1>
+        </div> 
+        <div class="col-xl">
+            <h1 class="mat-body-1">Hoeveelheid mensen</h1>
+        </div> 
+        <div class="col-xl">
+            <h1 class="mat-body-1">Beschikbaar voor rolstoel</h1>
+        </div> 
+    </div>
+    
+    <div class="row">
+        <div class="col-xl">
+            <h1 class="mat-subheading-2">{{suggestion?.activity?.goal}}</h1>
+        </div>
+        <div class="col-xl">
+            <h1 class="mat-subheading-2">{{suggestion?.activity?.duration}}</h1>
+        </div> 
+        <div class="col-xl">
+            <h1 class="mat-subheading-2">{{suggestion?.activity?.duration}}</h1>
+        </div> 
+        <div class="col-xl">
+            <h1 class="mat-subheading-2">{{suggestion?.activity?.duration}}</h1>
+        </div> 
+    </div>
+
+    <div class="row">
+        <div class="col-xl">
+            <h1 class="mat-body-1">Materiaal</h1>
+        </div>
+        <div class="col-xl">
+            <h1 class="mat-body-1">Activiteit</h1>
+        </div> 
+        <div class="col-xl">
+            <h1 class="mat-body-1">Opstelling</h1>
+        </div> 
+        <div class="col-xl">
+            <h1 class="mat-body-1">Aandachtspunten</h1>
+        </div> 
+    </div>
+
+    <div class="row">
+        <div class="col-xl">
+            <h1 class="mat-subheading-2">{{suggestion?.activity.material}}</h1>
+        </div>
+        <div class="col-xl">
+            <h1 class="mat-subheading-2">{{suggestion?.activity.activity}}</h1>
+        </div> 
+        <div class="col-xl">
+            <h1 class="mat-subheading-2">{{suggestion?.activity.setup}}</h1>
+        </div> 
+        <div class="col-xl">
+            <h1 class="mat-subheading-2">{{suggestion?.activity.pointsForAttention}}</h1>
+        </div> 
+    </div>
+
+    <div class="row">
+        <div class="col-xl">
+            <h1 class="mat-body-1">Variaties</h1>
+        </div>
+        <div class="col-xl">
+            <h1 class="mat-body-1"></h1>
+        </div> 
+        <div class="col-xl">
+            <h1 class="mat-body-1"></h1>
+        </div> 
+        <div class="col-xl">
+            <h1 class="mat-body-1"></h1>
+        </div> 
+    </div>
+
+    <div class="row">
+        <div class="col-xl">
+            <h1 class="mat-subheading-2">{{suggestion?.activity.differentiations}}</h1>
+        </div>
+        <div class="col-xl">
+            <h1 class="mat-subheading-2"></h1>
+        </div> 
+        <div class="col-xl">
+            <h1 class="mat-subheading-2"></h1>
+        </div> 
+        <div class="col-xl">
+            <h1 class="mat-subheading-2"></h1>
+        </div> 
+    </div>
+  </div>
