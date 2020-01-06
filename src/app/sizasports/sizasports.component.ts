@@ -14,7 +14,7 @@ export class SizasportsComponent implements OnInit {
   keyCombination = "";
 
   constructor(private apiService: ApiServiceService) {
-    this.apiService.getCategories().subscribe((data) =>{
+    this.apiService.getCategoriesWithoutParent().subscribe((data) =>{
       this.categories = data['categories'];
       this.isLoading = false;
     } )

@@ -4,6 +4,12 @@
     <br />
 </div>
 
+<div class="wrapper">
+    <button class="button-create" class='create-button' mat-stroked-button color="primary" (click)="onNewCategory()">
+      Nieuwe categorie
+    </button>
+  </div>
+
 <div *ngIf="isLoading" style="text-align: center">
     <app-loading-spinner> </app-loading-spinner>
   </div>

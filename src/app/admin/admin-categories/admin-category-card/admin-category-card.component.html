@@ -1,4 +1,4 @@
-<mat-card class='border-blue' [ngClass]="isRoot === true ? 'hide' : ''">
+<mat-card *ngIf="!isDeleted" class='border-blue' [ngClass]="isRoot === true ? 'hide' : ''">
     <mat-card-content>
         {{ name }}
     </mat-card-content>
@@ -8,13 +8,14 @@
         <button mat-button (click)="onEditCategory(id)">
           Bewerk
         </button>
-        <button mat-button >
+        <!-- <button mat-button >
             Voeg toe
-          </button>
+          </button> -->
 
         <button 
         mat-button 
         color="warn"
+        (click)="onDeleteCategory()"
         >
             Verwijderen
           </button>

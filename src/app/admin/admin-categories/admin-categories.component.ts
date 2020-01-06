@@ -3,6 +3,7 @@ import { ApiServiceService } from '../../api-service.service';
 import { Category } from 'src/app/models/Category';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { keyframes } from '@angular/animations';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'tree-node',
@@ -32,11 +33,16 @@ export class AdminCategoriesComponent implements OnInit {
 
   categories: any
 
-  constructor(private apiService : ApiServiceService) { 
+  constructor(private apiService : ApiServiceService, private router: Router) { 
   }
 
   isLoading = true;
   node : any;
+
+  onNewCategory()
+  {
+    this.router.navigate(['/admin/editCategory']);
+  }
 
   buildTree(categories : any) : any
   {

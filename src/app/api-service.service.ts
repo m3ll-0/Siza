@@ -91,8 +91,38 @@ export class ApiServiceService {
     return this.httpClient.get(this.url + 'categories/recursively')
   }
 
+  public getCategoriesWithoutParent()
+  {
+    return this.httpClient.get(this.url + 'categories/noParent')
+  }
+
   public getSpecificCategory(categoryID)
   {
     return this.httpClient.get(this.url + 'categories/' + categoryID)
+  }
+
+  public getSpecificCategoryParentName(categoryID)
+  {
+    return this.httpClient.get(this.url + 'categories/getParentName/' + categoryID)
+  }
+
+  public getCategoriesParentName()
+  {
+    return this.httpClient.get(this.url + 'categories/getParentName')
+  }
+
+  public updateSpecificCategory(categoryID, categoryprops)
+  {
+    return this.httpClient.put(this.url + 'categories/' + categoryID, categoryprops)
+  }
+
+  public createCategory(categoryprops)
+  {
+    return this.httpClient.post(this.url + 'categories', categoryprops)
+  }
+
+  public deleteCategory(categoryID)
+  {
+    return this.httpClient.delete(this.url + 'categories/' + categoryID)
   }
 }

@@ -97,10 +97,10 @@ html {
 
 .empty-message
 {
-    padding: 10px;
+    padding-left: 10px;
     border: 10px solid #ffffff00 !important;
     border-radius: 5px;
-    border: 5px solid #8784d2 !important;
+    border: 3px solid #8784d2 !important;
     color: #5e5e5e !important;
     margin-bottom: 30px;
     margin-top: 20px;
@@ -134,10 +134,6 @@ html {
     background-color: #0f3f91;
     color: white;
 }
-
- h1 {
-    font-size: 30px ;
- }
 
 .tree-group
 {
