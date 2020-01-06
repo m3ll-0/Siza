@@ -3,3 +3,7 @@
     background-color: #eeebf2;
     border-radius: 5px;
 }
+
+.filterbutton{
+    float: right;
+}
