@@ -22,6 +22,7 @@ import { AdminActivityComponent } from './admin-activity/admin-activity.componen
 import { ActivitiesComponent } from './activities/activities.component'
 import { SuggestionDetailComponent } from './suggestion-detail/suggestion-detail.component'
 import { AdminCategoryEditComponent } from './admin/admin-categories/admin-category-edit/admin-category-edit.component'
+import { CreateSuggestionComponent } from './create-suggestion/create-suggestion.component'
 
 const routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -46,7 +47,11 @@ const routes = [
         { path: 'form', component: AdminFormComponent},
         
     ] }, 
-    { path: 'suggestions/:id', component: SuggestionDetailComponent, canActivate: [AuthGuard]},
+    { path: 'suggestions', canActivate: [AuthAdminGuard], children: [
+        { path: '', redirectTo: 'create', pathMatch: 'full', },
+        { path: 'create', component: CreateSuggestionComponent},
+        { path: ':id', component: SuggestionDetailComponent}, 
+    ] }, 
     { path: 'accessdenied', component: AccessdeniedComponent},
     { path: 'sizasports', component: SizasportsComponent, canActivate: [AuthGuard]},
     { path: 'sizasports', component: SizasportsComponent, canActivate: [AuthGuard]},

@@ -1,12 +1,20 @@
 <div class="container">
     <div class="row">
             <div class="col-sm">
-
-                <button mat-button (click)="onGoBack()">
-                    <mat-icon>keyboard_arrow_left</mat-icon>
-                    Terug
-                </button>                 
-                <br><br>
+                <div class="d-flex">
+                    <button mat-button (click)="onGoBack()">
+                        <mat-icon>keyboard_arrow_left</mat-icon>
+                        Terug
+                    </button>   
+                    <div class="ml-auto">
+                            <button mat-button (click)= "goToCreateSuggestion()"> 
+                                    <mat-icon>send</mat-icon>
+                                    Stuur suggestie
+                            </button> 
+                    </div>
+                </div>
+                             
+               
 
                 <h4>Categoriën</h4>
                 <div class='empty-message' *ngIf="categories.length === 0 && isLoadingCategories === false"><b><p class="p-line-height">Er zijn geen subcategoriën aanwezig.</p></b></div>

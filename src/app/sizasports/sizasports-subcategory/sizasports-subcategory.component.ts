@@ -46,4 +46,9 @@ export class SizasportsSubcategoryComponent implements OnInit {
     });
   }
 
+  goToCreateSuggestion()
+  {
+    this.router.navigate(['/suggestions/create'])
+  }
+
 }

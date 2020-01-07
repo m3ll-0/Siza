@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiServiceService } from '../api-service.service'
 import { Category } from '../models/Category';
 import {HostListener} from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sizasports',
@@ -13,7 +14,7 @@ export class SizasportsComponent implements OnInit {
   isLoading = true;
   keyCombination = "";
 
-  constructor(private apiService: ApiServiceService) {
+  constructor(private apiService: ApiServiceService, private router : Router) {
     this.apiService.getCategoriesWithoutParent().subscribe((data) =>{
       this.categories = data['categories'];
       this.isLoading = false;
@@ -53,6 +54,13 @@ export class SizasportsComponent implements OnInit {
     audio.src =  '../../assets/sounds/crow.mp3';
     audio.load();
     audio.play();
+  }
+
+
+  goToCreateSuggestion()
+  {
+    console.log('goToCreateSuggestion()')
+    this.router.navigate(['/suggestions/create'])
   }
 
 }
