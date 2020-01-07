@@ -10,12 +10,12 @@
     <div class="col text-right">
         <button mat-button> 
             <mat-icon>create</mat-icon>
-            Maak een bewgingskaart van suggestie
+            Maak een bewegingskaart van suggestie
         </button> 
-        <button mat-button>
-            <mat-icon>mail</mat-icon>
-            Antwoord op suggestie
-        </button> 
+        <a mat-button href="mailto:{{usersEmail}}?Subject=Siza - Suggestie - {{suggestion?.activity.title}}&body=" target="_top"> 
+         <mat-icon>create</mat-icon>
+         Antwoord op suggestie
+        </a>
     </div>
     
 </div>

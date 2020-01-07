@@ -42,6 +42,7 @@ import { AdminCategoryCardComponent } from './admin/admin-categories/admin-categ
 import { TreeNode } from './admin/admin-categories/admin-categories.component';
 import { AdminCategoryEditComponent } from './admin/admin-categories/admin-category-edit/admin-category-edit.component';
 import { AdminActivityCardComponent } from './admin/admin-activities/admin-activity-card/admin-activity-card.component'
+import { CommentComponent } from './activities/comment-section/comment/comment.component'
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { AdminActivityCardComponent } from './admin/admin-activities/admin-activ
     AdminCategoryCardComponent,
     TreeNode,
     AdminCategoryEditComponent,
-    AdminActivityCardComponent
+    AdminActivityCardComponent,
+    CommentComponent
   ],
   imports: [
     MaterialModule,
