@@ -43,6 +43,7 @@ import { TreeNode } from './admin/admin-categories/admin-categories.component';
 import { AdminCategoryEditComponent } from './admin/admin-categories/admin-category-edit/admin-category-edit.component';
 import { AdminActivityCardComponent } from './admin/admin-activities/admin-activity-card/admin-activity-card.component'
 import { CommentComponent } from './activities/comment-section/comment/comment.component'
+import { CreateSuggestionComponent } from './create-suggestion/create-suggestion.component'
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { CommentComponent } from './activities/comment-section/comment/comment.c
     TreeNode,
     AdminCategoryEditComponent,
     AdminActivityCardComponent,
-    CommentComponent
+    CommentComponent,
+    CreateSuggestionComponent
   ],
   imports: [
     MaterialModule,

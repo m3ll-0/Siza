@@ -38,6 +38,30 @@ export class ApiServiceService {
     )
   }
 
+  public postSuggestion(suggestion: Suggestion){
+    return this.httpClient.post(`${this.url}${this.API_SUGGESTIONS}`, {
+      'message' : suggestion.message,
+      "activity" : {
+        "title" : suggestion.activity.title,
+        "goal" : suggestion.activity.goal,
+        "activity" : suggestion.activity.activity,
+        "material" : suggestion.activity.material,
+        "tooEasy" : suggestion.activity.tooEasy,
+        "tooHard" : suggestion.activity.tooHard,
+        "setUp" : suggestion.activity.setUp,
+        "duration" : suggestion.activity.duration,
+        "wheelchair" : suggestion.activity.wheelchair,
+        "amountOfPeople" : suggestion.activity.amountOfPeople,
+        "pointsForAttention" : suggestion.activity.pointsForAttention,
+
+      },
+    })
+
+    .pipe(
+      catchError(this.handleError)
+    )
+  }
+
   public getUserById(id){
     return this.httpClient.get<User>(`${this.url}${this.API_AUTH}/${id}`)
 
