@@ -15,6 +15,7 @@ h4 {
 h5 {
     color: #101e4a;
     text-align: left;
+    font-weight: 600;
 }
 
 img.banner { 
@@ -44,5 +45,37 @@ img {
 {
     display: grid;
     position: absolute;     
-    margin-left: 400px;
+    margin-left: 300px;
+}
+
+@media print {
+    body, html, #wrapper {
+        width: 100% !important; 
+    }
+}
+
+.img-side
+{
+    margin: 5px;
+}
+
+.f-container
+{
+    min-width: 320px;
+    border-right: 3px solid #e23fad;
+}
+
+.s-container
+{
+    margin-left: 10px;
+}
+
+.pdf-row{
+    float: left;
+    position: relative;
+    margin-left: 200px;
+}
+
+#test{
+    background: red;
 }

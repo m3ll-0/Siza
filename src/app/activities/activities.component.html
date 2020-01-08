@@ -1,29 +1,33 @@
 <div id="testx" #content class="text-center">
+  <div id="outer">
   <div id="inner">
   <div *ngFor="let activity of activity">
     <div class="container" style="width: 1000px;">
 
       <div class="custom-row justify-content-center">
-      <img src="../../assets/images/SizaBanner.PNG" class="banner" />
-      <div class="row justify-content-center">
+     <div id="wrapper">
+        <img src="../../assets/images/SizaBanner.PNG" id="banner" class="banner" [ngClass]="printing === true ? 'printing' : 'normal'" />
+      </div>
+        <div class="row justify-content-center" id="main_title">
       <h4>
         <p>{{ activity?.title }}</p>
       </h4>
       </div>
       <div class="row justify-content-center">
         <div class="row justify-content-center">
-          <img src="{{activity.image}}" image-resizing height="128" width="128" />
+          <img src="{{activity.image}}" image-resizing height="256" width="256" id="main_image"/>
         </div>
-
-        <div class="custom-row grid-row">
-          <img src="{{activity.image}}" image-resizing height="128" width="128" />
-          <img src="{{activity.image}}" image-resizing height="128" width="128" />
-          <img src="{{activity.image}}" image-resizing height="128" width="128" />
+        <div id="test">
+        <div class="custom-row grid-row" id='customimgs'>
+          <img *ngIf="activity?.wheelchair === true" src="../../assets/images/wheelchair.png" image-resizing height="70" width="70" class="img-side" />
+          <img src="players_{{activity?.players}}" image-resizing height="70" width="70" class="img-side" />
+          <img src="min_{{activity?.image}}" image-resizing height="70" width="70" class="img-side"/>
         </div>
       </div>
       </div>
-      <div class="row justify-content-center main-content">
-        <div class="col-sm-4">
+      </div>
+      <div class="row justify-content-center main-content" id="main_content">
+        <div class="col-sm-4 f-container">
 
           <!-- Goal -->
           <div *ngIf="activity?.goal !== undefined">  
@@ -43,7 +47,7 @@
             <p>{{ activity?.activity }}</p>
           </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4 s-container">
 
           <!-- Setup -->
           <div *ngIf="activity?.setUp !== undefined || activity?.setUpImage !== undefined">  
@@ -69,11 +73,12 @@
             <p>{{ activity?.tooHard }}</p>
           </div>
         </div>
-      </div>
+        </div>
     </div>
     </div>  
 </div>
-
-<button (click)="printScreen()" > Export to PDF </button>
-<br>
+</div>
+<br/>
+  <button (click)="printScreen();" class="btn-primary-size" mat-raised-button color="primary" type="submit"><mat-icon>picture_as_pdf</mat-icon>Export to PDF</button>
+<br/><br/>
 <app-comment-section></app-comment-section>
