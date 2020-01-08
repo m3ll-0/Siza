@@ -5,11 +5,15 @@
     left: 0;
     padding: 1rem;
     background-color: #D9F1FC;
-    /* background: linear-gradient(to bottom, #0f3f91 0%, #1bb4e3 100%); */
+    background: #404040;
     text-align: left;
   }
 
   .content{
-    color: #3e3737;
+    color: white;
       line-height: 5px;
+  }
+
+  p{
+    padding: 2px;
   }

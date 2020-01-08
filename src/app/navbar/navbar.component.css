@@ -1,6 +1,8 @@
 .navbar
 {
     position: relative !important;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 /* Navbar button style */
