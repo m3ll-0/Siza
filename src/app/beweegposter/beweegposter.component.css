@@ -1,38 +1,6 @@
-
-.header {
-    bottom: 0px;
-    background-image: url(../../assets/images/siza-header.png);
-    text-align: center;
-    width: 100%;
-    height: 200px;
-    position: absolute; 
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
-
-.header-image {
-    background-image: url(https://www.kad.nl/assets/uploads/2019/01/kraai2-1-e1546520798893.jpg);
-    text-align: center;
-    width: 100%;
-    height: 500px;
-    position: relative;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% ;
-    color: white;
-}
-
-.bottom-left {
-    position: absolute;
-    bottom: 8px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-img, iframe {
+.center-image {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 40%;
+    width: 70%;
   }
