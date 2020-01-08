@@ -43,7 +43,8 @@ import { TreeNode } from './admin/admin-categories/admin-categories.component';
 import { AdminCategoryEditComponent } from './admin/admin-categories/admin-category-edit/admin-category-edit.component';
 import { CommentComponent } from './activities/comment-section/comment/comment.component';
 import { CreateSuggestionComponent } from './create-suggestion/create-suggestion.component';
-import { BannerComponent } from './banner/banner.component'
+import { BannerComponent } from './banner/banner.component';
+
 
 @NgModule({
   declarations: [
@@ -82,7 +83,7 @@ import { BannerComponent } from './banner/banner.component'
     AdminCategoryEditComponent,
     CommentComponent,
     CreateSuggestionComponent,
-    BannerComponent
+    BannerComponent,
   ],
   imports: [
     MaterialModule,
