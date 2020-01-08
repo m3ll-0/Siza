@@ -23,13 +23,12 @@ export class CreateSuggestionComponent implements OnInit {
     this.location.back();
   }
 
-  
-
   onSubmit(form: NgForm) {
     if (!form.valid) {
       return
       }
       var suggestion = new Suggestion()
+      console.log(form.value.setUp)
       suggestion.activity = {}
       suggestion.activity.title = form.value.title;
       suggestion.message = form.value.message;
@@ -41,14 +40,15 @@ export class CreateSuggestionComponent implements OnInit {
       suggestion.activity.setUp = form.value.setUp;
       suggestion.activity.duration = form.value.duration
       suggestion.activity.amountOfPeople = form.value.amountOfPeople
-      suggestion.activity.wheelchair = true
+      suggestion.activity.wheelchair = form.value.wheelchair
       suggestion.activity.pointsForAttention= form.value.pointsForAttention
-
+      console.log(form.value.duration)
+      console.log(suggestion)
       this.httpService.postSuggestion(suggestion).subscribe(
         data => {
-          //form.resetForm()
+          form.resetForm()
           console.log(data)
-          //this.onGoBack()
+          this.onGoBack()
         }
       )
       
