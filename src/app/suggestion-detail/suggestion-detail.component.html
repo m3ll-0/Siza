@@ -51,13 +51,13 @@
             <h1 class="mat-body-1">Doel</h1>
         </div>
         <div class="col-xl">
-            <h1 class="mat-body-1">Tijdsduur</h1>
+            <h1 class="mat-body-1">Materiaal</h1>
         </div> 
         <div class="col-xl">
-            <h1 class="mat-body-1">Hoeveelheid mensen</h1>
+            <h1 class="mat-body-1">Activiteit</h1>
         </div> 
         <div class="col-xl">
-            <h1 class="mat-body-1">Beschikbaar voor rolstoel</h1>
+            <h1 class="mat-body-1">Opstelling</h1>
         </div> 
     </div>
     
@@ -66,68 +66,70 @@
             <h1 class="mat-subheading-2">{{suggestion?.activity?.goal}}</h1>
         </div>
         <div class="col-xl">
-            <h1 class="mat-subheading-2">{{suggestion?.activity?.duration}}</h1>
+            <h1 class="mat-subheading-2">{{suggestion?.activity?.material}}</h1>
         </div> 
         <div class="col-xl">
-            <h1 class="mat-subheading-2">{{suggestion?.activity?.duration}}</h1>
+            <h1 class="mat-subheading-2">{{suggestion?.activity?.activity}}</h1>
         </div> 
         <div class="col-xl">
-            <h1 class="mat-subheading-2">{{suggestion?.activity?.duration}}</h1>
+            <h1 class="mat-subheading-2">{{suggestion?.activity?.setUp}}</h1>
         </div> 
     </div>
 
     <div class="row">
         <div class="col-xl">
-            <h1 class="mat-body-1">Materiaal</h1>
+            <h1 class="mat-body-1">Te Makkelijk</h1>
         </div>
         <div class="col-xl">
-            <h1 class="mat-body-1">Activiteit</h1>
+            <h1 class="mat-body-1">Te Moeilijk</h1>
         </div> 
         <div class="col-xl">
-            <h1 class="mat-body-1">Opstelling</h1>
+            <h1 class="mat-body-1">Tijdsduur</h1>
         </div> 
+        <div class="col-xl">
+            <h1 class="mat-body-1">Aantal Personen</h1>
+        </div> 
+    </div>
+
+    <div class="row">
+        <div class="col-xl">
+            <h1 class="mat-subheading-2">{{suggestion?.activity.tooEasy}}</h1>
+        </div>
+        <div class="col-xl">
+            <h1 class="mat-subheading-2">{{suggestion?.activity.tooHard}}</h1>
+        </div> 
+        <div class="col-xl">
+            <h1 class="mat-subheading-2">{{suggestion?.activity.duration}}</h1>
+        </div> 
+        <div class="col-xl">
+            <h1 class="mat-subheading-2">{{suggestion?.activity.amountOfPeople}}</h1>
+        </div> 
+    </div>
+
+    <div class="row">
         <div class="col-xl">
             <h1 class="mat-body-1">Aandachtspunten</h1>
+        </div>
+        <div class="col-xl">
+            <h1 class="mat-body-1">Rolstoel Vriendelijk</h1>
+        </div> 
+        <div class="col-xl">
+            <h1 class="mat-body-1"></h1>
+        </div> 
+        <div class="col-xl">
+            <h1 class="mat-body-1"></h1>
         </div> 
     </div>
 
     <div class="row">
-        <div class="col-xl">
-            <h1 class="mat-subheading-2">{{suggestion?.activity.material}}</h1>
-        </div>
-        <div class="col-xl">
-            <h1 class="mat-subheading-2">{{suggestion?.activity.activity}}</h1>
-        </div> 
-        <div class="col-xl">
-            <h1 class="mat-subheading-2">{{suggestion?.activity.setup}}</h1>
-        </div> 
         <div class="col-xl">
             <h1 class="mat-subheading-2">{{suggestion?.activity.pointsForAttention}}</h1>
         </div> 
-    </div>
-
-    <div class="row">
         <div class="col-xl">
-            <h1 class="mat-body-1">Variaties</h1>
+            <mat-checkbox  [(ngModel)]="suggestion?.activity.wheelchair"></mat-checkbox>
+           
+           
         </div>
-        <div class="col-xl">
-            <h1 class="mat-body-1"></h1>
-        </div> 
-        <div class="col-xl">
-            <h1 class="mat-body-1"></h1>
-        </div> 
-        <div class="col-xl">
-            <h1 class="mat-body-1"></h1>
-        </div> 
-    </div>
-
-    <div class="row">
-        <div class="col-xl">
-            <h1 class="mat-subheading-2">{{suggestion?.activity.differentiations}}</h1>
-        </div>
-        <div class="col-xl">
-            <h1 class="mat-subheading-2"></h1>
-        </div> 
         <div class="col-xl">
             <h1 class="mat-subheading-2"></h1>
         </div> 

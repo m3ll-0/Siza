@@ -44,6 +44,7 @@ import { AdminCategoryEditComponent } from './admin/admin-categories/admin-categ
 import { AdminActivityCardComponent } from './admin/admin-activities/admin-activity-card/admin-activity-card.component'
 import { CommentComponent } from './activities/comment-section/comment/comment.component'
 import { CreateSuggestionComponent } from './create-suggestion/create-suggestion.component'
+import { BannerComponent } from './banner/banner.component'
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import { CreateSuggestionComponent } from './create-suggestion/create-suggestion
     AdminCategoryEditComponent,
     AdminActivityCardComponent,
     CommentComponent,
-    CreateSuggestionComponent
+    CreateSuggestionComponent,
+    BannerComponent
   ],
   imports: [
     MaterialModule,
