@@ -34,7 +34,6 @@ const routes = [
     { path: 'poster', component: BeweegposterComponent },
     { path: 'sizasports/category/:id', component: SizasportsSubcategoryComponent, canActivate: [AuthGuard]},  
     { path: 'auth', children: [
-        { path: '', component: AuthComponent},
         { path: 'verifyemail/:token', component: VerifyEmailComponent},
         { path: 'signup', component: SignupComponent},
     ] },

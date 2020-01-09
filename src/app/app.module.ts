@@ -46,6 +46,8 @@ import { CommentComponent } from './activities/comment-section/comment/comment.c
 import { CreateSuggestionComponent } from './create-suggestion/create-suggestion.component'
 import { BannerComponent } from './banner/banner.component'
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,7 +86,7 @@ import { BannerComponent } from './banner/banner.component'
     AdminActivityCardComponent,
     CommentComponent,
     CreateSuggestionComponent,
-    BannerComponent
+    BannerComponent,
   ],
   imports: [
     MaterialModule,
