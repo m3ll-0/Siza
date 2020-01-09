@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import {SharedModule} from '../../../Shared/shared.module';
 import { CommentComponent } from './comment.component';
 
 describe('CommentComponent', () => {
@@ -8,6 +8,7 @@ describe('CommentComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [SharedModule],
       declarations: [ CommentComponent ]
     })
     .compileComponents();

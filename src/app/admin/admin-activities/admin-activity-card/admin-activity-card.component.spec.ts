@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import {SharedModule} from '../../../Shared/shared.module';
 import { AdminActivityCardComponent } from './admin-activity-card.component';
 
 describe('AdminActivityCardComponent', () => {
@@ -8,6 +8,7 @@ describe('AdminActivityCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [SharedModule],
       declarations: [ AdminActivityCardComponent ]
     })
     .compileComponents();

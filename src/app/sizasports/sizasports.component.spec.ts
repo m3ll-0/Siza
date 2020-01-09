@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import {SharedModule} from '../Shared/shared.module';
 import { SizasportsComponent } from './sizasports.component';
+import { LoadingSpinnerComponent } from '../Shared/loading-spinner/loading-spinner.component'
+import {SizasportsCategoryCardComponent} from '../sizasports/sizasports-category-card/sizasports-category-card.component'
 
 describe('SizasportsComponent', () => {
   let component: SizasportsComponent;
@@ -8,7 +10,8 @@ describe('SizasportsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SizasportsComponent ]
+      imports: [SharedModule],
+      declarations: [ SizasportsComponent, LoadingSpinnerComponent,SizasportsCategoryCardComponent ]
     })
     .compileComponents();
   }));

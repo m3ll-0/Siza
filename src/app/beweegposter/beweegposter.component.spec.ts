@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { BannerComponent } from '../banner/banner.component';
 import { BeweegposterComponent } from './beweegposter.component';
 
 describe('BeweegposterComponent', () => {
@@ -8,7 +8,7 @@ describe('BeweegposterComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BeweegposterComponent ]
+      declarations: [ BeweegposterComponent,BannerComponent ]
     })
     .compileComponents();
   }));
