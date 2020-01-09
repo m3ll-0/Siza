@@ -21,6 +21,11 @@
     background-repeat: no-repeat;
     background-size: 100% ;
     color: white;
+    background-size: cover;
+}
+
+.img-about{
+    background-image: url('https://www.siza.nl/images/Verhalen/Header%20Esmee.jpg') !important;
 }
 
 .bottom-left {
@@ -28,4 +33,14 @@
     bottom: 8px;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.img-baf
+{
+    background-image: url('https://www.siza.nl/images/Verhalen/Daniel%20headrer%202050x600.jpg') !important;
+}
+
+.img-beweegposter
+{
+    background-image: url('https://www.siza.nl/images/Verhalen/Thom%20header.jpg') !important;
 }

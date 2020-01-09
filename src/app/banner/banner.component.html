@@ -1,4 +1,4 @@
-<div class="header-image">
+<div class="header-image" [ngClass]="[page === 'about' ? 'img-about' : '', page==='baf' ? 'img-baf' : '', page==='beweegposter' ? 'img-beweegposter' : '']">
     <div class="header">
         <div class="bottom-left"><h1 class="mat-header">{{title}}</h1></div>
     </div>

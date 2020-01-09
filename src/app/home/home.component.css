@@ -130,11 +130,3 @@ html {
 *, *::before, *::after {
     box-sizing: border-box;
 }
-
-.wrapper_outer
-{
-    width: 100%; 
-    background-color: white;
-    padding: 20px;
-    /* color:#5c0c1; */
-}

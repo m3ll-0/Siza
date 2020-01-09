@@ -9,6 +9,9 @@ export class TrainingComponent implements OnInit {
 
   constructor() { }
 
+  page='baf';
+  title='something';
+
   ngOnInit() {
   }
 

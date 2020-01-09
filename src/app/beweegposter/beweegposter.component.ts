@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BeweegposterComponent implements OnInit {
   title = "Beweegposter"
+  page = 'beweegposter'
 
   constructor() { }
 
