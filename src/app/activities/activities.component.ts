@@ -5,6 +5,8 @@ import html2canvas from 'html2canvas';
 import { ActivatedRoute } from '@angular/router';
 import { Activity } from '../models/Activity';
 import { $ } from 'protractor';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-activities',
@@ -19,7 +21,8 @@ export class ActivitiesComponent implements OnInit {
 
   constructor(
     private apiService: ApiServiceService,
-    private activatedRoute: ActivatedRoute 
+    private activatedRoute: ActivatedRoute,
+    private location: Location
     ) {
 
     var value
@@ -38,6 +41,10 @@ export class ActivitiesComponent implements OnInit {
     }
 
 ngOnInit() {
+}
+
+onGoBack(){
+  this.location.back();
 }
 
 public printScreen()
