@@ -79,3 +79,9 @@ img {
 #test{
     background: red;
 }
+
+.bgwhite{
+    background-color: white;
+    padding-bottom: 10px;
+    margin-top: 20px;
+}
