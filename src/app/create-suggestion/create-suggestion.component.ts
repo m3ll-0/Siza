@@ -13,7 +13,7 @@ import { User } from '../auth/user.model';
 })
 export class CreateSuggestionComponent implements OnInit {
 
-  private user : User; 
+  user : User; 
 
   constructor(
     private location: Location, 
