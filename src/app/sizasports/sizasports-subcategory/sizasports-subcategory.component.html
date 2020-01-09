@@ -6,6 +6,26 @@
                         <mat-icon>keyboard_arrow_left</mat-icon>
                         Terug
                     </button>   
+                    <mat-checkbox #checkbox (change)="setWheelchair(checkbox.checked)" ngModel  [(ngModel)]="wheelchair">Rolstoel Vriendelijk</mat-checkbox>
+                    <button mat-button [matMenuTriggerFor]="duration">Tijdsduur</button>
+                    <mat-menu #duration="matMenu">
+                        <button mat-button (click)="setDuration()" >Alles</button>
+                        <button mat-button (click)="setDuration(5)" >5 Minuten</button>
+                        <button mat-button (click)="setDuration(10)" >10 Minuten</button>
+                        <button mat-button (click)="setDuration(15)" >15 Minuten</button>
+                        <button mat-button (click)="setDuration(20)" >20 Minuten</button>
+                        <button mat-button (click)="setDuration(30)" >30 Minuten</button>
+                        <button mat-button (click)="setDuration(45)" >45 Minuten</button>
+                        <button mat-button (click)="setDuration(60)" >60 Minuten</button>
+                    </mat-menu>
+                    <button mat-button [matMenuTriggerFor]="menu">Aantal Mensen</button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-button (click)="setAmountOfPeople(1, 100)" >1+</button>
+                        <button mat-button (click)="setAmountOfPeople(2, 4)" >2 - 4</button>
+                        <button mat-button (click)="setAmountOfPeople(2, 8)" >2 - 8</button>
+                        <button mat-button (click)="setAmountOfPeople(2, 100)" > 2 + </button>
+                        <button mat-button (click)="setAmountOfPeople(4, 100)" > 4 +</button>
+                    </mat-menu>
                     <div class="ml-auto">
                             <button mat-button (click)= "goToCreateSuggestion()"> 
                                     <mat-icon>send</mat-icon>

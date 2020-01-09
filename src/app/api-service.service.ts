@@ -79,9 +79,31 @@ export class ApiServiceService {
   {
     return this.httpClient.get(this.url + 'activities/category/' + categoryId );
   }
-  
+
   public getActivitiesFromCategory(categoryID){
     return this.httpClient.get(this.url +'activities/category/' + categoryID);
+  }
+  
+  public getActivitiesFromCategoryFiltered(categoryID, wheelchair : Boolean, minDuration : Number, maxDuration : Number, minAmountOfPeople: Number, maxAmountOfPeople : Number){
+
+    var url = this.url +'activities/category/' + categoryID + '?'
+    if (wheelchair){
+      url = url + 'wheelchair=' + wheelchair
+    }
+    if (minDuration && maxDuration){
+      if (wheelchair){
+        url = url +  '&' 
+      }
+      url = url + 'minDuration=' + minDuration + '&maxDuration=' + maxDuration
+    }
+    if (minAmountOfPeople && maxAmountOfPeople){
+      if (minDuration && maxDuration || wheelchair){
+        url = url +  '&' 
+      }
+      url = url + 'minAmountOfPeople=' + minAmountOfPeople + '&maxAmountOfPeople=' + maxAmountOfPeople
+    }
+    console.log(url)
+    return this.httpClient.get(url);
   }
 
   public getSpecificActivity(categoryID){

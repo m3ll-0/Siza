@@ -17,6 +17,11 @@ export class SizasportsSubcategoryComponent implements OnInit {
   private categoryId: string;
   isLoadingCategories = true;
   isLoadingActivities = true;
+  wheelchair : Boolean = false
+  minDuration : Number
+  maxDuration : Number
+  minAmountOfPeople : Number
+  maxAmountOfPeople : Number
 
   constructor(private route: ActivatedRoute, private apiService: ApiServiceService, private router: Router, private location: Location) {
       this.router.routeReuseStrategy.shouldReuseRoute = function () {
@@ -38,13 +43,41 @@ export class SizasportsSubcategoryComponent implements OnInit {
         this.categories = data['subcategories'];
         this.isLoadingCategories = false;
       });
+
+      this.getActivities()
     }
 
-    this.apiService.getActivitiesFromCategory(this.categoryId).subscribe((data) =>{
+  }
+
+  setWheelchair(bool : Boolean){
+    this.wheelchair = bool
+    this.getActivities()
+  }
+
+  setDuration(duration){
+    console.log("setDuration")
+    this.minDuration = duration
+    this.maxDuration = duration
+
+    this.getActivities()
+  }
+
+  setAmountOfPeople(min, max){
+    console.log("setAmountOfPeople")
+    this.minAmountOfPeople = min
+    this.maxAmountOfPeople = max
+    
+    this.getActivities()
+  }
+
+  getActivities(){
+    this.isLoadingActivities = true
+    this.apiService.getActivitiesFromCategoryFiltered(this.categoryId, this.wheelchair, this.minDuration, this.maxDuration, this.minAmountOfPeople, this.maxAmountOfPeople).subscribe((data) =>{
       this.activities = data['activities'];
       this.isLoadingActivities = false;
     });
   }
+
 
   goToCreateSuggestion()
   {

@@ -24,6 +24,18 @@ export class SizasportsComponent implements OnInit {
   ngOnInit() {
      }
 
+
+     goToCreateSuggestion()
+     {
+       console.log('goToCreateSuggestion()')
+       this.router.navigate(['/suggestions/create'])
+     }
+
+
+    //////////////////////////// NOT IMPORTANT CODE \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
     @HostListener('document:keypress', ['$event'])
     handleKeyboardEvent(event: KeyboardEvent) { 
 
@@ -54,13 +66,6 @@ export class SizasportsComponent implements OnInit {
     audio.src =  '../../assets/sounds/crow.mp3';
     audio.load();
     audio.play();
-  }
-
-
-  goToCreateSuggestion()
-  {
-    console.log('goToCreateSuggestion()')
-    this.router.navigate(['/suggestions/create'])
   }
 
 }
