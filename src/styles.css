@@ -174,3 +174,18 @@ html {
   width:100%;
   background-color: #f5f5f5;
 }
+
+.small-header{    
+    font-weight: 400;
+    color: #0f3f91;
+}
+
+.font-bolder
+{
+    font-weight: 500;
+}
+
+.font-subheader
+{
+    color: #d40d8b;
+}

@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./beweegposter.component.css']
 })
 export class BeweegposterComponent implements OnInit {
-  title = "Beweegposter"
-  page = 'Als je goed kijkt kun je iedere dag iets moois zien'
+  title = "Iedere dag is mooi"
+  page = 'beweegposter'
 
   constructor() { }
 
