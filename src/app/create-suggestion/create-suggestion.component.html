@@ -1,17 +1,18 @@
-<form #form="ngForm" (ngSubmit)="onSubmit(form)" >       
-    <div class="row">
+<div style="margin-top: 10px; margin-bottom: 20px"><button mat-button (click)="onGoBack()">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+    Terug
+</button> 
+</div>
+
+<form #form="ngForm" (ngSubmit)="onSubmit(form)" style="background: white; padding-top: 20px; padding-bottom: 20px;">       
+    <div class="row" style="margin-left: 0px !important; margin-right: 0px !important">
         <div class="col">
-            <button mat-button (click)="onGoBack()">
-                <mat-icon>keyboard_arrow_left</mat-icon>
-                Terug
-            </button> 
         </div>
         
         <div class="col text-right">
-            <button class="btn-primary-size" mat-raised-button color="primary" type="submit"[disabled]="!form.valid"><mat-icon>send</mat-icon> Stuur Suggestie </button>                
+            <button style="left: -20px;" class="btn-primary-size" mat-raised-button color="primary" type="submit"[disabled]="!form.valid"><mat-icon>send</mat-icon> Stuur Suggestie </button>                
         </div>
     </div>
-    <hr>
     <div class="container">
         <div class="row">
             <h1 class="mat-title">Gebruiker</h1>

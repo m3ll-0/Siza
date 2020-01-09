@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  title = "Je eerste stap zet je in beweging.";
+  title = "Je eerste stap zet je in beweging";
 
   constructor() { }
 
