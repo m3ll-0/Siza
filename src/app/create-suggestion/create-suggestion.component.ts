@@ -14,6 +14,7 @@ import { User } from '../auth/user.model';
 export class CreateSuggestionComponent implements OnInit {
 
   user : User; 
+  email: String;
 
   constructor(
     private location: Location, 
@@ -24,6 +25,7 @@ export class CreateSuggestionComponent implements OnInit {
   ngOnInit() {
     this.authService.user.subscribe(_user => {
         this.user = _user;
+        this.email = _user.email;
     });
   }
 
