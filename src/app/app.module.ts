@@ -42,6 +42,7 @@ import { AdminActivityComponent } from './admin/admin-activity/admin-activity.co
 import { AdminActivityeditComponent } from './admin/admin-activityedit/admin-activityedit.component';
 import { AddActivityComponent } from './admin/add-activity/add-activity.component';
 import { InlineEditComponent } from './admin/inline-edit/inline-edit.component';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 @NgModule({
   declarations: [
@@ -83,6 +84,7 @@ import { InlineEditComponent } from './admin/inline-edit/inline-edit.component';
   ],
   imports: [
     MaterialModule,
+    AngularEditorModule,
     BrowserModule,    
     BrowserAnimationsModule,
     SharedModule,

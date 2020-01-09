@@ -107,17 +107,18 @@ export class ApiServiceService {
     return this.httpClient.delete(this.url + 'categories/' + categoryID)
   }
 
-  
-  // public editActivity(categoryID){
-  //   return this.httpClient.put(this.url +'activities/' + categoryID);
-  // }
+  public updateActivity(activityID, activityprops) {
+    return this.httpClient.put(this.url + 'admin/activities/' + activityID, activityprops)
+  }
 
   public deleteActivity(activityID): Observable<Object> {
     console.log(this.url +'activity'+ activityID);
     
     return this.httpClient.delete(this.url +'admin/activities/'+ activityID).pipe(map((response: Response) => response.json()))
-    
-}
+  }
 
-
+  public uploadimage(image)
+  {
+    return this.httpClient.post('http://localhost:3000/v1/'+ 'categories', image)
+  }
 }
