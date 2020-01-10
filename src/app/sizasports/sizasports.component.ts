@@ -34,8 +34,6 @@ export class SizasportsComponent implements OnInit {
 
     //////////////////////////// NOT IMPORTANT CODE \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-
-
     @HostListener('document:keypress', ['$event'])
     handleKeyboardEvent(event: KeyboardEvent) { 
 
@@ -51,13 +49,24 @@ export class SizasportsComponent implements OnInit {
       {
         this.crowMode();
       }
-    }
 
+      if(this.keyCombination == "nenette")
+      {
+        this.nenetteMode();
+      }
+    }
     
   crowMode()
   {
     var imgs = document.getElementsByTagName("img");for(var i=0, l=imgs.length;i<l;i++){imgs[i].src = "https://media1.giphy.com/media/gEG1j8eBvHVYs/giphy.gif";}
     document.body.style.background = "url(https://media0.giphy.com/media/i7HfyYPbE8BQQ/source.gif)";
+    this.playAudio();
+  }
+
+  nenetteMode()
+  {
+    var imgs = document.getElementsByTagName("img");for(var i=0, l=imgs.length;i<l;i++){imgs[i].src = "../../assets/images/nenette.jpg";}
+    document.body.style.background = "url(../../assets/images/nenette.jpg)";
     this.playAudio();
   }
 
