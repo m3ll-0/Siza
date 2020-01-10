@@ -6,9 +6,11 @@
     "start": "node src/server.js",
     "postinstall": "ng build --prod --aot",
     "build": "ng build",
-    "test": "ng test",
+    "test": "ng test --code-coverage --no-watch --no-progress --browsers=ChromeHeadlessCI",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "sonar": "sonar-scanner",
+    "webdriver-manager-update": "webdriver-manager update --versions.chrome=76.0.3809.126"    
   },
   "private": true,
   "dependencies": {
