@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ApiServiceService } from 'src/app/api-service.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { AuthService, AuthResponseData } from 'src/app/auth/auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-comment-section',
@@ -12,11 +15,12 @@ export class CommentSectionComponent implements OnInit {
   private id : String
   feedback
   isLoading = true
+  loggedIn = false;
 
   constructor(
     private httpService: ApiServiceService,
     private activatedRoute: ActivatedRoute,
-    
+    public dialog: MatDialog
   ) { 
 
     this.activatedRoute.params.subscribe(params => {
@@ -63,7 +67,24 @@ export class CommentSectionComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    if (!form.valid) {
+    if (!this.loggedIn){
+      const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+        width: '50%',
+        height: '50%',
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+        if (result.succes){
+          this.loggedIn = true
+          this.onSubmit
+        } else {
+          return;
+        }
+      });
+    }
+    
+    if (!form.valid || !this.loggedIn) {
       return
       }
       this.isLoading = true;
@@ -76,7 +97,52 @@ export class CommentSectionComponent implements OnInit {
           this.loadFeedback()
         }
       )
-      
-
     }
+}
+
+
+@Component({
+  selector: 'dialog-overview-example-dialog',
+  templateUrl: 'dialog.html',
+})
+export class DialogOverviewExampleDialog {
+  isClientLogin = false;
+  error: string = null
+  checked = true;
+  isLoading = false;
+
+  constructor(
+    private authService: AuthService, private router: Router,
+    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: {animal: string;
+      name: string;}) {}
+
+      onSubmit(form: NgForm) {
+        if (!form.valid) {
+          return
+          }
+    
+          const email = form.value.email;
+          const password = form.value.password;
+          const stayLoggedIn = form.value.stayLoggedIn;
+    
+          this.isLoading = true;
+          let authObs: Observable<AuthResponseData>;
+    
+          authObs = this.authService.login(email, password, stayLoggedIn);
+    
+          authObs.subscribe(
+            resData => {
+              this.isLoading = false;
+              this.dialogRef.close({ succes: true });
+              
+            },
+            errorMessage => {
+              this.error = errorMessage
+              this.isLoading = false
+            });
+    
+          
+        }    
+
 }
