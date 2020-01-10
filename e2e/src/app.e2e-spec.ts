@@ -7,17 +7,18 @@ describe('workspace-project App', () => {
   beforeEach(() => {
     page = new AppPage();
   });
+  
+import { AppPage } from './app.po';
+import { browser, logging } from 'protractor';
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getTitleText()).not.toEqual('siza app is running!');
+describe('workspace-project App', () => {
+  let page: AppPage;
+
+  beforeEach(() => {
+    page = new AppPage();
   });
 
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
     const logs = await browser.manage().logs().get(logging.Type.BROWSER);
     expect(logs).not.toContain(jasmine.objectContaining({
-      level: logging.Level.SEVERE,
-    } as logging.Entry));
-  });
-});
