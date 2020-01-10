@@ -24,8 +24,11 @@ export class CreateSuggestionComponent implements OnInit {
 
   ngOnInit() {
     this.authService.user.subscribe(_user => {
+      if(_user !== null && _user !== undefined)
+      {
         this.user = _user;
         this.email = _user.email;
+      }
     });
   }
 
