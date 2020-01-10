@@ -35,7 +35,7 @@ import { SizasportsActivityCardComponent } from './sizasports/sizasports-activit
 import { ActivitiesComponent } from './activities/activities.component';
 import { AdminActivityComponent } from './admin-activity/admin-activity.component';
 import { AdminActivityspecificComponent } from './admin-activityspecific/admin-activityspecific.component';
-import { CommentSectionComponent } from './activities/comment-section/comment-section.component';
+import { CommentSectionComponent, DialogOverviewExampleDialog } from './activities/comment-section/comment-section.component';
 import { SuggestionDetailComponent } from './suggestion-detail/suggestion-detail.component';
 import { BeweegtipComponent } from './beweegtip/beweegtip.component';
 import { AdminCategoryCardComponent } from './admin/admin-categories/admin-category-card/admin-category-card.component';
@@ -44,7 +44,8 @@ import { AdminCategoryEditComponent } from './admin/admin-categories/admin-categ
 import { AdminActivityCardComponent } from './admin/admin-activities/admin-activity-card/admin-activity-card.component'
 import { CommentComponent } from './activities/comment-section/comment/comment.component'
 import { CreateSuggestionComponent } from './create-suggestion/create-suggestion.component'
-import { BannerComponent } from './banner/banner.component'
+import { BannerComponent } from './banner/banner.component';
+import { TestModuleComponent } from './test-module/test-module.component'
 
 
 
@@ -87,6 +88,11 @@ import { BannerComponent } from './banner/banner.component'
     CommentComponent,
     CreateSuggestionComponent,
     BannerComponent,
+    TestModuleComponent,
+    DialogOverviewExampleDialog
+  ],
+  entryComponents: [
+    DialogOverviewExampleDialog
   ],
   imports: [
     MaterialModule,

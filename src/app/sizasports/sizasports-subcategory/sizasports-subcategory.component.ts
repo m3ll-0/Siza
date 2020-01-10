@@ -81,6 +81,7 @@ export class SizasportsSubcategoryComponent implements OnInit {
 
   goToCreateSuggestion()
   {
+    console.log('goToCreateSuggestion')
     this.router.navigate(['/suggestions/create'])
   }
 
