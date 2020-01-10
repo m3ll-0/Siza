@@ -43,7 +43,7 @@ unittests:
     - npm install --no-optional
   script:
     - npm run test
-    #- npm run sonar
+    - npm run sonar
   only:
     - Development
     - master
