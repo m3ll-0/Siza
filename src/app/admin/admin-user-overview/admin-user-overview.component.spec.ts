@@ -6,6 +6,10 @@ describe('AdminUserOverviewComponent', () => {
   let component: AdminUserOverviewComponent;
   let fixture: ComponentFixture<AdminUserOverviewComponent>;
 
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [SharedModule],

@@ -6,6 +6,10 @@ describe('SizasportsActivityCardComponent', () => {
   let component: SizasportsActivityCardComponent;
   let fixture: ComponentFixture<SizasportsActivityCardComponent>;
 
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [SharedModule],

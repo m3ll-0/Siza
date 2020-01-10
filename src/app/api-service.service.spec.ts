@@ -7,6 +7,10 @@ describe('ApiServiceService', () => {
     imports: [SharedModule]
   }));
 
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
+
   it('should be created', () => {
     const service: ApiServiceService = TestBed.get(ApiServiceService);
     expect(service).toBeTruthy();

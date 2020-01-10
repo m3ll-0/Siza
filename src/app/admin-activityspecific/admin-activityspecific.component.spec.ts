@@ -6,6 +6,10 @@ describe('AdminActivityspecificComponent', () => {
   let component: AdminActivityspecificComponent;
   let fixture: ComponentFixture<AdminActivityspecificComponent>;
 
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AdminActivityspecificComponent ]

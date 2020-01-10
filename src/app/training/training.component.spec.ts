@@ -6,6 +6,10 @@ describe('TrainingComponent', () => {
   let component: TrainingComponent;
   let fixture: ComponentFixture<TrainingComponent>;
 
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ TrainingComponent,BannerComponent ]

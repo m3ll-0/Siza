@@ -6,6 +6,10 @@ describe('AccessdeniedComponent', () => {
   let component: AccessdeniedComponent;
   let fixture: ComponentFixture<AccessdeniedComponent>;
 
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AccessdeniedComponent ]

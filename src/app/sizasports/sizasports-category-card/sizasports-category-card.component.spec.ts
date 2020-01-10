@@ -7,6 +7,10 @@ describe('SizasportsCategoryCardComponent', () => {
   let component: SizasportsCategoryCardComponent;
   let fixture: ComponentFixture<SizasportsCategoryCardComponent>;
 
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [SharedModule,

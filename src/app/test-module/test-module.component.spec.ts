@@ -6,6 +6,10 @@ describe('TestModuleComponent', () => {
   let component: TestModuleComponent;
   let fixture: ComponentFixture<TestModuleComponent>;
 
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [SharedModule],

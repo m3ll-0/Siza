@@ -9,6 +9,10 @@ describe('AdminCategoriesComponent', () => {
   let component: AdminCategoriesComponent;
   let fixture: ComponentFixture<AdminCategoriesComponent>;
 
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [SharedModule],

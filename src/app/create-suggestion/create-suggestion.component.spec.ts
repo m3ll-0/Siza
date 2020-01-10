@@ -6,6 +6,10 @@ describe('CreateSuggestionComponent', () => {
   let component: CreateSuggestionComponent;
   let fixture: ComponentFixture<CreateSuggestionComponent>;
 
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [SharedModule],
