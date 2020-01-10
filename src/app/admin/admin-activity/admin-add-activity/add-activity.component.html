@@ -1,0 +1,194 @@
+
+<div class="mx-auto">
+    <img src="../../assets/images/SizaBanner.PNG" class="img"/>
+    <br>  <br>  <br>  <br>  
+    
+    <div (click)="editTitle()">
+      <h1 [innerHTML]="form.value.title"></h1>
+    </div>
+    
+    <div class="form-group">
+        <mat-form-field>
+          <mat-label>Geschikt rolstoelen</mat-label>
+          <mat-select name="parent" ngModel class="form-control" [(ngModel)]="formParent">
+            <mat-option value="option1">Ja</mat-option>
+            <mat-option value="option2">Nee</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <form [formGroup]="form">  
+        <div class="form-group">
+          <mat-form-field>
+            <mat-label>Categorie</mat-label>
+            <mat-select name="category" ngModel class="form" formControlName="category">
+              <mat-option *ngFor="let category of category" [value]="category._id">
+                {{ category.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </form> 
+      
+    <div class = "container">
+        <input #activityImage type = "file">
+        <button type="button" (click)="onFileUpload()" class="btn btn-secondary">Upload Foto</button>
+      </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div  (click)="editGoal()">
+                    <h5>
+                      Doel
+                  </h5> 
+                    <div class="btn-group row-fluid">
+                      <a [innerHTML]="form.value.goal"></a>
+                    </div>
+                  </div>
+                 
+                <div (click)="editMaterial()">
+                  <h5>
+                      Materiaal
+                  </h5> 
+                  <div class="btn-group row-fluid" >
+                    <a [innerHTML]="form.value.material"></a>
+                  </div>
+                </div>
+                
+                <div  (click)="editActivity()"> 
+                  <h5>
+                      Activiteit <br>
+                  </h5> 
+                  <div class="btn-group row-fluid">
+                    <a [innerHTML]="form.value.activity"></a>
+                  </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div (click)="editSetup()">
+                    <h5>
+                        Hoe zet je het neer? <br>
+                    </h5> 
+                    <div class="btn-group row-fluid">
+                      <a [innerHTML]="form.value.setUp"></a>
+                    </div>
+                  </div>
+            
+                <div class = "container">
+                  <input #setup type = "file">
+                  <button type="button" (click)="onFileUpload()" class="btn btn-secondary">Upload setup</button>
+                </div>
+            
+                  <div (click)="editPointsForAttention()">
+                    <h5>
+                      Let op! 
+                    </h5> 
+                    <div class="btn-group row-fluid" >
+                      <a [innerHTML]="form.value.pointsForAttention"></a>
+                    </div>
+                  </div>
+                  
+                  <div (click)="editTooEasy()">
+                    <h5>
+                        Te makkelijk?
+                    </h5> 
+                    <div class="btn-group row-fluid" >
+                      <a [innerHTML]="form.value.tooEasy"></a>
+                    </div>
+                  </div>
+                    
+                  <div (click)="editTooHard()">
+                    <h5>
+                        Te moeilijk?
+                    </h5> 
+                    <div class="btn-group row-fluid">
+                      <a [innerHTML]="form.value.tooHard"></a>
+                    </div>
+                  </div>
+
+            </div>
+            <div class="fix">
+                <div>
+                  <div *ngIf="editorTitle">
+                    <form [formGroup]="form">
+                      <angular-editor autofocus="true" id="editor" formControlName="title" [config]="config" (ngModelChange)="onChange2($event)"></angular-editor>
+                    </form>
+                    <div class="btn-group row-fluid">
+                      <button type="button" (click)="closeEditor()" class="btn btn-secondary">Close</button>
+                      <button type="button" (click)="saveEditor()" class="btn btn-secondary">Save</button>
+                    </div>
+                </div>
+            
+                  <div *ngIf="editorGoal">
+                    <form [formGroup]="form">
+                      <angular-editor autofocus="true" id="editor" formControlName="goal" [config]="config" (ngModelChange)="onChange2($event)"></angular-editor>
+                    </form>
+                    <div class="btn-group row-fluid">
+                      <button type="button" (click)="closeEditor()" class="btn btn-secondary">Close</button>
+                      <button type="button" (click)="saveEditor()" class="btn btn-secondary">Save</button>
+                    </div>
+                  </div>
+        
+                  <div *ngIf="editorMaterial">
+                    <form [formGroup]="form">
+                      <angular-editor autofocus="true" id="editor" formControlName="material" [config]="config" (ngModelChange)="onChange2($event)"></angular-editor>
+                    </form>
+                    <div class="btn-group row-fluid">
+                      <button type="button" (click)="closeEditor()" class="btn btn-secondary">Close</button>
+                      <button type="button" (click)="saveEditor()" class="btn btn-secondary">Save</button>
+                    </div>
+                  </div>
+        
+                  <div *ngIf="editorActivity">
+                    <form [formGroup]="form">
+                      <angular-editor autofocus="true" id="editor" formControlName="activity" [config]="config" (ngModelChange)="onChange2($event)"></angular-editor>
+                    </form>
+                    <div class="btn-group row-fluid">
+                      <button type="button" (click)="closeEditor()" class="btn btn-secondary">Close</button>
+                      <button type="button" (click)="saveEditor()" class="btn btn-secondary">Save</button>
+                    </div>
+                  </div>
+        
+                  <div *ngIf="editorSetup">
+                    <form [formGroup]="form">
+                      <angular-editor autofocus="true" id="editor" formControlName="setUp" [config]="config" (ngModelChange)="onChange2($event)"></angular-editor>
+                    </form>
+                    <div class="btn-group row-fluid">
+                      <button type="button" (click)="closeEditor()" class="btn btn-secondary">Close</button>
+                      <button type="button" (click)="saveEditor()" class="btn btn-secondary">Save</button>
+                    </div>
+                  </div>
+        
+                  <div *ngIf="editorPointsForAttention">
+                    <form [formGroup]="form">
+                      <angular-editor autofocus="true" id="editor" formControlName="pointsForAttention" [config]="config" (ngModelChange)="onChange2($event)"></angular-editor>
+                    </form>
+                    <div class="btn-group row-fluid">
+                      <button type="button" (click)="closeEditor()" class="btn btn-secondary">Close</button>
+                      <button type="button" (click)="saveEditor()" class="btn btn-secondary">Save</button>
+                    </div>
+                  </div>
+        
+                  <div *ngIf="editorTooHard">
+                    <form [formGroup]="form">
+                      <angular-editor autofocus="true" id="editor" formControlName="tooHard" [config]="config" (ngModelChange)="onChange2($event)"></angular-editor>
+                    </form>
+                    <div class="btn-group row-fluid">
+                      <button type="button" (click)="closeEditor()" class="btn btn-secondary">Close</button>
+                      <button type="button" (click)="saveEditor()" class="btn btn-secondary">Save</button>
+                    </div>
+                  </div>
+        
+                  <div *ngIf="editorTooEasy">
+                    <form [formGroup]="form">
+                      <angular-editor autofocus="true" id="editor" formControlName="tooEasy" [config]="config" (ngModelChange)="onChange2($event)"></angular-editor>
+                    </form>
+                    <div class="btn-group row-fluid">
+                      <button type="button" (click)="closeEditor()" class="btn btn-secondary">Close</button>
+                      <button type="button" (click)="saveEditor()" class="btn btn-secondary">Save</button>
+                    </div>
+                  </div>
+        </div>
+    </div>
+  </div>

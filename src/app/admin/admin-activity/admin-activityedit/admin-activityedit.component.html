@@ -1,16 +1,48 @@
 <div class="text-center"> 
   <div *ngFor="let activities of activities">
-      <img src="../../assets/images/SizaBanner.PNG" class="banner"/>
-      <br>
+    <img src="../../assets/images/SizaBanner.PNG" class="banner"/>
+    <br>
 
-      <div class="btn-group row-fluid" (click)="editTitle()">
-        <h1 [innerHTML]="form.value.title"></h1>
-      </div>
+    <div class="btn-group row-fluid" (click)="editTitle()">
+      <h1 [innerHTML]="form.value.title"></h1>
+    </div>
 
-  
-    <h4>
-      Vido 
-    </h4>
+
+    <div class="form-group">
+      <mat-form-field>
+        <mat-label>Geschikt rolstoelen</mat-label>
+        <mat-select name="parent" ngModel class="form-control" [(ngModel)]="formParent">
+          <mat-option value="option1">Ja</mat-option>
+          <mat-option value="option2">Nee</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field>
+        <mat-label>Aantal personen</mat-label>
+        <mat-select name="parent" ngModel class="form-control" [(ngModel)]="formParent">
+          <mat-option value="option1">1+</mat-option>
+          <mat-option value="option3">2+</mat-option>
+          <mat-option value="option3">4+</mat-option>
+          <mat-option value="option2">2-4</mat-option>
+          <mat-option value="option3">2-8</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field>
+        <mat-label>Nodige tijd</mat-label>
+        <mat-select name="parent" ngModel class="form-control" [(ngModel)]="formParent">
+          <mat-option value="option1">Option 1</mat-option>
+          <mat-option value="option2">Option 2</mat-option>
+          <mat-option value="option3">Option 3</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <br>
 
     <img src="{{activities.image}}" image-resizing height="128" width="128" />
     <div class="container">
@@ -56,12 +88,15 @@
           <a [innerHTML]="form.value.setUp"></a>
         </div>
       </div>
+
       
+
     <div class = "container">
+      <img src="{{activities.setUpImage}}"  image-resizing height="128" width="164" />
       <input #fileInput type = "file">
-      <button (click) = "onFileUpload()"> upload </button>
+      <button type="button" (click)="onFileUpload()" class="btn btn-secondary">UploadImage</button>
     </div>
-    
+
       <div (click)="editPointsForAttention()">
         <h5>
           Let op! 

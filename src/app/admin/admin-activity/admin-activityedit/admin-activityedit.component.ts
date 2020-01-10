@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
-import { ApiServiceService } from '../../api-service.service';
+import { ApiServiceService } from '../../../api-service.service';
 import { ActivatedRoute } from '@angular/router';
 import { Validators, FormGroup, FormArray, FormControl, FormsModule, FormBuilder} from '@angular/forms';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
@@ -29,7 +29,6 @@ export class AdminActivityeditComponent implements OnInit {
   editorPointsForAttention: boolean = false
 
   form: FormGroup;
-  forms: FormGroup;
 
   config: AngularEditorConfig = {
     editable: true,
@@ -66,10 +65,6 @@ export class AdminActivityeditComponent implements OnInit {
     private activatedRoute: ActivatedRoute ,
     private httpClient: HttpClient
     ) {
-    this.forms = this.formBuilder.group({
-      name: [''],
-      categoryImage: [null]
-    })
     var value
     this.activatedRoute.params.subscribe( params => value = params.id );
     this.apiService.getSpecificActivity(value).subscribe((data) =>{
@@ -91,45 +86,26 @@ export class AdminActivityeditComponent implements OnInit {
 
 
   saveEditor() {
-    var editorgoal = this.form.controls['goal'].value
-    var editormaterial= this.form.controls['material'].value
-    var editorsetup = this.form.controls['setUp'].value
-    var editorSetupImage
-    var editorimage
-    var editorPointsForAttention = this.form.controls['pointsForAttention'].value
-    var editortitle = this.form.controls['title'].value
-    var editoractivity= this.form.controls['activity'].value
-    var editorTooEasy = this.form.controls['tooEasy'].value
-    var editorTooHard = this.form.controls['tooHard'].value
+    const imageblob = [this.fileInput.nativeElement.files[0], this.fileInput.nativeElement.files[0]]
+    const file = new FormData()
+    
+    file.append('images', imageblob[0])
+    file.append('title', this.form.controls['title'].value)
+    file.append('activity', this.form.controls['activity'].value)
+    // file.append('material', this.form.controls['material'].value)
+    // file.append('setup', this.form.controls['setup'].value)
+    // file.append('pointsForAttention', this.form.controls['pointsForAttention'].value)
+    // file.append('tooEasy', this.form.controls['tooEasy'].value)
+    // file.append('tooHard', this.form.controls['tooHard'].value)
+  
 
-    var editorAmountOfPeople
-    var editorDuration
-    var editorWheelchair
-
-    const activityParams =  {
-      goal: editorgoal,
-      title: editortitle, 
-      material: editormaterial,
-      activity: editoractivity,
-      setUp: editorsetup,
-      pointsForAttention: editorPointsForAttention,
-      tooEasy: editorTooEasy,
-      tooHard: editorTooHard,
-
-      wheelChair: editorWheelchair,
-      amountOfPeople: editorAmountOfPeople,
-      duration: editorDuration,
-
-      setUpImage: editorSetupImage,
-      image: editorimage, 
-    }   
     var value
     this.activatedRoute.params.subscribe( params => value = params.id );
 
     console.log(value);
     console.log(this.form.controls['title'].value)
   
-    this.apiService.updateActivity(value, activityParams).subscribe((data) =>{
+    this.apiService.updateActivity(value, file).subscribe((data) =>{
       console.log(data);
     } )
     this.editorGoal = false
@@ -183,11 +159,11 @@ export class AdminActivityeditComponent implements OnInit {
   }
 
   ngOnInit() {
-        var value
+    var value
     this.activatedRoute.params.subscribe( params => value = params.id );
     this.apiService.getSpecificActivity(value).subscribe((data) =>{
-      console.log(data);
-      this.activities = data['activity']
+    console.log(data);
+    this.activities = data['activity']
   
     this.form = this.formBuilder.group({
       title: [this.activities[0].title, Validators.required],
@@ -219,8 +195,7 @@ export class AdminActivityeditComponent implements OnInit {
   
     const imageblob = this.fileInput.nativeElement.files[0]
     const file = new FormData()
-    file.append('categoryImage', imageblob)
-    file.append('name', this.activities[0].title)
+    file.append('images', imageblob)
 
 
     this.httpClient.post('http://siza-api.herokuapp.com/v1/categories', file).subscribe(response => {

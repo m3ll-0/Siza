@@ -39,9 +39,8 @@ import { AdminCategoryCardComponent } from './admin/admin-categories/admin-categ
 import { TreeNode } from './admin/admin-categories/admin-categories.component';
 import { AdminCategoryEditComponent } from './admin/admin-categories/admin-category-edit/admin-category-edit.component'
 import { AdminActivityComponent } from './admin/admin-activity/admin-activity.component';
-import { AdminActivityeditComponent } from './admin/admin-activityedit/admin-activityedit.component';
-import { AddActivityComponent } from './admin/add-activity/add-activity.component';
-import { InlineEditComponent } from './admin/inline-edit/inline-edit.component';
+import { AdminActivityeditComponent } from './admin/admin-activity/admin-activityedit/admin-activityedit.component';
+import { AddActivityComponent } from './admin/admin-activity/admin-add-activity/add-activity.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 
 @NgModule({
@@ -74,7 +73,6 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     CommentSectionComponent,
     SizasportsCategoryCardComponent,
     AddActivityComponent,
-    InlineEditComponent,
     CommentSectionComponent,
     SuggestionDetailComponent,
     BeweegtipComponent,

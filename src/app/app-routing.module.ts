@@ -16,12 +16,12 @@ import { AboutComponent } from './about/about.component'
 import { TrainingComponent } from './training/training.component'
 import { BeweegposterComponent } from './beweegposter/beweegposter.component'
 import { SizasportsSubcategoryComponent } from './sizasports/sizasports-subcategory/sizasports-subcategory.component'
-import { AdminActivityeditComponent } from './admin/admin-activityedit/admin-activityedit.component'
+import { AdminActivityeditComponent } from './admin/admin-activity/admin-activityedit/admin-activityedit.component'
 import { AdminActivityComponent } from './admin/admin-activity/admin-activity.component'
 import { ActivitiesComponent } from './activities/activities.component'
 import { SuggestionDetailComponent } from './suggestion-detail/suggestion-detail.component'
 import { AdminCategoryEditComponent } from './admin/admin-categories/admin-category-edit/admin-category-edit.component'
-import { AddActivityComponent } from './admin/add-activity/add-activity.component';
+import { AddActivityComponent } from './admin/admin-activity/admin-add-activity/add-activity.component'
 
 const routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
