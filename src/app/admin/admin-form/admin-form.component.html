@@ -12,14 +12,14 @@
 
             <ng-container matColumnDef="user">
               <th mat-header-cell *matHeaderCellDef> Gebruiker </th>
-              <td mat-cell *matCellDef="let element"> {{element.usersEmail}} </td>
+              <td mat-cell *matCellDef="let element"> {{element?.usersEmail}} </td>
             </ng-container>
 
             
           
             <ng-container matColumnDef="message">
                 <th mat-header-cell *matHeaderCellDef> Bericht </th>
-                <td mat-cell *matCellDef="let element"> {{element.suggestion.message}} </td>
+                <td mat-cell *matCellDef="let element"> {{element?.suggestion.message}} </td>
             </ng-container>
 
             <ng-container matColumnDef="read">

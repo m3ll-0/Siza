@@ -39,21 +39,24 @@ export class AdminFormComponent implements OnInit, AfterViewInit {
   loadData() {
     this.adminService.getSuggestions().subscribe(
       (data) =>{
-        var suggestionsData = []
-        const length = data['suggestions'].length
-        data['suggestions'].forEach(element => {
-          this.apiService.getUserById(element.userId).subscribe(
-            data => {
-              suggestionsData.push({usersEmail: data['user']['email'], suggestion: element})
-              if (suggestionsData.length === length){
-                this.suggestions = suggestionsData
-                this.all = suggestionsData
-                this.isLoading = false
-              }              
-            }
-          )
-        });
-        
+
+        if(data !== null && data !== undefined)
+        {
+          var suggestionsData = []
+          const length = data['suggestions'].length
+          data['suggestions'].forEach(element => {
+            this.apiService.getUserById(element.userId).subscribe(
+              data => {
+                suggestionsData.push({usersEmail: data['user']['email'], suggestion: element})
+                if (suggestionsData.length === length){
+                  this.suggestions = suggestionsData
+                  this.all = suggestionsData
+                  this.isLoading = false
+                }              
+              }
+            )
+          });          
+        }
       }
     )
   }
