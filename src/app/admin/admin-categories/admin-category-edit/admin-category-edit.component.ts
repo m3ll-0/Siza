@@ -33,7 +33,10 @@ export class AdminCategoryEditComponent implements OnInit {
 
   ngOnInit() {
     this.apiService.getCategoriesParentName().subscribe((data : any) => {
-      this.parentcategories = data.categories;
+      if(data !== null && data !== undefined)
+      {
+        this.parentcategories = data.categories;
+      }
     })
     
     const categoryId = this.route.snapshot.paramMap.get('categoryId');
@@ -47,15 +50,18 @@ export class AdminCategoryEditComponent implements OnInit {
       // load data
       this.apiService.getSpecificCategoryParentName(categoryId).subscribe((data : any) => {
         
-        const category = data.category;
-
-        if(Object.prototype.hasOwnProperty.call(category, 'parent'))
+        if(data !== null && data !== undefined)
         {
-          this.formParent = category.parent._id
-        }
+          const category = data.category;
 
-        this.formImage = category.image;
-        this.formName = category.name;
+          if(Object.prototype.hasOwnProperty.call(category, 'parent'))
+          {
+            this.formParent = category.parent._id
+          }
+
+          this.formImage = category.image;
+          this.formName = category.name;
+        }
       })
     }
   }
