@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import {SharedModule} from '../../Shared/shared.module';
+import {LoadingSpinnerComponent} from '../../Shared/loading-spinner/loading-spinner.component' 
 import { VerifyEmailComponent } from './verify-email.component';
 
 describe('VerifyEmailComponent', () => {
@@ -8,7 +9,8 @@ describe('VerifyEmailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VerifyEmailComponent ]
+      imports: [SharedModule],
+      declarations: [ VerifyEmailComponent,LoadingSpinnerComponent ]
     })
     .compileComponents();
   }));

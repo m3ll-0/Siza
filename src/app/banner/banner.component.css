@@ -1,10 +1,10 @@
 
 .header {
     bottom: 0px;
-    background-image: url(../../assets/images/siza-header.png);
+    background-image: url(https://www.siza.nl/designs/siza/Header_Masker_1280px.png);
     text-align: center;
     width: 100%;
-    height: 200px;
+    height: 600px;
     position: absolute; 
     background-position: center;
     background-repeat: no-repeat;
@@ -12,7 +12,7 @@
 }
 
 .header-image {
-    background-image: url(https://www.kad.nl/assets/uploads/2019/01/kraai2-1-e1546520798893.jpg);
+    background-image: url('https://www.siza.nl/images/Verhalen/Chantal%20header%202.jpg');
     text-align: center;
     width: 100%;
     height: 500px;
@@ -21,6 +21,11 @@
     background-repeat: no-repeat;
     background-size: 100% ;
     color: white;
+    background-size: cover;
+}
+
+.img-about{
+    background-image: url('https://www.siza.nl/images/Verhalen/Header%20Esmee.jpg') !important;
 }
 
 .bottom-left {
@@ -28,4 +33,14 @@
     bottom: 8px;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.img-baf
+{
+    background-image: url('https://www.siza.nl/images/Verhalen/Daniel%20headrer%202050x600.jpg') !important;
+}
+
+.img-beweegposter
+{
+    background-image: url('https://www.siza.nl/images/Verhalen/Thom%20header.jpg') !important;
 }

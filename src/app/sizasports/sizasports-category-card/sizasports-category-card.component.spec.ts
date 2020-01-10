@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import {SharedModule} from '../../Shared/shared.module';
 import { SizasportsCategoryCardComponent } from './sizasports-category-card.component';
+import { RouterModule } from '@angular/router';
 
 describe('SizasportsCategoryCardComponent', () => {
   let component: SizasportsCategoryCardComponent;
@@ -8,6 +9,9 @@ describe('SizasportsCategoryCardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [SharedModule,
+        RouterModule.forRoot([]),
+      ],
       declarations: [ SizasportsCategoryCardComponent ]
     })
     .compileComponents();

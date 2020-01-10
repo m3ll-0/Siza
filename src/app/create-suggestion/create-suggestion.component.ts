@@ -3,6 +3,8 @@ import { Location } from '@angular/common';
 import { NgForm, Validators } from '@angular/forms';
 import { ApiServiceService } from '../api-service.service';
 import { Suggestion } from '../models/Suggestion';
+import { AuthService } from '../auth/auth.service';
+import { User } from '../auth/user.model';
 
 @Component({
   selector: 'app-create-suggestion',
@@ -11,12 +13,20 @@ import { Suggestion } from '../models/Suggestion';
 })
 export class CreateSuggestionComponent implements OnInit {
 
+  user : User; 
+  email: String;
+
   constructor(
     private location: Location, 
-    private httpService: ApiServiceService
+    private httpService: ApiServiceService,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
+    this.authService.user.subscribe(_user => {
+        this.user = _user;
+        this.email = _user.email;
+    });
   }
 
   onGoBack(){

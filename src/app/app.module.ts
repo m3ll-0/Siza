@@ -41,9 +41,11 @@ import { BeweegtipComponent } from './beweegtip/beweegtip.component';
 import { AdminCategoryCardComponent } from './admin/admin-categories/admin-category-card/admin-category-card.component';
 import { TreeNode } from './admin/admin-categories/admin-categories.component';
 import { AdminCategoryEditComponent } from './admin/admin-categories/admin-category-edit/admin-category-edit.component';
-import { CommentComponent } from './activities/comment-section/comment/comment.component';
-import { CreateSuggestionComponent } from './create-suggestion/create-suggestion.component';
-import { BannerComponent } from './banner/banner.component';
+import { AdminActivityCardComponent } from './admin/admin-activities/admin-activity-card/admin-activity-card.component'
+import { CommentComponent } from './activities/comment-section/comment/comment.component'
+import { CreateSuggestionComponent } from './create-suggestion/create-suggestion.component'
+import { BannerComponent } from './banner/banner.component'
+
 
 
 @NgModule({
@@ -81,6 +83,7 @@ import { BannerComponent } from './banner/banner.component';
     AdminCategoryCardComponent,
     TreeNode,
     AdminCategoryEditComponent,
+    AdminActivityCardComponent,
     CommentComponent,
     CreateSuggestionComponent,
     BannerComponent,

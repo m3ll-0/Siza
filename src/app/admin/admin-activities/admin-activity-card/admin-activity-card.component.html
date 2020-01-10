@@ -1,0 +1,23 @@
+<mat-card class="small-activity-card" (click)="onClickActivityCard(activityID)">
+    <mat-card-content>
+            <img class="img-small-card" src="https://image.shutterstock.com/image-vector/ui-image-placeholder-wireframes-apps-260nw-1037719204.jpg"/>
+    </mat-card-content>
+    <mat-card-content>
+        <div class="small-card-header">     
+            <a [routerLink]="['/activity', activityID]">{{ activity?.title }}</a>
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <div class="d-flex flex-row justify-content-center align-items-center">
+            <button mat-button>
+                Bewerk
+              </button>
+              <button 
+              mat-button 
+              color="warn"
+              >
+                  Verwijderen
+                </button>
+        </div>                        
+    </mat-card-actions>
+</mat-card>

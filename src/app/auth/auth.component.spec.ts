@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import {LoadingSpinnerComponent} from '../Shared/loading-spinner/loading-spinner.component'
 import { AuthComponent } from './auth.component';
+import {SharedModule} from '../Shared/shared.module';
+
 
 describe('AuthComponent', () => {
   let component: AuthComponent;
@@ -8,7 +10,8 @@ describe('AuthComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AuthComponent ]
+      imports: [SharedModule],
+      declarations: [ AuthComponent,LoadingSpinnerComponent]
     })
     .compileComponents();
   }));

@@ -10,3 +10,11 @@ app-sidenav { display: flex; }
     overflow: hidden;
     background: white;
 }
+
+.mat-drawer-container > a:hover{
+    text-decoration: none;
+}
+.mat-list-item
+{
+    text-decoration: none;
+}

@@ -18,7 +18,10 @@ export class SizasportsCategoryCardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.categoryID = this.category._id;
+    if(this.category !== null && this.category !== undefined)
+    {
+      this.categoryID = this.category._id;
+    }
   }
 
   onClickCategoryCard(categoryID: string)

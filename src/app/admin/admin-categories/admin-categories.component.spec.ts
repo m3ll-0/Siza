@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import {SharedModule} from '../../Shared/shared.module'
+import {LoadingSpinnerComponent} from '../../Shared/loading-spinner/loading-spinner.component'
 import { AdminCategoriesComponent } from './admin-categories.component';
+import {TreeNode} from './admin-categories.component'
+import {AdminCategoryCardComponent} from '../admin-categories/admin-category-card/admin-category-card.component'
 
 describe('AdminCategoriesComponent', () => {
   let component: AdminCategoriesComponent;
@@ -8,7 +11,8 @@ describe('AdminCategoriesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdminCategoriesComponent ]
+      imports: [SharedModule],
+      declarations: [ AdminCategoriesComponent,LoadingSpinnerComponent, TreeNode, AdminCategoryCardComponent]
     })
     .compileComponents();
   }));

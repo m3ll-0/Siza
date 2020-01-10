@@ -1,3 +1,4 @@
+<div class="wrapper-custom">
 <div class="container">
     <div class="row">
             <div class="col-sm">
@@ -14,6 +15,7 @@
                             </button> 
                     </div>
                 </div>
+
                 <hr>
                 <div class="row">
                     <button mat-button [matMenuTriggerFor]="duration">Tijdsduur</button>
@@ -41,6 +43,8 @@
                              
                
 
+
+                <div style="margin-top: 20px">   
                 <h4>Categoriën</h4>
                 <div class='empty-message' *ngIf="categories.length === 0 && isLoadingCategories === false"><b><p class="p-line-height">Er zijn geen subcategoriën aanwezig.</p></b></div>
                 <app-sizasports-category-card *ngFor="let categories of categories" [category]="categories"></app-sizasports-category-card>
@@ -51,8 +55,9 @@
                 <div class='empty-message' *ngIf="activities.length === 0 && isLoadingActivities === false"><b><p class="p-line-height">Er zijn geen activiteiten aanwezig.</p></b></div>
                 <app-sizasports-activity-card *ngFor="let activities of activities" [activity]="activities"></app-sizasports-activity-card>
                 <div class="d-flex flex-row justify-content-center align-items-center"><app-loading-spinner *ngIf="isLoadingActivities"></app-loading-spinner></div>                        
-
+                    </div>
             </div>
     </div>
 </div>
 
+</div>
