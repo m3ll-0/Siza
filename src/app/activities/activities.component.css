@@ -21,10 +21,11 @@ h4 {
 h5 {
     color: #101e4a;
     text-align: left;
+    font-weight: 600;
 }
 
 img.banner { 
-	width: 800px;
+	width: 100%;
 	height: 180px;
 }
 
@@ -33,4 +34,60 @@ img {
     max-height: 100%;
 }
     
+.custom-row
+{
+    display: block;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
 
+.main-content
+{
+    margin-top: 30px;
+}
+
+.grid-row
+{
+    display: grid;
+    position: absolute;     
+    margin-left: 200px;
+}
+
+@media print {
+    body, html, #wrapper {
+        width: 100% !important; 
+    }
+}
+
+.img-side
+{
+    margin: 5px;
+}
+
+.f-container
+{
+    min-width: 320px;
+    border-right: 3px solid #e23fad;
+}
+
+.s-container
+{
+    margin-left: 10px;
+}
+
+.pdf-row{
+    float: left;
+    position: relative;
+    margin-left: 200px;
+}
+
+#test{
+    background: red;
+}
+
+.bgwhite{
+    background-color: white;
+    padding-bottom: 10px;
+    margin-top: 20px;
+}

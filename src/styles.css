@@ -29,6 +29,7 @@ html {
     padding-bottom: 610px;
     min-height: 100%;
     font-family: "Helvetica Neue", Arial, sans-serif;
+    background-color: #f5f5f5 !important;
   }
 .small-card:hover{
     box-shadow: 0 4px 10px -6px rgba(0,0,0,.5), 0 1px 5px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12) !important;
@@ -53,21 +54,31 @@ html {
     font-weight: 500;
 }
 
+.a-navbar:focus{
+    color: #d40d8b !important; 
+}
+
 .a-navbar {
-    color: white !important;
+    color: black !important;
     /* font-weight: 300; */
     /* font-size: 1.2em; */
 }
 
 .a-navbar:hover{
-    color: #0f3f91 !important;
+    color: #d40d8b !important;
     /* font-weight: 300; */
     /* font-size: 1.2em; */
     background: white;
     border-radius: 20px;
 }
 
-
+.wrapper_outer
+{
+    width: 100%; 
+    background-color: white;
+    padding: 20px;
+    /* color:#5c0c1; */
+}
 
 .small-activity-card
 {
@@ -104,6 +115,8 @@ html {
     color: #5e5e5e !important;
     margin-bottom: 30px;
     margin-top: 20px;
+    background: aliceblue;
+    padding-top: 6px;
 }
 
 .p-line-height
@@ -131,8 +144,8 @@ html {
 }
 
 .navbarprops{
-    background-color: #0f3f91;
-    color: white;
+    background-color: white;
+    color: black;
 }
 
 .tree-group
@@ -148,4 +161,31 @@ html {
 
 .tree-title{
     background-color: white;
+}
+
+.wrapper-custom
+{
+    padding: 10px;
+}
+
+.filler-space
+{
+  height: 40px;
+  width:100%;
+  background-color: #f5f5f5;
+}
+
+.small-header{    
+    font-weight: 400;
+    color: #0f3f91;
+}
+
+.font-bolder
+{
+    font-weight: 500;
+}
+
+.font-subheader
+{
+    color: #d40d8b;
 }

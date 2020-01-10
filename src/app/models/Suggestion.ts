@@ -9,8 +9,12 @@ export class Suggestion
         goal?: string
         material?: string
         activity?: string
-        setup?: string
-        pointsForAttention?: string
-        differentiations?: string
+        setUp?: string
+        tooHard?: string 
+        tooEasy?: string 
+        duration?: Number
+        amountOfPeople?: Number
+        wheelchair?: Boolean
+        pointsForAttention?: String
     }
 }

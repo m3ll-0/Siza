@@ -1,0 +1,46 @@
+
+.header {
+    bottom: 0px;
+    background-image: url(https://www.siza.nl/designs/siza/Header_Masker_1280px.png);
+    text-align: center;
+    width: 100%;
+    height: 600px;
+    position: absolute; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.header-image {
+    background-image: url('https://www.siza.nl/images/Verhalen/Chantal%20header%202.jpg');
+    text-align: center;
+    width: 100%;
+    height: 500px;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% ;
+    color: white;
+    background-size: cover;
+}
+
+.img-about{
+    background-image: url('https://www.siza.nl/images/Verhalen/Header%20Esmee.jpg') !important;
+}
+
+.bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.img-baf
+{
+    background-image: url('https://www.siza.nl/images/Verhalen/Daniel%20headrer%202050x600.jpg') !important;
+}
+
+.img-beweegposter
+{
+    background-image: url('https://www.siza.nl/images/Verhalen/Thom%20header.jpg') !important;
+}

@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {SharedModule} from '../Shared/shared.module';
 
 import { AdminActivityComponent } from './admin-activity.component';
 
@@ -8,6 +9,7 @@ describe('AdminActivityComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [SharedModule],
       declarations: [ AdminActivityComponent ]
     })
     .compileComponents();

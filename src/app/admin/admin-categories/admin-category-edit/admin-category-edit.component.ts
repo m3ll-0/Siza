@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, SystemJsNgModuleLoader } from '@angular/core';
 import { Category } from 'src/app/models/Category';
 import { ApiServiceService } from 'src/app/api-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormBuilder, FormGroup } from '@angular/forms';
 import { Location } from '@angular/common';
+import { debug } from 'util';
+
 
 
 @Component({
@@ -12,11 +14,15 @@ import { Location } from '@angular/common';
   styleUrls: ['./admin-category-edit.component.css']
 })
 export class AdminCategoryEditComponent implements OnInit {
+  @ViewChild("categoryImage", {static: false}) categoryImage: ElementRef
 
+  selectedFile: File
   creationMode = true;
   parentcategories: Category[];
   headerTitle: string;
   categoryId: string;
+
+  form: FormGroup;
 
   formName: string;
   formImage: string;
@@ -26,6 +32,7 @@ export class AdminCategoryEditComponent implements OnInit {
     private apiService: ApiServiceService,
     private route: ActivatedRoute,
     private router: Router,
+    private formBuilder: FormBuilder,
     private location: Location
     ) 
     { 
@@ -35,7 +42,11 @@ export class AdminCategoryEditComponent implements OnInit {
     this.apiService.getCategoriesParentName().subscribe((data : any) => {
       this.parentcategories = data.categories;
     })
-    
+    this.form = this.formBuilder.group({
+      name: '',
+      categoryImage: '',
+      parent: ''
+      })
     const categoryId = this.route.snapshot.paramMap.get('categoryId');
     this.headerTitle = ' aanmaken';
 
@@ -65,27 +76,34 @@ export class AdminCategoryEditComponent implements OnInit {
     this.location.back();
   }
 
-  onSaveCategory(form: NgForm)
+  onSaveCategory()
   {
-      const value = form.value;
+      const imageblob = this.categoryImage.nativeElement.files[0]
+      const categoryParams = new FormData()
       
-      const categoryParams =  {
-          name: value.Name,
-          image: value.Image,
-          parent: value.parent
-        }      
+      categoryParams.append('categoryImage', imageblob)
+      categoryParams.append('name', this.form.controls['name'].value)
+      categoryParams.append('parent', this.form.controls['parent'].value)
+
+      const test = new FormData()
+
+      test.append('categoryImage', imageblob)
+      test.append('ss', 'test')
 
       if(this.creationMode)
       {
         // Save category
-        this.apiService.createCategory(categoryParams).subscribe(data => {
+        this.apiService.createCategory(categoryParams)
+        .subscribe(data => {
+          console.log(data)
           this.router.navigate(['/admin/categories'])
         })
       }
       else{
         // Update category
-        this.apiService.updateSpecificCategory(this.categoryId, categoryParams)
+        this.apiService.updateSpecificCategory(this.categoryId, test)
         .subscribe((data) => {
+          console.log(data)
           this.router.navigate(['/admin/categories'])
         })
       }

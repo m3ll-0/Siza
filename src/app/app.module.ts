@@ -37,11 +37,17 @@ import { SuggestionDetailComponent } from './suggestion-detail/suggestion-detail
 import { BeweegtipComponent } from './beweegtip/beweegtip.component';
 import { AdminCategoryCardComponent } from './admin/admin-categories/admin-category-card/admin-category-card.component';
 import { TreeNode } from './admin/admin-categories/admin-categories.component';
-import { AdminCategoryEditComponent } from './admin/admin-categories/admin-category-edit/admin-category-edit.component'
-import { AdminActivityComponent } from './admin/admin-activity/admin-activity.component';
-import { AdminActivityeditComponent } from './admin/admin-activity/admin-activityedit/admin-activityedit.component';
-import { AddActivityComponent } from './admin/admin-activity/admin-add-activity/add-activity.component';
+import { AdminCategoryEditComponent } from './admin/admin-categories/admin-category-edit/admin-category-edit.component';
+import { AdminActivityCardComponent } from './admin/admin-activities/admin-activity-card/admin-activity-card.component'
+import { CommentComponent } from './activities/comment-section/comment/comment.component'
+import { CreateSuggestionComponent } from './create-suggestion/create-suggestion.component'
+import { BannerComponent } from './banner/banner.component'
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { AddActivityComponent } from './admin/admin-activity/admin-add-activity/add-activity.component';
+import { AdminActivityeditComponent } from './admin/admin-activity/admin-activityedit/admin-activityedit.component';
+import { AdminActivityComponent } from './admin/admin-activity/admin-activity.component';
+
+
 
 @NgModule({
   declarations: [
@@ -78,7 +84,11 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     BeweegtipComponent,
     AdminCategoryCardComponent,
     TreeNode,
-    AdminCategoryEditComponent
+    AdminCategoryEditComponent,
+    AdminActivityCardComponent,
+    CommentComponent,
+    CreateSuggestionComponent,
+    BannerComponent,
   ],
   imports: [
     MaterialModule,

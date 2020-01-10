@@ -1,4 +1,17 @@
+
+<div class="wrapper-custom">
 <div class="container">
+        <div class="d-flex">
+               
+                
+        
+                <div class="ml-auto">
+                        <button mat-button (click)= "goToCreateSuggestion()"> 
+                                <mat-icon>send</mat-icon>
+                                Stuur suggestie
+                        </button> 
+                </div>
+        </div>
         <div class="row">
                 <div class="col-sm">
                         <h4>Categoriën</h4>
@@ -6,4 +19,5 @@
                         <app-sizasports-category-card *ngFor="let categories of categories" [category]="categories"></app-sizasports-category-card>
                 </div>
         </div>
+</div>
 </div>

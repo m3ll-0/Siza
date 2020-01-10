@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import {SharedModule} from '../../Shared/shared.module'
 import { AdminFormComponent } from './admin-form.component';
+import { LoadingSpinnerComponent } from '../../Shared/loading-spinner/loading-spinner.component'
 
 describe('AdminFormComponent', () => {
   let component: AdminFormComponent;
@@ -8,7 +9,8 @@ describe('AdminFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdminFormComponent ]
+      imports: [SharedModule],
+      declarations: [ AdminFormComponent, LoadingSpinnerComponent ]
     })
     .compileComponents();
   }));

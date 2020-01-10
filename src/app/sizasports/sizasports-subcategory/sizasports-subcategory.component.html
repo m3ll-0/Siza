@@ -1,13 +1,47 @@
+<div class="wrapper-custom">
 <div class="container">
     <div class="row">
             <div class="col-sm">
+                <div class="d-flex">
+                    <button mat-button (click)="onGoBack()">
+                        <mat-icon>keyboard_arrow_left</mat-icon>
+                        Terug
+                    </button>   
+                    
+                    <div class="ml-auto">
+                            <button mat-button (click)= "goToCreateSuggestion()"> 
+                                    <mat-icon>send</mat-icon>
+                                    Stuur suggestie
+                            </button> 
+                    </div>
+                </div>
 
-                <button mat-button (click)="onGoBack()">
-                    <mat-icon>keyboard_arrow_left</mat-icon>
-                    Terug
-                </button>                 
-                <br><br>
+                <hr>
+                <div class="row">
+                    <button mat-button [matMenuTriggerFor]="duration">Tijdsduur</button>
+                    <mat-menu #duration="matMenu">
+                        <button mat-button (click)="setDuration()" >Alles</button>
+                        <button mat-button (click)="setDuration(5)" >5 Minuten</button>
+                        <button mat-button (click)="setDuration(10)" >10 Minuten</button>
+                        <button mat-button (click)="setDuration(15)" >15 Minuten</button>
+                        <button mat-button (click)="setDuration(20)" >20 Minuten</button>
+                        <button mat-button (click)="setDuration(30)" >30 Minuten</button>
+                        <button mat-button (click)="setDuration(45)" >45 Minuten</button>
+                        <button mat-button (click)="setDuration(60)" >60 Minuten</button>
+                    </mat-menu>
+                    <button mat-button [matMenuTriggerFor]="menu">Aantal Mensen</button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-button (click)="setAmountOfPeople(1, 100)" >1+</button>
+                        <button mat-button (click)="setAmountOfPeople(2, 4)" >2 - 4</button>
+                        <button mat-button (click)="setAmountOfPeople(2, 8)" >2 - 8</button>
+                        <button mat-button (click)="setAmountOfPeople(2, 100)" > 2 + </button>
+                        <button mat-button (click)="setAmountOfPeople(4, 100)" > 4 +</button>
+                    </mat-menu>
+                    <mat-checkbox style="margin-top: 8px;" #checkbox (change)="setWheelchair(checkbox.checked)" ngModel  [(ngModel)]="wheelchair">Rolstoel Vriendelijk</mat-checkbox>
+                </div>
+                <hr>
 
+                <div style="margin-top: 20px">   
                 <h4>Categoriën</h4>
                 <div class='empty-message' *ngIf="categories.length === 0 && isLoadingCategories === false"><b><p class="p-line-height">Er zijn geen subcategoriën aanwezig.</p></b></div>
                 <app-sizasports-category-card *ngFor="let categories of categories" [category]="categories"></app-sizasports-category-card>
@@ -18,8 +52,9 @@
                 <div class='empty-message' *ngIf="activities.length === 0 && isLoadingActivities === false"><b><p class="p-line-height">Er zijn geen activiteiten aanwezig.</p></b></div>
                 <app-sizasports-activity-card *ngFor="let activities of activities" [activity]="activities"></app-sizasports-activity-card>
                 <div class="d-flex flex-row justify-content-center align-items-center"><app-loading-spinner *ngIf="isLoadingActivities"></app-loading-spinner></div>                        
-
+                    </div>
             </div>
     </div>
 </div>
 
+</div>

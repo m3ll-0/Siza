@@ -15,7 +15,10 @@ export class SizasportsActivityCardComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    this.activityID = this.activity._id;
+    if(this.activity !== null && this.activity !== undefined)
+    {
+      this.activityID = this.activity._id;
+    }
   }
 
   onClickActivityCard(activityID: string)

@@ -1,88 +1,91 @@
-<div class="text-center"> 
-<div id="contentToConvert" #content  >
-  <div *ngFor="let activities of activities">
-      <img src="../../assets/images/SizaBanner.PNG" class="banner" />
- 
-    <h1>
-      {{activities.activity}}
-    </h1>
-    <h4>
-      Ik hou van Holland
-    </h4>
-    <img src="{{activities.image}}" image-resizing height="128" width="128" />
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-sm-4">
-          <h5>
-              Doel
-          </h5> 
-          <p >
-              Je op een andere manier leren voortbewegen.
-          </p>
-          <h5>
-              Materiaal
-          </h5> 
-          <p>{{activities.material}}</p>
-          <h5>
-              Activiteit <br>
-          </h5> 
-          <p>
-              - Je gaat in de jutezak staan en pakt
-              deze met beide handen goed vast <br>
-              - De deelnemers moeten een bepaald
-              parcours afleggen (bijv. 10 meter met
-              piolonnen uitgezet), waarbij hun benen
-              in een jute zak is gestoken. Wie het
-              eerst aankomt heeft gewonnen.<br>
-              - De een zal zich het beste springend
-              voortbewegen en de ander door
-              gewoon te lopen.<br>
-              - Je gaat in de jutezak staan en pakt
-              deze met beide handen goed vast
-              - De deelnemers moeten een bepaald
-              parcours afleggen (bijv. 10 meter met
-              piolonnen uitgezet), waarbij hun benen
-              in een jute zak is gestoken. Wie het
-              eerst aankomt heeft gewonnen.
-              - De een zal zich het beste springend
-              voortbewegen en de ander door
-              gewoon te lopen.
-              - Je gaat in de jutezak staan en pakt
-              deze met beide handen goed vast
-              - De deelnemers moeten een bepaald
+<div class="row" style="margin-left: 200px; margin-top: 30px;">
+  <button mat-button (click)="onGoBack()">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+      Terug
+  </button> 
+</div>
 
-          </p>
+<div id="testx" #content class="text-center">
+  <div id="outer">
+  <div id="inner">
+  <div *ngFor="let activity of activity">
+    <div class="container bgwhite" style="width: 1000px;">
+
+      <div class="custom-row justify-content-center">
+     <div id="wrapper">
+        <img src="../../assets/images/SizaBanner.PNG" id="banner" class="banner" [ngClass]="printing === true ? 'printing' : 'normal'" />
+      </div>
+        <div class="row justify-content-center" id="main_title">
+      <h4>
+        <p>{{ activity?.title }}</p>
+      </h4>
+      </div>
+      <div class="row justify-content-center">
+        <div class="row justify-content-center">
+          <img src="{{activity.image}}" image-resizing height="256" width="256" id="main_image"/>
         </div>
-        <div class="col-sm-4">
-          <h5>
-              {{opstelling}}
-          </h5> 
-          <img src="{{ activities?.setup}} " image-resizing height="128" width="128"  onerror="this.style.display='none'" 
-          (error)="pictNotLoading($event)" />
-          <h5>
-              Aandachtspunten
-          </h5> 
-          <p>
-              - Let goed op de veiligheid bij het
-              zaklopen
-              - Niet met teveel op het parcours
-              - Van te voren inschatten bij welke
-              groep dit spel gedaan kan worden
-          </p>
-          <h5>
-              Differentiaties
-          </h5> 
-          <p>
-              - Je kunt het parcours langer maken
-              - Obstakels in het parcours
-              verwerken
-              - Een kleinere/grotere zak gebruiken
-          </p>
+        <div id="test">
+        <div class="custom-row grid-row" id='customimgs'>
+          <img *ngIf="activity?.wheelchair === true" src="../../assets/images/wheelchair.png" image-resizing height="70" width="70" class="img-side" />
+          <img src="players_{{activity?.players}}" image-resizing height="70" width="70" class="img-side" />
+          <img src="min_{{activity?.image}}" image-resizing height="70" width="70" class="img-side"/>
         </div>
       </div>
+      </div>
+      </div>
+      <div class="row justify-content-center main-content" id="main_content">
+        <div class="col-sm-4 f-container">
+
+          <!-- Goal -->
+          <div *ngIf="activity?.goal !== undefined">  
+            <h5>Doel</h5> 
+            <p >{{ activity?.goal }}</p>
+          </div>
+
+          <!-- Material -->
+          <div *ngIf="activity?.material !== undefined">  
+            <h5>Materiaal</h5> 
+            <p>{{ activity?.material }}</p>
+          </div>
+
+          <!-- Activity -->
+          <div *ngIf="activity?.activity !== undefined">  
+            <h5>Activiteit</h5> 
+            <p>{{ activity?.activity }}</p>
+          </div>
+        </div>
+        <div class="col-sm-4 s-container">
+
+          <!-- Setup -->
+          <div *ngIf="activity?.setUp !== undefined || activity?.setUpImage !== undefined">  
+            <h5>Let op!</h5> 
+            <p>{{ activity?.setUp }}</p>
+          </div>
+          
+          <!-- PointsOfAttention -->
+          <div *ngIf="activity?.pointsForAttention !== undefined">  
+            <h5>Let op!</h5> 
+            <p>{{ activity?.pointsForAttention }}</p>
+          </div>
+
+          <!-- TooEasy -->
+          <div *ngIf="activity?.tooEasy !== undefined">  
+            <h5>Te makkelijk?</h5> 
+            <p>{{ activity?.tooEasy }}</p>
+          </div>
+
+          <!-- TooHard -->
+          <div *ngIf="activity?.tooHard !== undefined">  
+            <h5>Te moeilijk?</h5> 
+            <p>{{ activity?.tooHard }}</p>
+          </div>
+        </div>
+        </div>
     </div>
-  </div>
+    </div>  
 </div>
-<button (click)="captureScreen()" > Export to PDF </button>
-<br>
+</div>
+<br/>
+  <button (click)="printScreen();" class="btn-primary-size" mat-raised-button color="primary" type="submit"><mat-icon>picture_as_pdf</mat-icon>Export to PDF</button>
+<br/><br/>
 <app-comment-section></app-comment-section>

@@ -21,6 +21,7 @@ import { AdminActivityComponent } from './admin/admin-activity/admin-activity.co
 import { ActivitiesComponent } from './activities/activities.component'
 import { SuggestionDetailComponent } from './suggestion-detail/suggestion-detail.component'
 import { AdminCategoryEditComponent } from './admin/admin-categories/admin-category-edit/admin-category-edit.component'
+import { CreateSuggestionComponent } from './create-suggestion/create-suggestion.component'
 import { AddActivityComponent } from './admin/admin-activity/admin-add-activity/add-activity.component'
 
 const routes = [
@@ -33,7 +34,6 @@ const routes = [
     { path: 'poster', component: BeweegposterComponent },
     { path: 'sizasports/category/:id', component: SizasportsSubcategoryComponent, canActivate: [AuthGuard]},  
     { path: 'auth', children: [
-        { path: '', component: AuthComponent},
         { path: 'verifyemail/:token', component: VerifyEmailComponent},
         { path: 'signup', component: SignupComponent},
     ] },
@@ -47,8 +47,13 @@ const routes = [
         { path: 'activities', component: AdminActivityComponent},
         { path: 'activities/:id', component: AdminActivityeditComponent},
         { path: 'addactivity', component: AddActivityComponent}
-    ] },
-    { path: 'suggestions/:id', component: SuggestionDetailComponent, canActivate: [AuthGuard]},
+        
+    ] }, 
+    { path: 'suggestions', canActivate: [AuthAdminGuard], children: [
+        { path: '', redirectTo: 'create', pathMatch: 'full', },
+        { path: 'create', component: CreateSuggestionComponent},
+        { path: ':id', component: SuggestionDetailComponent}, 
+    ] }, 
     { path: 'accessdenied', component: AccessdeniedComponent},
     { path: 'sizasports', component: SizasportsComponent, canActivate: [AuthGuard]},
     { path: 'sizasports', component: SizasportsComponent, canActivate: [AuthGuard]},

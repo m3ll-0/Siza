@@ -3,6 +3,8 @@ import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/htt
 import { Suggestion } from './models/Suggestion';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { User } from './auth/user.model';
+import { Feedback } from './models/Feedback';
 import { map } from "rxjs/operators";
 import { Observable } from 'rxjs';
 
@@ -15,6 +17,7 @@ export class ApiServiceService {
   url = 'https://siza-api.herokuapp.com/v1/'
   private API_SUGGESTIONS = 'suggestions'
   private API_AUTH = 'auth'
+  private API_FEEDBACK = 'feedback'
   // url = 'http://127.0.0.1:3000/v1/';
 
   constructor(private httpClient: HttpClient) {
@@ -37,8 +40,32 @@ export class ApiServiceService {
     )
   }
 
+  public postSuggestion(suggestion: Suggestion){
+    return this.httpClient.post(`${this.url}${this.API_SUGGESTIONS}`, {
+      'message' : suggestion.message,
+      "activity" : {
+        "title" : suggestion.activity.title,
+        "goal" : suggestion.activity.goal,
+        "activity" : suggestion.activity.activity,
+        "material" : suggestion.activity.material,
+        "tooEasy" : suggestion.activity.tooEasy,
+        "tooHard" : suggestion.activity.tooHard,
+        "setUp" : suggestion.activity.setUp,
+        "duration" : suggestion.activity.duration,
+        "wheelchair" : suggestion.activity.wheelchair,
+        "amountOfPeople" : suggestion.activity.amountOfPeople,
+        "pointsForAttention" : suggestion.activity.pointsForAttention,
+
+      },
+    })
+
+    .pipe(
+      catchError(this.handleError)
+    )
+  }
+
   public getUserById(id){
-    return this.httpClient.get<Suggestion>(`${this.url}${this.API_AUTH}/${id}`)
+    return this.httpClient.get<User>(`${this.url}${this.API_AUTH}/${id}`)
 
     .pipe(
       catchError(this.handleError)
@@ -54,13 +81,53 @@ export class ApiServiceService {
   {
     return this.httpClient.get(this.url + 'activities/category/' + categoryId );
   }
-  
+
   public getActivitiesFromCategory(categoryID){
     return this.httpClient.get(this.url +'activities/category/' + categoryID);
+  }
+  
+  public getActivitiesFromCategoryFiltered(categoryID, wheelchair : Boolean, minDuration : Number, maxDuration : Number, minAmountOfPeople: Number, maxAmountOfPeople : Number){
+
+    var url = this.url +'activities/category/' + categoryID + '?'
+    if (wheelchair){
+      url = url + 'wheelchair=' + wheelchair
+    }
+    if (minDuration && maxDuration){
+      if (wheelchair){
+        url = url +  '&' 
+      }
+      url = url + 'minDuration=' + minDuration + '&maxDuration=' + maxDuration
+    }
+    if (minAmountOfPeople && maxAmountOfPeople){
+      if (minDuration && maxDuration || wheelchair){
+        url = url +  '&' 
+      }
+      url = url + 'minAmountOfPeople=' + minAmountOfPeople + '&maxAmountOfPeople=' + maxAmountOfPeople
+    }
+    console.log(url)
+    return this.httpClient.get(url);
   }
 
   public getSpecificActivity(categoryID){
     return this.httpClient.get(this.url +'activities/' + categoryID);
+  }
+
+  public getFeedbackByActivityId(activityId){
+    return this.httpClient.get<Feedback>(`${this.url}${this.API_FEEDBACK}/${activityId}`)
+
+    .pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  public postFeedbackByActivityId(activityId, message){
+    return this.httpClient.post(`${this.url}${this.API_FEEDBACK}/${activityId}`, {
+      'message' : message,
+    })
+
+    .pipe(
+      catchError(this.handleError)
+    )
   }
 
   private handleError(errorRes: HttpErrorResponse) {

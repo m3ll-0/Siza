@@ -1,39 +1,85 @@
 
 <div class="mx-auto">
-    <img src="../../assets/images/SizaBanner.PNG" class="img"/>
-    <br>  <br>  <br>  <br>  
-    
-    <div (click)="editTitle()">
-      <h1 [innerHTML]="form.value.title"></h1>
-    </div>
-    
-    <div class="form-group">
-        <mat-form-field>
-          <mat-label>Geschikt rolstoelen</mat-label>
-          <mat-select name="parent" ngModel class="form-control" [(ngModel)]="formParent">
-            <mat-option value="option1">Ja</mat-option>
-            <mat-option value="option2">Nee</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
+    <div class="text-center">
 
-      <form [formGroup]="form">  
-        <div class="form-group">
-          <mat-form-field>
-            <mat-label>Categorie</mat-label>
-            <mat-select name="category" ngModel class="form" formControlName="category">
-              <mat-option *ngFor="let category of category" [value]="category._id">
-                {{ category.name }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
+      <img src="../../assets/images/SizaBanner.PNG" class="img"/>
+      <br>  <br>  <br>  <br>  
+
+      <div class="row">
+        <div class="col-md-4 form-group text-center">
+    
         </div>
-      </form> 
-      
-    <div class = "container">
-        <input #activityImage type = "file">
-        <button type="button" (click)="onFileUpload()" class="btn btn-secondary">Upload Foto</button>
-      </div>
+        <div class="col-md-4 form-group text-center">
+          <form [formGroup]="form">  
+            <div class="form-group">
+              <mat-form-field>
+                <mat-label>Categorie</mat-label>
+                <mat-select name="category" ngModel class="form" formControlName="category">
+                  <mat-option *ngFor="let category of category" [value]="category._id">
+                    {{ category.name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <div (click)="editTitle()">
+                <h1 [innerHTML]="form.value.title"></h1>
+              </div>
+
+              <div class = "container">
+                <input #activityImage type = "file">
+                <button type="button" (click)="onFileUpload()" class="btn btn-secondary">Upload Foto</button>
+            </div>
+
+            </div>
+          </form> 
+        </div>
+        <div class="col-md-2 form-group text-center">
+   
+        <form [formGroup]="form">  
+          <div class="form-group">
+            <mat-form-field>
+              <mat-label>Geschikt voor rolstoelen</mat-label>
+              <mat-select name="parent" ngModel class="form-control" formControlName="wheelchair">
+                <mat-option value="option1">Ja</mat-option>
+                <mat-option value="option2">Nee</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field>
+              <mat-label>Aantal personen</mat-label>
+              <mat-select name="parent" ngModel class="form-control" formControlName="amountOfPeople">
+                <mat-option value="option1">1+</mat-option>
+                <mat-option value="option1">2+</mat-option>
+                <mat-option value="option1">4+</mat-option>
+                <mat-option value="option1">2-4</mat-option>
+                <mat-option value="option2">2-8</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field>
+              <mat-label>Tijdsduur</mat-label>
+              <mat-select name="parent" ngModel class="form-control" formControlName="duration">
+                <mat-option value="option1">5</mat-option>
+                <mat-option value="option2">10</mat-option>
+                <mat-option value="option2">15</mat-option>
+                <mat-option value="option2">20</mat-option>
+                <mat-option value="option2">30</mat-option>
+                <mat-option value="option2">45</mat-option>
+                <mat-option value="option2">60</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </form>
+
+        </div>
+    </div>
+  </div>
+
+  <br>  <br>  <br>  <br>  <br>  <br>  <br>  
 
     <div class="container-fluid">
         <div class="row">
@@ -190,5 +236,14 @@
                     </div>
                   </div>
         </div>
+
+
+ 
+
     </div>
+  </div>
+  <br>  <br>  <br>  <br>  
+  <div class="text-center">
+    <button type="button" (click)="saveEditor()" class="btn btn-secondary btn-lg">Save</button>
+    <br>  <br>  <br>  <br>  
   </div>

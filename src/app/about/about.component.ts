@@ -9,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class AboutComponent implements OnInit {
  
 
+  page='about';
+  title='Grote dromen beginnen klein'
+
   constructor() { }
 
   ngOnInit() {

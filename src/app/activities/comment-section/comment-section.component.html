@@ -1,3 +1,25 @@
-<p>comment-section works!</p>
+<div style="margin-top: 20px;">
 <h4>Feedback</h4>
-<hr>
+<div style="width:800px; margin:0 auto;">
+    <hr>
+    <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" >       
+    <div class="row">
+        <div class="col-sm">
+            
+                <mat-form-field class="example-full-width">
+                    <input ngModel matInput type="message" id="message" name="message" class="form-control-max-width" placeholder="Plaats Feedback" value="" required minlength="6">
+                </mat-form-field>
+             
+          </div>
+          <div class="col-sm">
+            <button class="btn-primary-size" mat-raised-button color="primary" type="submit"[disabled]="!authForm.valid"><mat-icon>create</mat-icon> Plaats Feedback</button>
+            
+          </div>
+      </div>
+    </form>
+      <div *ngFor="let comment of feedback">
+        <app-comment [comment] = comment></app-comment>
+      </div>
+
+</div>
+</div>

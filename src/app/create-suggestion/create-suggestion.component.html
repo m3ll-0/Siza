@@ -1,0 +1,125 @@
+<div style="margin-top: 10px; margin-bottom: 20px"><button mat-button (click)="onGoBack()">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+    Terug
+</button> 
+</div>
+
+<form #form="ngForm" (ngSubmit)="onSubmit(form)" style="background: white; padding-top: 20px; padding-bottom: 20px;">       
+    <div class="row" style="margin-left: 0px !important; margin-right: 0px !important">
+        <div class="col">
+        </div>
+        
+        <div class="col text-right">
+            <button style="left: -20px;" class="btn-primary-size" mat-raised-button color="primary" type="submit"[disabled]="!form.valid"><mat-icon>send</mat-icon> Stuur Suggestie </button>                
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <h1 class="mat-title">Gebruiker</h1>
+        </div>
+        <div class="row">
+            <h1 class="mat-subheading-2">{{ email }}</h1>
+        </div>
+        <div class="row">
+            <h1 class="mat-title">Bericht</h1>
+        </div>
+        <div class="row">
+            <mat-form-field class="example-full-width">
+                <input ngModel matInput id="message" name="message" class="form-control-max-width" placeholder="Bericht" value="" minlength="6">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <h1 class="mat-title">Voorbeeld</h1>
+        </div>
+        
+        <div class="row">
+            <div class="col-xl">
+                <mat-form-field class="example-full-width">
+                    <input ngModel matInput id="title" name="title" class="form-control-max-width" placeholder="Titel" value="" minlength="4">
+                </mat-form-field>
+            </div>
+        </div>
+       
+ 
+        <div class="row">
+            <div class="col-xl">
+            <mat-form-field class="example-full-width">
+                <input ngModel matInput id="goal" name="goal" class="form-control-max-width" placeholder="Doel" value="" minlength="6">
+            </mat-form-field>
+        </div>
+        <div class="col-xl">
+            <mat-form-field class="example-full-width">
+                <input ngModel matInput  id="material" name="material" class="form-control-max-width" placeholder="Materiaal" value="" minlength="6">
+            </mat-form-field>
+            </div>
+            <div class="col-xl">
+            <mat-form-field class="example-full-width">
+                <input ngModel matInput id="activity" name="activity" class="form-control-max-width" placeholder="Activiteit" value="" required minlength="6">
+            </mat-form-field>
+            </div>
+            <div class="col-xl">
+            <mat-form-field class="example-full-width">
+                <input ngModel matInput  id="tooHard" name="tooHard" class="form-control-max-width" placeholder="Te Moeilijk" value="" minlength="6">
+            </mat-form-field> 
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-xl">
+            <mat-form-field class="example-full-width">
+                <input ngModel matInput  id="tooEasy" name="tooEasy" class="form-control-max-width" placeholder="Te Makkelijk" value="" minlength="6">
+            </mat-form-field>
+            </div>
+            <div class="col-xl">
+            <mat-form-field class="example-full-width">
+                <input ngModel matInput  id="setUp" name="setUp" class="form-control-max-width" placeholder="Opstelling" value="" minlength="6">
+            </mat-form-field>
+            </div>
+            <div class="col-xl">
+                <mat-form-field class="example-full-width">
+                    <input ngModel matInput type="number" id="duration" name="duration" class="form-control-max-width" min="1" placeholder="Tijdsduur in minuten" value="">
+                </mat-form-field>
+            </div>
+            <div class="col-xl">
+                <mat-form-field class="example-full-width">
+                    <input ngModel matInput type='number' id="amountOfPeople" name="amountOfPeople" class="form-control-max-width" min="1" placeholder="Aantal Mensen" value="">
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xl">
+            <mat-form-field class="example-full-width">
+                <input ngModel matInput id="pointsForAttention" name="pointsForAttention" class="form-control-max-width" placeholder="Aandachtspunten" value="" minlength="6">
+            </mat-form-field>
+            </div>
+            <div class="col-xl">
+                
+                
+           
+            </div>
+            <div class="col-xl">
+                
+            </div>
+            <div class="col-xl">
+               
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xl">
+                
+                <mat-checkbox #checkbox ngModel name="wheelchair">Rolstoel vriendelijk</mat-checkbox>
+           
+            </div>
+            <div class="col-xl">
+                
+            </div>
+            <div class="col-xl">
+               
+            </div>
+        </div>
+
+    </div>
+</form>
+

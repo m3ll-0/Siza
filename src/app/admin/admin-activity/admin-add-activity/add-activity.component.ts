@@ -1,10 +1,11 @@
-import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Inject} from '@angular/core';
 import { ApiServiceService } from '../../../api-service.service';
 import { ActivatedRoute } from '@angular/router';
-import { Validators, FormGroup, FormArray, FormControl, FormsModule, FormBuilder} from '@angular/forms';
+import { Validators, FormGroup, FormArray, FormControl, FormsModule, FormBuilder} from '@angular/forms'
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { HttpClient, HttpResponse, HttpErrorResponse, HttpHeaders  } from '@angular/common/http'
-import { NgForm } from '@angular/forms';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog'
+import { inject } from '@angular/core/testing';
 
 @Component({
   selector: 'app-add-activity',
@@ -63,8 +64,7 @@ export class AddActivityComponent implements OnInit {
   constructor(
     private apiService: ApiServiceService,
     private formBuilder: FormBuilder,
-    private activatedRoute: ActivatedRoute ,
-    private httpClient: HttpClient
+    public dialog: MatDialog
     ) { }
 
   closeEditor() {
@@ -99,7 +99,7 @@ export class AddActivityComponent implements OnInit {
   
     this.apiService.addActivity(file).subscribe((data) =>{
       console.log(data);
-    } )
+    })
 
     this.editorGoal = false
     this.editorTitle = false
@@ -114,6 +114,14 @@ export class AddActivityComponent implements OnInit {
 
   editTitle() {
     this.closeEditor()
+    const dialogRef = this.dialog.open(DialogEditor, {
+      width: '50%',
+      height: '50%'
+    })
+    dialogRef.afterClosed().subscribe(result => {
+
+    })
+
     this.editorTitle = true
     }
   editGoal() {
@@ -155,6 +163,9 @@ export class AddActivityComponent implements OnInit {
 
     this.form = this.formBuilder.group({
       category: [''],
+      wheelchair: '',
+      amountOfPeople: '',
+      duration: '',
       title: 'title',
       goal: 'title',
       material: 'title',
@@ -181,4 +192,18 @@ export class AddActivityComponent implements OnInit {
   onChange2(event) {
     console.warn(this.form.value);
   }
+}
+
+@Component({
+  selector: 'dialogeditor',
+  templateUrl: 'dialog-editor.html'
+})
+
+export class DialogEditor {
+  name = 'test'
+
+  constructor(
+    public dialogRef: MatDialogRef<DialogEditor>,
+    @Inject(MAT_DIALOG_DATA) public data: {} )
+  {}
 }
