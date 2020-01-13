@@ -32,7 +32,6 @@ export class ActivitiesComponent implements OnInit {
       console.log(data);
       const activityKey = 'activity';
       this.activity = data[activityKey];
-      console.error(this.activity);
     } )
   }
 

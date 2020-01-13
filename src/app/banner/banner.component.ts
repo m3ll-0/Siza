@@ -12,10 +12,7 @@ export class BannerComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-    console.error(this.title)
-    console.error(this.page)
- 
+  ngOnInit() { 
   }
 
 }

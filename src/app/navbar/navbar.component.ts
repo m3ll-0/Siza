@@ -25,7 +25,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
       console.log(user)
       
       if(user !== null) {
-        this.isAdmin = user.getIsAdmin
+        this.isAdmin = user.isAdmin
       }
     })
   }

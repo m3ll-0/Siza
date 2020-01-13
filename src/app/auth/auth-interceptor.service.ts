@@ -44,13 +44,13 @@ export class AuthInterceptorService implements HttpInterceptor {
           return next.handle(req)
         }
 
-        if (this.isTokenExpired(user.getAccessToken)) {
+        if (this.isTokenExpired(user.accessToken)) {
           this.authService.refreshAccesToken();
         }
 
         const headers = req.headers
           .set('Content-Type', 'application/json')
-          .set('Authorization', user.getAccessToken)
+          .set('Authorization', user.accessToken)
 
         const modifiedRequest = req.clone({ headers })
 

@@ -36,8 +36,8 @@ private API_URL_SIGNUP = '/auth/signup'
           this.handleAuthentication(
             resData.refreshToken,
             resData.accesToken,
-            resData.user.getIsAdmin,
-            resData.user.getEmail,
+            resData.user.isAdmin,
+            resData.user.email,
             stayLoggedIn
           )
         })
@@ -117,7 +117,7 @@ private API_URL_SIGNUP = '/auth/signup'
       userData[isAdminKey],
     )
 
-    if (loadedUser.getAccessToken) {
+    if (loadedUser.accessToken) {
       this.user.next(loadedUser)
     }
   }

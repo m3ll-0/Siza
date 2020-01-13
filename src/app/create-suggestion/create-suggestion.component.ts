@@ -26,7 +26,7 @@ export class CreateSuggestionComponent implements OnInit {
     this.authService.user.subscribe(user => {
       if(user !== null && user !== undefined) {
         this.user = user;
-        this.email = user.getEmail;
+        this.email = user.email;
       }
     });
   }
