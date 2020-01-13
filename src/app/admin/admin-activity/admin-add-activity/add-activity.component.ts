@@ -118,8 +118,8 @@ export class AddActivityComponent implements OnInit {
       width: '50%',
       height: '50%'
     })
-    dialogRef.afterClosed().subscribe(result => {
-
+    dialogRef.afterClosed().subscribe( result => {
+      console.log('Hallo' + result)
     })
 
     this.editorTitle = true
@@ -201,9 +201,39 @@ export class AddActivityComponent implements OnInit {
 
 export class DialogEditor {
   name = 'test'
+  htmlContent = '';
 
   constructor(
     public dialogRef: MatDialogRef<DialogEditor>,
     @Inject(MAT_DIALOG_DATA) public data: {} )
   {}
+  
+  config: AngularEditorConfig = {
+    editable: true,
+    spellcheck: true,
+    height: '15rem',
+    minHeight: '5rem',
+    placeholder: 'Enter text here...',
+    translate: 'no',
+    defaultParagraphSeparator: '',
+    defaultFontName: 'Arial',
+    toolbarHiddenButtons: [
+      ['bold']
+      ],
+    customClasses: [
+      {
+        name: "quote",
+        class: "quote",
+      },
+      {
+        name: 'redText',
+        class: 'redText'
+      },
+      {
+        name: "titleText",
+        class: "titleText",
+        tag: "h1",
+      },
+    ]
+  }
 }

@@ -32,8 +32,6 @@ import { TrainingComponent } from './training/training.component';
 import { SizasportsSubcategoryComponent } from './sizasports/sizasports-subcategory/sizasports-subcategory.component';
 import { SizasportsActivityCardComponent } from './sizasports/sizasports-activity-card/sizasports-activity-card.component';
 import { ActivitiesComponent } from './activities/activities.component';
-import { AdminActivityComponent } from './admin-activity/admin-activity.component';
-import { AdminActivityspecificComponent } from './admin-activityspecific/admin-activityspecific.component';
 import { CommentSectionComponent, DialogOverviewExampleDialog } from './activities/comment-section/comment-section.component';
 import { SuggestionDetailComponent } from './suggestion-detail/suggestion-detail.component';
 import { BeweegtipComponent } from './beweegtip/beweegtip.component';
@@ -45,7 +43,7 @@ import { CommentComponent } from './activities/comment-section/comment/comment.c
 import { CreateSuggestionComponent } from './create-suggestion/create-suggestion.component'
 import { BannerComponent } from './banner/banner.component'
 import { AngularEditorModule } from '@kolkov/angular-editor';
-import { AddActivityComponent } from './admin/admin-activity/admin-add-activity/add-activity.component';
+import { AddActivityComponent, DialogEditor } from './admin/admin-activity/admin-add-activity/add-activity.component';
 import { AdminActivityeditComponent } from './admin/admin-activity/admin-activityedit/admin-activityedit.component';
 import { AdminActivityComponent } from './admin/admin-activity/admin-activity.component';
 import { TestModuleComponent } from './test-module/test-module.component'
@@ -93,10 +91,12 @@ import { TestModuleComponent } from './test-module/test-module.component'
     CreateSuggestionComponent,
     BannerComponent,
     TestModuleComponent,
-    DialogOverviewExampleDialog
+    DialogOverviewExampleDialog,
+    DialogEditor
   ],
   entryComponents: [
-    DialogOverviewExampleDialog
+    DialogOverviewExampleDialog,
+    DialogEditor
   ],
   imports: [
     MaterialModule,

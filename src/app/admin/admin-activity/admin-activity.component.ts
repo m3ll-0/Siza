@@ -21,6 +21,9 @@ export class AdminActivityComponent implements OnInit {
 
   deleteActivity(activityID) {
     this.apiService.deleteActivity(activityID).subscribe((response) => {
+      this.apiService.getActivities().subscribe((data) =>{
+        this.activities = data['activities'];
+      } )
     console.log("deleted" + activityID)})
   }
   addActivity() {

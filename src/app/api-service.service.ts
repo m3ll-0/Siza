@@ -185,6 +185,6 @@ export class ApiServiceService {
   public deleteActivity(activityID): Observable<Object> {
     console.log(this.url +'activity'+ activityID);
     
-    return this.httpClient.delete(this.url +'admin/activities/'+ activityID).pipe(map((response: Response) => response.json()))
+    return this.httpClient.delete(this.url +'admin/activities/'+ activityID)
   }
 }
