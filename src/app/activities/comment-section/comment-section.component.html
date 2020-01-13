@@ -5,14 +5,13 @@
     <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" >       
     <div class="row">
         <div class="col-sm">
-            
-                <mat-form-field class="example-full-width">
+                <mat-form-field class="example-full-width" style="width: 100%">
                     <input ngModel matInput type="message" id="message" name="message" class="form-control-max-width" placeholder="Plaats Feedback" value="" required minlength="6">
                 </mat-form-field>
              
           </div>
           <div class="col-sm">
-            <button class="btn-primary-size" mat-raised-button color="primary" type="submit"[disabled]="!authForm.valid"><mat-icon>create</mat-icon> Plaats Feedback</button>
+            <button style="margin-top: 11px;" class="btn-primary-size" mat-raised-button color="primary" type="submit"[disabled]="!authForm.valid"><mat-icon>create</mat-icon> Plaats Feedback</button>
             
           </div>
       </div>

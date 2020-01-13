@@ -32,7 +32,9 @@ import { TrainingComponent } from './training/training.component';
 import { SizasportsSubcategoryComponent } from './sizasports/sizasports-subcategory/sizasports-subcategory.component';
 import { SizasportsActivityCardComponent } from './sizasports/sizasports-activity-card/sizasports-activity-card.component';
 import { ActivitiesComponent } from './activities/activities.component';
-import { CommentSectionComponent } from './activities/comment-section/comment-section.component';
+import { AdminActivityComponent } from './admin-activity/admin-activity.component';
+import { AdminActivityspecificComponent } from './admin-activityspecific/admin-activityspecific.component';
+import { CommentSectionComponent, DialogOverviewExampleDialog } from './activities/comment-section/comment-section.component';
 import { SuggestionDetailComponent } from './suggestion-detail/suggestion-detail.component';
 import { BeweegtipComponent } from './beweegtip/beweegtip.component';
 import { AdminCategoryCardComponent } from './admin/admin-categories/admin-category-card/admin-category-card.component';
@@ -46,6 +48,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import { AddActivityComponent } from './admin/admin-activity/admin-add-activity/add-activity.component';
 import { AdminActivityeditComponent } from './admin/admin-activity/admin-activityedit/admin-activityedit.component';
 import { AdminActivityComponent } from './admin/admin-activity/admin-activity.component';
+import { TestModuleComponent } from './test-module/test-module.component'
 
 
 
@@ -89,6 +92,11 @@ import { AdminActivityComponent } from './admin/admin-activity/admin-activity.co
     CommentComponent,
     CreateSuggestionComponent,
     BannerComponent,
+    TestModuleComponent,
+    DialogOverviewExampleDialog
+  ],
+  entryComponents: [
+    DialogOverviewExampleDialog
   ],
   imports: [
     MaterialModule,
