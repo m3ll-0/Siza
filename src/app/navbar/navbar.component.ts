@@ -10,7 +10,7 @@ import { AppComponent } from '../app.component';
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   public isAuthenticated = false
-  isAdmin: Boolean
+  isAdmin: boolean
   isNavbarCollapsed = true
   private userSub: Subscription
   @Input() title: string
@@ -24,9 +24,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
       this.isAuthenticated = !!user
       console.log(user)
       
-      if(user !== null)
-      {
-        this.isAdmin = user.isAdmin
+      if(user !== null) {
+        this.isAdmin = user.getIsAdmin
       }
     })
   }

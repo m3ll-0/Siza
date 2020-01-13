@@ -14,9 +14,9 @@ export interface AuthResponseData {
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 
-private API_BASE_URL = "https://siza-api.herokuapp.com/v1";
-private API_URL_REGISTER_ADMIN = "/auth/login"
-private API_URL_SIGNUP = "/auth/signup"
+private API_BASE_URL = 'https://siza-api.herokuapp.com/v1';
+private API_URL_REGISTER_ADMIN = '/auth/login'
+private API_URL_SIGNUP = '/auth/signup'
 
 
   user = new BehaviorSubject<User>(null)
@@ -36,8 +36,8 @@ private API_URL_SIGNUP = "/auth/signup"
           this.handleAuthentication(
             resData.refreshToken,
             resData.accesToken,
-            resData.user.isAdmin,
-            resData.user.email,
+            resData.user.getIsAdmin,
+            resData.user.getEmail,
             stayLoggedIn
           )
         })
@@ -69,13 +69,13 @@ private API_URL_SIGNUP = "/auth/signup"
     const userData: {
       _accessToken: string,
       _refreshToken: string,
-      _isAmdin: Boolean,
+      _isAmdin: boolean,
       _email: string,
     } = JSON.parse(localStorage.getItem('userData'))
 
     return this.http.post(`${this.API_BASE_URL}/auth/refreshtoken`, {
-      'refreshToken' : userData._refreshToken,
-      'email' : userData._email,
+      refreshToken : userData._refreshToken,
+      email : userData._email,
 
     })
 
@@ -85,9 +85,9 @@ private API_URL_SIGNUP = "/auth/signup"
 
     .subscribe(
       data => {
-        console.log(data)
+        const refreshTokenKey = 'refreshToken';
         this.handleAuthentication(
-          data['refreshToken'],
+          data[refreshTokenKey],
           userData._accessToken,
           userData._isAmdin,
           userData._email,
@@ -100,7 +100,7 @@ private API_URL_SIGNUP = "/auth/signup"
     const userData: {
         _accessToken: string,
         _refreshToken: string,
-        _isAmdin: Boolean,
+        _isAmdin: boolean,
         _email: string,
     } = JSON.parse(localStorage.getItem('userData'))
 
@@ -108,14 +108,16 @@ private API_URL_SIGNUP = "/auth/signup"
       return
     }
     
+    const isAdminKey = '_isAdmin';
+
     const loadedUser = new User(
       userData._accessToken,
       userData._refreshToken,
       userData._email,
-      userData['_isAdmin'],
+      userData[isAdminKey],
     )
 
-    if (loadedUser.accessToken) {
+    if (loadedUser.getAccessToken) {
       this.user.next(loadedUser)
     }
   }
@@ -129,7 +131,7 @@ private API_URL_SIGNUP = "/auth/signup"
   private handleAuthentication(
         refreshToken: string,
         accessToken: string,
-        isAdmin: Boolean,
+        isAdmin: boolean,
         email: string,
         stayLoggedIn: boolean
   ) {
@@ -137,8 +139,7 @@ private API_URL_SIGNUP = "/auth/signup"
     const user = new User(accessToken, refreshToken, email, isAdmin)
     this.user.next(user)
 
-    if(stayLoggedIn)
-    {
+    if(stayLoggedIn) {
       // Add to local storage
       localStorage.setItem('userData', JSON.stringify(user))
     }

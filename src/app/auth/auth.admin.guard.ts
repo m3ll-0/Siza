@@ -15,7 +15,7 @@ export class AuthAdminGuard implements CanActivate {
     return this.authService.user.pipe(
       take(1),
       map(user => {
-        const isAuth = user.isAdmin
+        const isAuth = user.getIsAdmin
 
         if (isAuth) {
           return true

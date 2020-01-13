@@ -12,16 +12,14 @@ import { ApiServiceService } from 'src/app/api-service.service';
   styleUrls: ['./admin-form.component.css']
 })
 export class AdminFormComponent implements OnInit, AfterViewInit {
-  options = ["Gelezen en ongelezen", "Gelezen", "Ongelezen"]
+  options = ['Gelezen en ongelezen', 'Gelezen', 'Ongelezen']
   all = []
   suggestions = []
-  read : string
+  read: string
   isLoading = true
   error: string;
   sort: MatSort
   displayedColumns: string[] = ['user', 'message', 'read', 'onclick'];
-
-  
 
   constructor( private adminService: AdminService, private router: Router, private apiService: ApiServiceService, ) {
     this.loadData();
@@ -32,23 +30,26 @@ export class AdminFormComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-
   }
-
 
   loadData() {
     this.adminService.getSuggestions().subscribe(
-      (data) =>{
+      (data) => {
 
-        if(data !== null && data !== undefined)
-        {
-          var suggestionsData = []
-          const length = data['suggestions'].length
-          data['suggestions'].forEach(element => {
+        if(data !== null && data !== undefined) {
+          const suggestionsData = []
+          const suggestionsKey = 'suggestions'
+          const userKey = 'user'
+          const emailKey = 'email'
+
+
+          const length = data[suggestionsKey].length
+
+          data[suggestionsKey].forEach(element => {
             this.apiService.getUserById(element.userId).subscribe(
-              data => {
-                suggestionsData.push({usersEmail: data['user']['email'], suggestion: element})
-                if (suggestionsData.length === length){
+              odata => {
+                suggestionsData.push({usersEmail: odata[userKey][emailKey], suggestion: element})
+                if (suggestionsData.length === length) {
                   this.suggestions = suggestionsData
                   this.all = suggestionsData
                   this.isLoading = false
@@ -61,25 +62,24 @@ export class AdminFormComponent implements OnInit, AfterViewInit {
     )
   }
 
-  filter(read){
+  filter(read) {
     this.read = this.options[read]
-    if (read === 0){
+    if (read === 0) {
       this.suggestions = this.all
     }
-    if (read === 1){
+    if (read === 1) {
       this.suggestions = this.all.filter((element) => {
         return element.suggestion.read === true
       })
     }
-    if (read === 2){
+    if (read === 2) {
       this.suggestions = this.all.filter((element) => {
         return element.suggestion.read === false
       })
     }
   }
 
-
-  setRead(element, bool: Boolean){
+  setRead(element, bool: boolean) {
     this.adminService.setRead(element.suggestion._id, bool).subscribe(
       data => {
         console.log(data)
@@ -93,8 +93,7 @@ export class AdminFormComponent implements OnInit, AfterViewInit {
     )
   }
 
-
-  goToDetail(element){
+  goToDetail(element) {
     this.setRead(element, true)
     this.router.navigate([`/suggestions/${element.suggestion._id}`])
   }

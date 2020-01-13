@@ -1,8 +1,7 @@
 import { Feedback } from '../../../models/Feedback';
 import { User } from '../../../auth/user.model'
 
-export class commentViewModel
-{
+export class CommentViewModel {
     user: User 
     feedback: Feedback
 }

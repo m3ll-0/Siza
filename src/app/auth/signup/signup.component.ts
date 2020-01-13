@@ -20,8 +20,7 @@ export class SignupComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    )
-  {
+    ) {
   }
 
   ngOnInit() {
@@ -30,25 +29,24 @@ export class SignupComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     if (!form.valid) {
-      return
-      }
+      return;
+    }
 
-      const email = form.value.email;
-      const password = form.value.password;
+    const email = form.value.email;
+    const password = form.value.password;
 
-      this.isLoading = true;
+    this.isLoading = true;
 
-      this.authService.signUp(email, password).subscribe(
-        resData => {
-          this.isLoading = false;
-          this.completed = true;
-          this.error = null
-          this.email = email
-        },
-        errorMessage => {
-          this.error = errorMessage
-          this.isLoading = false
-        });
-    }    
-
+    this.authService.signUp(email, password).subscribe(
+      resData => {
+        this.isLoading = false;
+        this.completed = true;
+        this.error = null
+        this.email = email
+      },
+      errorMessage => {
+        this.error = errorMessage
+        this.isLoading = false
+      });
+  }    
 }

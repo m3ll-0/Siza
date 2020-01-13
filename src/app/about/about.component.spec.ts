@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AboutComponent } from './about.component';
-import { BannerComponent} from  '../banner/banner.component'
+import { BannerComponent} from '../banner/banner.component';
 
 describe('AboutComponent', () => {
   let component: AboutComponent;

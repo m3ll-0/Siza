@@ -27,14 +27,12 @@ export class AdminCategoryEditComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private location: Location
-    ) 
-    { 
+    ) { 
     }
 
   ngOnInit() {
-    this.apiService.getCategoriesParentName().subscribe((data : any) => {
-      if(data !== null && data !== undefined)
-      {
+    this.apiService.getCategoriesParentName().subscribe((data: any) => {
+      if(data !== null && data !== undefined) {
         this.parentcategories = data.categories;
       }
     })
@@ -48,14 +46,12 @@ export class AdminCategoryEditComponent implements OnInit {
       this.headerTitle = ' bewerken';
 
       // load data
-      this.apiService.getSpecificCategoryParentName(categoryId).subscribe((data : any) => {
+      this.apiService.getSpecificCategoryParentName(categoryId).subscribe((data: any) => {
         
-        if(data !== null && data !== undefined)
-        {
+        if(data !== null && data !== undefined) {
           const category = data.category;
 
-          if(Object.prototype.hasOwnProperty.call(category, 'parent'))
-          {
+          if(Object.prototype.hasOwnProperty.call(category, 'parent')) {
             this.formParent = category.parent._id
           }
 
@@ -66,29 +62,25 @@ export class AdminCategoryEditComponent implements OnInit {
     }
   }
 
-  onGoBack()
-  {
+  onGoBack() {
     this.location.back();
   }
 
-  onSaveCategory(form: NgForm)
-  {
+  onSaveCategory(form: NgForm) {
       const value = form.value;
       
-      const categoryParams =  {
+      const categoryParams = {
           name: value.Name,
           image: value.Image,
           parent: value.parent
         }      
 
-      if(this.creationMode)
-      {
+      if(this.creationMode) {
         // Save category
         this.apiService.createCategory(categoryParams).subscribe(data => {
           this.router.navigate(['/admin/categories'])
         })
-      }
-      else{
+      } else {
         // Update category
         this.apiService.updateSpecificCategory(this.categoryId, categoryParams)
         .subscribe((data) => {

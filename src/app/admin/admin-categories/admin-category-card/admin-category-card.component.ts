@@ -18,23 +18,19 @@ export class AdminCategoryCardComponent implements OnInit {
   constructor(private router: Router, private apiService: ApiServiceService) { 
   }
 
-  onEditCategory(id: string)
-  {
+  onEditCategory(id: string) {
     this.router.navigate(['/admin/editCategory', { categoryId: id }])
   }
 
-  onDeleteCategory()
-  {
+  onDeleteCategory() {
     this.apiService.deleteCategory(this.id).subscribe((data) => {
       this.isDeleted = true;
     })
   }
 
   ngOnInit() {
-    if(this.name == 'root')
-    {
+    if(this.name === 'root') {
       this.isRoot = true;
     }
   }
-
 }

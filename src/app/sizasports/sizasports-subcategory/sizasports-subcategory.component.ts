@@ -12,35 +12,34 @@ import {Location} from '@angular/common';
 })
 export class SizasportsSubcategoryComponent implements OnInit {
 
-  categories : Category[] = [];
+  categories: Category[] = [];
   activities: Activity[] = [];
   private categoryId: string;
   isLoadingCategories = true;
   isLoadingActivities = true;
-  wheelchair : Boolean = false
-  minDuration : Number
-  maxDuration : Number
-  minAmountOfPeople : Number
-  maxAmountOfPeople : Number
+  wheelchair: boolean
+  minDuration: number
+  maxDuration: number
+  minAmountOfPeople: number
+  maxAmountOfPeople: number
 
   constructor(private route: ActivatedRoute, private apiService: ApiServiceService, private router: Router, private location: Location) {
-      this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      this.router.routeReuseStrategy.shouldReuseRoute = () => {
         return false;
       };
    }
 
-  onGoBack()
-   {
+  onGoBack() {
       this.location.back();
-   }
+  }
 
   ngOnInit(  ) {
     this.categoryId = this.route.snapshot.paramMap.get('id')
 
-    if(this.categoryId !== undefined)
-    {
-      this.apiService.getCategoriesById(this.categoryId).subscribe((data) =>{
-        this.categories = data['subcategories'];
+    if(this.categoryId !== undefined) {
+      this.apiService.getCategoriesById(this.categoryId).subscribe((data) => {
+        const key = 'subcategories'
+        this.categories = data[key];
         this.isLoadingCategories = false;
       });
 
@@ -49,40 +48,40 @@ export class SizasportsSubcategoryComponent implements OnInit {
 
   }
 
-  setWheelchair(bool : Boolean){
+  setWheelchair(bool: boolean) {
     this.wheelchair = bool
     this.getActivities()
   }
 
-  setDuration(duration){
-    console.log("setDuration")
+  setDuration(duration) {
+    console.log('setDuration')
     this.minDuration = duration
     this.maxDuration = duration
 
     this.getActivities()
   }
 
-  setAmountOfPeople(min, max){
-    console.log("setAmountOfPeople")
+  setAmountOfPeople(min, max) {
+    console.log('setAmountOfPeople')
     this.minAmountOfPeople = min
     this.maxAmountOfPeople = max
     
     this.getActivities()
   }
 
-  getActivities(){
+  getActivities() {
     this.isLoadingActivities = true
-    this.apiService.getActivitiesFromCategoryFiltered(this.categoryId, this.wheelchair, this.minDuration, this.maxDuration, this.minAmountOfPeople, this.maxAmountOfPeople).subscribe((data) =>{
-      this.activities = data['activities'];
-      this.isLoadingActivities = false;
+    this.apiService.getActivitiesFromCategoryFiltered(this.categoryId, this.wheelchair, 
+      this.minDuration, this.maxDuration, this.minAmountOfPeople, this.maxAmountOfPeople).subscribe((data) => {
+        const key = 'activities';        
+        this.activities = data[key];
+        this.isLoadingActivities = false;
     });
   }
 
-
-  goToCreateSuggestion()
-  {
+  goToCreateSuggestion() {
     console.log('goToCreateSuggestion')
     this.router.navigate(['/suggestions/create'])
   }
-
 }
+

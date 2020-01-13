@@ -9,20 +9,18 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AdminActivityComponent implements OnInit {
 
-
-  activities
-  
+  activities;
 
   constructor(
     private apiService: ApiServiceService,
     private activatedRoute: ActivatedRoute 
     ) { 
     
-    var value 
+    let value; 
     this.activatedRoute.params.subscribe( params => value = params.id );
-    this.apiService.getActivitiesFromCategory(value).subscribe((data) =>{
-      this.activities = data['activities'];
- 
+    this.apiService.getActivitiesFromCategory(value).subscribe((data) => {
+      const key = 'activities';
+      this.activities = data[key];
     } )
   }
 

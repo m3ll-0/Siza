@@ -16,8 +16,9 @@ import { Location } from '@angular/common';
 })
 export class ActivitiesComponent implements OnInit {
   
-  activity : Activity;
+  activity: Activity;
   printing = false;
+  opstelling = 'Aandachtspunten';
 
   constructor(
     private apiService: ApiServiceService,
@@ -25,63 +26,61 @@ export class ActivitiesComponent implements OnInit {
     private location: Location
     ) {
 
-    var value
+    let value;
     this.activatedRoute.params.subscribe( params => value = params.id );
-    this.apiService.getSpecificActivity(value).subscribe((data) =>{
+    this.apiService.getSpecificActivity(value).subscribe((data) => {
       console.log(data);
-      this.activity = data['activity'];
+      const activityKey = 'activity';
+      this.activity = data[activityKey];
       console.error(this.activity);
     } )
   }
-
-  opstelling: string = 'Aandachtspunten';
 
   pictNotLoading(event) {
      this.opstelling = '';
     }
 
-ngOnInit() {
-}
+    ngOnInit() {
+    }
 
-onGoBack(){
-  this.location.back();
-}
+  onGoBack() {
+    this.location.back();
+  }
 
-public printScreen()
-{
-  var originalContents = document.body.innerHTML;
+  public printScreen() {
 
-    // this.printing = true;
-    var banner = document.getElementById('banner');
-    var inner = document.getElementById('test');
-    var customimg = document.getElementById('customimgs');
-    var main_image = document.getElementById('main_image');
-    var main_content = document.getElementById('main_content');
-    var main_title = document.getElementById('main_title');
+      const originalContents = document.body.innerHTML;
+      // this.printing = true;
+      const banner = document.getElementById('banner');
+      const inner = document.getElementById('test');
+      const customimg = document.getElementById('customimgs');
+      const mainImage = document.getElementById('main_image');
+      const mainContent = document.getElementById('main_content');
+      const mainTitle = document.getElementById('main_title');
 
-    main_image.style.position = "absolute";
-    main_image.style.marginTop = "270px";
-    main_content.style.marginTop = "360px";
-    
-    main_title.style.marginTop = "210px"
-    main_title.style.marginLeft = "450px"
-    main_title.style.position = "absolute";
+      mainImage.style.position = 'absolute';
+      mainContent.style.marginTop = '270px';
+      mainTitle.style.marginTop = '360px';
+      
+      mainTitle.style.marginTop = '210px'
+      mainTitle.style.marginLeft = '450px'
+      mainTitle.style.position = 'absolute';
 
-    document.body.style.width = "100%";
-    document.documentElement.style.width = "100%"
-    
-    banner.style.position = "absolute";
-    banner.style.top = '0px';
-    banner.style.left= '0px';
+      document.body.style.width = '100%';
+      document.documentElement.style.width = '100%'
+      
+      banner.style.position = 'absolute';
+      banner.style.top = '0px';
+      banner.style.left= '0px';
 
-    inner.style.marginTop = "200px";
-    customimg.style.marginTop = "70px";
+      inner.style.marginTop = '200px';
+      customimg.style.marginTop = '70px';
 
-    var printContents = document.getElementById('outer').innerHTML;
-    document.body.innerHTML = printContents;
-    window.print();
-    document.body.innerHTML = originalContents;
-    location.reload();
-}
+      const printContents = document.getElementById('outer').innerHTML;
+      document.body.innerHTML = printContents;
+      window.print();
+      document.body.innerHTML = originalContents;
+      location.reload();
+  }
 
 }

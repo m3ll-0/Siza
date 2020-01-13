@@ -1,35 +1,34 @@
 export class User {
     constructor(
-      private _accessToken: string,
-      private _refreshToken: string,
-      private _email: string,
-      private _isAdmin: Boolean,
-      private _userId?: string
+      private accessToken: string,
+      private refreshToken: string,
+      private email: string,
+      private isAdmin: boolean,
+      private userId?: string
     ) {}
   
-    get accessToken() {
-      return this._accessToken
+    get getAccessToken() {
+      return this.accessToken
     }
 
-    get refreshToken() {
-        return this._refreshToken
+    get getRefreshToken() {
+        return this.refreshToken
       }
 
-    get email() {
-      return this._email
+    get getEmail() {
+      return this.email
     }
 
-    get isAdmin() {
-      return this._isAdmin
+    get getIsAdmin() {
+      return this.isAdmin
     }
 
-    set isAdmin(bool: Boolean) {
-      this._isAdmin = bool
+    set getIsAdmin(bool: boolean) {
+      this.isAdmin = bool
     }
 
-    get userId() {
-      return this._userId
+    get getUserId() {
+      return this.userId
     }
   
   }
-  

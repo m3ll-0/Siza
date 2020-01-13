@@ -11,21 +11,19 @@ import { ConnectedPositionStrategy } from '@angular/cdk/overlay';
 export class SizasportsCategoryCardComponent implements OnInit {
 
   @Input() category: Category
-  public categoryID : string;
+  public categoryID: string;
 
   constructor(private route: ActivatedRoute, private router: Router) {
 
   }
 
   ngOnInit() {
-    if(this.category !== null && this.category !== undefined)
-    {
+    if(this.category !== null && this.category !== undefined) {
       this.categoryID = this.category._id;
     }
   }
 
-  onClickCategoryCard(categoryID: string)
-  {
+  onClickCategoryCard(categoryID: string) {
     this.router.navigate(['/sizasports/category', categoryID])
   }
 
