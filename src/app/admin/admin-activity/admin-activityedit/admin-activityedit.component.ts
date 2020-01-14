@@ -159,7 +159,7 @@ export class AdminActivityeditComponent implements OnInit {
     let value
     this.activatedRoute.params.subscribe( params => value = params.id );
     this.apiService.getSpecificActivity(value).subscribe((data) => {
-    const activity = 'activity'
+    const activity = 'activity' 
     this.activities = data[activity]
   
     this.form = this.formBuilder.group({
