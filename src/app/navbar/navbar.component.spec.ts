@@ -6,6 +6,10 @@ describe('NavbarComponent', () => {
   let component: NavbarComponent;
   let fixture: ComponentFixture<NavbarComponent>;
 
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [SharedModule],

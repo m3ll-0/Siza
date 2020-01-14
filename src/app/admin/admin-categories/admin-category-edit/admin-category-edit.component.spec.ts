@@ -6,6 +6,10 @@ describe('AdminCategoryEditComponent', () => {
   let component: AdminCategoryEditComponent;
   let fixture: ComponentFixture<AdminCategoryEditComponent>;
 
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [SharedModule],

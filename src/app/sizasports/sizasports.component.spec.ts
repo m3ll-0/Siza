@@ -8,6 +8,10 @@ describe('SizasportsComponent', () => {
   let component: SizasportsComponent;
   let fixture: ComponentFixture<SizasportsComponent>;
 
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [SharedModule],

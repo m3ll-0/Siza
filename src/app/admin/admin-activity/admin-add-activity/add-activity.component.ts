@@ -126,16 +126,7 @@ export class AddActivityComponent implements OnInit {
 
 
   editTitle() {
-    this.closeEditor()
-    const dialogRef = this.dialog.open(DialogEditor, {
-      width: '50%',
-      height: '50%'
-    })
-    dialogRef.afterClosed().subscribe( result => {
-      console.log('Hallo' + result)
-    })
-
-    this.editorTitle = true
+  
     }
   editGoal() {
     this.closeEditor()
@@ -206,49 +197,4 @@ export class AddActivityComponent implements OnInit {
     console.warn(this.form.value);
   }
  
-}
-
-@Component({
-  selector: 'dialogeditor',
-  templateUrl: 'dialog-editor.html'
-})
-
-export class DialogEditor {
-  name = 'test'
-  htmlContent = '';
-  
-
-  constructor(
-    public dialogRef: MatDialogRef<DialogEditor>,
-    @Inject(MAT_DIALOG_DATA) public data: { animal} )
-  {}
-  
-  config: AngularEditorConfig = {
-    editable: true,
-    spellcheck: true,
-    height: '15rem',
-    minHeight: '5rem',
-    placeholder: 'Enter text here...',
-    translate: 'no',
-    defaultParagraphSeparator: '',
-    defaultFontName: 'Arial',
-    toolbarHiddenButtons: [
-      ['bold']
-      ],
-    customClasses: [
-      {
-        name: "quote",
-        class: "quote",
-      },
-      {
-        name: 'redText',
-        class: 'redText'
-      },
-      {
-        name: "titleText",
-        class: "titleText",
-        tag: "h1",
-      },
-    ]
-  }
 }

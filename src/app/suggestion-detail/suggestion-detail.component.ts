@@ -10,8 +10,8 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./suggestion-detail.component.css']
 })
 export class SuggestionDetailComponent implements OnInit {
-  private id: String
-  usersEmail: String
+  private id: string
+  usersEmail: string
   suggestion: any
 
   constructor(
@@ -19,29 +19,30 @@ export class SuggestionDetailComponent implements OnInit {
     private httpService: ApiServiceService,
     private activatedRoute: ActivatedRoute,) {
         this.activatedRoute.params.subscribe(params => {
-          this.id = params['id']
+          const key = 'id';
+          this.id = params[key];
         })
     }
 
   ngOnInit() {
     this.httpService.getSuggetionById(this.id).subscribe(
       data => {
-        this.suggestion = data['suggestion']
+        const suggestionsKey = 'suggestion'
+        this.suggestion = data[suggestionsKey]
         console.log(this.suggestion)
         console.log(this.suggestion.userId)
         this.httpService.getUserById(this.suggestion.userId).subscribe(
           userData => {
-            this.usersEmail = userData['user']['email']
+            const userKey = 'user';
+            const emailKey = 'email';
+            this.usersEmail = userData[userKey][emailKey]
           }
         )
       }
     )
   }
 
-  onGoBack(){
+  onGoBack() {
     this.location.back();
   }
-
-  
-
 }

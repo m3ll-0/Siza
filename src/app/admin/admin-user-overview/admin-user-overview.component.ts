@@ -23,18 +23,20 @@ export class AdminUserOverviewComponent implements OnInit {
 
   loadData() {
     this.adminService.getUsers().subscribe(
-      (data) =>{
-        this.users = data['users'];
+      (data) => {
+        const usersKey = 'users';
+        this.users = data[usersKey];
       }
     )
     this.adminService.getAdmins().subscribe(
-      (data) =>{
-        this.admins = data['admins'];
+      (data) => {
+        const adminsKey = 'admins';
+        this.admins = data[adminsKey];
       }
     )
   }
 
-  setAdmin(user, checked){
+  setAdmin(user, checked) {
     this.adminService.setAdmin(user._id, checked).subscribe(
       resData => {
         this.loadData();
@@ -48,9 +50,8 @@ export class AdminUserOverviewComponent implements OnInit {
       });
   }
 
-  print(e){
+  print(e) {
     console.log('print')
     console.log(e)
   }
-
 }

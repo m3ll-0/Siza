@@ -1,5 +1,4 @@
-export class Suggestion
-{
+export class Suggestion {
     _id: string
     userId: string
     read: boolean
@@ -12,9 +11,9 @@ export class Suggestion
         setUp?: string
         tooHard?: string 
         tooEasy?: string 
-        duration?: Number
-        amountOfPeople?: Number
-        wheelchair?: Boolean
-        pointsForAttention?: String
+        duration?: number
+        amountOfPeople?: number
+        wheelchair?: boolean
+        pointsForAttention?: string
     }
 }

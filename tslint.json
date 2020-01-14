@@ -1,8 +1,16 @@
 {
   "extends": "tslint:recommended",
   "rules": {
+    "align" : false,
+    "variable-name": [
+      true,
+      "allow-leading-underscore"
+    ],
     "array-type": false,
+    "whitespace": false,
     "arrow-parens": false,
+    "semicolon":false,
+    "no-trailing-whitespace": false,
     "deprecation": {
       "severity": "warning"
     },

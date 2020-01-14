@@ -7,6 +7,10 @@ describe('AdminFormComponent', () => {
   let component: AdminFormComponent;
   let fixture: ComponentFixture<AdminFormComponent>;
 
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [SharedModule],

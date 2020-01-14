@@ -1,11 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {SharedModule} from '../Shared/shared.module';
-
 import { AdminActivityComponent } from './admin-activity.component';
 
 describe('AdminActivityComponent', () => {
   let component: AdminActivityComponent;
   let fixture: ComponentFixture<AdminActivityComponent>;
+
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

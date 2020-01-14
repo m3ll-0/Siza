@@ -7,6 +7,10 @@ describe('AdminService', () => {
     imports: [SharedModule]
   }));
 
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
+
   it('should be created', () => {
     const service: AdminService = TestBed.get(AdminService);
     expect(service).toBeTruthy();

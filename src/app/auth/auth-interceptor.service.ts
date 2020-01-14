@@ -13,7 +13,9 @@ export class AuthInterceptorService implements HttpInterceptor {
   getTokenExpirationDate(token: string): Date {
     const decoded = jwt_decode(token);
 
-    if (decoded.exp === undefined) return null;
+    if (decoded.exp === undefined) {
+      return null;
+    }
 
     const date = new Date(0); 
     date.setUTCSeconds(decoded.exp);
@@ -21,10 +23,15 @@ export class AuthInterceptorService implements HttpInterceptor {
   }
 
   isTokenExpired(token: string): boolean {
-    if (!token) return true;
+    if (!token) {
+      return true;
+    }
 
     const date = this.getTokenExpirationDate(token);
-    if(date === undefined) return false;
+    if(date === undefined) {
+      return false;
+    }
+
     return !(date.valueOf() > new Date().valueOf());
   }
 
@@ -37,7 +44,7 @@ export class AuthInterceptorService implements HttpInterceptor {
           return next.handle(req)
         }
 
-        if (this.isTokenExpired(user.accessToken)){
+        if (this.isTokenExpired(user.accessToken)) {
           this.authService.refreshAccesToken();
         }
 

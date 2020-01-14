@@ -12,7 +12,7 @@ export class AboutComponent implements OnInit {
   page='about';
   title='Grote dromen beginnen klein'
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
    

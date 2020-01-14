@@ -7,15 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class BannerComponent implements OnInit {
 
-  @Input() title: String
-  @Input() page: String
+  @Input() title: string
+  @Input() page: string
 
   constructor() { }
 
-  ngOnInit() {
-    console.error(this.title)
-    console.error(this.page)
-
+  ngOnInit() { 
   }
 
 }

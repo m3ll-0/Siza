@@ -59,7 +59,7 @@ const routes = [
     { path: 'accessdenied', component: AccessdeniedComponent},
     { path: 'sizasports', component: SizasportsComponent, canActivate: [AuthGuard]},
     { path: 'sizasports', component: SizasportsComponent, canActivate: [AuthGuard]},
-    { path: 'activities/:id', component: ActivitiesComponent},
+    { path: 'activity/:id', component: ActivitiesComponent},
 ]
 
 @NgModule({
@@ -68,4 +68,4 @@ const routes = [
   })
   export class AppRoutingModule {
       
-  } 
+  }

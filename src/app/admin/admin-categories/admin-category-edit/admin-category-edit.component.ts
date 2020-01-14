@@ -34,13 +34,14 @@ export class AdminCategoryEditComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private location: Location
-    ) 
-    { 
+    ) { 
     }
 
   ngOnInit() {
-    this.apiService.getCategoriesParentName().subscribe((data : any) => {
-      this.parentcategories = data.categories;
+    this.apiService.getCategoriesParentName().subscribe((data: any) => {
+      if(data !== null && data !== undefined) {
+        this.parentcategories = data.categories;
+      }
     })
     this.form = this.formBuilder.group({
       name: '',
@@ -56,23 +57,23 @@ export class AdminCategoryEditComponent implements OnInit {
       this.headerTitle = ' bewerken';
 
       // load data
-      this.apiService.getSpecificCategoryParentName(categoryId).subscribe((data : any) => {
+      this.apiService.getSpecificCategoryParentName(categoryId).subscribe((data: any) => {
         
-        const category = data.category;
+        if(data !== null && data !== undefined) {
+          const category = data.category;
 
-        if(Object.prototype.hasOwnProperty.call(category, 'parent'))
-        {
-          this.formParent = category.parent._id
+          if(Object.prototype.hasOwnProperty.call(category, 'parent')) {
+            this.formParent = category.parent._id
+          }
+
+          this.formImage = category.image;
+          this.formName = category.name;
         }
-
-        this.formImage = category.image;
-        this.formName = category.name;
       })
     }
   }
 
-  onGoBack()
-  {
+  onGoBack() {
     this.location.back();
   }
 
@@ -98,8 +99,7 @@ export class AdminCategoryEditComponent implements OnInit {
           console.log(data)
           this.router.navigate(['/admin/categories'])
         })
-      }
-      else{
+      } else {
         // Update category
         this.apiService.updateSpecificCategory(this.categoryId, test)
         .subscribe((data) => {

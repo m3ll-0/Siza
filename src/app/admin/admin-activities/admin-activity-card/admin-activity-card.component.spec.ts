@@ -6,6 +6,10 @@ describe('AdminActivityCardComponent', () => {
   let component: AdminActivityCardComponent;
   let fixture: ComponentFixture<AdminActivityCardComponent>;
 
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [SharedModule],

@@ -10,12 +10,20 @@ describe('SizasportsSubcategoryComponent', () => {
   let component: SizasportsSubcategoryComponent;
   let fixture: ComponentFixture<SizasportsSubcategoryComponent>;
 
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ SharedModule,
         RouterModule.forRoot([]),
       ],
-      declarations: [ SizasportsSubcategoryComponent, SizasportsCategoryCardComponent, LoadingSpinnerComponent, SizasportsActivityCardComponent ]
+      declarations: [ 
+        SizasportsSubcategoryComponent, 
+        SizasportsCategoryCardComponent, 
+        LoadingSpinnerComponent, 
+        SizasportsActivityCardComponent ]
     })
     .compileComponents();
   }));

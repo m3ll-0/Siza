@@ -7,6 +7,10 @@ describe('VerifyEmailComponent', () => {
   let component: VerifyEmailComponent;
   let fixture: ComponentFixture<VerifyEmailComponent>;
 
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [SharedModule],

@@ -6,6 +6,10 @@ describe('BeweegposterComponent', () => {
   let component: BeweegposterComponent;
   let fixture: ComponentFixture<BeweegposterComponent>;
 
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ BeweegposterComponent,BannerComponent ]

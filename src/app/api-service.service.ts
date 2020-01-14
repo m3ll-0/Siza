@@ -24,15 +24,15 @@ export class ApiServiceService {
     
   } 
 
-  public getCategories(){
+  public getCategories() {
     return this.httpClient.get(this.url + 'categories');
   }
 
-  public getActivities(){
+  public getActivities() {
     return this.httpClient.get(this.url + 'activities');
   }
 
-  public getSuggetionById(id){
+  public getSuggetionById(id) {
     return this.httpClient.get<Suggestion>(`${this.url}${this.API_SUGGESTIONS}/${id}`)
 
     .pipe(
@@ -40,21 +40,21 @@ export class ApiServiceService {
     )
   }
 
-  public postSuggestion(suggestion: Suggestion){
+  public postSuggestion(suggestion: Suggestion) {
     return this.httpClient.post(`${this.url}${this.API_SUGGESTIONS}`, {
-      'message' : suggestion.message,
-      "activity" : {
-        "title" : suggestion.activity.title,
-        "goal" : suggestion.activity.goal,
-        "activity" : suggestion.activity.activity,
-        "material" : suggestion.activity.material,
-        "tooEasy" : suggestion.activity.tooEasy,
-        "tooHard" : suggestion.activity.tooHard,
-        "setUp" : suggestion.activity.setUp,
-        "duration" : suggestion.activity.duration,
-        "wheelchair" : suggestion.activity.wheelchair,
-        "amountOfPeople" : suggestion.activity.amountOfPeople,
-        "pointsForAttention" : suggestion.activity.pointsForAttention,
+      message : suggestion.message,
+      activity : {
+        title : suggestion.activity.title,
+        goal : suggestion.activity.goal,
+        activity : suggestion.activity.activity,
+        material : suggestion.activity.material,
+        tooEasy : suggestion.activity.tooEasy,
+        tooHard : suggestion.activity.tooHard,
+        setUp : suggestion.activity.setUp,
+        duration : suggestion.activity.duration,
+        wheelchair : suggestion.activity.wheelchair,
+        amountOfPeople : suggestion.activity.amountOfPeople,
+        pointsForAttention : suggestion.activity.pointsForAttention,
 
       },
     })
@@ -64,7 +64,7 @@ export class ApiServiceService {
     )
   }
 
-  public getUserById(id){
+  public getUserById(id) {
     return this.httpClient.get<User>(`${this.url}${this.API_AUTH}/${id}`)
 
     .pipe(
@@ -72,34 +72,33 @@ export class ApiServiceService {
     )
   }
 
-  public getCategoriesById(parentId: string)
-  {
+  public getCategoriesById(parentId: string) {
     return this.httpClient.get(this.url + 'categories/subs/' + parentId );
   }
 
-  public getActivitiesById(categoryId: string)
-  {
+  public getActivitiesById(categoryId: string) {
     return this.httpClient.get(this.url + 'activities/category/' + categoryId );
   }
 
-  public getActivitiesFromCategory(categoryID){
+  public getActivitiesFromCategory(categoryID) {
     return this.httpClient.get(this.url +'activities/category/' + categoryID);
   }
   
-  public getActivitiesFromCategoryFiltered(categoryID, wheelchair : Boolean, minDuration : Number, maxDuration : Number, minAmountOfPeople: Number, maxAmountOfPeople : Number){
+  public getActivitiesFromCategoryFiltered(categoryID, wheelchair: boolean, minDuration: number, maxDuration: number, 
+    minAmountOfPeople: number, maxAmountOfPeople: number) {
 
-    var url = this.url +'activities/category/' + categoryID + '?'
-    if (wheelchair){
+    let url = this.url +'activities/category/' + categoryID + '?'
+    if (wheelchair) {
       url = url + 'wheelchair=' + wheelchair
     }
-    if (minDuration && maxDuration){
-      if (wheelchair){
+    if (minDuration && maxDuration) {
+      if (wheelchair) {
         url = url +  '&' 
       }
       url = url + 'minDuration=' + minDuration + '&maxDuration=' + maxDuration
     }
-    if (minAmountOfPeople && maxAmountOfPeople){
-      if (minDuration && maxDuration || wheelchair){
+    if (minAmountOfPeople && maxAmountOfPeople) {
+      if (minDuration && maxDuration || wheelchair) {
         url = url +  '&' 
       }
       url = url + 'minAmountOfPeople=' + minAmountOfPeople + '&maxAmountOfPeople=' + maxAmountOfPeople
@@ -108,23 +107,21 @@ export class ApiServiceService {
     return this.httpClient.get(url);
   }
 
-  public getSpecificActivity(categoryID){
+  public getSpecificActivity(categoryID) {
     return this.httpClient.get(this.url +'activities/' + categoryID);
   }
 
-  public getFeedbackByActivityId(activityId){
+  public getFeedbackByActivityId(activityId) {
     return this.httpClient.get<Feedback>(`${this.url}${this.API_FEEDBACK}/${activityId}`)
-
     .pipe(
       catchError(this.handleError)
     )
   }
 
-  public postFeedbackByActivityId(activityId, message){
+  public postFeedbackByActivityId(activityId, message) {
     return this.httpClient.post(`${this.url}${this.API_FEEDBACK}/${activityId}`, {
-      'message' : message,
+      message,
     })
-
     .pipe(
       catchError(this.handleError)
     )
@@ -134,43 +131,35 @@ export class ApiServiceService {
     return throwError(errorRes.error.msg)
   }
   
-  public getCategoriesRecursively()
-  {
+  public getCategoriesRecursively() {
     return this.httpClient.get(this.url + 'categories/recursively')
   }
 
-  public getCategoriesWithoutParent()
-  {
+  public getCategoriesWithoutParent() {
     return this.httpClient.get(this.url + 'categories/noParent')
   }
 
-  public getSpecificCategory(categoryID)
-  {
+  public getSpecificCategory(categoryID) {
     return this.httpClient.get(this.url + 'categories/' + categoryID)
   }
 
-  public getSpecificCategoryParentName(categoryID)
-  {
+  public getSpecificCategoryParentName(categoryID) {
     return this.httpClient.get(this.url + 'categories/getParentName/' + categoryID)
   }
 
-  public getCategoriesParentName()
-  {
+  public getCategoriesParentName() {
     return this.httpClient.get(this.url + 'categories/getParentName')
   }
 
-  public updateSpecificCategory(categoryID, categoryprops)
-  {
+  public updateSpecificCategory(categoryID, categoryprops) {
     return this.httpClient.put(this.url + 'categories/' + categoryID, categoryprops)
   }
 
-  public createCategory(categoryprops)
-  {
+  public createCategory(categoryprops) {
     return this.httpClient.post(this.url + 'categories', categoryprops)
   }
 
-  public deleteCategory(categoryID)
-  {
+  public deleteCategory(categoryID) {
     return this.httpClient.delete(this.url + 'categories/' + categoryID)
   }
 

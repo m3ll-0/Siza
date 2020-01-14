@@ -6,6 +6,10 @@ describe('AddActivityComponent', () => {
   let component: AddActivityComponent;
   let fixture: ComponentFixture<AddActivityComponent>;
 
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AddActivityComponent ]

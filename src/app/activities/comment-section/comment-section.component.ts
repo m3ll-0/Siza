@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./comment-section.component.css']
 })
 export class CommentSectionComponent implements OnInit {
-  private id : String
+  private id: string
   feedback
   isLoading = true
   loggedIn = false;
@@ -24,7 +24,8 @@ export class CommentSectionComponent implements OnInit {
   ) { 
 
     this.activatedRoute.params.subscribe(params => {
-      this.id = params['id']
+      const key = 'id'; 
+      this.id = params[key];
     })
   }
 
@@ -32,21 +33,23 @@ export class CommentSectionComponent implements OnInit {
     this.loadFeedback()
   }
 
-  loadFeedback(){
+  loadFeedback() {
     this.httpService.getFeedbackByActivityId(this.id).subscribe(
-      (data) =>{
-        console.log('load')
-        var feedbackData = []
-        const length = data['feedback'].length
-        data['feedback'].forEach(element => {
+      (data) => {
+        const feedbackKey = 'feedback';
+        const feedbackData = []
+        const length = data[feedbackKey].length
+
+        data[feedbackKey].forEach(element => {
           this.httpService.getUserById(element.userId).subscribe(
-            data => {
-              feedbackData.push({usersEmail: data['user']['email'], feedback: element})
-              if (feedbackData.length === length){
+            odata => {
+              const userKey = 'user';
+              const emailKey = 'email';
+
+              feedbackData.push({usersEmail: odata[userKey][emailKey], feedback: element})
+              if (feedbackData.length === length) {
                 this.feedback = feedbackData
                 this.isLoading = false
-                console.log('feedbackData')
-                console.log(feedbackData)
               }              
             }
           )
@@ -56,9 +59,8 @@ export class CommentSectionComponent implements OnInit {
     )
   }
 
-
-  onPostFeedback(){
-    this.httpService.postFeedbackByActivityId(this.id, "hoi").subscribe(
+  onPostFeedback() {
+    this.httpService.postFeedbackByActivityId(this.id, 'hoi').subscribe(
       data => {
         console.log(data)
         this.loadFeedback()
@@ -67,17 +69,16 @@ export class CommentSectionComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    if (!this.loggedIn){
-      const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+    if (!this.loggedIn) {
+      const dialogRef = this.dialog.open(DialogOverviewExampleDialogComponent, {
         width: '50%',
         height: '50%',
       });
   
       dialogRef.afterClosed().subscribe(result => {
         console.log('The dialog was closed');
-        if (result.succes){
-          this.loggedIn = true
-          this.onSubmit
+        if (result.succes) {
+          this.loggedIn = true;
         } else {
           return;
         }
@@ -86,26 +87,27 @@ export class CommentSectionComponent implements OnInit {
     
     if (!form.valid || !this.loggedIn) {
       return
-      }
-      this.isLoading = true;
-      const message = form.value.message;
-      this.httpService.postFeedbackByActivityId(this.id, message).subscribe(
-        data => {
-          form.resetForm()
-          this.isLoading = false
-          console.log(data)
-          this.loadFeedback()
-        }
-      )
     }
+
+    this.isLoading = true;
+    const message = form.value.message;
+    this.httpService.postFeedbackByActivityId(this.id, message).subscribe(
+      data => {
+        form.resetForm()
+        this.isLoading = false
+        console.log(data)
+        this.loadFeedback()
+      }
+    )
+  }
 }
 
-
 @Component({
-  selector: 'dialog-overview-example-dialog',
+  selector: 'app-dialog-overview-example-dialog',
   templateUrl: 'dialog.html',
 })
-export class DialogOverviewExampleDialog {
+
+export class DialogOverviewExampleDialogComponent {
   isClientLogin = false;
   error: string = null
   checked = true;
@@ -113,36 +115,37 @@ export class DialogOverviewExampleDialog {
 
   constructor(
     private authService: AuthService, private router: Router,
-    public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
+    public dialogRef: MatDialogRef<DialogOverviewExampleDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: {animal: string;
       name: string;}) {}
 
       onSubmit(form: NgForm) {
+
         if (!form.valid) {
-          return
-          }
+          return;
+        }
     
-          const email = form.value.email;
-          const password = form.value.password;
-          const stayLoggedIn = form.value.stayLoggedIn;
-    
-          this.isLoading = true;
-          let authObs: Observable<AuthResponseData>;
-    
-          authObs = this.authService.login(email, password, stayLoggedIn);
-    
-          authObs.subscribe(
-            resData => {
-              this.isLoading = false;
-              this.dialogRef.close({ succes: true });
-              
-            },
-            errorMessage => {
-              this.error = errorMessage
-              this.isLoading = false
-            });
-    
-          
-        }    
+        const email = form.value.email;
+        const password = form.value.password;
+        const stayLoggedIn = form.value.stayLoggedIn;
+  
+        this.isLoading = true;
+        let authObs: Observable<AuthResponseData>;
+  
+        authObs = this.authService.login(email, password, stayLoggedIn);
+  
+        authObs.subscribe(
+          resData => {
+            this.isLoading = false;
+            this.dialogRef.close({ succes: true });
+            
+          },
+          errorMessage => {
+            this.error = errorMessage
+            this.isLoading = false
+          });
+  
+        
+      }    
 
 }

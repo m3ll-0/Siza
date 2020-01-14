@@ -20,7 +20,7 @@
                 <div class="row">
                     <button mat-button [matMenuTriggerFor]="duration">Tijdsduur</button>
                     <mat-menu #duration="matMenu">
-                        <button mat-button (click)="setDuration()" >Alles</button>
+                        <button mat-button (click)="setDuration(0)" >Alles</button>
                         <button mat-button (click)="setDuration(5)" >5 Minuten</button>
                         <button mat-button (click)="setDuration(10)" >10 Minuten</button>
                         <button mat-button (click)="setDuration(15)" >15 Minuten</button>

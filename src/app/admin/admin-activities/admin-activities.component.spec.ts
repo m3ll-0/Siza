@@ -8,6 +8,10 @@ describe('AdminActivitiesComponent', () => {
   let component: AdminActivitiesComponent;
   let fixture: ComponentFixture<AdminActivitiesComponent>;
 
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [SharedModule],

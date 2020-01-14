@@ -6,6 +6,10 @@ describe('BeweegtipComponent', () => {
   let component: BeweegtipComponent;
   let fixture: ComponentFixture<BeweegtipComponent>;
 
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ BeweegtipComponent ]

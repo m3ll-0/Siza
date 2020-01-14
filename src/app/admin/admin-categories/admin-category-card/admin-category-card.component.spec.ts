@@ -6,6 +6,10 @@ describe('AdminCategoryCardComponent', () => {
   let component: AdminCategoryCardComponent;
   let fixture: ComponentFixture<AdminCategoryCardComponent>;
 
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [SharedModule],

@@ -12,10 +12,11 @@ import { MatInputModule } from '@angular/material'
 import { MatSelectModule } from '@angular/material'
 import { HttpClientModule } from '@angular/common/http';
 import {MatTreeModule} from '@angular/material/tree';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { MatTabsModule } from '@angular/material/tabs'
 import { MatMenuModule} from '@angular/material/menu';
+import { MatDialogModule} from '@angular/material/dialog';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule(
@@ -41,7 +42,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
             MatTableModule,
             MatTabsModule,
             NgbModule,
-            MatMenuModule
+            MatMenuModule,
+            MatDialogModule
         ],
         providers: [],
         declarations: [
@@ -66,11 +68,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
             MatTableModule,
             MatTabsModule,
             NgbModule,
-            MatMenuModule
+            MatMenuModule,
+            MatDialogModule
         ]
     }
 )
-export class SharedModule
-{
+export class SharedModule {
     
 }

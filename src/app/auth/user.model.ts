@@ -3,7 +3,7 @@ export class User {
       private _accessToken: string,
       private _refreshToken: string,
       private _email: string,
-      private _isAdmin: Boolean,
+      private _isAdmin: boolean,
       private _userId?: string
     ) {}
   
@@ -23,7 +23,7 @@ export class User {
       return this._isAdmin
     }
 
-    set isAdmin(bool: Boolean) {
+    set isAdmin(bool: boolean) {
       this._isAdmin = bool
     }
 
@@ -32,4 +32,3 @@ export class User {
     }
   
   }
-  

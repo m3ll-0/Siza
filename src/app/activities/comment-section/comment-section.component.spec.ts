@@ -7,6 +7,10 @@ describe('CommentSectionComponent', () => {
   let component: CommentSectionComponent;
   let fixture: ComponentFixture<CommentSectionComponent>;
 
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [SharedModule],

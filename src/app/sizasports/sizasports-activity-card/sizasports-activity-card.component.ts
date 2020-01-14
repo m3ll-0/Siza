@@ -10,20 +10,18 @@ import { Router } from '@angular/router';
 export class SizasportsActivityCardComponent implements OnInit {
 
   @Input() activity: Activity
-  public activityID : string;
+  public activityID: string;
 
   constructor(private router: Router) { }
 
   ngOnInit() {
-    if(this.activity !== null && this.activity !== undefined)
-    {
+    if(this.activity !== null && this.activity !== undefined) {
       this.activityID = this.activity._id;
     }
   }
 
-  onClickActivityCard(activityID: string)
-  {
-    this.router.navigate(['/activities', activityID])
+  onClickActivityCard(activityID: string) {
+    this.router.navigate(['/activity', activityID])
   }
 
 }

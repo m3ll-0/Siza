@@ -10,12 +10,13 @@ import { Activity } from 'src/app/models/Activity';
 })
 export class AdminActivitiesComponent implements OnInit {
 
-  activities : Activity[];
+  activities: Activity[];
   isLoading = true;
 
   constructor(private apiService: ApiServiceService) {
-    this.apiService.getActivities().subscribe((data) =>{
-      this.activities = data['activities'];
+    this.apiService.getActivities().subscribe((data) => {
+      const key = 'activities';
+      this.activities = data[key];
       this.isLoading = false;
     } )
    }

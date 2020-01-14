@@ -8,6 +8,10 @@ describe('AuthComponent', () => {
   let component: AuthComponent;
   let fixture: ComponentFixture<AuthComponent>;
 
+  afterAll(() => {
+    TestBed.resetTestingModule();
+  });
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [SharedModule],
