@@ -6,12 +6,10 @@ import { NgForm, FormBuilder, FormGroup } from '@angular/forms';
 import { Location } from '@angular/common';
 import { debug } from 'util';
 
-
-
 @Component({
   selector: 'app-admin-category-edit',
   templateUrl: './admin-category-edit.component.html',
-  styleUrls: ['./admin-category-edit.component.css']
+  styleUrls: ['./admin-category-edit.component.scss']
 })
 export class AdminCategoryEditComponent implements OnInit {
   @ViewChild('categoryImage', {static: false}) categoryImage: ElementRef
@@ -63,7 +61,7 @@ export class AdminCategoryEditComponent implements OnInit {
           const category = data.category;
 
           if(Object.prototype.hasOwnProperty.call(category, 'parent')) {
-            this.formParent = category.parent._id
+            this.formParent = category.parent._id;
           }
 
           this.formImage = category.image;
@@ -86,7 +84,10 @@ export class AdminCategoryEditComponent implements OnInit {
 
       categoryParams.append('categoryImage', imageblob)
       categoryParams.append('name', this.form.controls[name].value)
-      categoryParams.append('parent', this.form.controls[parent].value)
+
+      if(this.form.controls[parent].value !== null && this.form.controls[parent].value !== undefined) {
+        categoryParams.append('parent', this.form.controls[parent].value)
+      }
 
       const test = new FormData()
 
@@ -95,9 +96,10 @@ export class AdminCategoryEditComponent implements OnInit {
 
       if(this.creationMode) {
         // Save category
+        console.error(categoryParams);
         this.apiService.createCategory(categoryParams)
         .subscribe(data => {
-          console.log(data)
+          console.error(data)
           this.router.navigate(['/admin/categories'])
         })
       } else {

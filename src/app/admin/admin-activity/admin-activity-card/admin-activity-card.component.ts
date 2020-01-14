@@ -17,6 +17,7 @@ export class AdminActivityCardComponent implements OnInit {
   constructor(private router: Router, private apiService: ApiServiceService) { }
 
   ngOnInit() {
+    console.error(this.activity);
     if(this.activity !== null && this.activity !== undefined) {
       this.activityID = this.activity._id;
     }

@@ -1,5 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {SharedModule} from '../../Shared/shared.module';
+import {LoadingSpinnerComponent} from '../../Shared/loading-spinner/loading-spinner.component'
+import {AdminActivityCardComponent} from './admin-activity-card/admin-activity-card.component'
 
 import { AdminActivityComponent } from './admin-activity.component';
 describe('AdminActivityComponent', () => {
@@ -10,7 +12,7 @@ describe('AdminActivityComponent', () => {
     TestBed.configureTestingModule({
       imports: [SharedModule],
       providers: [],
-      declarations: [ AdminActivityComponent]
+      declarations: [ AdminActivityComponent, LoadingSpinnerComponent, AdminActivityCardComponent]
     })
     .compileComponents();
   }));
