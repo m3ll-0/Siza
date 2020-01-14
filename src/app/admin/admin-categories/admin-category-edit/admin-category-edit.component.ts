@@ -14,7 +14,7 @@ import { debug } from 'util';
   styleUrls: ['./admin-category-edit.component.css']
 })
 export class AdminCategoryEditComponent implements OnInit {
-  @ViewChild("categoryImage", {static: false}) categoryImage: ElementRef
+  @ViewChild('categoryImage', {static: false}) categoryImage: ElementRef
 
   selectedFile: File
   creationMode = true;
@@ -77,22 +77,23 @@ export class AdminCategoryEditComponent implements OnInit {
     this.location.back();
   }
 
-  onSaveCategory()
-  {
+  onSaveCategory() {
       const imageblob = this.categoryImage.nativeElement.files[0]
       const categoryParams = new FormData()
       
+      const name = 'name'
+      const parent = 'parent'
+
       categoryParams.append('categoryImage', imageblob)
-      categoryParams.append('name', this.form.controls['name'].value)
-      categoryParams.append('parent', this.form.controls['parent'].value)
+      categoryParams.append('name', this.form.controls[name].value)
+      categoryParams.append('parent', this.form.controls[parent].value)
 
       const test = new FormData()
 
       test.append('categoryImage', imageblob)
       test.append('ss', 'test')
 
-      if(this.creationMode)
-      {
+      if(this.creationMode) {
         // Save category
         this.apiService.createCategory(categoryParams)
         .subscribe(data => {

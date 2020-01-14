@@ -1,11 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef, Inject} from '@angular/core';
 import { ApiServiceService } from '../../../api-service.service';
 import { ActivatedRoute } from '@angular/router';
-import { Validators, FormGroup, FormArray, FormControl, FormsModule, FormBuilder} from '@angular/forms'
+import { Validators, FormGroup, FormBuilder} from '@angular/forms'
 import { AngularEditorConfig } from '@kolkov/angular-editor';
-import { HttpClient, HttpResponse, HttpErrorResponse, HttpHeaders  } from '@angular/common/http'
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog'
-import { inject } from '@angular/core/testing';
+import { MatDialog} from '@angular/material/dialog'
 
 @Component({
   selector: 'app-add-activity',
@@ -14,22 +12,22 @@ import { inject } from '@angular/core/testing';
 })
 export class AddActivityComponent implements OnInit {
   
-  @ViewChild("activityImage", {static: false}) activityImage: ElementRef
-  @ViewChild("setup", {static: false}) setup: ElementRef
+  @ViewChild('activitiesImage', {static: false}) activityImage: ElementRef
+  @ViewChild('setup', {static: false}) setup: ElementRef
 
   selectedFile: File
   activities
   category
   url
  
-  editorTitle: boolean = false
-  editorGoal: boolean = false
-  editorMaterial: boolean = false
-  editorActivity: boolean = false
-  editorSetup: boolean = false
-  editorTooEasy: boolean = false
-  editorTooHard: boolean = false
-  editorPointsForAttention: boolean = false
+  editorTitle = false
+  editorGoal = false
+  editorMaterial = false
+  editorActivity = false
+  editorSetup = false
+  editorTooEasy = false
+  editorTooHard = false
+  editorPointsForAttention = false
 
   form: FormGroup;
 
@@ -47,17 +45,17 @@ export class AddActivityComponent implements OnInit {
       ],
     customClasses: [
       {
-        name: "quote",
-        class: "quote",
+        name: 'quote',
+        class: 'quote',
       },
       {
         name: 'redText',
         class: 'redText'
       },
       {
-        name: "titleText",
-        class: "titleText",
-        tag: "h1",
+        name: 'titleText',
+        class: 'titleText',
+        tag: 'h1',
       },
     ]
   }
@@ -92,25 +90,30 @@ export class AddActivityComponent implements OnInit {
   }
 
   saveEditor() {
-
-    console.log("hey" + this.form.controls['category'].value);
-    
-
     const imageblob = [this.activityImage.nativeElement.files[0], this.setup.nativeElement.files[0]]
     const file = new FormData()
     
+    const title = 'title'
+    const category = 'category'
+    const activity = 'activity'
+    const material = 'material'
+    const setUp = 'setUp'
+    const pointsForAttention = 'pointsForAttention'
+    const tooEasy = 'tooEasy'
+    const tooHard = 'tooHard'
+
     file.append('images', imageblob[0])
     file.append('images', imageblob[1])
-    file.append('title', this.form.controls['title'].value)
-    file.append('category', this.form.controls['category'].value)
-    file.append('activity', this.form.controls['activity'].value)
-    file.append('material', this.form.controls['material'].value)
-    file.append('setUp', this.form.controls['setUp'].value)
-    file.append('pointsForAttention', this.form.controls['pointsForAttention'].value)
-    file.append('tooEasy', this.form.controls['tooEasy'].value)
-    file.append('tooHard', this.form.controls['tooHard'].value)
+    file.append('title', this.form.controls[title].value)
+    file.append('category', this.form.controls[category].value)
+    file.append('activity', this.form.controls[activity].value)
+    file.append('material', this.form.controls[material].value)
+    file.append('setUp', this.form.controls[setUp].value)
+    file.append('pointsForAttention', this.form.controls[pointsForAttention].value)
+    file.append('tooEasy', this.form.controls[tooEasy].value)
+    file.append('tooHard', this.form.controls[tooHard].value)
   
-    this.apiService.addActivity(file).subscribe((data) =>{
+    this.apiService.addActivity(file).subscribe((data) => {
       console.log(data);
     })
 
@@ -157,12 +160,6 @@ export class AddActivityComponent implements OnInit {
     this.editorTooHard = true
     }
 
-  opstelling: string = 'Aandachtspunten';
-
-  pictNotLoading(event) {
-     this.opstelling = '';
-  }
-
   ngOnInit() {
 
     this.form = this.formBuilder.group({
@@ -179,9 +176,9 @@ export class AddActivityComponent implements OnInit {
       tooEasy: 'title',
       tooHard: 'title'
       })
-      this.apiService.getCategories().subscribe((data) =>{
-        console.log(data);
-        this.category = data['categories']
+      this.apiService.getCategories().subscribe((data) => {
+        const categories = 'categories'
+        this.category = data[categories]
       })
   }
 
@@ -196,5 +193,4 @@ export class AddActivityComponent implements OnInit {
   onChange2(event) {
     console.warn(this.form.value);
   }
- 
 }

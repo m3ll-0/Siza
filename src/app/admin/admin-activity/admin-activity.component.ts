@@ -14,21 +14,19 @@ export class AdminActivityComponent implements OnInit {
     private apiService: ApiServiceService
     ) { 
     
-    this.apiService.getActivities().subscribe((data) =>{
-      this.activities = data['activities'];
+    this.apiService.getActivities().subscribe((data) => {
+      const key = 'activities';
+      this.activities = data[key];
     } )
   }
 
   deleteActivity(activityID) {
     this.apiService.deleteActivity(activityID).subscribe((response) => {
-      this.apiService.getActivities().subscribe((data) =>{
-        this.activities = data['activities'];
+      this.apiService.getActivities().subscribe((data) => {
+        const key = 'activities';
+        this.activities = data[key];
       } )
-    console.log("deleted" + activityID)})
-  }
-  addActivity() {
-
-    console.log("AddActivity")
+    } )
   }
   
   ngOnInit() {

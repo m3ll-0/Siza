@@ -13,20 +13,20 @@ import { HttpClient, HttpResponse, HttpErrorResponse, HttpHeaders  } from '@angu
 })
 export class AdminActivityeditComponent implements OnInit {
   
-  @ViewChild("fileInput", {static: false}) fileInput: ElementRef
+  @ViewChild('fileInput', {static: false}) fileInput: ElementRef
 
   selectedFile: File
   activities
   activityID = this.activatedRoute.params.subscribe( params => this.activityID = params.id );
  
-  editorTitle: boolean = false
-  editorGoal: boolean = false
-  editorMaterial: boolean = false
-  editorActivity: boolean = false
-  editorSetup: boolean = false
-  editorTooEasy: boolean = false
-  editorTooHard: boolean = false
-  editorPointsForAttention: boolean = false
+  editorTitle = false
+  editorGoal = false
+  editorMaterial = false
+  editorActivity = false
+  editorSetup = false
+  editorTooEasy = false
+  editorTooHard = false
+  editorPointsForAttention = false
 
   form: FormGroup;
 
@@ -44,17 +44,17 @@ export class AdminActivityeditComponent implements OnInit {
       ],
     customClasses: [
       {
-        name: "quote",
-        class: "quote",
+        name: 'quote',
+        class: 'quote',
       },
       {
         name: 'redText',
         class: 'redText'
       },
       {
-        name: "titleText",
-        class: "titleText",
-        tag: "h1",
+        name: 'titleText',
+        class: 'titleText',
+        tag: 'h1',
       },
     ]
   }
@@ -65,11 +65,11 @@ export class AdminActivityeditComponent implements OnInit {
     private activatedRoute: ActivatedRoute ,
     private httpClient: HttpClient
     ) {
-    var value
+    let value
     this.activatedRoute.params.subscribe( params => value = params.id );
-    this.apiService.getSpecificActivity(value).subscribe((data) =>{
-      console.log(data);
-      this.activities = data['activity']
+    this.apiService.getSpecificActivity(value).subscribe((data) => {
+      const key = 'activity'
+      this.activities = data[key]
     } )
   }
 
@@ -89,24 +89,27 @@ export class AdminActivityeditComponent implements OnInit {
     const imageblob = [this.fileInput.nativeElement.files[0], this.fileInput.nativeElement.files[0]]
     const file = new FormData()
     
-    file.append('images', imageblob[0])
-    file.append('title', this.form.controls['title'].value)
-    file.append('activity', this.form.controls['activity'].value)
-    // file.append('material', this.form.controls['material'].value)
-    // file.append('setup', this.form.controls['setup'].value)
-    // file.append('pointsForAttention', this.form.controls['pointsForAttention'].value)
-    // file.append('tooEasy', this.form.controls['tooEasy'].value)
-    // file.append('tooHard', this.form.controls['tooHard'].value)
-  
+    const title = 'title'
+    const activity = 'activity'
+    const material = 'material'
+    const setup = 'setup'
+    const pointsForAttention = 'pointsForAttention'
+    const tooEasy = 'tooEasy'
+    const tooHard = 'tooHard'
 
-    var value
+    file.append('images', imageblob[0])
+    file.append('title', this.form.controls[title].value)
+    file.append('activity', this.form.controls[activity].value)
+    file.append('material', this.form.controls[material].value)
+    file.append('setup', this.form.controls[setup].value)
+    file.append('pointsForAttention', this.form.controls[pointsForAttention].value)
+    file.append('tooEasy', this.form.controls[tooEasy].value)
+    file.append('tooHard', this.form.controls[tooHard].value)
+  
+    let value
     this.activatedRoute.params.subscribe( params => value = params.id );
 
-    console.log(value);
-    console.log(this.form.controls['title'].value)
-  
-    this.apiService.updateActivity(value, file).subscribe((data) =>{
-      console.log(data);
+    this.apiService.updateActivity(value, file).subscribe((data) => {
     } )
     this.editorGoal = false
     this.editorTitle = false
@@ -152,18 +155,12 @@ export class AdminActivityeditComponent implements OnInit {
     this.editorTooHard = true
     }
 
-  opstelling: string = 'Aandachtspunten';
-
-  pictNotLoading(event) {
-     this.opstelling = '';
-  }
-
   ngOnInit() {
-    var value
+    let value
     this.activatedRoute.params.subscribe( params => value = params.id );
-    this.apiService.getSpecificActivity(value).subscribe((data) =>{
-    console.log(data);
-    this.activities = data['activity']
+    this.apiService.getSpecificActivity(value).subscribe((data) => {
+    const activity = 'activity'
+    this.activities = data[activity]
   
     this.form = this.formBuilder.group({
       title: [this.activities[0].title, Validators.required],
