@@ -49,7 +49,7 @@ export class AuthInterceptorService implements HttpInterceptor {
         }
 
         const headers = req.headers
-          .set('Content-Type', 'application/json')
+          // .set('Content-Type', 'application/json')
           .set('Authorization', user.accessToken)
 
         const modifiedRequest = req.clone({ headers })

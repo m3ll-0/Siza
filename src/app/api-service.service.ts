@@ -5,6 +5,8 @@ import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { User } from './auth/user.model';
 import { Feedback } from './models/Feedback';
+import { map } from "rxjs/operators";
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -159,5 +161,19 @@ export class ApiServiceService {
 
   public deleteCategory(categoryID) {
     return this.httpClient.delete(this.url + 'categories/' + categoryID)
+  }
+
+  public updateActivity(activityID, activityprops) {
+    return this.httpClient.put(this.url + 'admin/activities/' + activityID, activityprops)
+  }
+
+  public addActivity(activityprops) {
+    return this.httpClient.post(this.url + 'admin/activities/', activityprops)
+  }
+
+  public deleteActivity(activityID): Observable<Object> {
+    console.log(this.url +'activity'+ activityID);
+    
+    return this.httpClient.delete(this.url +'admin/activities/'+ activityID)
   }
 }

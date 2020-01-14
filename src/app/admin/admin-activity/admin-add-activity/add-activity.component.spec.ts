@@ -1,10 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminActivityspecificComponent } from './admin-activityspecific.component';
+import { AddActivityComponent } from './add-activity.component';
 
-describe('AdminActivityspecificComponent', () => {
-  let component: AdminActivityspecificComponent;
-  let fixture: ComponentFixture<AdminActivityspecificComponent>;
+describe('AddActivityComponent', () => {
+  let component: AddActivityComponent;
+  let fixture: ComponentFixture<AddActivityComponent>;
 
   afterAll(() => {
     TestBed.resetTestingModule();
@@ -12,13 +12,13 @@ describe('AdminActivityspecificComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdminActivityspecificComponent ]
+      declarations: [ AddActivityComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AdminActivityspecificComponent);
+    fixture = TestBed.createComponent(AddActivityComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

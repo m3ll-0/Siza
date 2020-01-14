@@ -1,0 +1,25 @@
+
+
+<div class="container">
+        <h2>Activiteiten aanpassen</h2>
+        <button type="button" class="btn btn-secondary" routerLink="/admin/addactivity" >Activiteit toevoegen</button>
+        <br>    
+    <div class="row">
+        <div *ngFor="let activities of activities" >
+            <div class="card" style="width: 12rem;">
+
+                <img class="card-img-top" src={{activities.image}}  image-resizing height="128" width="128" 
+                onerror="this.src='https://kokfinance.nl/wp-content/uploads/2019/08/afbeelding-nog-niet-beschikbaar.jpg'">
+                <div class="card-body"> 
+                    <h5 class="card-title" [innerHTML]="activities.title"></h5>
+                    <p class="card-text"></p>
+                </div>
+                <div class="btn-group row-fluid">
+                    <button type="button" class="btn btn-secondary" routerLink="/admin/activities/{{activities._id}}">Aanpassen</button>
+                    <button type="button" class="btn btn-secondary" (click)="deleteActivity(activities._id)">Delete</button>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>
