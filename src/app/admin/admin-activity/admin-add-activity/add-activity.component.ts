@@ -20,6 +20,7 @@ export class AddActivityComponent implements OnInit {
   selectedFile: File
   activities
   category
+  url
  
   editorTitle: boolean = false
   editorGoal: boolean = false
@@ -66,6 +67,18 @@ export class AddActivityComponent implements OnInit {
     private formBuilder: FormBuilder,
     public dialog: MatDialog
     ) { }
+
+  //   onSelectFile(event) { // called each time file input changes
+  //     if (event.target.files && event.target.files[0]) {
+  //       var reader = new FileReader();
+  
+  //       reader.readAsDataURL(event.target.files[0]); // read file as data url
+  
+  //       reader.onload = (event) => { // called once readAsDataURL is completed
+  //         this.url = event.target.result
+  //       }
+  //     }
+  // }
 
   closeEditor() {
     this.editorGoal = false
@@ -192,6 +205,7 @@ export class AddActivityComponent implements OnInit {
   onChange2(event) {
     console.warn(this.form.value);
   }
+ 
 }
 
 @Component({
@@ -202,10 +216,11 @@ export class AddActivityComponent implements OnInit {
 export class DialogEditor {
   name = 'test'
   htmlContent = '';
+  
 
   constructor(
     public dialogRef: MatDialogRef<DialogEditor>,
-    @Inject(MAT_DIALOG_DATA) public data: {} )
+    @Inject(MAT_DIALOG_DATA) public data: { animal} )
   {}
   
   config: AngularEditorConfig = {

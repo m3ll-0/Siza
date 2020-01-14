@@ -1,6 +1,19 @@
 
-<div class="mx-auto">
+<div class="overall">
+<div class="mx-auto" >
     <div class="text-center">
+
+      <div class="testing">
+        <div *ngIf="editorGoal">
+          <form [formGroup]="form">
+            <angular-editor autofocus="true" id="editor" formControlName="goal" [config]="config" (ngModelChange)="onChange2($event)"></angular-editor>
+          </form>
+          <div class="btn-group row-fluid">
+            <button type="button" (click)="closeEditor()" class="btn btn-secondary">Close</button>
+            <button type="button" (click)="saveEditor()" class="btn btn-secondary">Save</button>
+          </div>
+        </div>
+      </div>
 
       <img src="../../assets/images/SizaBanner.PNG" class="img"/>
       <br>  <br>  <br>  <br>  
@@ -27,7 +40,6 @@
 
               <div class = "container">
                 <input #activityImage type = "file">
-                <button type="button" (click)="onFileUpload()" class="btn btn-secondary">Upload Foto</button>
             </div>
 
             </div>
@@ -121,11 +133,26 @@
                     </div>
                   </div>
             
+
+                  <img [src]="url" onerror="this.style.display='none'" height="200"> <br/>
                 <div class = "container">
-                  <input #setup type = "file">
-                  <button type="button" (click)="onFileUpload()" class="btn btn-secondary">Upload setup</button>
+                  <input #setup type = "file" accept="image/*" (change)="onSelectFile($event)">
+                </div>
+
+                <div class="file-field">
+                  <div class="z-depth-1-half mb-4">
+                    <img src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg" class="img-fluid"
+                      alt="example placeholder">
+                  </div>
+                  <div class="d-flex justify-content-center">
+                    <div class="btn btn-mdb-color btn-rounded float-left">
+                      <span>Choose file</span>
+                      <input type="file">
+                    </div>
+                  </div>
                 </div>
             
+                
                   <div (click)="editPointsForAttention()">
                     <h5>
                       Let op! 
@@ -166,15 +193,7 @@
                     </div>
                 </div>
             
-                  <div *ngIf="editorGoal">
-                    <form [formGroup]="form">
-                      <angular-editor autofocus="true" id="editor" formControlName="goal" [config]="config" (ngModelChange)="onChange2($event)"></angular-editor>
-                    </form>
-                    <div class="btn-group row-fluid">
-                      <button type="button" (click)="closeEditor()" class="btn btn-secondary">Close</button>
-                      <button type="button" (click)="saveEditor()" class="btn btn-secondary">Save</button>
-                    </div>
-                  </div>
+
         
                   <div *ngIf="editorMaterial">
                     <form [formGroup]="form">
@@ -247,3 +266,4 @@
     <button type="button" (click)="saveEditor()" class="btn btn-secondary btn-lg">Save</button>
     <br>  <br>  <br>  <br>  
   </div>
+</div>
