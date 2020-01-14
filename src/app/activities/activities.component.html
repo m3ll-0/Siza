@@ -17,7 +17,7 @@
       </div>
         <div class="row justify-content-center" id="main_title">
       <h4>
-        <p>{{ activity?.title }}</p>
+        <p [innerHTML]="activity?.title"></p>
       </h4>
       </div>
       <div class="row justify-content-center">
@@ -39,19 +39,19 @@
           <!-- Goal -->
           <div *ngIf="activity?.goal !== undefined">  
             <h5>Doel</h5> 
-            <p >{{ activity?.goal }}</p>
+            <p [innerHTML]="activity?.goal"></p>
           </div>
 
           <!-- Material -->
           <div *ngIf="activity?.material !== undefined">  
             <h5>Materiaal</h5> 
-            <p>{{ activity?.material }}</p>
+            <p [innerHTML]="activity?.material"></p>
           </div>
 
           <!-- Activity -->
           <div *ngIf="activity?.activity !== undefined">  
             <h5>Activiteit</h5> 
-            <p>{{ activity?.activity }}</p>
+            <p [innerHTML]="activity?.activity"></p>
           </div>
         </div>
         <div class="col-sm-4 s-container">
@@ -59,25 +59,25 @@
           <!-- Setup -->
           <div *ngIf="activity?.setUp !== undefined || activity?.setUpImage !== undefined">  
             <h5>Let op!</h5> 
-            <p>{{ activity?.setUp }}</p>
+            <p [innerHTML]="activity?.setUp"></p>
           </div>
           
           <!-- PointsOfAttention -->
           <div *ngIf="activity?.pointsForAttention !== undefined">  
             <h5>Let op!</h5> 
-            <p>{{ activity?.pointsForAttention }}</p>
+            <p [innerHTML]="activity?.pointsForAttention"></p>
           </div>
 
           <!-- TooEasy -->
           <div *ngIf="activity?.tooEasy !== undefined">  
             <h5>Te makkelijk?</h5> 
-            <p>{{ activity?.tooEasy }}</p>
+            <p [innerHTML]="activity?.tooEasy"></p>
           </div>
 
           <!-- TooHard -->
           <div *ngIf="activity?.tooHard !== undefined">  
             <h5>Te moeilijk?</h5> 
-            <p>{{ activity?.tooHard }}</p>
+            <p [innerHTML]="activity?.tooHard"></p>
           </div>
         </div>
         </div>
