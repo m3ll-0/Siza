@@ -49,23 +49,6 @@ unittests:
     - master
 
 #
-# Run unittests
-#
-end2end:
-  image: markhobson/node-chrome:latest
-  stage: test
-  variables:
-    NODE_ENV: development
-  before_script:
-    - npm install --no-optional
-    - npm run webdriver-manager-update
-  script:
-    #- npm run e2e
-    - echo "e2e Not implemented"
-  only:
-    - master
-
-#
 # Deploy to Heroku
 # DPL is a deploy tool made for continuous deployment that’s developed and used
 # by Travis CI, but can also be used with GitLab CI.

@@ -10,3 +10,16 @@ html, body {
     height: 100px;
     padding: 5px;
   }
+
+.category-wrapper
+{
+    margin-left: -40px;
+}
+.wrapper {
+    margin-left: 10px;
+  }
+
+  .create-button
+  {
+    color: #3fb56e !important;
+  }
