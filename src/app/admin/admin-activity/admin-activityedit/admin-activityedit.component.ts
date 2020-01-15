@@ -3,7 +3,6 @@ import { ApiServiceService } from '../../../api-service.service';
 import { ActivatedRoute, Router} from '@angular/router';
 import { Validators, FormGroup, FormArray, FormControl, FormsModule, FormBuilder} from '@angular/forms';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
-import { HttpClient, HttpResponse, HttpErrorResponse, HttpHeaders  } from '@angular/common/http'
 import { Location } from '@angular/common';
 
 
@@ -17,13 +16,14 @@ export class AdminActivityeditComponent implements OnInit {
   @ViewChild('activitiesImage', {static: false}) activitiesImage: ElementRef
   @ViewChild('setup', {static: false}) setup: ElementRef
 
+  fre
   selectedFile: File
   activities
   activity
   category
   setupImg
   activityImg
- 
+
   editorTitle = false
   editorGoal = false
   editorMaterial = false
@@ -152,6 +152,7 @@ export class AdminActivityeditComponent implements OnInit {
     this.activatedRoute.params.subscribe( params => value = params.id );
 
     this.apiService.updateActivity(value, file).subscribe((data) => {
+      this.router.navigate(['/admin/activities'])
     } )
 
     this.editorGoal = false
@@ -163,7 +164,7 @@ export class AdminActivityeditComponent implements OnInit {
     this.editorTooEasy = false
     this.editorTooHard = false 
 
-    this.router.navigate(['/admin/activities'])
+
   }
 
 
@@ -203,40 +204,60 @@ export class AdminActivityeditComponent implements OnInit {
     }
 
   ngOnInit() {
+    this.form = this.formBuilder.group({
+      category: ['', Validators.required, ],
+      wheelchair: ['', Validators.required],
+      amountOfPeople: ['', Validators.required],
+      duration: ['', Validators.required],
+      title: ['Vul in', Validators.required],
+      goal: ['Vul in', Validators.required,  ],
+      material: ['Vul in', Validators.required],
+      activity: ['Vul in', Validators.required],
+      setUp: ['Vul in', Validators.required],
+      pointsForAttention: ['Vul in', Validators.required],
+      tooEasy: ['Vul in', Validators.required],
+      tooHard: ['Vul in', Validators.required],
+      setupImage: [null],
+      activityImage: [null]
+      })
 
+      this.apiService.getCategories().subscribe((data) => {
+        const categories = 'categories'
+        this.category = data[categories]
+      })
+      this.getData()
+       
+  }
+
+
+  getData() {
     let value
     this.activatedRoute.params.subscribe( params => value = params.id );
 
-    this.apiService.getCategories().subscribe((data) => {
-      const categories = 'categories'
-      this.category = data[categories]
-    })
-    
     this.apiService.getSpecificActivity(value).subscribe((data) => {
       const activities = 'activity'
-      this.activity = data[activities]
-
-      console.log(this.activity[0].category);
-      
-
-    this.form = this.formBuilder.group({
-      category: [this.activity[0].category, Validators.required, ],
-      wheelchair: [this.activity[0].wheelchair, Validators.required],
-      amountOfPeople: ['', Validators.required],
-      duration: ['', Validators.required],
-      title: [this.activity[0].title, Validators.required],
-      goal: [this.activity[0].goal, Validators.required,  ],
-      material: [this.activity[0].material, Validators.required],
-      activity: [this.activity[0].activity, Validators.required],
-      setUp: [this.activity[0].setUp, Validators.required],
-      pointsForAttention: [this.activity[0].pointsForAttention, Validators.required],
-      tooEasy: ['Vul in', Validators.required],
-      tooHard: ['Vul in', Validators.required],
-      setupImage: [null, ],
-      activityImage: [null, ]
-      })
+      this.fre = data[activities]
+      this.patchValue()
     })
   }
+
+  patchValue() {
+    this.form.patchValue({
+      wheelchair: this.fre[0].wheelchair.toString(),
+      amountOfPeople: this.fre[0].amountOfPeople.toString(),
+      duration: this.fre[0].duration.toString(),
+      category: this.fre[0].category,
+      title: this.fre[0].title,
+      goal:  this.fre[0].goal,
+      material: this.fre[0].material,
+      activity: this.fre[0].activity,
+      setUp: this.fre[0].setUp,
+      pointsForAttention:  this.fre[0].pointsForAttention,
+      tooEasy: this.fre[0].tooEasy,
+      tooHard: this.fre[0].tooHard
+    })
+  }
+  
 
   onChange(event) {
     console.log('changed');

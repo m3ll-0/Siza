@@ -114,8 +114,12 @@
 
               <form [formGroup]="form">  
                 
-                <input #activitiesImage type='file' accept="image/*" (change)="addActivityImg($event)"
-                formControlName="activityImage">
+
+                <div class="container">
+                  <div class="file-upload-wrapper" data-text="Kies afbeelding">
+                    <input #activitiesImage type="file" class='custom-input file-upload'  accept="image/*" (change)= 'addActivityImg($event)' formControlName="activityImage">
+                  </div>
+                </div>
               </form>
 
             <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" *ngIf="activityImg">
@@ -214,7 +218,11 @@
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 
               <form [formGroup]="form">  
-                <input #setup type='file' accept="image/*" (change)="addFile($event)" formControlName="setupImage">
+                <div class="container">
+                  <div class="file-upload-wrapper" data-text="Kies afbeelding">
+                    <input #setup type="file" class='custom-input file-upload'  accept="image/*" (change)="addFile($event)" formControlName="setupImage">
+                  </div>
+                </div>
               </form>
 
               <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" *ngIf="setupImg">
@@ -269,7 +277,10 @@
         Niet alle gegevens zijn ingevuld!
       </div>
       <button (click)="saveEditor()" [disabled]="form.invalid" mat-flat-button color="primary">Opslaan</button>
-      <br>  <br>  <br>  <br>  
+      <br>  <br>  <br>  <br>   <br>  <br>  <br>  <br>   <br>  <br>  <br>  <br>  
+    </div>
+    <div>
+      <br>  <br>  <br>  <br>   <br>  <br>  <br>  <br>   <br>  <br>  <br>  <br>  
     </div>
   </form>
 </div>

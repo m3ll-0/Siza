@@ -9,7 +9,7 @@ import { Location } from '@angular/common';
 @Component({
   selector: 'app-add-activity',
   templateUrl: './add-activity.component.html',
-  styleUrls: ['./add-activity.component.css']
+  styleUrls: ['./add-activity.component.scss']
 })
 export class AddActivityComponent implements OnInit {
   
@@ -140,7 +140,7 @@ export class AddActivityComponent implements OnInit {
     file.append('duration', this.form.controls[duration].value)
   
     this.apiService.addActivity(file).subscribe((data) => {
-      console.log(data);
+      this.router.navigate(['/admin/activities'])
     })
 
     this.editorGoal = false
@@ -152,7 +152,7 @@ export class AddActivityComponent implements OnInit {
     this.editorTooEasy = false
     this.editorTooHard = false 
 
-    this.router.navigate(['/admin/activities'])
+
   }
 
 
@@ -203,8 +203,8 @@ export class AddActivityComponent implements OnInit {
       setUp: ['Vul in', Validators.required],
       pointsForAttention: ['Vul in', Validators.required],
       tooEasy: ['Vul in', Validators.required],
-      tooHard: ['Vul in'],
-      setupImage: [null, ],
+      tooHard: ['Vul in', Validators.required],
+      setupImage: [null, Validators.required],
       activityImage: [null, Validators.required]
       })
       this.apiService.getCategories().subscribe((data) => {
