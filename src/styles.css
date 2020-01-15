@@ -97,8 +97,10 @@ html {
 
 .img-small-card
 {
-    width: 100%;
     height: 170px;
+    display: block;
+    margin: auto;
+    max-width: 100%;
 }
 
 .small-card-header

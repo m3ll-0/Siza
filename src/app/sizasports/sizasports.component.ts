@@ -42,10 +42,6 @@ export class SizasportsComponent implements OnInit {
     if(this.keyCombination === 'kraai') {
       this.crowMode();
     }
-
-    if(this.keyCombination === 'nenette') {
-      this.nenetteMode();
-    }
   }
     
   crowMode() {
@@ -55,17 +51,6 @@ export class SizasportsComponent implements OnInit {
     }
 
     document.body.style.background = 'url(https://media0.giphy.com/media/i7HfyYPbE8BQQ/source.gif)';
-    this.playAudio();
-  }
-
-  nenetteMode() {
-    const imgs = document.getElementsByTagName('img');
-    
-    for(let i=0, l=imgs.length;i<l;i++) {
-      imgs[i].src = '../../assets/images/nenette.jpg';
-    }
-
-    document.body.style.background = 'url(../../assets/images/nenette.jpg)';
     this.playAudio();
   }
 

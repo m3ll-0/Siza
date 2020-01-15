@@ -9,6 +9,7 @@ import { ApiServiceService } from '../../api-service.service';
 export class AdminActivityComponent implements OnInit {
 
   activities
+  isLoading = true;
   
   constructor(
     private apiService: ApiServiceService
@@ -17,6 +18,7 @@ export class AdminActivityComponent implements OnInit {
     this.apiService.getActivities().subscribe((data) => {
       const key = 'activities';
       this.activities = data[key];
+      this.isLoading = false;
     } )
   }
 

@@ -1,99 +1,57 @@
-<!-- <div class="back-wrapper">
+   <div class="back-wrapper">
     <button mat-button (click)="onGoBack()">
         <mat-icon>keyboard_arrow_left</mat-icon>
         Terug
     </button> 
-</div>
-
-<div class="d-flex justify-content-center align-items-center">  
+  </div>
+  
+  <div class="d-flex justify-content-center align-items-center">  
     <h3>Categorie {{ headerTitle }}</h3>
   </div>
   <hr width="20%" />
-
+  
   <div id="addQuestion">
-      <form [formGroup]="form">
-        <div class="form-group">
-          <mat-form-field class="example-full-width control-expand">
-            <input
-              name="Name"
-              ngModel
-              class="form-control"
-              matInput
-              placeholder="Naam"
-              formControlName="name"
-              required
-            />
-          </mat-form-field>
-        </div>
+    <form [formGroup]="form">
+      <div class="form-group">
+        <mat-form-field class="example-full-width control-expand">
+          <input
+            name="Name"
+            ngModel
+            class="form-control"
+            matInput
+            placeholder="Naam"
+            formControlName="name"
+            required
+            [(ngModel)]="formName"
+          />
+        </mat-form-field>
+      </div>
   
-        <div class="form-group">
-          <mat-form-field>
-            <mat-label>Parent</mat-label>
-            <mat-select name="parent" ngModel class="form" formControlName="parent">
-              <mat-option *ngFor="let category of parentcategories" [value]="category._id">
-                {{ category.name }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
+      <div class="form-group">
+        <mat-form-field style="width: 400px !important;">
+          <mat-label>Behoort tot</mat-label>
   
-        <div class="form-group">
-          <div class = "container">
-            <input #categoryImage type = "file">
+          <mat-select name="parent" ngModel class="form" formControlName="parent"  [(ngModel)]="formParent">
+            <mat-option *ngFor="let category of parentcategories" [value]="category?._id">
+              {{ category?.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      
+      <div class="container">
+      </div>
+  
+      <div class="container">
+          <div class="file-upload-wrapper" data-text="Kies bestand">
+            <input #categoryImage type="file" class='custom-input file-upload'>
           </div>
-        </div>
+      </div>
+      <br/>
 
-        <button class="btn btn-primary" type="submit" [disabled]="!f.valid">
-          Opslaan
-        </button>
-      </form>
+      <button class="btn btn-primary" (click)="onSaveCategory()">
+        Opslaan
+      </button>
+    </form>
   </div>
-   -->
-<div class="back-wrapper">
-  <button mat-button (click)="onGoBack()">
-      <mat-icon>keyboard_arrow_left</mat-icon>
-      Terug
-  </button> 
-</div>
-
-<div class="d-flex justify-content-center align-items-center">  
-  <h3>Categorie {{ headerTitle }}</h3>
-</div>
-<hr width="20%" />
-
-<div id="addQuestion">
-  <form [formGroup]="form">
-    <div class="form-group">
-      <mat-form-field class="example-full-width control-expand">
-        <input
-          name="Name"
-          ngModel
-          class="form-control"
-          matInput
-          placeholder="Naam"
-          formControlName="name"
-          required
-        />
-      </mat-form-field>
-    </div>
-
-    <div class="form-group">
-      <mat-form-field>
-        <mat-label>Parent</mat-label>
-        <mat-select name="parent" ngModel class="form" formControlName="parent">
-          <mat-option *ngFor="let category of parentcategories" [value]="category._id">
-            {{ category.name }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    
-    <div class = "container">
-      <input #categoryImage type = "file">
-    </div>
-
-    <button class="btn btn-primary" (click)="onSaveCategory()">
-      Opslaan
-    </button>
-  </form>
-</div>
+  
