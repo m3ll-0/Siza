@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef, Inject} from '@angular/core';
 import { ApiServiceService } from '../../../api-service.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Validators, FormGroup, FormBuilder} from '@angular/forms'
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { MatDialog} from '@angular/material/dialog';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-add-activity',
@@ -64,7 +65,9 @@ export class AddActivityComponent implements OnInit {
   constructor(
     private apiService: ApiServiceService,
     private formBuilder: FormBuilder,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router,
+    private location: Location
     ) { }
 
     public addFile(event: any) {
@@ -85,6 +88,10 @@ export class AddActivityComponent implements OnInit {
               }
               reader.readAsDataURL(event.target.files[0]);
           }
+    }
+
+    onGoBack() {
+      this.location.back();
     }
 
   closeEditor() {
@@ -112,6 +119,10 @@ export class AddActivityComponent implements OnInit {
     const tooEasy = 'tooEasy'
     const tooHard = 'tooHard'
 
+    const amountOfPeople = 'amountOfPeople'
+    const wheelchair = 'wheelchair'
+    const duration = 'duration'
+
     file.append('images', imageblob[0])
     file.append('images', imageblob[1])
     file.append('title', this.form.controls[title].value)
@@ -123,6 +134,10 @@ export class AddActivityComponent implements OnInit {
     file.append('pointsForAttention', this.form.controls[pointsForAttention].value)
     file.append('tooEasy', this.form.controls[tooEasy].value)
     file.append('tooHard', this.form.controls[tooHard].value)
+
+    file.append('amountOfPeople', this.form.controls[amountOfPeople].value)
+    file.append('wheelchair', this.form.controls[wheelchair].value)
+    file.append('duration', this.form.controls[duration].value)
   
     this.apiService.addActivity(file).subscribe((data) => {
       console.log(data);
@@ -136,6 +151,8 @@ export class AddActivityComponent implements OnInit {
     this.editorPointsForAttention = false
     this.editorTooEasy = false
     this.editorTooHard = false 
+
+    this.router.navigate(['/admin/activities'])
   }
 
 
@@ -186,8 +203,8 @@ export class AddActivityComponent implements OnInit {
       setUp: ['Vul in', Validators.required],
       pointsForAttention: ['Vul in', Validators.required],
       tooEasy: ['Vul in', Validators.required],
-      tooHard: ['Vul in', Validators.required],
-      setupImage: [null, Validators.required],
+      tooHard: ['Vul in'],
+      setupImage: [null, ],
       activityImage: [null, Validators.required]
       })
       this.apiService.getCategories().subscribe((data) => {
