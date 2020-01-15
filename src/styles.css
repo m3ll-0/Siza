@@ -97,10 +97,9 @@ html {
 
 .img-small-card
 {
+    display:block;
+    margin:auto;    
     height: 170px;
-    display: block;
-    margin: auto;
-    max-width: 100%;
 }
 
 .small-card-header
@@ -191,3 +190,10 @@ html {
 {
     color: #d40d8b;
 }
+
+@media screen and (max-width: 768px) {
+    .header{
+        background-image: unset !important;
+    }
+}
+

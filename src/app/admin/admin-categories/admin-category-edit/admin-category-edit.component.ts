@@ -118,14 +118,13 @@ export class AdminCategoryEditComponent implements OnInit {
         // Save category
         this.apiService.createCategory(categoryParams)
         .subscribe(data => {
-          // this.router.navigate(['/admin/categories'])
+          this.router.navigate(['/admin/categories'])
         })
       } else {
       
-        alert(imageblob)
         this.apiService.updateSpecificCategory(this.categoryId, categoryParams)
         .subscribe(data => {
-          // this.router.navigate(['/admin/categories'])
+          this.router.navigate(['/admin/categories'])
         })
       }
     }

@@ -31,7 +31,7 @@
         <mat-form-field style="width: 400px !important;">
           <mat-label>Behoort tot</mat-label>
   
-          <mat-select name="parent" ngModel class="form" formControlName="parent"  [(ngModel)]="formParent">
+          <mat-select name="parent" ngModel class="form" formControlName="parent"    [(ngModel)]="formParent">
             <mat-option *ngFor="let category of parentcategories" [value]="category?._id">
               {{ category?.name }}
             </mat-option>
