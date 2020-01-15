@@ -152,15 +152,15 @@ export class ApiServiceService {
   }
 
   public updateSpecificCategory(categoryID, categoryprops) {
-    return this.httpClient.put(this.url + 'categories/' + categoryID, categoryprops)
+    return this.httpClient.put(this.url + 'admin/categories/' + categoryID, categoryprops)
   }
 
   public createCategory(categoryprops) {
-    return this.httpClient.post(this.url + 'categories', categoryprops)
+    return this.httpClient.post(this.url + 'admin/categories', categoryprops)
   }
 
   public deleteCategory(categoryID) {
-    return this.httpClient.delete(this.url + 'categories/' + categoryID)
+    return this.httpClient.delete(this.url + 'admin/categories/' + categoryID)
   }
 
   public updateActivity(activityID, activityprops) {

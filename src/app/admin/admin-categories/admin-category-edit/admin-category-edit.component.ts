@@ -38,6 +38,23 @@ export class AdminCategoryEditComponent implements OnInit {
   ngOnInit() {
     this.apiService.getCategoriesParentName().subscribe((data: any) => {
       if(data !== null && data !== undefined) {
+
+        // Bug fix: remove it's own element
+        for (let i = 0; i < data.categories.length; i++) {
+          const obj = data.categories[i];
+      
+          if(obj._id === categoryId) {
+            data.categories.splice(i, 1);
+          }
+        }
+
+        console.error(data.categories);
+
+        data.categories.unshift({
+          _id: '0',
+          name: 'Geen'
+        });
+        
         this.parentcategories = data.categories;
       }
     })
@@ -62,12 +79,16 @@ export class AdminCategoryEditComponent implements OnInit {
 
           if(Object.prototype.hasOwnProperty.call(category, 'parent')) {
             this.formParent = category.parent._id;
+          } else {
+            this.formParent = '0';
           }
 
           this.formImage = category.image;
           this.formName = category.name;
         }
       })
+    } else {
+      this.formParent = '0';
     }
   }
 
@@ -82,32 +103,29 @@ export class AdminCategoryEditComponent implements OnInit {
       const name = 'name'
       const parent = 'parent'
 
-      categoryParams.append('categoryImage', imageblob)
-      categoryParams.append('name', this.form.controls[name].value)
-
-      if(this.form.controls[parent].value !== null && this.form.controls[parent].value !== undefined) {
-        categoryParams.append('parent', this.form.controls[parent].value)
+      if(imageblob !== undefined && imageblob !== null) {
+        categoryParams.append('categoryImage', imageblob)
       }
+      categoryParams.append('name', this.formName)
 
-      const test = new FormData()
-
-      test.append('categoryImage', imageblob)
-      test.append('ss', 'test')
+      if(this.form.controls[parent].value !== null && this.form.controls[parent].value !== undefined 
+        && this.form.controls[parent].value !== '0') {
+        
+          categoryParams.append('parent', this.form.controls[parent].value)
+      }
 
       if(this.creationMode) {
         // Save category
-        console.error(categoryParams);
         this.apiService.createCategory(categoryParams)
         .subscribe(data => {
-          console.error(data)
-          this.router.navigate(['/admin/categories'])
+          // this.router.navigate(['/admin/categories'])
         })
       } else {
-        // Update category
-        this.apiService.updateSpecificCategory(this.categoryId, test)
-        .subscribe((data) => {
-          console.log(data)
-          this.router.navigate(['/admin/categories'])
+      
+        alert(imageblob)
+        this.apiService.updateSpecificCategory(this.categoryId, categoryParams)
+        .subscribe(data => {
+          // this.router.navigate(['/admin/categories'])
         })
       }
     }

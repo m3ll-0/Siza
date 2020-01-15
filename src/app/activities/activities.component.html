@@ -27,8 +27,8 @@
         <div id="test">
         <div class="custom-row grid-row" id='customimgs'>
           <img *ngIf="activity?.wheelchair === true" src="../../assets/images/wheelchair.png" image-resizing height="70" width="70" class="img-side" />
-          <img src="players_{{activity?.players}}" image-resizing height="70" width="70" class="img-side" />
-          <img src="min_{{activity?.image}}" image-resizing height="70" width="70" class="img-side"/>
+          <img *ngIf="hasAmountOfPeople" src={{amountOfPeopleImageSource}} image-resizing height="70" width="70" class="img-side" />
+          <img *ngIf="hasTimeSpan" src={{timeSpanImageSource}} image-resizing height="70" width="70" class="img-side"/>
         </div>
       </div>
       </div>
