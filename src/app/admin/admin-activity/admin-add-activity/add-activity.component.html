@@ -112,19 +112,18 @@
                 <h1 [innerHTML]="form.value.title"></h1>
               </div>
 
-              <form [formGroup]="form">  
+              <div class="col-md-4 justify-content-center" *ngIf="activityImg" style="margin-left: 100px;">
+                <img [src]="activityImg" image-resizing class ="activityImg">
+            </div>
+            <form [formGroup]="form">  
                 
 
-                <div class="container">
-                  <div class="file-upload-wrapper" data-text="Kies afbeelding">
-                    <input #activitiesImage type="file" class='custom-input file-upload'  accept="image/*" (change)= 'addActivityImg($event)' formControlName="activityImage">
-                  </div>
+              <div class="container">
+                <div class="file-upload-wrapper" data-text="Kies afbeelding">
+                  <input #activitiesImage type="file" class='custom-input file-upload'  accept="image/*" (change)= 'addActivityImg($event)' formControlName="activityImage">
                 </div>
-              </form>
-
-            <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" *ngIf="activityImg">
-                <img [src]="activityImg" image-resizing height="256" width="256" class ="activityImg">
-            </div>
+              </div>
+            </form>
 
             </div>
           </form> 
@@ -188,7 +187,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                <div  (click)="editGoal()">
+                <div  (click)="editGoal()" class="act-spacing">
                     <h5>
                       Doel
                   </h5> 
@@ -197,7 +196,7 @@
                     </div>
                   </div>
                  
-                <div (click)="editMaterial()">
+                <div (click)="editMaterial()" class="act-spacing">
                   <h5>
                       Materiaal
                   </h5> 
@@ -206,7 +205,7 @@
                   </div>
                 </div>
                 
-                <div  (click)="editActivity()"> 
+                <div  (click)="editActivity()" class="act-spacing"> 
                   <h5>
                       Activiteit <br>
                   </h5> 
@@ -217,6 +216,11 @@
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 
+
+
+              <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" *ngIf="setupImg">
+                <img [src]="setupImg" image-resizing height="128" width="128" class ="activityImg">
+              </div>
               <form [formGroup]="form">  
                 <div class="container">
                   <div class="file-upload-wrapper" data-text="Kies afbeelding">
@@ -225,11 +229,7 @@
                 </div>
               </form>
 
-              <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" *ngIf="setupImg">
-                <img [src]="setupImg" image-resizing height="128" width="128" class ="activityImg">
-              </div>
-
-                <div (click)="editSetup()">
+                <div (click)="editSetup()" class="act-spacing">
                     <h5>
                         Hoe zet je het neer? <br>
                     </h5> 
@@ -238,7 +238,7 @@
                     </div>
                   </div>
             
-                  <div (click)="editPointsForAttention()">
+                  <div (click)="editPointsForAttention()" class="act-spacing">
                     <h5>
                       Let op! 
                     </h5> 
@@ -247,7 +247,7 @@
                     </div>
                   </div>
                   
-                  <div (click)="editTooEasy()">
+                  <div (click)="editTooEasy()" class="act-spacing">
                     <h5>
                         Te makkelijk?
                     </h5> 
@@ -256,7 +256,7 @@
                     </div>
                   </div>
                     
-                  <div (click)="editTooHard()">
+                  <div (click)="editTooHard()" class="act-spacing">
                     <h5>
                         Te moeilijk?
                     </h5> 
@@ -273,10 +273,12 @@
 
   <br>  <br>  <br>  <br>  
     <div class="text-center">
-      <div class="unavailable" *ngIf="form.invalid" >
+      <!-- <div class="unavailable" *ngIf="form.invalid" >
         Niet alle gegevens zijn ingevuld!
-      </div>
-      <button (click)="saveEditor()" [disabled]="form.invalid" mat-flat-button color="primary">Opslaan</button>
+      </div> -->
+
+      <!-- <button (click)="saveEditor()" [disabled]="form.invalid" mat-flat-button color="primary">Opslaan</button> -->
+      <button (click)="saveEditor()" mat-flat-button color="primary">Opslaan</button>
       <br>  <br>  <br>  <br>   <br>  <br>  <br>  <br>   <br>  <br>  <br>  <br>  
     </div>
     <div>

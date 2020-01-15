@@ -21,7 +21,8 @@ export class AddActivityComponent implements OnInit {
   category
   setupImg
   activityImg
- 
+  suggestion
+
   editorTitle = false
   editorGoal = false
   editorMaterial = false
@@ -67,7 +68,8 @@ export class AddActivityComponent implements OnInit {
     private formBuilder: FormBuilder,
     public dialog: MatDialog,
     private router: Router,
-    private location: Location
+    private location: Location,
+    private route: ActivatedRoute
     ) { }
 
     public addFile(event: any) {
@@ -211,6 +213,34 @@ export class AddActivityComponent implements OnInit {
         const categories = 'categories'
         this.category = data[categories]
       })
+
+      const suggestionId = this.route.snapshot.paramMap.get('suggestionId');
+
+      if(suggestionId !== null && suggestionId !== undefined) {
+        const keya = 'suggestion';
+        const keyb = 'activity'
+        this.apiService.getSuggetionById(suggestionId).subscribe(data => {
+          this.suggestion = data[keya][keyb];
+          this.patchValue()
+        })
+      }
+  }
+
+  patchValue() {
+    this.form.patchValue({
+      wheelchair: this.suggestion.wheelchair.toString(),
+      amountOfPeople: this.suggestion.amountOfPeople.toString(),
+      duration: this.suggestion.duration.toString(),
+      category: this.suggestion.category,
+      title: this.suggestion.title,
+      goal:  this.suggestion.goal,
+      material: this.suggestion.material,
+      activity: this.suggestion.activity,
+      setUp: this.suggestion.setUp,
+      pointsForAttention: this.suggestion.pointsForAttention,
+      tooEasy: this.suggestion.tooEasy,
+      tooHard: this.suggestion.tooHard
+    })
   }
 
   onChange(event) {

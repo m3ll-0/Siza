@@ -226,7 +226,6 @@ export class AdminActivityeditComponent implements OnInit {
         this.category = data[categories]
       })
       this.getData()
-       
   }
 
 
@@ -237,6 +236,9 @@ export class AdminActivityeditComponent implements OnInit {
     this.apiService.getSpecificActivity(value).subscribe((data) => {
       const activities = 'activity'
       this.fre = data[activities]
+      console.error(this.fre);
+      this.setupImg = this.fre[0].setUpImage;
+      this.activityImg = this.fre[0].image;
       this.patchValue()
     })
   }

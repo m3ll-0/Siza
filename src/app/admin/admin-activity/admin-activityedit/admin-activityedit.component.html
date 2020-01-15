@@ -106,23 +106,22 @@
                 </mat-form-field>
   
   
-                <div (click)="editTitle()">
+                <div (click)="editTitle()" style="margin-top: 40px;">
                   <h1 [innerHTML]="form.value.title"></h1>
                 </div>
   
                 <form [formGroup]="form">  
                   
+                  <div class="col-md-4 justify-content-center" *ngIf="activityImg" style="margin-left: 100px;">
+                    <img [src]="activityImg" image-resizing class ="activityImg">
+                </div>
                   <div class="container">
                     <div class="file-upload-wrapper" data-text="Kies afbeelding">
                       <input #activitiesImage type="file" class='custom-input file-upload'  accept="image/*" (change)= 'addActivityImg($event)'>
                     </div>
                   </div>
                 </form>
-  
-              <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" *ngIf="activityImg">
-                  <img [src]="activityImg" image-resizing height="256" width="256" class ="activityImg">
-              </div>
-  
+
               </div>
             </form> 
           </div>
@@ -185,7 +184,7 @@
       <div class="container-fluid">
           <div class="row">
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                  <div  (click)="editGoal()">
+                  <div  (click)="editGoal()" class="act-spacing">
                       <h5>
                         Doel
                     </h5> 
@@ -194,7 +193,7 @@
                       </div>
                     </div>
                    
-                  <div (click)="editMaterial()">
+                  <div (click)="editMaterial()" class="act-spacing">
                     <h5>
                         Materiaal
                     </h5> 
@@ -203,7 +202,7 @@
                     </div>
                   </div>
                   
-                  <div  (click)="editActivity()"> 
+                  <div  (click)="editActivity()" class="act-spacing"> 
                     <h5>
                         Activiteit <br>
                     </h5> 
@@ -213,21 +212,22 @@
                   </div>
               </div>
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-  
 
-              <form [formGroup]="form">  
+                <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" *ngIf="setupImg">
+                  <div class="img-wrapper">
+                  <img [src]="setupImg" image-resizing class ="activityImg">
+                </div>
+                </div>
+
+              <form [formGroup]="form" style="margin-top:10px">  
                 <div class="container">
                   <div class="file-upload-wrapper" data-text="Kies afbeelding">
                     <input #setup type="file" class='custom-input file-upload' accept="image/*" (change)="addFile($event)" formControlName="setupImage">
                   </div>
                 </div>
               </form>
-
-                <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" *ngIf="setupImg">
-                  <img [src]="setupImg" image-resizing height="128" width="128" class ="activityImg">
-                </div>
   
-                  <div (click)="editSetup()">
+                  <div (click)="editSetup()" class="act-spacing">
                       <h5>
                           Hoe zet je het neer? <br>
                       </h5> 
@@ -236,7 +236,7 @@
                       </div>
                     </div>
               
-                    <div (click)="editPointsForAttention()">
+                    <div (click)="editPointsForAttention()" class="act-spacing">
                       <h5>
                         Let op! 
                       </h5> 
@@ -245,7 +245,7 @@
                       </div>
                     </div>
                     
-                    <div (click)="editTooEasy()">
+                    <div (click)="editTooEasy()" class="act-spacing">
                       <h5>
                           Te makkelijk?
                       </h5> 
@@ -254,7 +254,7 @@
                       </div>
                     </div>
                       
-                    <div (click)="editTooHard()">
+                    <div (click)="editTooHard()" class="act-spacing">
                       <h5>
                           Te moeilijk?
                       </h5> 
