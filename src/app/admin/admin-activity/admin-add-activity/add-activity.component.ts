@@ -1,24 +1,26 @@
 import { Component, OnInit, ViewChild, ElementRef, Inject} from '@angular/core';
 import { ApiServiceService } from '../../../api-service.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Validators, FormGroup, FormBuilder} from '@angular/forms'
 import { AngularEditorConfig } from '@kolkov/angular-editor';
-import { MatDialog} from '@angular/material/dialog'
+import { MatDialog} from '@angular/material/dialog';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-add-activity',
   templateUrl: './add-activity.component.html',
-  styleUrls: ['./add-activity.component.css']
+  styleUrls: ['./add-activity.component.scss']
 })
 export class AddActivityComponent implements OnInit {
   
-  @ViewChild('activitiesImage', {static: false}) activityImage: ElementRef
+  @ViewChild('activitiesImage', {static: false}) activitiesImage: ElementRef
   @ViewChild('setup', {static: false}) setup: ElementRef
 
   selectedFile: File
   activities
   category
-  url
+  setupImg
+  activityImg
  
   editorTitle = false
   editorGoal = false
@@ -63,20 +65,34 @@ export class AddActivityComponent implements OnInit {
   constructor(
     private apiService: ApiServiceService,
     private formBuilder: FormBuilder,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router,
+    private location: Location
     ) { }
 
-  //   onSelectFile(event) { // called each time file input changes
-  //     if (event.target.files && event.target.files[0]) {
-  //       var reader = new FileReader();
-  
-  //       reader.readAsDataURL(event.target.files[0]); // read file as data url
-  
-  //       reader.onload = (event) => { // called once readAsDataURL is completed
-  //         this.url = event.target.result
-  //       }
-  //     }
-  // }
+    public addFile(event: any) {
+      if (event.target.files && event.target.files[0]) {
+              const reader = new FileReader();
+              reader.onload = (x: any) => {
+                  this.setupImg = x.target.result
+              }
+              reader.readAsDataURL(event.target.files[0]);
+          }
+    }
+
+    public addActivityImg(event: any) {
+      if (event.target.files && event.target.files[0]) {
+              const reader = new FileReader();
+              reader.onload = (x: any) => {
+                  this.activityImg = x.target.result
+              }
+              reader.readAsDataURL(event.target.files[0]);
+          }
+    }
+
+    onGoBack() {
+      this.location.back();
+    }
 
   closeEditor() {
     this.editorGoal = false
@@ -90,17 +106,22 @@ export class AddActivityComponent implements OnInit {
   }
 
   saveEditor() {
-    const imageblob = [this.activityImage.nativeElement.files[0], this.setup.nativeElement.files[0]]
+    const imageblob = [this.activitiesImage.nativeElement.files[0], this.setup.nativeElement.files[0]]
     const file = new FormData()
     
     const title = 'title'
     const category = 'category'
     const activity = 'activity'
     const material = 'material'
+    const goal = 'goal'
     const setUp = 'setUp'
     const pointsForAttention = 'pointsForAttention'
     const tooEasy = 'tooEasy'
     const tooHard = 'tooHard'
+
+    const amountOfPeople = 'amountOfPeople'
+    const wheelchair = 'wheelchair'
+    const duration = 'duration'
 
     file.append('images', imageblob[0])
     file.append('images', imageblob[1])
@@ -108,13 +129,18 @@ export class AddActivityComponent implements OnInit {
     file.append('category', this.form.controls[category].value)
     file.append('activity', this.form.controls[activity].value)
     file.append('material', this.form.controls[material].value)
+    file.append('goal', this.form.controls[goal].value)
     file.append('setUp', this.form.controls[setUp].value)
     file.append('pointsForAttention', this.form.controls[pointsForAttention].value)
     file.append('tooEasy', this.form.controls[tooEasy].value)
     file.append('tooHard', this.form.controls[tooHard].value)
+
+    file.append('amountOfPeople', this.form.controls[amountOfPeople].value)
+    file.append('wheelchair', this.form.controls[wheelchair].value)
+    file.append('duration', this.form.controls[duration].value)
   
     this.apiService.addActivity(file).subscribe((data) => {
-      console.log(data);
+      this.router.navigate(['/admin/activities'])
     })
 
     this.editorGoal = false
@@ -125,11 +151,14 @@ export class AddActivityComponent implements OnInit {
     this.editorPointsForAttention = false
     this.editorTooEasy = false
     this.editorTooHard = false 
+
+
   }
 
 
   editTitle() {
-  
+    this.closeEditor()
+    this.editorTitle = true
     }
   editGoal() {
     this.closeEditor()
@@ -163,18 +192,20 @@ export class AddActivityComponent implements OnInit {
   ngOnInit() {
 
     this.form = this.formBuilder.group({
-      category: [''],
-      wheelchair: '',
-      amountOfPeople: '',
-      duration: '',
-      title: 'title',
-      goal: 'title',
-      material: 'title',
-      activity: 'title',
-      setUp: 'title',
-      pointsForAttention: 'title',
-      tooEasy: 'title',
-      tooHard: 'title'
+      category: ['', Validators.required, ],
+      wheelchair: ['', Validators.required],
+      amountOfPeople: ['', Validators.required],
+      duration: ['', Validators.required],
+      title: ['Vul in', Validators.required],
+      goal: ['Vul in', Validators.required,  ],
+      material: ['Vul in', Validators.required],
+      activity: ['Vul in', Validators.required],
+      setUp: ['Vul in', Validators.required],
+      pointsForAttention: ['Vul in', Validators.required],
+      tooEasy: ['Vul in', Validators.required],
+      tooHard: ['Vul in', Validators.required],
+      setupImage: [null, Validators.required],
+      activityImage: [null, Validators.required]
       })
       this.apiService.getCategories().subscribe((data) => {
         const categories = 'categories'
