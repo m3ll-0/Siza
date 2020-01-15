@@ -98,7 +98,7 @@
               <div class="form-group">
                 <mat-form-field>
                   <mat-label>Categorie</mat-label>
-                  <mat-select name="category" ngModel class="form" formControlName="category" (change)="changeCategory($event)">
+                  <mat-select name="category" ngModel class="form" formControlName="category">
                     <mat-option *ngFor="let category of category" [value]="category._id">
                       {{ category.name }}
                     </mat-option>
