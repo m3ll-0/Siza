@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./beweegposter.component.css']
 })
 export class BeweegposterComponent implements OnInit {
-  title = 'Iedere dag is mooi'
+  title = 'Maak je dromen waar'
   page = 'beweegposter'
   kennisplein= 'https://www.kennispleingehandicaptensector.nl/gezondheid/'+
   'meer-bewegen-methode-dromen-ontdekken-doen-oiv?origin=29892'

@@ -50,8 +50,6 @@ img {
 .grid-row
 {
     display: grid;
-    position: absolute;     
-    margin-left: 200px;
 }
 
 @media print {

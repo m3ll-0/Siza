@@ -15,7 +15,8 @@ export class SuggestionDetailComponent implements OnInit {
   suggestion: any
 
   constructor(
-    private location: Location, 
+    private location: Location,
+    private router: Router,
     private httpService: ApiServiceService,
     private activatedRoute: ActivatedRoute,) {
         this.activatedRoute.params.subscribe(params => {
@@ -44,5 +45,9 @@ export class SuggestionDetailComponent implements OnInit {
 
   onGoBack() {
     this.location.back();
+  }
+
+  onClickCreateSuggestion() {
+    // this.router.navigate(['/admin/editCategory', { suggestionId:  this.suggestion}])
   }
 }
