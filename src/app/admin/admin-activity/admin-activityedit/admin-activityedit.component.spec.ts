@@ -19,8 +19,8 @@ const thistooEasy = 'tooEasy2'
 const thistooHard = 'tooHard2'
 
 describe('AdminActivityEdit', () => {
-  const component: AdminActivityeditComponent;
-  const fixture: ComponentFixture<AdminActivityeditComponent>;
+  let component: AdminActivityeditComponent;
+  let fixture: ComponentFixture<AdminActivityeditComponent>;
 
   afterAll(() => {
     TestBed.resetTestingModule();
