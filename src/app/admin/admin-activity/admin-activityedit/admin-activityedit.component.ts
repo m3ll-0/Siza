@@ -33,7 +33,22 @@ export class AdminActivityeditComponent implements OnInit {
   editorTooHard2 = false
   editorPointsForAttention2 = false
 
-  form: FormGroup;
+  form: FormGroup = this.formBuilder.group({
+    category2: ['', Validators.required, ],
+    wheelchair2: ['', Validators.required],
+    amountOfPeople2: ['', Validators.required],
+    duration2: ['', Validators.required],
+    title2: ['Vul in', Validators.required],
+    goal2: ['Vul in', Validators.required,  ],
+    material2: ['Vul in', Validators.required],
+    activity2: ['Vul in', Validators.required],
+    setUp2: ['Vul in', Validators.required],
+    pointsForAttention2: ['Vul in', Validators.required],
+    tooEasy2: ['Vul in', Validators.required],
+    tooHard2: ['Vul in', Validators.required],
+    setupImage: [null],
+    activity2Image: [null]
+    })
 
   config: AngularEditorConfig = {
     editable: true,
@@ -202,22 +217,22 @@ export class AdminActivityeditComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.form = this.formBuilder.group({
-      category2: ['', Validators.required, ],
-      wheelchair2: ['', Validators.required],
-      amountOfPeople2: ['', Validators.required],
-      duration2: ['', Validators.required],
-      title2: ['Vul in', Validators.required],
-      goal2: ['Vul in', Validators.required,  ],
-      material2: ['Vul in', Validators.required],
-      activity2: ['Vul in', Validators.required],
-      setUp2: ['Vul in', Validators.required],
-      pointsForAttention2: ['Vul in', Validators.required],
-      tooEasy2: ['Vul in', Validators.required],
-      tooHard2: ['Vul in', Validators.required],
-      setupImage: [null],
-      activity2Image: [null]
-      })
+    // this.form = this.formBuilder.group({
+    //   category2: ['', Validators.required, ],
+    //   wheelchair2: ['', Validators.required],
+    //   amountOfPeople2: ['', Validators.required],
+    //   duration2: ['', Validators.required],
+    //   title2: ['Vul in', Validators.required],
+    //   goal2: ['Vul in', Validators.required,  ],
+    //   material2: ['Vul in', Validators.required],
+    //   activity2: ['Vul in', Validators.required],
+    //   setUp2: ['Vul in', Validators.required],
+    //   pointsForAttention2: ['Vul in', Validators.required],
+    //   tooEasy2: ['Vul in', Validators.required],
+    //   tooHard2: ['Vul in', Validators.required],
+    //   setupImage: [null],
+    //   activity2Image: [null]
+    //   })
 
       this.apiService.getCategories().subscribe((data) => {
         const categories = 'categories'

@@ -1,7 +1,9 @@
 <mat-card class="small-card" (click)="onClickCategoryCard(categoryID)">
         <mat-card-content>
+            <div class="img-wrapper">
                 <img class="img-small-card" src="{{category?.image}}" onerror="this.src='https://i1.wp.com/www.pajaritopajaritofoto.com/wp-content/plugins/all-in-one-video-gallery/public/assets/images/placeholder-image.png';"/>
-        </mat-card-content>
+                </div>
+            </mat-card-content>
         <mat-card-content>
             <div class="small-card-header">     
                 <a class='a-category' [routerLink]="['/sizasports/category', categoryID]">{{ category?.name }}</a>
