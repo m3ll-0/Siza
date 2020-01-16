@@ -112,7 +112,7 @@
   
                 <form [formGroup]="form">  
                   <div class="col-md-4 justify-content-center" *ngIf="activity2Img" style="margin-left: 100px;">
-                    <img [src]="activity2Img" image-resizing class ="activity2Img">
+                    <img [src]="activity2Img" image-resizing class ="activity2Img" onerror="this.src='https://i1.wp.com/www.pajaritopajaritofoto.com/wp-content/plugins/all-in-one-video-gallery/public/assets/images/placeholder-image.png';"/>
                 </div>
                   <div class="container">
                     <div class="file-upload-wrapper" data-text="Kies afbeelding">
@@ -214,7 +214,7 @@
 
                 <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" *ngIf="setupImg">
                   <div class="">
-                  <img [src]="setupImg" image-resizing class ="activityImg">
+                  <img [src]="setupImg" image-resizing class ="activityImg" onerror="this.src='https://i1.wp.com/www.pajaritopajaritofoto.com/wp-content/plugins/all-in-one-video-gallery/public/assets/images/placeholder-image.png';"/>
                 </div>
                 </div>
 

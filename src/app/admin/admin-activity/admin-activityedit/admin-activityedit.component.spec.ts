@@ -61,18 +61,18 @@ describe('AdminActivityEdit', () => {
   });
 
   it('form fully filled succeeds', () => {
-    let category2 = component.form.controls[thiscategory];
-    let wheelchair2 = component.form.controls[thiswheelchair];
-    let amountOfPeople2 = component.form.controls[thisamountOfPeople];
-    let duration2 = component.form.controls[thisduration];
-    let title2 = component.form.controls[thistitle];
-    let goal2 = component.form.controls[thisgoal];
-    let material2 = component.form.controls[thismaterial];
-    let activity2 = component.form.controls[thisactivity];
-    let setUp2 = component.form.controls[thissetUp];
-    let pointsForAttention2 = component.form.controls[thispointsForAttention];
-    let tooEasy2 = component.form.controls[thistooEasy];
-    let tooHard2 = component.form.controls[thistooHard];
+    const category2 = component.form.controls[thiscategory];
+    const wheelchair2 = component.form.controls[thiswheelchair];
+    const amountOfPeople2 = component.form.controls[thisamountOfPeople];
+    const duration2 = component.form.controls[thisduration];
+    const title2 = component.form.controls[thistitle];
+    const goal2 = component.form.controls[thisgoal];
+    const material2 = component.form.controls[thismaterial];
+    const activity2 = component.form.controls[thisactivity];
+    const setUp2 = component.form.controls[thissetUp];
+    const pointsForAttention2 = component.form.controls[thispointsForAttention];
+    const tooEasy2 = component.form.controls[thistooEasy];
+    const tooHard2 = component.form.controls[thistooHard];
   
     category2.setValue('anything')
     wheelchair2.setValue('anything')
