@@ -1,10 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { AddActivityComponent } from './add-activity.component';
-import { SharedModule } from '../../../Shared/shared.module'
+import {SharedModule} from '../../../Shared/shared.module';
+import { AdminActivityeditComponent} from './admin-activityedit.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { DebugElement } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { of } from 'rxjs';
 
 const thiscategory = 'category'
 const thiswheelchair = 'wheelchair'
@@ -19,13 +18,10 @@ const thispointsForAttention = 'pointsForAttention'
 const thistooEasy = 'tooEasy'
 const thistooHard = 'tooHard'
 
-describe('AddActivityComponent', () => {
-  let component: AddActivityComponent;
-  let fixture: ComponentFixture<AddActivityComponent>;
-
-  const mockHttp = {
-    request: jasmine.createSpy('request')
-  };
+describe('AdminActivityCardComponent', () => {
+  let component: AdminActivityeditComponent;
+  let fixture: ComponentFixture<AdminActivityeditComponent>;
+  const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
 
   afterAll(() => {
     TestBed.resetTestingModule();
@@ -34,13 +30,13 @@ describe('AddActivityComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ReactiveFormsModule, FormsModule, HttpClientTestingModule, SharedModule],
-      declarations: [ AddActivityComponent ]
+      declarations: [ AdminActivityeditComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddActivityComponent);
+    fixture = TestBed.createComponent(AdminActivityeditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -78,7 +74,7 @@ describe('AddActivityComponent', () => {
     const pointsForAttention = component.form.controls[thispointsForAttention];
     const tooEasy = component.form.controls[thistooEasy];
     const tooHard = component.form.controls[thistooHard];
-  
+    
     category.setValue('anything')
     wheelchair.setValue('anything')
     amountOfPeople.setValue('anything')
@@ -92,17 +88,6 @@ describe('AddActivityComponent', () => {
     tooEasy.setValue('anything')
     tooHard.setValue('anything')
 
-    expect(category.valid).toBeTruthy();
-    expect(wheelchair.valid).toBeTruthy();
-    expect(amountOfPeople.valid).toBeTruthy();
-    expect(duration.valid).toBeTruthy();
-    expect(title.valid).toBeTruthy();
-    expect(goal.valid).toBeTruthy();
-    expect(material.valid).toBeTruthy();
-    expect(activity.valid).toBeTruthy();
-    expect(setUp.valid).toBeTruthy();
-    expect(pointsForAttention.valid).toBeTruthy();
-    expect(tooEasy.valid).toBeTruthy();
-    expect(tooHard.valid).toBeTruthy();
+    expect(component.form.valid).toBeTruthy();
   });
 });
