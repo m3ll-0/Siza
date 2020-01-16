@@ -107,7 +107,7 @@
   
   
                 <div (click)="editTitle()" style="margin-top: 40px;">
-                  <h1 [innerHTML]="form.value.title"></h1>
+                  <h1 [innerHTML]="form.value.title2"></h1>
                 </div>
   
                 <form [formGroup]="form">  
@@ -270,6 +270,7 @@
         <div class="unavailable" *ngIf="form.invalid" >
           Niet alle gegevens zijn ingevuld!
         </div>
+        <br/>
         <button (click)="saveEditor()" [disabled]="form.invalid" mat-flat-button color="primary">Opslaan</button>
         <br>  <br>  <br>  <br>  
       </div>

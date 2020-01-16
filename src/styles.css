@@ -193,7 +193,7 @@ html {
     color: #d40d8b;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1490px) {
     .header{
         background-image: unset !important;
     }

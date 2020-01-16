@@ -149,25 +149,25 @@ export class AdminActivityeditComponent implements OnInit {
 
     file2.append('images', imageblob[0])
     file2.append('images', imageblob[1])
-    file2.append('title2', this.form.controls[title2].value)
-    file2.append('category2', this.form.controls[category2].value)
-    file2.append('activity2', this.form.controls[activity2].value)
-    file2.append('material2', this.form.controls[material2].value)
-    file2.append('goal2', this.form.controls[goal2].value)
-    file2.append('setUp2', this.form.controls[setUp2].value)
-    file2.append('pointsForAttention2', this.form.controls[pointsForAttention2].value)
-    file2.append('tooEasy2', this.form.controls[tooEasy2].value)
-    file2.append('tooHard2', this.form.controls[tooHard2].value)
+    file2.append('title', this.form.controls[title2].value)
+    file2.append('category', this.form.controls[category2].value)
+    file2.append('activity', this.form.controls[activity2].value)
+    file2.append('material', this.form.controls[material2].value)
+    file2.append('goal', this.form.controls[goal2].value)
+    file2.append('setUp', this.form.controls[setUp2].value)
+    file2.append('pointsForAttention', this.form.controls[pointsForAttention2].value)
+    file2.append('tooEasy', this.form.controls[tooEasy2].value)
+    file2.append('tooHard', this.form.controls[tooHard2].value)
 
-    file2.append('amountOfPeople2', this.form.controls[amountOfPeople2].value)
-    file2.append('wheelchair2', this.form.controls[wheelchair2].value)
-    file2.append('duration2', this.form.controls[duration2].value)
-  
+    file2.append('amountOfPeople', this.form.controls[amountOfPeople2].value)
+    file2.append('wheelchair', this.form.controls[wheelchair2].value)
+    file2.append('duration', this.form.controls[duration2].value)
+
     let value
     this.activatedRoute.params.subscribe( params => value = params.id );
 
     this.apiService.updateActivity(value, file2).subscribe((data) => {
-      this.router.navigate(['/admin/activities'])
+      // this.router.navigate(['/admin/activities'])
     } )
 
     this.editorGoal2 = false

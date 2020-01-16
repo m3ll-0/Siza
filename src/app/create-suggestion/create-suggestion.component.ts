@@ -52,13 +52,15 @@ export class CreateSuggestionComponent implements OnInit {
     suggestion.activity.duration = form.value.duration
     suggestion.activity.amountOfPeople = form.value.amountOfPeople
     suggestion.activity.wheelchair = form.value.wheelchair
-    suggestion.activity.pointsForAttention= form.value.pointsForAttention
-    console.log(form.value.duration)
-    console.log(suggestion)
+    suggestion.activity.pointsForAttention= form.value.pointsForAttention 
+
+    if(form.value.wheelchair === null || form.value.wheelchair === undefined || form.value.wheelchair === '') {
+      suggestion.activity.wheelchair = false;
+    }
+
     this.httpService.postSuggestion(suggestion).subscribe(
       data => {
         form.resetForm()
-        console.log(data)
         this.onGoBack()
       }
     )

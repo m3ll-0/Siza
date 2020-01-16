@@ -241,6 +241,9 @@ export class AddActivityComponent implements OnInit {
       tooEasy: this.suggestion.tooEasy,
       tooHard: this.suggestion.tooHard
     })
+
+    console.error(this.suggestion);
+    alert(this.suggestion.pointsForAttention);
   }
 
   onChange(event) {
