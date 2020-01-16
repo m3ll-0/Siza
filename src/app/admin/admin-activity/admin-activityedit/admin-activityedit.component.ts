@@ -167,7 +167,7 @@ export class AdminActivityeditComponent implements OnInit {
     this.activatedRoute.params.subscribe( params => value = params.id );
 
     this.apiService.updateActivity(value, file2).subscribe((data) => {
-      // this.router.navigate(['/admin/activities'])
+      this.router.navigate(['/admin/activities'])
     } )
 
     this.editorGoal2 = false
