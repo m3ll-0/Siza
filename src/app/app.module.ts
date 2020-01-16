@@ -46,7 +46,8 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import { AddActivityComponent } from './admin/admin-activity/admin-add-activity/add-activity.component';
 import { AdminActivityeditComponent } from './admin/admin-activity/admin-activityedit/admin-activityedit.component';
 import { AdminActivityComponent } from './admin/admin-activity/admin-activity.component';
-import { TestModuleComponent } from './test-module/test-module.component'
+import { TestModuleComponent } from './test-module/test-module.component';
+import { VoedingComponent } from './voeding/voeding.component'
 
 @NgModule({
   declarations: [
@@ -89,7 +90,8 @@ import { TestModuleComponent } from './test-module/test-module.component'
     CreateSuggestionComponent,
     BannerComponent,
     TestModuleComponent,
-    DialogOverviewExampleDialogComponent
+    DialogOverviewExampleDialogComponent,
+    VoedingComponent
   ],
   entryComponents: [
     DialogOverviewExampleDialogComponent

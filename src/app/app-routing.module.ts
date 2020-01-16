@@ -24,6 +24,7 @@ import { AdminCategoryEditComponent } from './admin/admin-categories/admin-categ
 import { CreateSuggestionComponent } from './create-suggestion/create-suggestion.component'
 import { TestModuleComponent } from './test-module/test-module.component'
 import { AddActivityComponent } from './admin/admin-activity/admin-add-activity/add-activity.component'
+import { VoedingComponent } from './voeding/voeding.component'
 
 const routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -33,6 +34,7 @@ const routes = [
     { path: 'about', component: AboutComponent },
     { path: 'training', component: TrainingComponent },
     { path: 'poster', component: BeweegposterComponent },
+    { path: 'voeding', component: VoedingComponent },
     { path: 'sizasports/category/:id', component: SizasportsSubcategoryComponent},  
     { path: 'auth', children: [
         { path: 'verifyemail/:token', component: VerifyEmailComponent},

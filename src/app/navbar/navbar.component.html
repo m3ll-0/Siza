@@ -63,7 +63,17 @@
             aria-disabled="true"
             >SizaSports</a
           >
-      </ul>
+
+      <li class="nav-item" style="color:grey;">
+        <a
+          class="nav-link a-navbar"
+          routerLink="/voeding"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+          aria-disabled="true"
+          >Voeding</a
+        >
+    </ul>
 
       <div ngbDropdown class="d-inline-block" *ngIf="isAuthenticated">
         <button class="btn btn-outline-primary btn-nav" id="dropdownBasic1" ngbDropdownToggle>Account</button>
