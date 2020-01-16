@@ -23,10 +23,6 @@ describe('AddActivityComponent', () => {
   let component: AddActivityComponent;
   let fixture: ComponentFixture<AddActivityComponent>;
 
-  const mockHttp = {
-    request: jasmine.createSpy('request')
-  };
-
   afterAll(() => {
     TestBed.resetTestingModule();
   });

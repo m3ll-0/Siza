@@ -1,27 +1,26 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import {SharedModule} from '../../../Shared/shared.module';
+import { SharedModule } from '../../../Shared/shared.module';
 import { AdminActivityeditComponent} from './admin-activityedit.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { DebugElement } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-const thiscategory = 'category'
-const thiswheelchair = 'wheelchair'
-const thisamountOfPeople = 'amountOfPeople'
-const thisduration = 'duration'
-const thistitle = 'title'
-const thisgoal = 'goal'
-const thismaterial = 'material'
-const thisactivity = 'activity'
-const thissetUp = 'setUp'
-const thispointsForAttention = 'pointsForAttention'
-const thistooEasy = 'tooEasy'
-const thistooHard = 'tooHard'
+const thiscategory = 'category2'
+const thiswheelchair = 'wheelchair2'
+const thisamountOfPeople = 'amountOfPeople2'
+const thisduration = 'duration2'
+const thistitle = 'title2'
+const thisgoal = 'goal2'
+const thismaterial = 'material2'
+const thisactivity = 'activity2'
+const thissetUp = 'setUp2'
+const thispointsForAttention = 'pointsForAttention2'
+const thistooEasy = 'tooEasy2'
+const thistooHard = 'tooHard2'
 
-describe('AdminActivityCardComponent', () => {
+describe('AdminActivityEdit', () => {
   let component: AdminActivityeditComponent;
   let fixture: ComponentFixture<AdminActivityeditComponent>;
-  const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
 
   afterAll(() => {
     TestBed.resetTestingModule();
@@ -62,32 +61,43 @@ describe('AdminActivityCardComponent', () => {
   });
 
   it('form fully filled succeeds', () => {
-    const category = component.form.controls[thiscategory];
-    const wheelchair = component.form.controls[thiswheelchair];
-    const amountOfPeople = component.form.controls[thisamountOfPeople];
-    const duration = component.form.controls[thisduration];
-    const title = component.form.controls[thistitle];
-    const goal = component.form.controls[thisgoal];
-    const material = component.form.controls[thismaterial];
-    const activity = component.form.controls[thisactivity];
-    const setUp = component.form.controls[thissetUp];
-    const pointsForAttention = component.form.controls[thispointsForAttention];
-    const tooEasy = component.form.controls[thistooEasy];
-    const tooHard = component.form.controls[thistooHard];
-    
-    category.setValue('anything')
-    wheelchair.setValue('anything')
-    amountOfPeople.setValue('anything')
-    duration.setValue('anything')
-    title.setValue('anything')
-    goal.setValue('anything')
-    material.setValue('anything')
-    activity.setValue('anything')
-    setUp.setValue('anything')
-    pointsForAttention.setValue('anything')
-    tooEasy.setValue('anything')
-    tooHard.setValue('anything')
+    let category2 = component.form.controls[thiscategory];
+    let wheelchair2 = component.form.controls[thiswheelchair];
+    let amountOfPeople2 = component.form.controls[thisamountOfPeople];
+    let duration2 = component.form.controls[thisduration];
+    let title2 = component.form.controls[thistitle];
+    let goal2 = component.form.controls[thisgoal];
+    let material2 = component.form.controls[thismaterial];
+    let activity2 = component.form.controls[thisactivity];
+    let setUp2 = component.form.controls[thissetUp];
+    let pointsForAttention2 = component.form.controls[thispointsForAttention];
+    let tooEasy2 = component.form.controls[thistooEasy];
+    let tooHard2 = component.form.controls[thistooHard];
+  
+    category2.setValue('anything')
+    wheelchair2.setValue('anything')
+    amountOfPeople2.setValue('anything')
+    duration2.setValue('anything')
+    title2.setValue('anything')
+    goal2.setValue('anything')
+    material2.setValue('anything')
+    activity2.setValue('anything')
+    setUp2.setValue('anything')
+    pointsForAttention2.setValue('anything')
+    tooEasy2.setValue('anything')
+    tooHard2.setValue('anything')
 
-    expect(component.form.valid).toBeTruthy();
+    expect(category2.valid).toBeTruthy();
+    expect(wheelchair2.valid).toBeTruthy();
+    expect(amountOfPeople2.valid).toBeTruthy();
+    expect(duration2.valid).toBeTruthy();
+    expect(title2.valid).toBeTruthy();
+    expect(goal2.valid).toBeTruthy();
+    expect(material2.valid).toBeTruthy();
+    expect(activity2.valid).toBeTruthy();
+    expect(setUp2.valid).toBeTruthy();
+    expect(pointsForAttention2.valid).toBeTruthy();
+    expect(tooEasy2.valid).toBeTruthy();
+    expect(tooHard2.valid).toBeTruthy();
   });
 });
