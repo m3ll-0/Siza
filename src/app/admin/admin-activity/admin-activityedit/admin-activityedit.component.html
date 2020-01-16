@@ -116,7 +116,7 @@
                 </div>
                   <div class="container">
                     <div class="file-upload-wrapper" data-text="Kies afbeelding">
-                      <input #activitiesImage type="file" class='custom-input file-upload'  accept="image/*" (change)= 'addActivityImg($event)'>
+                      <input #activitiesImage type="file" class='custom-input file-upload'  accept="image/*" (change)= 'addActivityImg2($event)'>
                     </div>
                   </div>
                 </form>
@@ -221,7 +221,7 @@
               <form [formGroup]="form" style="margin-top:10px">  
                 <div class="container">
                   <div class="file-upload-wrapper" data-text="Kies afbeelding">
-                    <input #setup type="file" class='custom-input file-upload' accept="image/*" (change)="addFile($event)" formControlName="setupImage">
+                    <input #setup type="file" class='custom-input file-upload' accept="image/*" (change)="addFile2($event)" formControlName="setupImage">
                   </div>
                 </div>
               </form>
