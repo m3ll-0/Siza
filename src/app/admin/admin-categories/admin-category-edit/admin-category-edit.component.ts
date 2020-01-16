@@ -100,7 +100,6 @@ export class AdminCategoryEditComponent implements OnInit {
       const imageblob = this.categoryImage.nativeElement.files[0]
       const categoryParams = new FormData()
       
-      const name = 'name'
       const parent = 'parent'
 
       if(imageblob !== undefined && imageblob !== null) {
