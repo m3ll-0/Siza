@@ -16,22 +16,22 @@ export class AdminActivityeditComponent implements OnInit {
   @ViewChild('activitiesImage', {static: false}) activitiesImage: ElementRef
   @ViewChild('setup', {static: false}) setup: ElementRef
 
-  fre
+  fro
   selectedFile: File
   activities
-  activity
-  category
+  activity2
+  category2
   setupImg
-  activityImg
+  activity2Img
 
-  editorTitle = false
-  editorGoal = false
-  editorMaterial = false
-  editorActivity = false
-  editorSetup = false
-  editorTooEasy = false
-  editorTooHard = false
-  editorPointsForAttention = false
+  editorTitle2 = false
+  editorGoal2 = false
+  editorMaterial2 = false
+  editorActivity2 = false
+  editorSetup2 = false
+  editorTooEasy2 = false
+  editorTooHard2 = false
+  editorPointsForAttention2 = false
 
   form: FormGroup;
 
@@ -57,8 +57,8 @@ export class AdminActivityeditComponent implements OnInit {
         class: 'redText'
       },
       {
-        name: 'titleText',
-        class: 'titleText',
+        name: 'title2Text',
+        class: 'title2Text',
         tag: 'h1',
       },
     ]
@@ -74,12 +74,12 @@ export class AdminActivityeditComponent implements OnInit {
       let value
       this.activatedRoute.params.subscribe( params => value = params.id );
       this.apiService.getSpecificActivity(value).subscribe((data) => {
-        const key = 'activity'
+        const key = 'activity2'
         this.activities = data[key]
       } )
      }
 
-    public addFile(event: any) {
+    public addFile2(event: any) {
       if (event.target.files && event.target.files[0]) {
               const reader = new FileReader();
               reader.onload = (x: any) => {
@@ -89,11 +89,11 @@ export class AdminActivityeditComponent implements OnInit {
           }
     }
 
-    public addActivityImg(event: any) {
+    public addActivityImg2(event: any) {
       if (event.target.files && event.target.files[0]) {
               const reader = new FileReader();
               reader.onload = (x: any) => {
-                  this.activityImg = x.target.result
+                  this.activity2Img = x.target.result
               }
               reader.readAsDataURL(event.target.files[0]);
           }
@@ -104,67 +104,65 @@ export class AdminActivityeditComponent implements OnInit {
     }
 
   closeEditor() {
-    this.editorGoal = false
-    this.editorTitle = false
-    this.editorActivity = false
-    this.editorMaterial = false
-    this.editorSetup = false
-    this.editorTooEasy = false
-    this.editorTooHard = false
-    this.editorPointsForAttention = false
+    this.editorGoal2 = false
+    this.editorTitle2 = false
+    this.editorActivity2 = false
+    this.editorMaterial2 = false
+    this.editorSetup2 = false
+    this.editorTooEasy2 = false
+    this.editorTooHard2 = false
+    this.editorPointsForAttention2 = false
   }
 
   saveEditor() {
     const imageblob = [this.activitiesImage.nativeElement.files[0], this.setup.nativeElement.files[0]]
-    const file = new FormData()
+    const file2 = new FormData()
     
-    const title = 'title'
-    const category = 'category'
-    const activity = 'activity'
-    const material = 'material'
-    const goal = 'goal'
-    const setUp = 'setUp'
-    const pointsForAttention = 'pointsForAttention'
-    const tooEasy = 'tooEasy'
-    const tooHard = 'tooHard'
+    const title2 = 'title2'
+    const category2 = 'category2'
+    const activity2 = 'activity2'
+    const material2 = 'material2'
+    const goal2 = 'goal2'
+    const setUp2 = 'setUp2'
+    const pointsForAttention2 = 'pointsForAttention2'
+    const tooEasy2 = 'tooEasy2'
+    const tooHard2 = 'tooHard2'
 
-    const amountOfPeople = 'amountOfPeople'
-    const wheelchair = 'wheelchair'
-    const duration = 'duration'
+    const amountOfPeople2 = 'amountOfPeople2'
+    const wheelchair2 = 'wheelchair2'
+    const duration2 = 'duration2'
 
-    file.append('images', imageblob[0])
-    file.append('images', imageblob[1])
-    file.append('title', this.form.controls[title].value)
-    file.append('category', this.form.controls[category].value)
-    file.append('activity', this.form.controls[activity].value)
-    file.append('material', this.form.controls[material].value)
-    file.append('goal', this.form.controls[goal].value)
-    file.append('setUp', this.form.controls[setUp].value)
-    file.append('pointsForAttention', this.form.controls[pointsForAttention].value)
-    file.append('tooEasy', this.form.controls[tooEasy].value)
-    file.append('tooHard', this.form.controls[tooHard].value)
+    file2.append('images', imageblob[0])
+    file2.append('images', imageblob[1])
+    file2.append('title2', this.form.controls[title2].value)
+    file2.append('category2', this.form.controls[category2].value)
+    file2.append('activity2', this.form.controls[activity2].value)
+    file2.append('material2', this.form.controls[material2].value)
+    file2.append('goal2', this.form.controls[goal2].value)
+    file2.append('setUp2', this.form.controls[setUp2].value)
+    file2.append('pointsForAttention2', this.form.controls[pointsForAttention2].value)
+    file2.append('tooEasy2', this.form.controls[tooEasy2].value)
+    file2.append('tooHard2', this.form.controls[tooHard2].value)
 
-    file.append('amountOfPeople', this.form.controls[amountOfPeople].value)
-    file.append('wheelchair', this.form.controls[wheelchair].value)
-    file.append('duration', this.form.controls[duration].value)
+    file2.append('amountOfPeople2', this.form.controls[amountOfPeople2].value)
+    file2.append('wheelchair2', this.form.controls[wheelchair2].value)
+    file2.append('duration2', this.form.controls[duration2].value)
   
     let value
     this.activatedRoute.params.subscribe( params => value = params.id );
 
-    this.apiService.updateActivity(value, file).subscribe((data) => {
+    this.apiService.updateActivity(value, file2).subscribe((data) => {
       this.router.navigate(['/admin/activities'])
     } )
 
-    this.editorGoal = false
-    this.editorTitle = false
-    this.editorActivity = false
-    this.editorMaterial = false
-    this.editorSetup = false
-    this.editorPointsForAttention = false
-    this.editorTooEasy = false
-    this.editorTooHard = false 
-
-
+    this.editorGoal2 = false
+    this.editorTitle2 = false
+    this.editorActivity2 = false
+    this.editorMaterial2 = false
+    this.editorSetup2 = false
+    this.editorPointsForAttention2 = false
+    this.editorTooEasy2 = false
+    this.editorTooHard2 = false 
   }
 
 
@@ -172,61 +170,60 @@ export class AdminActivityeditComponent implements OnInit {
     console.log();
     
     this.closeEditor()
-    this.editorTitle = true
+    this.editorTitle2 = true
     }
   editGoal() {
     this.closeEditor()
-    this.editorGoal = true
+    this.editorGoal2 = true
     }
   editActivity() {
     this.closeEditor()
-    this.editorActivity = true
+    this.editorActivity2 = true
     }
   editMaterial() {
     this.closeEditor()
-    this.editorMaterial = true
+    this.editorMaterial2 = true
     }
   editSetup() {
     this.closeEditor()
-    this.editorSetup = true
+    this.editorSetup2 = true
     }
   editPointsForAttention() {
     this.closeEditor()
-    this.editorPointsForAttention = true
+    this.editorPointsForAttention2 = true
     }
   editTooEasy() {
     this.closeEditor()
-    this.editorTooEasy = true
+    this.editorTooEasy2 = true
     }
   editTooHard() {
     this.closeEditor()
-    this.editorTooHard = true
+    this.editorTooHard2 = true
     }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      category: ['', Validators.required, ],
-      wheelchair: ['', Validators.required],
-      amountOfPeople: ['', Validators.required],
-      duration: ['', Validators.required],
-      title: ['Vul in', Validators.required],
-      goal: ['Vul in', Validators.required,  ],
-      material: ['Vul in', Validators.required],
-      activity: ['Vul in', Validators.required],
-      setUp: ['Vul in', Validators.required],
-      pointsForAttention: ['Vul in', Validators.required],
-      tooEasy: ['Vul in', Validators.required],
-      tooHard: ['Vul in', Validators.required],
+      category2: ['', Validators.required, ],
+      wheelchair2: ['', Validators.required],
+      amountOfPeople2: ['', Validators.required],
+      duration2: ['', Validators.required],
+      title2: ['Vul in', Validators.required],
+      goal2: ['Vul in', Validators.required,  ],
+      material2: ['Vul in', Validators.required],
+      activity2: ['Vul in', Validators.required],
+      setUp2: ['Vul in', Validators.required],
+      pointsForAttention2: ['Vul in', Validators.required],
+      tooEasy2: ['Vul in', Validators.required],
+      tooHard2: ['Vul in', Validators.required],
       setupImage: [null],
-      activityImage: [null]
+      activity2Image: [null]
       })
 
       this.apiService.getCategories().subscribe((data) => {
         const categories = 'categories'
-        this.category = data[categories]
+        this.category2 = data[categories]
       })
       this.getData()
-       
   }
 
 
@@ -236,25 +233,28 @@ export class AdminActivityeditComponent implements OnInit {
 
     this.apiService.getSpecificActivity(value).subscribe((data) => {
       const activities = 'activity'
-      this.fre = data[activities]
+      this.fro = data[activities]
+      console.error(this.fro);
+      this.setupImg = this.fro[0].setUpImage;
+      this.activity2Img = this.fro[0].image;
       this.patchValue()
     })
   }
 
   patchValue() {
     this.form.patchValue({
-      wheelchair: this.fre[0].wheelchair.toString(),
-      amountOfPeople: this.fre[0].amountOfPeople.toString(),
-      duration: this.fre[0].duration.toString(),
-      category: this.fre[0].category,
-      title: this.fre[0].title,
-      goal:  this.fre[0].goal,
-      material: this.fre[0].material,
-      activity: this.fre[0].activity,
-      setUp: this.fre[0].setUp,
-      pointsForAttention:  this.fre[0].pointsForAttention,
-      tooEasy: this.fre[0].tooEasy,
-      tooHard: this.fre[0].tooHard
+      wheelchair2: this.fro[0].wheelchair.toString(),
+      amountOfPeople2: this.fro[0].amountOfPeople.toString(),
+      duration2: this.fro[0].duration.toString(),
+      category2: this.fro[0].category,
+      title2: this.fro[0].title,
+      goal2:  this.fro[0].goal,
+      material2: this.fro[0].material,
+      activity2: this.fro[0].activity,
+      setUp2: this.fro[0].setUp,
+      pointsForAttention2:  this.fro[0].pointsForAttention,
+      tooEasy2: this.fro[0].tooEasy,
+      tooHard2: this.fro[0].tooHard
     })
   }
   

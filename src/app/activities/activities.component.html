@@ -38,10 +38,12 @@
 </div>
 
         <div class="col-sm-2">
+          <div id="test">
           <div class="grid-row" id='customimgs'>
             <img *ngIf="activity?.wheelchair === true" src="../../assets/images/wheelchair.png" image-resizing height="70" width="70" class="img-side" />
             <img *ngIf="hasAmountOfPeople" src={{amountOfPeopleImageSource}} image-resizing height="70" width="70" class="img-side" />
             <img *ngIf="hasTimeSpan" src={{timeSpanImageSource}} image-resizing height="70" width="70" class="img-side"/>
+        </div>
         </div>
       </div>
 

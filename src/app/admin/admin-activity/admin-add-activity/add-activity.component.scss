@@ -28,9 +28,12 @@ img {
 }
 
 .activityImg {
-    max-width: unset;
+  display: block;
+  margin: auto;
+  height: auto;
+  max-width: 100%;
+  padding: 5px;
 }
-
 
 .file-upload {
     -webkit-box-sizing: border-box;

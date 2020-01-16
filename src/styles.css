@@ -97,9 +97,11 @@ html {
 
 .img-small-card
 {
-    display:block;
-    margin:auto;    
-    height: 170px;
+    display: block;
+    margin: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 153px;
 }
 
 .small-card-header
@@ -197,3 +199,10 @@ html {
     }
 }
 
+.img-wrapper{
+    min-height: 154px;
+}
+
+.act-spacing{
+    margin-top: 15px;
+}

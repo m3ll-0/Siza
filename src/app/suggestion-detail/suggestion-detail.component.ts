@@ -48,6 +48,6 @@ export class SuggestionDetailComponent implements OnInit {
   }
 
   onClickCreateSuggestion() {
-    // this.router.navigate(['/admin/editCategory', { suggestionId:  this.suggestion}])
+    this.router.navigate(['/admin/addactivity', { suggestionId:  this.suggestion._id}])
   }
 }
