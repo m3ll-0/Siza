@@ -13,43 +13,43 @@
   <div class="mx-auto" >
       <div class="text-center" >
         <div class="testing text-center">
-          <div *ngIf="editorGoal">
+          <div *ngIf="editorGoal2">
             <form [formGroup]="form">
-              <angular-editor autofocus="true" id="editor" formControlName="goal" [config]="config" (ngModelChange)="onChange2($event)" required></angular-editor>
+              <angular-editor autofocus="true" id="editor" formControlName="goal2" [config]="config" (ngModelChange)="onChange2($event)" required></angular-editor>
             </form>
             <div class="btn-group row-fluid">
               <button type="button" (click)="closeEditor()" class="btn btn-secondary">Close</button>
             </div>
           </div>
   
-          <div *ngIf="editorTitle">
+          <div *ngIf="editorTitle2">
             <form [formGroup]="form">
-              <angular-editor autofocus="true" id="editor" formControlName="title" [config]="config" (ngModelChange)="onChange2($event)"></angular-editor>
+              <angular-editor autofocus="true" id="editor" formControlName="title2" [config]="config" (ngModelChange)="onChange2($event)"></angular-editor>
             </form>
             <div class="btn-group row-fluid">
               <button type="button" (click)="closeEditor()" class="btn btn-secondary">Close</button>
             </div>
         </div>
   
-        <div *ngIf="editorMaterial">
+        <div *ngIf="editorMaterial2">
           <form [formGroup]="form">
-            <angular-editor autofocus="true" id="editor" formControlName="material" [config]="config" (ngModelChange)="onChange2($event)"></angular-editor>
+            <angular-editor autofocus="true" id="editor" formControlName="material2" [config]="config" (ngModelChange)="onChange2($event)"></angular-editor>
           </form>
           <div class="btn-group row-fluid">
             <button type="button" (click)="closeEditor()" class="btn btn-secondary">Close</button>
           </div>
         </div>
   
-        <div *ngIf="editorActivity">
+        <div *ngIf="editorActivity2">
           <form [formGroup]="form">
-            <angular-editor autofocus="true" id="editor" formControlName="activity" [config]="config" (ngModelChange)="onChange2($event)"></angular-editor>
+            <angular-editor autofocus="true" id="editor" formControlName="activity2" [config]="config" (ngModelChange)="onChange2($event)"></angular-editor>
           </form>
           <div class="btn-group row-fluid">
             <button type="button" (click)="closeEditor()" class="btn btn-secondary">Close</button>
           </div>
         </div>
   
-        <div *ngIf="editorSetup">
+        <div *ngIf="editorSetup2">
           <form [formGroup]="form">
             <angular-editor autofocus="true" id="editor" formControlName="setUp" [config]="config" (ngModelChange)="onChange2($event)"></angular-editor>
           </form>
@@ -58,27 +58,27 @@
           </div>
         </div>
   
-        <div *ngIf="editorPointsForAttention">
+        <div *ngIf="editorPointsForAttention2">
           <form [formGroup]="form">
-            <angular-editor autofocus="true" id="editor" formControlName="pointsForAttention" [config]="config" (ngModelChange)="onChange2($event)"></angular-editor>
+            <angular-editor autofocus="true" id="editor" formControlName="pointsForAttention2" [config]="config" (ngModelChange)="onChange2($event)"></angular-editor>
           </form>
           <div class="btn-group row-fluid">
             <button type="button" (click)="closeEditor()" class="btn btn-secondary">Close</button>
           </div>
         </div>
   
-        <div *ngIf="editorTooHard">
+        <div *ngIf="editorTooHard2">
           <form [formGroup]="form">
-            <angular-editor autofocus="true" id="editor" formControlName="tooHard" [config]="config" (ngModelChange)="onChange2($event)"></angular-editor>
+            <angular-editor autofocus="true" id="editor" formControlName="tooHard2" [config]="config" (ngModelChange)="onChange2($event)"></angular-editor>
           </form>
           <div class="btn-group row-fluid">
             <button type="button" (click)="closeEditor()" class="btn btn-secondary">Close</button>
           </div>
         </div>
   
-        <div *ngIf="editorTooEasy">
+        <div *ngIf="editorTooEasy2">
           <form [formGroup]="form">
-            <angular-editor autofocus="true" id="editor" formControlName="tooEasy" [config]="config" (ngModelChange)="onChange2($event)"></angular-editor>
+            <angular-editor autofocus="true" id="editor" formControlName="tooEasy2" [config]="config" (ngModelChange)="onChange2($event)"></angular-editor>
           </form>
           <div class="btn-group row-fluid">
             <button type="button" (click)="closeEditor()" class="btn btn-secondary">Close</button>
@@ -98,9 +98,9 @@
               <div class="form-group">
                 <mat-form-field>
                   <mat-label>Categorie</mat-label>
-                  <mat-select name="category" ngModel class="form" formControlName="category">
-                    <mat-option *ngFor="let category of category" [value]="category._id">
-                      {{ category.name }}
+                  <mat-select name="category2" ngModel class="form" formControlName="category2">
+                    <mat-option *ngFor="let category2 of category2" [value]="category2._id">
+                      {{ category2.name }}
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -111,9 +111,8 @@
                 </div>
   
                 <form [formGroup]="form">  
-                  
-                  <div class="col-md-4 justify-content-center" *ngIf="activityImg" style="margin-left: 100px;">
-                    <img [src]="activityImg" image-resizing class ="activityImg">
+                  <div class="col-md-4 justify-content-center" *ngIf="activity2Img" style="margin-left: 100px;">
+                    <img [src]="activity2Img" image-resizing class ="activity2Img">
                 </div>
                   <div class="container">
                     <div class="file-upload-wrapper" data-text="Kies afbeelding">
@@ -131,7 +130,7 @@
             <div class="form-group">
               <mat-form-field>
                 <mat-label>Geschikt voor rolstoelen</mat-label>
-                <mat-select name="parent" formControlName="wheelchair">
+                <mat-select name="parent" formControlName="wheelchair2">
                   <mat-option value="true">Ja</mat-option>
                   <mat-option value="false">Nee</mat-option>
                 </mat-select>
@@ -141,7 +140,7 @@
             <div class="form-group">
               <mat-form-field>
                 <mat-label>Aantal personen</mat-label>
-                <mat-select name="parent" ngModel class="form-control" formControlName="amountOfPeople">
+                <mat-select name="parent" ngModel class="form-control" formControlName="amountOfPeople2">
                   <mat-option value="1">1+</mat-option>
                   <mat-option value="2">2+</mat-option>
                   <mat-option value="5">4+</mat-option>
@@ -154,7 +153,7 @@
             <div class="form-group">
               <mat-form-field>
                 <mat-label>Tijdsduur</mat-label>
-                <mat-select name="parent" ngModel class="form-control" formControlName="duration">
+                <mat-select name="parent" ngModel class="form-control" formControlName="duration2">
                   <mat-option value="5">5</mat-option>
                   <mat-option value="10">10</mat-option>
                   <mat-option value="15">15</mat-option>
@@ -214,7 +213,7 @@
               <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 
                 <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" *ngIf="setupImg">
-                  <div class="img-wrapper">
+                  <div class="">
                   <img [src]="setupImg" image-resizing class ="activityImg">
                 </div>
                 </div>
@@ -241,7 +240,7 @@
                         Let op! 
                       </h5> 
                       <div class="btn-group row-fluid" >
-                        <a [innerHTML]="form.value.pointsForAttention"></a>
+                        <a [innerHTML]="form.value.pointsForAttention2"></a>
                       </div>
                     </div>
                     
@@ -262,13 +261,10 @@
                         <a [innerHTML]="form.value.tooHard"></a>
                       </div>
                     </div>
-  
               </div>
-            
-    </div>
+        </div>
        
     <form [formGroup]="form">  
-  
     <br>  <br>  <br>  <br>  
       <div class="text-center">
         <div class="unavailable" *ngIf="form.invalid" >
