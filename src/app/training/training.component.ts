@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-training',
-  templateUrl: './training.component.html',
-  styleUrls: ['./training.component.css']
+  templateUrl: '../../../MAP_MARCO/training/training.component.html',
+  styleUrls: ['../../../MAP_MARCO/training/training.component.css']
 })
 export class TrainingComponent implements OnInit {
 

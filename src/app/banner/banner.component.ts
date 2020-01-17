@@ -11,8 +11,9 @@ export class BannerComponent implements OnInit {
   @Input() page: string
 
   constructor() { }
-
+ 
   ngOnInit() { 
+
   }
 
 }

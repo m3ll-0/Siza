@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-beweegposter',
-  templateUrl: './beweegposter.component.html',
-  styleUrls: ['./beweegposter.component.css']
+  templateUrl: '../../../MAP_MARCO/beweegposter/beweegposter.component.html',
+  styleUrls: ['../../../MAP_MARCO/beweegposter/beweegposter.component.css']
 })
 export class BeweegposterComponent implements OnInit {
   title = 'Maak je dromen waar'
