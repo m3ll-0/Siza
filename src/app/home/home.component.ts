@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  templateUrl: '../../../MAP_MARCO/home/home.component.html',
+  styleUrls: ['../../../MAP_MARCO/home/home.component.css']
 })
 export class HomeComponent implements OnInit {
 

@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./comment-section.component.css']
 })
 export class CommentSectionComponent implements OnInit {
-  private id : String
+  id : String
   feedback
   isLoading = true
   loggedIn = false;
@@ -114,10 +114,9 @@ export class DialogOverviewExampleDialog {
   constructor(
     private authService: AuthService, private router: Router,
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: {animal: string;
-      name: string;}) {}
+    @Inject(MAT_DIALOG_DATA) public data: {}) {}
 
-      onSubmit(form: NgForm) {
+      onSubmitLogin(form: NgForm) {
         if (!form.valid) {
           return
           }
