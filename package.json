@@ -8,7 +8,6 @@
     "build": "ng build",
     "test": "ng test --code-coverage --no-watch --no-progress --browsers=ChromeHeadlessCI",
     "lint": "ng lint",
-    "e2e": "ng e2e",
     "sonar": "sonar-scanner",
     "webdriver-manager-update": "webdriver-manager update --versions.chrome=76.0.3809.126"
   },
@@ -24,7 +23,9 @@
     "@angular/platform-browser": "~8.2.13",
     "@angular/platform-browser-dynamic": "~8.2.13",
     "@angular/router": "~8.2.13",
+    "@kolkov/angular-editor": "^1.0.2",
     "@ng-bootstrap/ng-bootstrap": "^5.1.5",
+    "angular-inline-editors": "^2.0.4",
     "bootstrap": "^4.4.1",
     "compression": "^1.7.4",
     "express": "^4.17.1",
@@ -47,8 +48,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged",
-      "pre-push": "npm test & npm run e2e"
+      "pre-commit": "npm run lint",
+      "pre-push": "npm test"
     }
   },
   "devDependencies": {
@@ -70,7 +71,7 @@
     "karma-jasmine-html-reporter": "^1.5.1",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
-    "tslint": "~5.15.0",
+    "tslint": "^5.15.0",
     "typescript": "~3.5.3"
   }
 }

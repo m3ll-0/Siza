@@ -17,17 +17,16 @@ export class VerifyEmailComponent implements OnInit {
     private router: Router
   ) { 
     this.activatedRoute.params.subscribe(params => {
-      this.verify(params['token'])
+      const key = 'token';
+      this.verify(params[key])
     })
     
   }
 
-  
-
   ngOnInit() {
   }
 
-  verify(token : string) {
+  verify(token: string) {
     this.authService.verifyEmail(token).subscribe(
       resData => {
         this.router.navigate([`/auth`])

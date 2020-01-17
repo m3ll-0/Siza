@@ -23,7 +23,6 @@ import { AdminUserOverviewComponent } from './admin/admin-user-overview/admin-us
 import { AccessdeniedComponent } from './admin/accessdenied/accessdenied.component';
 import { MaterialModule } from './material.module';
 import { UserComponent } from './admin/admin-user-overview/user/user.component';
-import { AdminActivitiesComponent } from './admin/admin-activities/admin-activities.component';
 import { AdminCategoriesComponent } from './admin/admin-categories/admin-categories.component';
 import { AdminFormComponent } from './admin/admin-form/admin-form.component'
 import { FooterComponent } from './footer/footer.component';
@@ -33,21 +32,21 @@ import { TrainingComponent } from './training/training.component';
 import { SizasportsSubcategoryComponent } from './sizasports/sizasports-subcategory/sizasports-subcategory.component';
 import { SizasportsActivityCardComponent } from './sizasports/sizasports-activity-card/sizasports-activity-card.component';
 import { ActivitiesComponent } from './activities/activities.component';
-import { AdminActivityComponent } from './admin-activity/admin-activity.component';
-import { AdminActivityspecificComponent } from './admin-activityspecific/admin-activityspecific.component';
-import { CommentSectionComponent, DialogOverviewExampleDialog } from './activities/comment-section/comment-section.component';
+import { CommentSectionComponent, DialogOverviewExampleDialogComponent } from './activities/comment-section/comment-section.component';
 import { SuggestionDetailComponent } from './suggestion-detail/suggestion-detail.component';
 import { BeweegtipComponent } from './beweegtip/beweegtip.component';
 import { AdminCategoryCardComponent } from './admin/admin-categories/admin-category-card/admin-category-card.component';
-import { TreeNode } from './admin/admin-categories/admin-categories.component';
+import { TreeNodeComponent } from './admin/admin-categories/admin-categories.component';
 import { AdminCategoryEditComponent } from './admin/admin-categories/admin-category-edit/admin-category-edit.component';
-import { AdminActivityCardComponent } from './admin/admin-activities/admin-activity-card/admin-activity-card.component'
+import { AdminActivityCardComponent } from './admin/admin-activity/admin-activity-card/admin-activity-card.component'
 import { CommentComponent } from './activities/comment-section/comment/comment.component'
 import { CreateSuggestionComponent } from './create-suggestion/create-suggestion.component'
-import { BannerComponent } from './banner/banner.component';
+import { BannerComponent } from './banner/banner.component'
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { AddActivityComponent } from './admin/admin-activity/admin-add-activity/add-activity.component';
+import { AdminActivityeditComponent } from './admin/admin-activity/admin-activityedit/admin-activityedit.component';
+import { AdminActivityComponent } from './admin/admin-activity/admin-activity.component';
 import { TestModuleComponent } from './test-module/test-module.component'
-
-
 
 @NgModule({
   declarations: [
@@ -64,7 +63,6 @@ import { TestModuleComponent } from './test-module/test-module.component'
     AdminUserOverviewComponent,
     AccessdeniedComponent,
     UserComponent,
-    AdminActivitiesComponent,
     AdminCategoriesComponent,
     AdminFormComponent,
     FooterComponent,
@@ -76,26 +74,29 @@ import { TestModuleComponent } from './test-module/test-module.component'
     SizasportsActivityCardComponent,
     ActivitiesComponent,
     AdminActivityComponent,
-    AdminActivityspecificComponent,
+    AdminActivityeditComponent,
+    CommentSectionComponent,
     SizasportsCategoryCardComponent,
+    AddActivityComponent,
     CommentSectionComponent,
     SuggestionDetailComponent,
     BeweegtipComponent,
     AdminCategoryCardComponent,
-    TreeNode,
+    TreeNodeComponent,
     AdminCategoryEditComponent,
     AdminActivityCardComponent,
     CommentComponent,
     CreateSuggestionComponent,
     BannerComponent,
     TestModuleComponent,
-    DialogOverviewExampleDialog
+    DialogOverviewExampleDialogComponent
   ],
   entryComponents: [
-    DialogOverviewExampleDialog
+    DialogOverviewExampleDialogComponent
   ],
   imports: [
     MaterialModule,
+    AngularEditorModule,
     BrowserModule,    
     BrowserAnimationsModule,
     SharedModule,

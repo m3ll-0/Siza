@@ -1,10 +1,12 @@
 <mat-card class="small-activity-card" (click)="onClickActivityCard(activityID)">
     <mat-card-content>
-            <img class="img-small-card"  src="{{activity?.image}}"/>
-    </mat-card-content>
+        <div class='img-wrapper'>
+            <img class="img-small-card"  src="{{activity?.image}}" onerror="this.src='https://i1.wp.com/www.pajaritopajaritofoto.com/wp-content/plugins/all-in-one-video-gallery/public/assets/images/placeholder-image.png';"/>
+        </div>
+        </mat-card-content>
     <mat-card-content>
         <div class="small-card-header">     
-            <a [routerLink]="['/activity', activityID]">{{ activity?.title }}</a>
+            <a style="font-weight: 500;" [routerLink]="['/activity', activityID]">{{ activity?.title }}</a>
         </div>
     </mat-card-content>
 </mat-card>

@@ -16,8 +16,7 @@ export class AuthComponent {
   checked = true;
   isLoading = false;
 
-  constructor(private authService: AuthService, private router: Router)
-  {
+  constructor(private authService: AuthService, private router: Router) {
   }
 
   onSwitch() {
@@ -26,30 +25,30 @@ export class AuthComponent {
 
   onSubmit(form: NgForm) {
     if (!form.valid) {
-      return
-      }
+      return;
+    }
 
-      const email = form.value.email;
-      const password = form.value.password;
-      const stayLoggedIn = form.value.stayLoggedIn;
+    const email = form.value.email;
+    const password = form.value.password;
+    const stayLoggedIn = form.value.stayLoggedIn;
 
-      this.isLoading = true;
-      let authObs: Observable<AuthResponseData>;
+    this.isLoading = true;
+    let authObs: Observable<AuthResponseData>;
 
-      authObs = this.authService.login(email, password, stayLoggedIn);
+    authObs = this.authService.login(email, password, stayLoggedIn);
 
-      authObs.subscribe(
-        resData => {
-          this.isLoading = false;
+    authObs.subscribe(
+      resData => {
+        this.isLoading = false;
 
-          // Navigate after login
-          this.router.navigate(['/sizasports'])
-        },
-        errorMessage => {
-          this.error = errorMessage
-          this.isLoading = false
-        });
+        // Navigate after login
+        this.router.navigate(['/sizasports'])
+      },
+      errorMessage => {
+        this.error = errorMessage
+        this.isLoading = false
+      });
 
-      form.reset();
-    }    
+    form.reset();
+  }    
 }

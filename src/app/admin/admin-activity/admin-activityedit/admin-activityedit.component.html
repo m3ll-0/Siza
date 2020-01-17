@@ -1,0 +1,279 @@
+
+
+  <div class="row" style="margin-left: 70px; margin-top: 30px;">
+    <button mat-button (click)="onGoBack()">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+      Terug
+    </button> 
+  </div>
+  
+  <div class="overall">
+  
+  
+  <div class="mx-auto" >
+      <div class="text-center" >
+        <div class="testing text-center">
+          <div *ngIf="editorGoal2">
+            <form [formGroup]="form">
+              <angular-editor autofocus="true" id="editor" formControlName="goal2" [config]="config" (ngModelChange)="onChange2($event)" required></angular-editor>
+            </form>
+            <div class="btn-group row-fluid">
+              <button type="button" (click)="closeEditor()" class="btn btn-primary btn-spacing">Close</button>
+            </div>
+          </div>
+  
+          <div *ngIf="editorTitle2">
+            <form [formGroup]="form">
+              <angular-editor autofocus="true" id="editor" formControlName="title2" [config]="config" (ngModelChange)="onChange2($event)"></angular-editor>
+            </form>
+            <div class="btn-group row-fluid">
+              <button type="button" (click)="closeEditor()" class="btn btn-primary btn-spacing">Close</button>
+            </div>
+        </div>
+  
+        <div *ngIf="editorMaterial2">
+          <form [formGroup]="form">
+            <angular-editor autofocus="true" id="editor" formControlName="material2" [config]="config" (ngModelChange)="onChange2($event)"></angular-editor>
+          </form>
+          <div class="btn-group row-fluid">
+            <button type="button" (click)="closeEditor()" class="btn btn-primary btn-spacing">Close</button>
+          </div>
+        </div>
+  
+        <div *ngIf="editorActivity2">
+          <form [formGroup]="form">
+            <angular-editor autofocus="true" id="editor" formControlName="activity2" [config]="config" (ngModelChange)="onChange2($event)"></angular-editor>
+          </form>
+          <div class="btn-group row-fluid">
+            <button type="button" (click)="closeEditor()" class="btn btn-primary btn-spacing">Close</button>
+          </div>
+        </div>
+  
+        <div *ngIf="editorSetup2">
+          <form [formGroup]="form">
+            <angular-editor autofocus="true" id="editor" formControlName="setUp2" [config]="config" (ngModelChange)="onChange2($event)"></angular-editor>
+          </form>
+          <div class="btn-group row-fluid">
+            <button type="button" (click)="closeEditor()" class="btn btn-primary btn-spacing">Close</button>
+          </div>
+        </div>
+  
+        <div *ngIf="editorPointsForAttention2">
+          <form [formGroup]="form">
+            <angular-editor autofocus="true" id="editor" formControlName="pointsForAttention2" [config]="config" (ngModelChange)="onChange2($event)"></angular-editor>
+          </form>
+          <div class="btn-group row-fluid">
+            <button type="button" (click)="closeEditor()" class="btn btn-primary btn-spacing">Close</button>
+          </div>
+        </div>
+  
+        <div *ngIf="editorTooHard2">
+          <form [formGroup]="form">
+            <angular-editor autofocus="true" id="editor" formControlName="tooHard2" [config]="config" (ngModelChange)="onChange2($event)"></angular-editor>
+          </form>
+          <div class="btn-group row-fluid">
+            <button type="button" (click)="closeEditor()" class="btn btn-primary btn-spacing">Close</button>
+          </div>
+        </div>
+  
+        <div *ngIf="editorTooEasy2">
+          <form [formGroup]="form">
+            <angular-editor autofocus="true" id="editor" formControlName="tooEasy2" [config]="config" (ngModelChange)="onChange2($event)"></angular-editor>
+          </form>
+          <div class="btn-group row-fluid">
+            <button type="button" (click)="closeEditor()" class="btn btn-primary btn-spacing">Close</button>
+          </div>
+        </div>
+    </div>
+  
+        <img src="../../assets/images/SizaBanner.PNG" class="img"/>
+        <br>  <br>  <br>  <br>  
+  
+        <div class="row">
+          <div class="col-md-4 form-group text-center">
+      
+          </div>
+          <div class="col-md-4 form-group text-center">
+            <form [formGroup]="form">  
+              <div class="form-group">
+                <mat-form-field>
+                  <mat-label>Categorie</mat-label>
+                  <mat-select name="category2" ngModel class="form" formControlName="category2">
+                    <mat-option *ngFor="let category2 of category2" [value]="category2._id">
+                      {{ category2.name }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+  
+  
+                <div (click)="editTitle()" style="margin-top: 40px;">
+                  <h1 [innerHTML]="form.value.title2"></h1>
+                </div>
+  
+                <form [formGroup]="form">  
+                  <div class="col-md-4 justify-content-center" *ngIf="activity2Img" style="margin-left: 100px;">
+                    <img [src]="activity2Img" image-resizing class ="activity2Img" onerror="this.src='https://i1.wp.com/www.pajaritopajaritofoto.com/wp-content/plugins/all-in-one-video-gallery/public/assets/images/placeholder-image.png';"/>
+                </div>
+                  <div class="container">
+                    <div class="file-upload-wrapper" data-text="Kies afbeelding">
+                      <input #activitiesImage type="file" class='custom-input file-upload'  accept="image/*" (change)= 'addActivityImg2($event)'>
+                    </div>
+                  </div>
+                </form>
+
+              </div>
+            </form> 
+          </div>
+          <div class="col-md-2 form-group text-center">
+     
+          <form [formGroup]="form">  
+            <div class="form-group">
+              <mat-form-field>
+                <mat-label>Geschikt voor rolstoelen</mat-label>
+                <mat-select name="parent" formControlName="wheelchair2">
+                  <mat-option value="true">Ja</mat-option>
+                  <mat-option value="false">Nee</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+  
+            <div class="form-group">
+              <mat-form-field>
+                <mat-label>Aantal personen</mat-label>
+                <mat-select name="parent" ngModel class="form-control" formControlName="amountOfPeople2">
+                  <mat-option value="1">1+</mat-option>
+                  <mat-option value="2">2+</mat-option>
+                  <mat-option value="5">4+</mat-option>
+                  <mat-option value="4">2-4</mat-option>
+                  <mat-option value="8">2-8</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+  
+            <div class="form-group">
+              <mat-form-field>
+                <mat-label>Tijdsduur</mat-label>
+                <mat-select name="parent" ngModel class="form-control" formControlName="duration2">
+                  <mat-option value="5">5</mat-option>
+                  <mat-option value="10">10</mat-option>
+                  <mat-option value="15">15</mat-option>
+                  <mat-option value="20">20</mat-option>
+                  <mat-option value="30">30</mat-option>
+                  <mat-option value="45">45</mat-option>
+                  <mat-option value="60">60</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </form>
+  
+          </div>
+      </div>
+    </div>
+  
+    <br>  <br>  <br>  
+  
+    <div class="row">
+      <div class="col-md-8 form-group text-center">
+  
+      </div>
+    </div>
+  
+    <div class="row justify-content-center main-content" id="main_content">
+      <div class="col-sm-8 f-container">
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                  <div  (click)="editGoal()" class="act-spacing">
+                      <h5>
+                        Doel
+                    </h5> 
+                      <div class="btn-group row-fluid">
+                        <a [innerHTML]="form.value.goal2"></a>
+                      </div>
+                    </div>
+                   
+                  <div (click)="editMaterial()" class="act-spacing">
+                    <h5>
+                        Materiaal
+                    </h5> 
+                    <div class="btn-group row-fluid" >
+                      <a [innerHTML]="form.value.material2"></a>
+                    </div>
+                  </div>
+                  
+                  <div  (click)="editActivity()" class="act-spacing"> 
+                    <h5>
+                        Activiteit <br>
+                    </h5> 
+                    <div class="btn-group row-fluid">
+                      <a [innerHTML]="form.value.activity2"></a>
+                    </div>
+                  </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+                <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" *ngIf="setupImg">
+                  <div class="">
+                  <img [src]="setupImg" image-resizing class ="activityImg" onerror="this.src='https://i1.wp.com/www.pajaritopajaritofoto.com/wp-content/plugins/all-in-one-video-gallery/public/assets/images/placeholder-image.png';"/>
+                </div>
+                </div>
+
+              <form [formGroup]="form" style="margin-top:10px">  
+                <div class="container">
+                  <div class="file-upload-wrapper" data-text="Kies afbeelding">
+                    <input #setup type="file" class='custom-input file-upload' accept="image/*" (change)="addFile2($event)" formControlName="setupImage">
+                  </div>
+                </div>
+              </form>
+  
+                  <div (click)="editSetup()" class="act-spacing">
+                      <h5>
+                          Hoe zet je het neer? <br>
+                      </h5> 
+                      <div class="btn-group row-fluid">
+                        <a [innerHTML]="form.value.setUp2"></a>
+                      </div>
+                    </div>
+              
+                    <div (click)="editPointsForAttention()" class="act-spacing">
+                      <h5>
+                        Let op! 
+                      </h5> 
+                      <div class="btn-group row-fluid" >
+                        <a [innerHTML]="form.value.pointsForAttention2"></a>
+                      </div>
+                    </div>
+                    
+                    <div (click)="editTooEasy()" class="act-spacing">
+                      <h5>
+                          Te makkelijk?
+                      </h5> 
+                      <div class="btn-group row-fluid" >
+                        <a [innerHTML]="form.value.tooEasy2"></a>
+                      </div>
+                    </div>
+                      
+                    <div (click)="editTooHard()" class="act-spacing">
+                      <h5>
+                          Te moeilijk?
+                      </h5> 
+                      <div class="btn-group row-fluid">
+                        <a [innerHTML]="form.value.tooHard2"></a>
+                      </div>
+                    </div>
+              </div>
+        </div>
+       
+    <form [formGroup]="form">  
+    <br>  <br>  <br>  <br>  
+      <div class="text-center">
+        <div class="unavailable" *ngIf="form.invalid" >
+          Niet alle gegevens zijn ingevuld!
+        </div>
+        <br/>
+        <button (click)="saveEditor()" [disabled]="form.invalid" mat-flat-button color="primary">Opslaan</button>
+        <br>  <br>  <br>  <br>  
+      </div>
+    </form>
+  </div>
+  

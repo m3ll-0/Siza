@@ -6,20 +6,20 @@ import { keyframes } from '@angular/animations';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'tree-node',
+  selector: 'app-tree-node',
   template: `
 
   <app-admin-category-card [id]='node._id' [name]='node.name'></app-admin-category-card>
 
   <ul class='tree-group'>
     <div class='tree-item' *ngFor="let node of node.children">
-      <tree-node [node]="node"></tree-node>
+      <app-tree-node [node]="node"></app-tree-node>
     </div>
   </ul>
 `
 })
-export class TreeNode {
-  @Input() node : any;
+export class TreeNodeComponent {
+  @Input() node: any;
 }
 
 
@@ -33,65 +33,56 @@ export class AdminCategoriesComponent implements OnInit {
 
   categories: any
 
-  constructor(private apiService : ApiServiceService, private router: Router) { 
+  constructor(private apiService: ApiServiceService, private router: Router) { 
   }
 
   isLoading = true;
-  node : any;
+  node: any;
 
-  onNewCategory()
-  {
+  onNewCategory() {
     this.router.navigate(['/admin/editCategory']);
   }
 
-  buildTree(categories : any) : any
-  {
+  buildTree(categories: any): any {
 
-    let categoryTree = [];
-    let leftOverCategories = [];
+    const categoryTree = [];
+    const leftOverCategories = [];
 
-    for(let index in categories)
-    {
-      let currentCategory : Category = categories[index];
+    for(const index in categories) {
 
-      if(! Object.prototype.hasOwnProperty.call(currentCategory, "parent"))
-      {
-        categoryTree.push(currentCategory);
-      }
-      else{
-        leftOverCategories.push(currentCategory);
-      }
+      if(categories.hasOwnProperty(index)) {
+        const currentCategory: Category = categories[index];
+
+        if(! Object.prototype.hasOwnProperty.call(currentCategory, 'parent')) {
+          categoryTree.push(currentCategory);
+        } else {
+          leftOverCategories.push(currentCategory);
+        }      }
     }
 
-    while(leftOverCategories.length > 0)
-    {
+    while(leftOverCategories.length > 0) {
       // Find item in array with parent id
-      for(let index in leftOverCategories)
-      {
+      for(const index in leftOverCategories) {
 
-        let leftOverCategory = leftOverCategories[index];
+        if(leftOverCategories.hasOwnProperty(index)) {
+          const leftOverCategory = leftOverCategories[index];
 
-        // Find child recursively
-        let parentMatch = this.findNode(leftOverCategory.parent, categoryTree);
-
-        if(parentMatch !== undefined)
-        {
-          // Add child to parent as child
-          // Remove child from leftOverArray
-
-          if(! Object.prototype.hasOwnProperty.call(parentMatch, "children"))
-          {
-              parentMatch.children = [];
+          // Find child recursively
+          const parentMatch = this.findNode(leftOverCategory.parent, categoryTree);
+  
+          if(parentMatch !== undefined) {
+            // Add child to parent as child
+            // Remove child from leftOverArray
+  
+            if(! Object.prototype.hasOwnProperty.call(parentMatch, 'children')) {
+                parentMatch.children = [];
+                parentMatch.children.push(leftOverCategory);
+            } else {
               parentMatch.children.push(leftOverCategory);
+            }
+  
+            leftOverCategories.splice(+index, 1);
           }
-          else
-          {
-            parentMatch.children.push(leftOverCategory);
-          }
-
-          leftOverCategories.splice(+index, 1);
-        }
-        else{
         }
       }
     }
@@ -99,24 +90,27 @@ export class AdminCategoriesComponent implements OnInit {
     return categoryTree;
   }
 
-  findNode (_id, array) {
+  findNode(id, array) {
 
     for (const node of array) {
 
-      if (node._id === _id) return node;
+      if (node._id === id) {
+        return node;
+      } 
 
       if (node.children) {
-
-        const child = this.findNode(_id, node.children);
-        if (child) return child;
+        const child = this.findNode(id, node.children);
+        if (child) {
+          return child;
+        } 
       }
     }
   }
 
   ngOnInit() {
-    this.apiService.getCategories().subscribe( (data : any) => {
+    this.apiService.getCategories().subscribe( (data: any) => {
 
-      let categoryTree = this.buildTree(data.categories);
+      const categoryTree = this.buildTree(data.categories);
       this.node = {
         name: 'root',
         children : categoryTree
@@ -124,5 +118,4 @@ export class AdminCategoriesComponent implements OnInit {
       this.isLoading = false;
     })
   }
-
 }

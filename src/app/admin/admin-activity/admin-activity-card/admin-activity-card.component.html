@@ -1,0 +1,28 @@
+<mat-card class="small-activity-card" *ngIf="!isDeleted">
+    <mat-card-content>
+        <div class="img-wrapper">
+            <img class="img-small-card" src={{activity?.image}} onerror="this.src='https://i1.wp.com/www.pajaritopajaritofoto.com/wp-content/plugins/all-in-one-video-gallery/public/assets/images/placeholder-image.png';" />
+        </div>
+        </mat-card-content>
+    <mat-card-content>
+        <div class="small-card-header">     
+            <a style="font-weight: 500;" [routerLink]="['/activity', activityID]">{{ activity?.title }}</a>
+        </div>  
+    </mat-card-content>
+    <mat-card-actions>
+        <div class="d-flex flex-row justify-content-center align-items-center">
+            <button 
+            (click)="onEditActivity()"
+            mat-button>
+                Bewerken
+              </button>
+              <button 
+              (click)="OnDeleteActivity()"
+              mat-button 
+              color="warn"
+              >
+                  Verwijderen
+                </button>
+        </div>                        
+    </mat-card-actions>
+</mat-card>

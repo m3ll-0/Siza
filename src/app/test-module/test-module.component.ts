@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DialogOverviewExampleDialog } from '../activities/comment-section/comment-section.component';
+import { DialogOverviewExampleDialogComponent } from '../activities/comment-section/comment-section.component';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
@@ -15,8 +15,8 @@ export class TestModuleComponent implements OnInit {
 
   ngOnInit() {
   }
-  showDialog(){
-    const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
+  showDialog() {
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialogComponent, {
       width: '450px',
       height: '200px'
     }); 

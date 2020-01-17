@@ -7,7 +7,6 @@ import { Activity } from '../models/Activity';
 import { $ } from 'protractor';
 import { Location } from '@angular/common';
 
-
 @Component({
   selector: 'app-activities',
   templateUrl: './activities.component.html',
@@ -16,8 +15,13 @@ import { Location } from '@angular/common';
 })
 export class ActivitiesComponent implements OnInit {
   
-  activity : Activity;
+  activity: Activity;
   printing = false;
+  opstelling = 'Aandachtspunten';
+  amountOfPeopleImageSource: string;
+  timeSpanImageSource: string;
+  hasAmountOfPeople = false;
+  hasTimeSpan = false;
 
   constructor(
     private apiService: ApiServiceService,
@@ -25,63 +29,66 @@ export class ActivitiesComponent implements OnInit {
     private location: Location
     ) {
 
-    var value
+    let value;
     this.activatedRoute.params.subscribe( params => value = params.id );
-    this.apiService.getSpecificActivity(value).subscribe((data) =>{
-      console.log(data);
-      this.activity = data['activity'];
-      console.error(this.activity);
-    } )
+    this.apiService.getSpecificActivity(value).subscribe((data) => {
+      console.error(data);
+      const activityKey = 'activity';
+      this.activity = data[activityKey];
+
+      if(this.activity[0].amountOfPeople !== undefined && this.activity[0].amountOfPeople !== null) {
+        this.amountOfPeopleImageSource = '../../../assets/images/players_' 
+        + this.getAmountOfPeopleImageUri(this.activity[0].amountOfPeople) + '.jpg';   
+
+        this.hasAmountOfPeople = true;
+      }
+
+      if(this.activity[0].duration !== undefined && this.activity[0].duration !== null) {
+        this.timeSpanImageSource = '../../../assets/images/min_' + this.getTimeSpanImageUri(this.activity[0].duration) + '.png';   
+        this.hasTimeSpan = true;
+      }
+    })
   }
 
-  opstelling: string = 'Aandachtspunten';
+  getTimeSpanImageUri(timespan) {
+      if(timespan < 60) {
+        return timespan;
+      } else if(timespan >= 60) {
+        return 60;
+      }
+  }
+
+  getAmountOfPeopleImageUri(amountOfPeople) {
+    if (amountOfPeople >= 2  && amountOfPeople <= 4 ) {
+      return '2-4'
+    } else if (amountOfPeople >= 2  && amountOfPeople <= 8 ) {
+      return '2-8'
+    } else if (amountOfPeople >= 4  ) {
+        return '4+'
+    } else if (amountOfPeople >= 2 ) {
+        return '2+'
+    } else if (amountOfPeople >= 1 ) {
+        return '1+';
+    }
+  }
 
   pictNotLoading(event) {
      this.opstelling = '';
     }
 
-ngOnInit() {
-}
+    ngOnInit() {
+    }
 
-onGoBack(){
-  this.location.back();
-}
+  onGoBack() {
+    this.location.back();
+  }
 
-public printScreen()
-{
-  var originalContents = document.body.innerHTML;
-
-    // this.printing = true;
-    var banner = document.getElementById('banner');
-    var inner = document.getElementById('test');
-    var customimg = document.getElementById('customimgs');
-    var main_image = document.getElementById('main_image');
-    var main_content = document.getElementById('main_content');
-    var main_title = document.getElementById('main_title');
-
-    main_image.style.position = "absolute";
-    main_image.style.marginTop = "270px";
-    main_content.style.marginTop = "360px";
-    
-    main_title.style.marginTop = "210px"
-    main_title.style.marginLeft = "450px"
-    main_title.style.position = "absolute";
-
-    document.body.style.width = "100%";
-    document.documentElement.style.width = "100%"
-    
-    banner.style.position = "absolute";
-    banner.style.top = '0px';
-    banner.style.left= '0px';
-
-    inner.style.marginTop = "200px";
-    customimg.style.marginTop = "70px";
-
-    var printContents = document.getElementById('outer').innerHTML;
-    document.body.innerHTML = printContents;
-    window.print();
-    document.body.innerHTML = originalContents;
-    location.reload();
-}
-
+  public printScreen() {
+      const originalContents = document.body.innerHTML;
+      const printContents = document.getElementById('outer').innerHTML;
+      document.body.innerHTML = printContents;
+      window.print();
+      document.body.innerHTML = originalContents;
+      location.reload();
+  }
 }

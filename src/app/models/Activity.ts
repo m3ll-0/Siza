@@ -1,5 +1,4 @@
-export class Activity
-{
+export class Activity {
     _id: string
     goal: string
     image: string

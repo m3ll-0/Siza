@@ -11,17 +11,19 @@ import { MatFormFieldModule } from '@angular/material'
 import { MatInputModule } from '@angular/material'
 import { MatSelectModule } from '@angular/material'
 import { HttpClientModule } from '@angular/common/http';
-import {MatTreeModule} from '@angular/material/tree';
-import { FormsModule }   from '@angular/forms';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import { MatTreeModule } from '@angular/material/tree';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatTabsModule } from '@angular/material/tabs'
 import { MatMenuModule} from '@angular/material/menu';
 import { MatDialogModule} from '@angular/material/dialog';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 @NgModule(
     {
         imports: [
+            AngularEditorModule,
             RouterModule,
             MatFormFieldModule,
             MatInputModule,
@@ -43,12 +45,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
             MatTabsModule,
             NgbModule,
             MatMenuModule,
-            MatDialogModule
+            MatDialogModule,
+            ReactiveFormsModule
         ],
         providers: [],
         declarations: [
         ],
         exports: [ 
+            AngularEditorModule,
+            ReactiveFormsModule,
             RouterModule,
             MatFormFieldModule,
             MatInputModule,
@@ -73,7 +78,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         ]
     }
 )
-export class SharedModule
-{
+export class SharedModule {
     
 }

@@ -25,7 +25,7 @@
         </div>
         <div class="row">
             <mat-form-field class="example-full-width">
-                <input ngModel matInput id="message" name="message" class="form-control-max-width" placeholder="Bericht" value="" minlength="6">
+                <input ngModel matInput id="message" name="message" class="form-control-max-width" placeholder="Bericht" value="" minlength="6" required>
             </mat-form-field>
         </div>
         <div class="row">
@@ -35,7 +35,7 @@
         <div class="row">
             <div class="col-xl">
                 <mat-form-field class="example-full-width">
-                    <input ngModel matInput id="title" name="title" class="form-control-max-width" placeholder="Titel" value="" minlength="4">
+                    <input ngModel matInput id="title" name="title" class="form-control-max-width" placeholder="Titel" value="" minlength="4" required>
                 </mat-form-field>
             </div>
         </div>
@@ -77,12 +77,12 @@
             </div>
             <div class="col-xl">
                 <mat-form-field class="example-full-width">
-                    <input ngModel matInput type="number" id="duration" name="duration" class="form-control-max-width" min="1" placeholder="Tijdsduur in minuten" value="">
+                    <input ngModel matInput type="number" id="duration" name="duration" class="form-control-max-width" min="1" required placeholder="Tijdsduur in minuten" value="">
                 </mat-form-field>
             </div>
             <div class="col-xl">
                 <mat-form-field class="example-full-width">
-                    <input ngModel matInput type='number' id="amountOfPeople" name="amountOfPeople" class="form-control-max-width" min="1" placeholder="Aantal Mensen" value="">
+                    <input ngModel matInput type='number' id="amountOfPeople" name="amountOfPeople" class="form-control-max-width" min="1" placeholder="Aantal Mensen" required value="">
                 </mat-form-field>
             </div>
         </div>
@@ -93,9 +93,7 @@
                 <input ngModel matInput id="pointsForAttention" name="pointsForAttention" class="form-control-max-width" placeholder="Aandachtspunten" value="" minlength="6">
             </mat-form-field>
             </div>
-            <div class="col-xl">
-                
-                
+            <div class="col-xl">     
            
             </div>
             <div class="col-xl">

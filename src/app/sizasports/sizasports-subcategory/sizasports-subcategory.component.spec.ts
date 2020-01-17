@@ -19,7 +19,11 @@ describe('SizasportsSubcategoryComponent', () => {
       imports: [ SharedModule,
         RouterModule.forRoot([]),
       ],
-      declarations: [ SizasportsSubcategoryComponent, SizasportsCategoryCardComponent, LoadingSpinnerComponent, SizasportsActivityCardComponent ]
+      declarations: [ 
+        SizasportsSubcategoryComponent, 
+        SizasportsCategoryCardComponent, 
+        LoadingSpinnerComponent, 
+        SizasportsActivityCardComponent ]
     })
     .compileComponents();
   }));

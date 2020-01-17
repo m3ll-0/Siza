@@ -9,11 +9,11 @@ import { User } from '../auth/user.model';
   providedIn: 'root'
 })
 export class AdminService {
-  private API_ADMIN_BASE_URL = "https://siza-api.herokuapp.com/v1/admin";
-  private API_USERS_URL = "/users";
-  private API_ADMINS_URL = "/admins";
-  private API_SUGGESTIONS_URL = "/suggestions";
-  private API_READ_URL = "/read";
+  private API_ADMIN_BASE_URL = 'https://siza-api.herokuapp.com/v1/admin';
+  private API_USERS_URL = '/users';
+  private API_ADMINS_URL = '/admins';
+  private API_SUGGESTIONS_URL = '/suggestions';
+  private API_READ_URL = '/read';
   
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -33,7 +33,7 @@ export class AdminService {
     return this.http.get(`${this.API_ADMIN_BASE_URL}${this.API_SUGGESTIONS_URL}`)
   }
 
-  setRead(id: String, read: Boolean) {
+  setRead(id: string, read: boolean) {
     return this.http.put(`${this.API_ADMIN_BASE_URL}${this.API_SUGGESTIONS_URL}/${id}${this.API_READ_URL}/${read}`, null)
   }
 
