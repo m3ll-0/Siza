@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {SharedModule} from '../../Shared/shared.module'
-import { CommentSectionComponent, DialogOverviewExampleDialog } from './comment-section.component';
+import { CommentSectionComponent, DialogOverviewExampleDialogComponent } from './comment-section.component';
 import {CommentComponent} from './comment/comment.component'
 import { NgForm } from '@angular/forms';
 import { MatDialogRef, MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -9,9 +9,9 @@ import { AppModule } from 'src/app/app.module';
 
 describe('CommentSectionComponent', () => {
   let component: CommentSectionComponent;
-  let dialog : DialogOverviewExampleDialog;
+  let dialog: DialogOverviewExampleDialogComponent;
   let fixture: ComponentFixture<CommentSectionComponent>;
-  let fixtureDialog: ComponentFixture<DialogOverviewExampleDialog>;
+  let fixtureDialog: ComponentFixture<DialogOverviewExampleDialogComponent>;
 
   afterAll(() => {
     TestBed.resetTestingModule();
@@ -24,15 +24,15 @@ describe('CommentSectionComponent', () => {
         { provide: MAT_DIALOG_DATA, useValue: {} },
         { provide: MatDialogRef, useValue: {} }
       ],
-      declarations: [ CommentSectionComponent, CommentComponent, DialogOverviewExampleDialog]
-    }).overrideModule(SharedModule, {set: {entryComponents: [DialogOverviewExampleDialog]}})
+      declarations: [ CommentSectionComponent, CommentComponent, DialogOverviewExampleDialogComponent]
+    }).overrideModule(SharedModule, {set: {entryComponents: [DialogOverviewExampleDialogComponent]}})
     .compileComponents();
     TestBed.get(MatDialogRef)
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CommentSectionComponent);
-    fixtureDialog = TestBed.createComponent(DialogOverviewExampleDialog);
+    fixtureDialog = TestBed.createComponent(DialogOverviewExampleDialogComponent);
     component = fixture.componentInstance;
     dialog = fixtureDialog.componentInstance;
     fixture.detectChanges();

@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./comment-section.component.css']
 })
 export class CommentSectionComponent implements OnInit {
-  id : String
+  id: string
   feedback
   isLoading = true
   loggedIn = false;
