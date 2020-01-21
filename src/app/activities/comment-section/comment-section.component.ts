@@ -74,17 +74,17 @@ export class CommentSectionComponent implements OnInit {
         width: '50%',
         height: '50%',
       });
-  
+
       dialogRef.afterClosed().subscribe(result => {
         console.log('The dialog was closed');
         if (result.succes) {
-          this.loggedIn = true;
+          this.loggedIn = true
         } else {
           return;
         }
       });
     }
-    
+
     if (!form.valid || !this.loggedIn) {
       return
     }
@@ -102,11 +102,12 @@ export class CommentSectionComponent implements OnInit {
   }
 }
 
+
+
 @Component({
   selector: 'app-dialog-overview-example-dialog',
-  templateUrl: 'dialog.html',
+  templateUrl: 'app-dialog.html',
 })
-
 export class DialogOverviewExampleDialogComponent {
   isClientLogin = false;
   error: string = null
@@ -119,33 +120,32 @@ export class DialogOverviewExampleDialogComponent {
     @Inject(MAT_DIALOG_DATA) public data: {animal: string;
       name: string;}) {}
 
-      onSubmit(form: NgForm) {
-
+      onSubmitLogin(form: NgForm) {
         if (!form.valid) {
-          return;
-        }
-    
-        const email = form.value.email;
-        const password = form.value.password;
-        const stayLoggedIn = form.value.stayLoggedIn;
-  
-        this.isLoading = true;
-        let authObs: Observable<AuthResponseData>;
-  
-        authObs = this.authService.login(email, password, stayLoggedIn);
-  
-        authObs.subscribe(
-          resData => {
-            this.isLoading = false;
-            this.dialogRef.close({ succes: true });
-            
-          },
-          errorMessage => {
-            this.error = errorMessage
-            this.isLoading = false
-          });
-  
-        
-      }    
+          return
+          }
 
-}
+          const email = form.value.email;
+          const password = form.value.password;
+          const stayLoggedIn = form.value.stayLoggedIn;
+
+          this.isLoading = true;
+          let authObs: Observable<AuthResponseData>;
+
+          authObs = this.authService.login(email, password, stayLoggedIn);
+
+          authObs.subscribe(
+            resData => {
+              this.isLoading = false;
+              this.dialogRef.close({ succes: true });
+
+            },
+            errorMessage => {
+              this.error = errorMessage
+              this.isLoading = false
+            });
+
+
+        }    
+
+} 
