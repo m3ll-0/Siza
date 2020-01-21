@@ -106,7 +106,7 @@ export class CommentSectionComponent implements OnInit {
 
 @Component({
   selector: 'app-dialog-overview-example-dialog',
-  templateUrl: 'app-dialog.html',
+  templateUrl: 'dialog.html',
 })
 export class DialogOverviewExampleDialogComponent {
   isClientLogin = false;
