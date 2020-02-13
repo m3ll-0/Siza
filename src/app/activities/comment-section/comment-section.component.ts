@@ -117,8 +117,7 @@ export class DialogOverviewExampleDialogComponent {
   constructor(
     private authService: AuthService, private router: Router,
     public dialogRef: MatDialogRef<DialogOverviewExampleDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: {animal: string;
-      name: string;}) {}
+    @Inject(MAT_DIALOG_DATA) public data: {}) {}
 
       onSubmitLogin(form: NgForm) {
         if (!form.valid) {
