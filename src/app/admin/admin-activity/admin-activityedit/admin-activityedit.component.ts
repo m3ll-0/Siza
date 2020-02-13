@@ -147,8 +147,8 @@ export class AdminActivityeditComponent implements OnInit {
     const wheelchair2 = 'wheelchair2'
     const duration2 = 'duration2'
 
-    file2.append('images', imageblob[0])
-    file2.append('images', imageblob[1])
+    file2.append('images', imageblob[0], "activity")
+    file2.append('images', imageblob[1], "setup")
     file2.append('title', this.form.controls[title2].value)
     file2.append('category', this.form.controls[category2].value)
     file2.append('activity', this.form.controls[activity2].value)
