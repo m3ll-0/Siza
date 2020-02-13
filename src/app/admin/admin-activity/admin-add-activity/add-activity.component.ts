@@ -243,7 +243,6 @@ export class AddActivityComponent implements OnInit {
     })
 
     console.error(this.suggestion);
-    alert(this.suggestion.pointsForAttention);
   }
 
   onChange(event) {

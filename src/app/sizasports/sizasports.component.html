@@ -2,20 +2,20 @@
 <div class="wrapper-custom">
 <div class="container">
         <div class="d-flex">
-               
-                
-        
+
+
+
                 <div class="ml-auto">
-                        <button mat-button (click)= "goToCreateSuggestion()"> 
+                        <button mat-button (click)= "goToCreateSuggestion()">
                                 <mat-icon>send</mat-icon>
                                 Stuur suggestie
-                        </button> 
+                        </button>
                 </div>
         </div>
         <div class="row">
                 <div class="col-sm">
-                        <h4>Categoriën</h4>
-                        <div class="d-flex flex-row justify-content-center align-items-center"><app-loading-spinner *ngIf="isLoading"></app-loading-spinner></div>                        
+                        <h4>Categorieën</h4>
+                        <div class="d-flex flex-row justify-content-center align-items-center"><app-loading-spinner *ngIf="isLoading"></app-loading-spinner></div>
                         <app-sizasports-category-card *ngFor="let categories of categories" [category]="categories"></app-sizasports-category-card>
                 </div>
         </div>
