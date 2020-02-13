@@ -147,8 +147,8 @@
                 <mat-option value="1">1+</mat-option>
                 <mat-option value="2">2+</mat-option>
                 <mat-option value="5">4+</mat-option>
-                <mat-option value="4">2-4</mat-option>
-                <mat-option value="8">2-8</mat-option>
+                <mat-option value="3">2-4</mat-option>
+                <mat-option value="5">2-8</mat-option>
               </mat-select>
             </mat-form-field>
           </div>
@@ -278,7 +278,7 @@
       <br/>
 
       <!-- <button (click)="saveEditor()" [disabled]="form.invalid" mat-flat-button color="primary">Opslaan</button> -->
-      <button (click)="saveEditor()" mat-flat-button color="primary">Opslaan</button>
+      <button (click)="saveEditor()" mat-flat-button color="primary" [disabled]="form.invalid" >Opslaan</button>
       <br>  <br>  <br>  <br>   <br>  <br>  <br>  <br>   <br>  <br>  <br>  <br>  
     </div>
     <div>
