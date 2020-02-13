@@ -125,8 +125,8 @@ export class AddActivityComponent implements OnInit {
     const wheelchair = 'wheelchair'
     const duration = 'duration'
 
-    file.append('images', imageblob[0])
-    file.append('images', imageblob[1])
+    file.append('images', imageblob[0], "activity")
+    file.append('images', imageblob[1], "setup")
     file.append('title', this.form.controls[title].value)
     file.append('category', this.form.controls[category].value)
     file.append('activity', this.form.controls[activity].value)
@@ -136,7 +136,6 @@ export class AddActivityComponent implements OnInit {
     file.append('pointsForAttention', this.form.controls[pointsForAttention].value)
     file.append('tooEasy', this.form.controls[tooEasy].value)
     file.append('tooHard', this.form.controls[tooHard].value)
-
     file.append('amountOfPeople', this.form.controls[amountOfPeople].value)
     file.append('wheelchair', this.form.controls[wheelchair].value)
     file.append('duration', this.form.controls[duration].value)
@@ -153,10 +152,7 @@ export class AddActivityComponent implements OnInit {
     this.editorPointsForAttention = false
     this.editorTooEasy = false
     this.editorTooHard = false 
-
-
   }
-
 
   editTitle() {
     this.closeEditor()
@@ -199,14 +195,14 @@ export class AddActivityComponent implements OnInit {
       amountOfPeople: ['', Validators.required],
       duration: ['', Validators.required],
       title: ['Vul in', Validators.required],
-      goal: ['Vul in', Validators.required,  ],
-      material: ['Vul in', Validators.required],
-      activity: ['Vul in', Validators.required],
-      setUp: ['Vul in', Validators.required],
-      pointsForAttention: ['Vul in', Validators.required],
-      tooEasy: ['Vul in', Validators.required],
-      tooHard: ['Vul in', Validators.required],
-      setupImage: [null, Validators.required],
+      goal: ['Vul in'],
+      material: ['Vul in'],
+      activity: ['Vul in'],
+      setUp: ['Vul in'],
+      pointsForAttention: ['Vul in'],
+      tooEasy: ['Vul in'],
+      tooHard: ['Vul in'],
+      setupImage: [null],
       activityImage: [null, Validators.required]
       })
       this.apiService.getCategories().subscribe((data) => {
