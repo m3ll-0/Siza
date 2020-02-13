@@ -36,34 +36,44 @@ export class AdminCategoryEditComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.apiService.getCategoriesParentName().subscribe((data: any) => {
-      if(data !== null && data !== undefined) {
+    const categoryId = this.route.snapshot.paramMap.get('categoryId');
 
-        // Bug fix: remove it's own element
-        for (let i = 0; i < data.categories.length; i++) {
-          const obj = data.categories[i];
-      
-          if(obj._id === categoryId) {
-            data.categories.splice(i, 1);
-          }
-        }
+    if(categoryId !== undefined && categoryId !== null) {
+      this.apiService.getCategoriesWithoutSub(categoryId).subscribe((data: any) => {
+          this.parentcategories = data.categories;
+      });
 
-        console.error(data.categories);
+    } else {
+      this.apiService.getCategoriesParentName().subscribe((data: any) => {
 
-        data.categories.unshift({
-          _id: '0',
-          name: 'Geen'
-        });
+        if(data !== null && data !== undefined) {
+  
+          // Bug fix: remove it's own element
+          for (let i = 0; i < data.categories.length; i++) {
+            const obj = data.categories[i];
         
-        this.parentcategories = data.categories;
-      }
-    })
+            if(obj._id === categoryId) {
+              data.categories.splice(i, 1);
+            }
+          }
+  
+          console.error(data.categories);
+  
+          data.categories.unshift({
+            _id: '0',
+            name: 'Geen'
+          });
+          
+          this.parentcategories = data.categories;
+        }
+      })
+    }
     this.form = this.formBuilder.group({
       name: '',
       categoryImage: '',
       parent: ''
       })
-    const categoryId = this.route.snapshot.paramMap.get('categoryId');
+
     this.headerTitle = ' aanmaken';
 
     if (categoryId !== null) {

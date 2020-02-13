@@ -151,6 +151,10 @@ export class ApiServiceService {
     return this.httpClient.get(this.url + 'categories/getParentName')
   }
 
+  public getCategoriesWithoutSub(categoryID) {
+    return this.httpClient.get(this.url + 'categories/withoutsub/' + categoryID)
+  }
+
   public updateSpecificCategory(categoryID, categoryprops) {
     return this.httpClient.put(this.url + 'admin/categories/' + categoryID, categoryprops)
   }
