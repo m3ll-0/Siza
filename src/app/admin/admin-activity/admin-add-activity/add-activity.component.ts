@@ -203,7 +203,7 @@ export class AddActivityComponent implements OnInit {
       tooEasy: ['Vul in'],
       tooHard: ['Vul in'],
       setupImage: [null],
-      activityImage: [null, Validators.required, "NameTest"]
+      activityImage: [null, Validators.required]
       })
       this.apiService.getCategories().subscribe((data) => {
         const categories = 'categories'
