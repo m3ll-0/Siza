@@ -126,9 +126,9 @@ export class AddActivityComponent implements OnInit {
     const duration = 'duration'
 
     if (imageblob[1] != null) {
-      file.append('images', imageblob[1], "setup")
+      file.append('images', imageblob[1], 'setup.jpg')
     }
-    file.append('images', imageblob[0], "activity")
+    file.append('images', imageblob[0], 'activity.jpg')
     file.append('title', this.form.controls[title].value)
     file.append('category', this.form.controls[category].value)
     file.append('activity', this.form.controls[activity].value)
