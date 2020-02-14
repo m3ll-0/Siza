@@ -21,8 +21,8 @@ export class AdminActivityeditComponent implements OnInit {
   activities
   activity2
   category2
-  setupImg
-  activity2Img
+  setupImg = null
+  activity2Img = null
 
   editorTitle2 = false
   editorGoal2 = false
@@ -39,13 +39,13 @@ export class AdminActivityeditComponent implements OnInit {
     amountOfPeople2: ['', Validators.required],
     duration2: ['', Validators.required],
     title2: ['Vul in', Validators.required],
-    goal2: ['Vul in', Validators.required,  ],
-    material2: ['Vul in', Validators.required],
-    activity2: ['Vul in', Validators.required],
-    setUp2: ['Vul in', Validators.required],
-    pointsForAttention2: ['Vul in', Validators.required],
-    tooEasy2: ['Vul in', Validators.required],
-    tooHard2: ['Vul in', Validators.required],
+    goal2: ['Vul in'],
+    material2: ['Vul in'],
+    activity2: ['Vul in'],
+    setUp2: ['Vul in'],
+    pointsForAttention2: ['Vul in'],
+    tooEasy2: ['Vul in'],
+    tooHard2: ['Vul in'],
     setupImage: [null],
     activity2Image: [null]
     })
@@ -147,8 +147,11 @@ export class AdminActivityeditComponent implements OnInit {
     const wheelchair2 = 'wheelchair2'
     const duration2 = 'duration2'
 
+
+    if (imageblob[1] != null) {
+      file2.append('images', imageblob[1], "setup")
+    }
     file2.append('images', imageblob[0], "activity")
-    file2.append('images', imageblob[1], "setup")
     file2.append('title', this.form.controls[title2].value)
     file2.append('category', this.form.controls[category2].value)
     file2.append('activity', this.form.controls[activity2].value)

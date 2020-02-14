@@ -19,8 +19,8 @@ export class AddActivityComponent implements OnInit {
   selectedFile: File
   activities
   category
-  setupImg
-  activityImg
+  setupImg = null;
+  activityImg = null;
   suggestion
 
   editorTitle = false
@@ -125,8 +125,10 @@ export class AddActivityComponent implements OnInit {
     const wheelchair = 'wheelchair'
     const duration = 'duration'
 
+    if (imageblob[1] != null) {
+      file.append('images', imageblob[1], "setup")
+    }
     file.append('images', imageblob[0], "activity")
-    file.append('images', imageblob[1], "setup")
     file.append('title', this.form.controls[title].value)
     file.append('category', this.form.controls[category].value)
     file.append('activity', this.form.controls[activity].value)
