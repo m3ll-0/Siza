@@ -14,7 +14,7 @@ export interface AuthResponseData {
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 
-private API_BASE_URL = 'http:127.0.0.1:3000/v1';
+private API_BASE_URL = 'http://127.0.0.1:3000/v1';
 private API_URL_REGISTER_ADMIN = '/auth/login'
 private API_URL_SIGNUP = '/auth/signup'
 
