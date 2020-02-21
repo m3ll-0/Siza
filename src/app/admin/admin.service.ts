@@ -9,7 +9,7 @@ import { User } from '../auth/user.model';
   providedIn: 'root'
 })
 export class AdminService {
-  private API_ADMIN_BASE_URL = 'https://siza-api.herokuapp.com/v1/admin';
+  private API_ADMIN_BASE_URL = 'http://127.0.0.1:3000/v1/admin';
   private API_USERS_URL = '/users';
   private API_ADMINS_URL = '/admins';
   private API_SUGGESTIONS_URL = '/suggestions';
