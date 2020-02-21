@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 
 export class ApiServiceService {
 
-  url = 'http:127.0.0.1:3000/v1/'
+  url = 'http://127.0.0.1:3000/v1/'
   private API_SUGGESTIONS = 'suggestions'
   private API_AUTH = 'auth'
   private API_FEEDBACK = 'feedback'
